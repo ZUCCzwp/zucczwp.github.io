@@ -1,65 +1,56 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tags on Hugo Bootstrap v4 Blog</title>
-    <link>https://zucczwp.github.io/tags/</link>
-    <description>Recent content in Tags on Hugo Bootstrap v4 Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>development</title>
-      <link>https://zucczwp.github.io/tags/development/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://zucczwp.github.io/tags/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://zucczwp.github.io/tags/go/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://zucczwp.github.io/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://zucczwp.github.io/tags/golang/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://zucczwp.github.io/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hugo</title>
-      <link>https://zucczwp.github.io/tags/hugo/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://zucczwp.github.io/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>templates</title>
-      <link>https://zucczwp.github.io/tags/templates/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://zucczwp.github.io/tags/templates/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>themes</title>
-      <link>https://zucczwp.github.io/tags/themes/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://zucczwp.github.io/tags/themes/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - Tag - Jimi Blog</title>
+        <link>https://zucczwp.github.io/tags/</link>
+        <description>Tags - Tag - Jimi Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><lastBuildDate>Wed, 02 Apr 2014 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>development</title>
+    <link>https://zucczwp.github.io/tags/development/</link>
+    <pubDate>Wed, 02 Apr 2014 00:00:00 &#43;0000</pubDate>
+    <author>jimi</author>
+    <guid>https://zucczwp.github.io/tags/development/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>go</title>
+    <link>https://zucczwp.github.io/tags/go/</link>
+    <pubDate>Wed, 02 Apr 2014 00:00:00 &#43;0000</pubDate>
+    <author>jimi</author>
+    <guid>https://zucczwp.github.io/tags/go/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>golang</title>
+    <link>https://zucczwp.github.io/tags/golang/</link>
+    <pubDate>Wed, 02 Apr 2014 00:00:00 &#43;0000</pubDate>
+    <author>jimi</author>
+    <guid>https://zucczwp.github.io/tags/golang/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>hugo</title>
+    <link>https://zucczwp.github.io/tags/hugo/</link>
+    <pubDate>Wed, 02 Apr 2014 00:00:00 &#43;0000</pubDate>
+    <author>jimi</author>
+    <guid>https://zucczwp.github.io/tags/hugo/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>templates</title>
+    <link>https://zucczwp.github.io/tags/templates/</link>
+    <pubDate>Wed, 02 Apr 2014 00:00:00 &#43;0000</pubDate>
+    <author>jimi</author>
+    <guid>https://zucczwp.github.io/tags/templates/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>themes</title>
+    <link>https://zucczwp.github.io/tags/themes/</link>
+    <pubDate>Wed, 02 Apr 2014 00:00:00 &#43;0000</pubDate>
+    <author>jimi</author>
+    <guid>https://zucczwp.github.io/tags/themes/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>

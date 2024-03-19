@@ -1,29 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Categories on Hugo Bootstrap v4 Blog</title>
-    <link>https://zucczwp.github.io/categories/</link>
-    <description>Recent content in Categories on Hugo Bootstrap v4 Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Development</title>
-      <link>https://zucczwp.github.io/categories/development/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://zucczwp.github.io/categories/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://zucczwp.github.io/categories/golang/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://zucczwp.github.io/categories/golang/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - Jimi Blog</title>
+        <link>https://zucczwp.github.io/categories/</link>
+        <description>Categories - Category - Jimi Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><lastBuildDate>Wed, 02 Apr 2014 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Development</title>
+    <link>https://zucczwp.github.io/categories/development/</link>
+    <pubDate>Wed, 02 Apr 2014 00:00:00 &#43;0000</pubDate>
+    <author>jimi</author>
+    <guid>https://zucczwp.github.io/categories/development/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>golang</title>
+    <link>https://zucczwp.github.io/categories/golang/</link>
+    <pubDate>Wed, 02 Apr 2014 00:00:00 &#43;0000</pubDate>
+    <author>jimi</author>
+    <guid>https://zucczwp.github.io/categories/golang/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>

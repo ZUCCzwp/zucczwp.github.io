@@ -1,105 +1,142 @@
 <!DOCTYPE html>
-<html lang="en" >
-
-  <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-<meta property="og:title" content="Creating a New Theme" />
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Creating a New Theme - Jimi Blog</title><meta name="Description" content="A simple Hugo theme based on the Bootstrap v4 blog example."><meta property="og:title" content="Creating a New Theme" />
 <meta property="og:description" content="Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/2014/09/creating-a-new-theme/" />
+<meta property="og:url" content="https://zucczwp.github.io/2014/09/creating-a-new-theme/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2014-09-28T00:00:00+00:00" />
-<meta property="article:modified_time" content="2014-09-28T00:00:00+00:00" />
-
-
-
+<meta property="article:modified_time" content="2014-09-28T00:00:00+00:00" /><meta property="og:site_name" content="My cool site" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Creating a New Theme"/>
 <meta name="twitter:description" content="Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme."/>
-<meta name="generator" content="Hugo 0.111.3">
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/2014/09/creating-a-new-theme/" /><link rel="prev" href="https://zucczwp.github.io/2014/03/migrate-to-hugo-from-jekyll/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Creating a New Theme",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zucczwp.github.io\/2014\/09\/creating-a-new-theme\/"
+        },"genre": "posts","wordcount":  7232 ,
+        "url": "https:\/\/zucczwp.github.io\/2014\/09\/creating-a-new-theme\/","datePublished": "2014-09-28T00:00:00+00:00","dateModified": "2014-09-28T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Michael Henderson"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-
-    
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Creating a New Theme",
-  "url": "https://zucczwp.github.io/2014/09/creating-a-new-theme/",
-  "wordCount": "7232",
-  "datePublished": "2014-09-28T00:00:00+00:00",
-  "dateModified": "2014-09-28T00:00:00+00:00",
-  "author": {
-    "@type": "Person",
-    "name": "Michael Henderson"
-  }
-}
-</script>
-
-
-
-    <link rel="canonical" href="https://zucczwp.github.io/2014/09/creating-a-new-theme/">
-
-    <title>Creating a New Theme | Hugo Bootstrap v4 Blog</title>
-
-    
-    <!-- combined, minified CSS -->
-    
-    <link href="https://zucczwp.github.io/css/style.c6ba80bc50669557645abe05f86b73cc5af84408ed20f1551a267bc19ece8228.css" rel="stylesheet" integrity="sha256-xrqAvFBmlVdkWr4F&#43;GtzzFr4RAjtIPFVGiZ7wZ7Ogig=" crossorigin="anonymous">
-    
-
-    <!-- minified Font Awesome for SVG icons -->
-    
-    <script defer src="https://zucczwp.github.io/js/fontawesome.min.f5072c55a0721857184db93a50561d7dc13975b4de2e19db7f81eb5f3fa57270.js" integrity="sha256-9QcsVaByGFcYTbk6UFYdfcE5dbTeLhnbf4HrXz&#43;lcnA=" crossorigin="anonymous"></script>
-
-    <!-- RSS 2.0 feed -->
-    
-
-    
-
-  </head>
-
-  <body>
-
-    
-    <div class="blog-masthead">
-      <div class="container">
-        <nav class="nav blog-nav">
-          <a class="nav-link " href="https://zucczwp.github.io/">Home</a>
-        </nav>
-      </div>
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Jimi Blog">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/2014/04/hugo-template-primer/" title="(Hu)go Template Primer"> (Hu)go Template Primer </a><a class="menu-item" href="/2014/04/getting-started-with-hugo/" title="Getting Started with Hugo"> Getting Started with Hugo </a><a class="menu-item active" href="/"> tutorials </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
     </div>
-    
-
-    
-    
-    <header class="blog-header">
-      <div class="container">
-        <h1 class="blog-title" dir="auto"><a href="https://zucczwp.github.io/" rel="home">Hugo Bootstrap v4 Blog</a></h1>
-        <p class="lead blog-description" dir="auto">A simple Hugo theme based on the Bootstrap v4 blog example.</p>
-      </div>
-    </header>
-    
-    
-
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 blog-main">
-
-          
-
-
-<article class="blog-post">
-  <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://zucczwp.github.io/2014/09/creating-a-new-theme/">Creating a New Theme</a></h2>
-    <p class="blog-post-meta">
-<time datetime="2014-09-28T00:00:00Z">Sun Sep 28, 2014</time>
-</p>
-  </header>
-  <h2 id="introduction">Introduction</h2>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Jimi Blog">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/2014/04/hugo-template-primer/" title="(Hu)go Template Primer">(Hu)go Template Primer</a><a class="menu-item" href="/2014/04/getting-started-with-hugo/" title="Getting Started with Hugo">Getting Started with Hugo</a><a class="menu-item" href="/" title="">tutorials</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Creating a New Theme</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Michael Henderson</a>
+</span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2014-09-28">2014-09-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;7232 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;34 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#some-definitions">Some Definitions</a>
+      <ul>
+        <li><a href="#skins">Skins</a></li>
+        <li><a href="#the-home-page">The Home Page</a></li>
+        <li><a href="#site-configuration-file">Site Configuration File</a></li>
+        <li><a href="#content">Content</a></li>
+        <li><a href="#template-files">Template Files</a></li>
+      </ul>
+    </li>
+    <li><a href="#create-a-new-site">Create a New Site</a>
+      <ul>
+        <li><a href="#generate-the-html-for-the-new-site">Generate the HTML For the New Site</a></li>
+        <li><a href="#test-the-new-site">Test the New Site</a></li>
+      </ul>
+    </li>
+    <li><a href="#create-a-new-theme">Create a New Theme</a>
+      <ul>
+        <li><a href="#create-a-skeleton">Create a Skeleton</a></li>
+        <li><a href="#update-the-configuration-file-to-use-the-theme">Update the Configuration File to Use the Theme</a></li>
+        <li><a href="#generate-the-site">Generate the Site</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-theme-development-cycle">The Theme Development Cycle</a>
+      <ul>
+        <li><a href="#purge-the-public-directory">Purge the public/ Directory</a></li>
+        <li><a href="#hugos-watch-option">Hugo&rsquo;s Watch Option</a></li>
+        <li><a href="#live-reload">Live Reload</a></li>
+        <li><a href="#development-commands">Development Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#update-the-home-page-template">Update the Home Page Template</a>
+      <ul>
+        <li><a href="#make-a-static-home-page">Make a Static Home Page</a></li>
+        <li><a href="#build-a-dynamic-home-page">Build a &ldquo;Dynamic&rdquo; Home Page</a></li>
+        <li><a href="#list-and-single-templates">List and Single Templates</a></li>
+        <li><a href="#add-content-to-the-homepage">Add Content to the Homepage</a></li>
+        <li><a href="#add-content-to-the-posts">Add Content to the Posts</a></li>
+        <li><a href="#linking-to-content">Linking to Content</a></li>
+        <li><a href="#create-a-post-listing">Create a Post Listing</a></li>
+      </ul>
+    </li>
+    <li><a href="#creating-top-level-pages">Creating Top Level Pages</a></li>
+    <li><a href="#sharing-templates">Sharing Templates</a>
+      <ul>
+        <li><a href="#create-the-header-and-footer-partials">Create the Header and Footer Partials</a></li>
+        <li><a href="#update-the-home-page-template-to-use-the-partials">Update the Home Page Template to Use the Partials</a></li>
+        <li><a href="#update-the-default-single-template-to-use-the-partials">Update the Default Single Template to Use the Partials</a></li>
+      </ul>
+    </li>
+    <li><a href="#add-date-published-to-posts">Add “Date Published” to Posts</a>
+      <ul>
+        <li><a href="#add-date-published-to-the-template">Add “Date Published” to the Template</a></li>
+        <li><a href="#dont-repeat-yourself">Don&rsquo;t Repeat Yourself</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
 <p>This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&rsquo;t cover using CSS to style your theme.</p>
 <p>We&rsquo;ll start with creating a new site with a very basic template. Then we&rsquo;ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites.</p>
 <p>In this tutorial, commands that you enter will start with the &ldquo;$&rdquo; prompt. The output will follow. Lines that start with &ldquo;#&rdquo; are comments that I&rsquo;ve added to explain a point. When I show updates to a file, the &ldquo;:wq&rdquo; on the last line means to save the file.</p>
@@ -904,95 +941,40 @@ $ vi themes/zafta/layouts/_default/single.html
 </code></pre><p>Note that we removed the date logic from the default template and put it in the post template. Generate the web site and verify the results. Posts have dates and the about page doesn&rsquo;t.</p>
 <h3 id="dont-repeat-yourself">Don&rsquo;t Repeat Yourself</h3>
 <p>DRY is a good design goal and Hugo does a great job supporting it. Part of the art of a good template is knowing when to add a new template and when to update an existing one. While you&rsquo;re figuring that out, accept that you&rsquo;ll be doing some refactoring. Hugo makes that easy and fast, so it&rsquo;s okay to delay splitting up a template.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2014-09-28</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://zucczwp.github.io/2014/09/creating-a-new-theme/" data-title="Creating a New Theme" data-via="username"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://zucczwp.github.io/2014/09/creating-a-new-theme/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://zucczwp.github.io/2014/09/creating-a-new-theme/" data-title="Creating a New Theme"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://zucczwp.github.io/2014/09/creating-a-new-theme/" data-title="Creating a New Theme"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/2014/09/creating-a-new-theme/" data-title="Creating a New Theme"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
 
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
 
-  
+    <div class="post-nav"><a href="/2014/03/migrate-to-hugo-from-jekyll/" class="prev" rel="prev" title="Migrate to Hugo from Jekyll"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Migrate to Hugo from Jekyll</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/ZUCCzwp/zucczwp.github.io" target="_blank">jimi</a></span></div>
+        </div>
+    </footer></div>
 
-  
-  <hr>
-  <footer>
-
-  
-    <section>
-    <h4>Share</h4>
-    <nav class="nav sharing-icons">
-      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fzucczwp.github.io%2f2014%2f09%2fcreating-a-new-theme%2f" title="Share on Facebook"><span class="fab fa-facebook-f fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fzucczwp.github.io%2f2014%2f09%2fcreating-a-new-theme%2f" title="Share on LinkedIn"><span class="fab fa-linkedin-in fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://twitter.com/intent/tweet?url=https%3a%2f%2fzucczwp.github.io%2f2014%2f09%2fcreating-a-new-theme%2f&amp;text=Creating%20a%20New%20Theme" title="Tweet this"><span class="fab fa-twitter fa-2x"></span></a>
-    </nav>
-  </section>
-
-  
-
-  
-  </footer>
-  
-
-</article> 
-
-
-
-        </div> <!-- /.blog-main -->
-
-        <aside class="col-sm-3 ml-auto blog-sidebar">
-  
-  <section class="sidebar-module sidebar-module-inset">
-    <h4>About</h4>
-    <p dir="auto">A simple Hugo theme based on the <a href="http://v4-alpha.getbootstrap.com/examples/blog/">Bootstrap v4 blog example</a>.</p>
-  </section>
-  
-
-  
-        <section class="sidebar-module">
-    <h4>Recent Posts</h4>
-    <ol class="list-unstyled">
-
-
-<li><a href="/2014/09/creating-a-new-theme/">Creating a New Theme</a></li>
-
-<li><a href="/2014/03/migrate-to-hugo-from-jekyll/">Migrate to Hugo from Jekyll</a></li>
-
-<li><a href="/2014/04/hugo-template-primer/">(Hu)go Template Primer</a></li>
-
-<li><a href="/2014/04/getting-started-with-hugo/">Getting Started with Hugo</a></li>
-
-    </ol>
-  </section>
-
-  
-
-  
-  <section class="sidebar-module">
-    <h4>Links</h4>
-    <ol class="list-unstyled">
-      
-      <li><a href="https://example.com">Link 1</a></li>
-      
-      <li><a href="https://example.org">Link 2</a></li>
-      
-    </ol>
-  </section>
-  
-</aside>
-
-
-      </div> <!-- /.row -->
-    </div> <!-- /.container -->
-    
-
-    
-    <footer class="blog-footer">
-      <p dir="auto">
-      
-      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
-      
-      </p>
-      <p>
-      <a href="#">Back to top</a>
-      </p>
-    </footer>
-    
-
-  </body>
-
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

@@ -1,24 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Categories - Category - Jimi Blog</title>
+        <title>Categories - 分类 - Jimi’s Blog</title>
         <link>https://zucczwp.github.io/categories/</link>
-        <description>Categories - Category - Jimi Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><lastBuildDate>Wed, 02 Apr 2014 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/" rel="self" type="application/rss+xml" /><item>
-    <title>Development</title>
-    <link>https://zucczwp.github.io/categories/development/</link>
-    <pubDate>Wed, 02 Apr 2014 00:00:00 &#43;0000</pubDate>
-    <author>jimi</author>
-    <guid>https://zucczwp.github.io/categories/development/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>golang</title>
-    <link>https://zucczwp.github.io/categories/golang/</link>
-    <pubDate>Wed, 02 Apr 2014 00:00:00 &#43;0000</pubDate>
-    <author>jimi</author>
-    <guid>https://zucczwp.github.io/categories/golang/</guid>
-    <description><![CDATA[]]></description>
-</item>
-</channel>
+        <description>Categories - 分类 - Jimi’s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://zucczwp.github.io/categories/" rel="self" type="application/rss+xml" /></channel>
 </rss>

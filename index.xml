@@ -4,24 +4,15 @@
         <link>https://zucczwp.github.io/</link>
         <description>this is jimi blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 28 Sep 2014 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 19 Mar 2024 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://zucczwp.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>Creating a New Theme</title>
-    <link>https://zucczwp.github.io/posts/creating-a-new-theme/</link>
-    <pubDate>Sun, 28 Sep 2014 00:00:00 &#43;0000</pubDate>
-    <author>Michael Henderson</author>
-    <guid>https://zucczwp.github.io/posts/creating-a-new-theme/</guid>
-    <description><![CDATA[Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme.]]></description>
-</item>
-<item>
-    <title>Migrate to Hugo from Jekyll</title>
-    <link>https://zucczwp.github.io/posts/migrate-from-jekyll/</link>
-    <pubDate>Mon, 10 Mar 2014 00:00:00 &#43;0000</pubDate>
-    <author>jimi</author>
-    <guid>https://zucczwp.github.io/posts/migrate-from-jekyll/</guid>
-    <description><![CDATA[Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &lt;root&gt;/ ▾ images/ logo.png should become]]></description>
+    <title>linux常用命令</title>
+    <link>https://zucczwp.github.io/posts/linux/command/</link>
+    <pubDate>Tue, 19 Mar 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/linux/command/</guid>
+    <description><![CDATA[删除多行 1.首先要显示对应的行数 :set nu 2.Esc退出 190,6233d 即[190 , 6233]都删除掉 清空文件 &gt; log.txt 显示发]]></description>
 </item>
 </channel>
 </rss>

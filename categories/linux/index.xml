@@ -4,7 +4,15 @@
         <link>https://zucczwp.github.io/categories/linux/</link>
         <description>Linux - 分类 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 19 Mar 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Kubectl常用命令</title>
+    <link>https://zucczwp.github.io/posts/linux/kubectl/</link>
+    <pubDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/linux/kubectl/</guid>
+    <description><![CDATA[配置及上下文 view kubectl config view # 显示合并后的 kubeconfig 配置 current-context kubectl config current-context # 显示当前的上下文 创建对象 kubectl create -f ./my-manifest.yaml # 创建资源 kubectl create -f https://git.io/vPieo]]></description>
+</item>
+<item>
     <title>linux常用命令</title>
     <link>https://zucczwp.github.io/posts/linux/command/</link>
     <pubDate>Tue, 19 Mar 2024 00:00:00 &#43;0000</pubDate>

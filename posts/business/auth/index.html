@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zucczwp.github.io\/posts\/business\/auth\/"
-        },"genre": "posts","keywords": "Auth","wordcount":  802 ,
+        },"genre": "posts","keywords": "Auth","wordcount":  780 ,
         "url": "https:\/\/zucczwp.github.io\/posts\/business\/auth\/","datePublished": "2024-04-02T00:00:00+00:00","dateModified": "2024-04-02T10:12:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,7 +103,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Authentik安装</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
 </span>&nbsp;<span class="post-category">收录于 <a href="/categories/auth/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Auth</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-04-02">2024-04-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 802 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-04-02">2024-04-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 780 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -249,7 +249,8 @@ cd ../
 mkdir /usr/local/redis/etc
 mv redis.conf /usr/local/redis/etc
 vi /usr/local/redis/etc/redis.conf //将daemonize no改成daemonize yes
-vi /etc/rc.local //在里面添加内容：/usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf (意思就是开机调用这段开启redis的命令)
+vi /etc/rc.local 
+//在里面添加内容：/usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf
 /usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf
 cp /usr/local/redis/bin/redis-server /usr/local/bin/
 cp /usr/local/redis/bin/redis-cli /usr/local/bin/

@@ -4,12 +4,20 @@
         <link>https://zucczwp.github.io/categories/auth/</link>
         <description>Auth - 分类 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 02 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/auth/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 08 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/auth/" rel="self" type="application/rss+xml" /><item>
+    <title>Authentik使用</title>
+    <link>https://zucczwp.github.io/posts/business/authentik-use/</link>
+    <pubDate>Mon, 08 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/business/authentik-use/</guid>
+    <description><![CDATA[Proxy Provider 代理前哨设置以下用户特定的标头： X-authentik-username当前登录用户的用户名 X-]]></description>
+</item>
+<item>
     <title>Authentik安装</title>
-    <link>https://zucczwp.github.io/posts/business/auth/</link>
+    <link>https://zucczwp.github.io/posts/business/authentik-deploy/</link>
     <pubDate>Tue, 02 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/business/auth/</guid>
+    <guid>https://zucczwp.github.io/posts/business/authentik-deploy/</guid>
     <description><![CDATA[Docker安装 MacOs 下载 docker composer文件 curl -O https://goauthentik.io/docker-compose.yml 生成 password和 secret key到.env文件 echo &#34;PG_PASS=$(openssl rand]]></description>
 </item>
 </channel>

@@ -4,9 +4,17 @@
         <link>https://zucczwp.github.io/</link>
         <description>this is jimi blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 02 Apr 2024 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 07 Apr 2024 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://zucczwp.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Postgresql常用命令</title>
+    <link>https://zucczwp.github.io/posts/db/postgresql/</link>
+    <pubDate>Sun, 07 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/db/postgresql/</guid>
+    <description><![CDATA[查看 pg版本 psql --version 获取当前db中所有的表信息 select * from pg_tables; //获取名为 public的 schema的所有表 select tablename]]></description>
+</item>
+<item>
     <title>Authentik安装</title>
     <link>https://zucczwp.github.io/posts/business/auth/</link>
     <pubDate>Tue, 02 Apr 2024 00:00:00 &#43;0000</pubDate>
@@ -23,7 +31,7 @@
     <description><![CDATA[配置及上下文 view kubectl config view # 显示合并后的 kubeconfig 配置 current-context kubectl config current-context # 显示当前的上下文 创建对象 kubectl create -f ./my-manifest.yaml # 创建资源 kubectl create -f https://git.io/vPieo]]></description>
 </item>
 <item>
-    <title>linux常用命令</title>
+    <title>Linux常用命令</title>
     <link>https://zucczwp.github.io/posts/linux/command/</link>
     <pubDate>Tue, 19 Mar 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>

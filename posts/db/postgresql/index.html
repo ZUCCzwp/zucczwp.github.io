@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Linux常用命令 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了基本的Linux常用命令."><meta property="og:title" content="Linux常用命令" />
-<meta property="og:description" content="这篇文章展示了基本的Linux常用命令." />
+        <title>Postgresql常用命令 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了基本的Postgresql常用命令."><meta property="og:title" content="Postgresql常用命令" />
+<meta property="og:description" content="这篇文章展示了基本的Postgresql常用命令." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/posts/linux/command/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-03-19T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-19T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
+<meta property="og:url" content="https://zucczwp.github.io/posts/db/postgresql/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-04-07T14:21:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Linux常用命令"/>
-<meta name="twitter:description" content="这篇文章展示了基本的Linux常用命令."/>
+<meta name="twitter:title" content="Postgresql常用命令"/>
+<meta name="twitter:description" content="这篇文章展示了基本的Postgresql常用命令."/>
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/linux/command/" /><link rel="next" href="https://zucczwp.github.io/posts/linux/kubectl/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/db/postgresql/" /><link rel="prev" href="https://zucczwp.github.io/posts/business/auth/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Linux常用命令",
+        "headline": "Postgresql常用命令",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/zucczwp.github.io\/posts\/linux\/command\/"
-        },"genre": "posts","keywords": "Linux","wordcount":  414 ,
-        "url": "https:\/\/zucczwp.github.io\/posts\/linux\/command\/","datePublished": "2024-03-19T00:00:00+00:00","dateModified": "2024-03-19T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/zucczwp.github.io\/posts\/db\/postgresql\/"
+        },"genre": "posts","keywords": "DB","wordcount":  232 ,
+        "url": "https:\/\/zucczwp.github.io\/posts\/db\/postgresql\/","datePublished": "2024-04-07T00:00:00+00:00","dateModified": "2024-04-07T14:21:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Jimi"
-            },"description": "这篇文章展示了基本的Linux常用命令."
+            },"description": "这篇文章展示了基本的Postgresql常用命令."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -100,10 +100,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux常用命令</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Postgresql常用命令</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
-</span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-19">2024-03-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 414 字&nbsp;
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/db/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DB</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-04-07">2024-04-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 232 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -114,79 +114,58 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#删除多行">删除多行</a></li>
-        <li><a href="#清空文件">清空文件</a></li>
-        <li><a href="#显示发行版本信息">显示发行版本信息</a></li>
-        <li><a href="#查看文件时间">查看文件时间</a></li>
-        <li><a href="#修改文件时间">修改文件时间</a></li>
+        <li><a href="#查看-pg版本">查看 pg版本</a></li>
+        <li><a href="#获取当前db中所有的表信息">获取当前db中所有的表信息</a></li>
+        <li><a href="#获取某个表结构信息">获取某个表结构信息</a></li>
+        <li><a href="#获取某个表数据">获取某个表数据</a></li>
+        <li><a href="#外网不能访问数据库">外网不能访问数据库</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="删除多行">删除多行</h3>
-<p>1.首先要显示对应的行数</p>
-<pre tabindex="0"><code>:set nu
-</code></pre><p>2.Esc退出</p>
-<pre tabindex="0"><code>190,6233d
-</code></pre><p>即[190 , 6233]都删除掉</p>
-<h3 id="清空文件">清空文件</h3>
-<pre tabindex="0"><code>&gt; log.txt
-</code></pre><h3 id="显示发行版本信息">显示发行版本信息</h3>
-<pre tabindex="0"><code>lsb_release
--v 显示版本信息。
--i 显示发行版的id。
--d 显示该发行版的描述信息。
--r 显示当前系统是发行版的具体版本号。
--c 发行版代号。
--a 显示上面的所有信息。
--h 显示帮助信息。
-</code></pre><h3 id="查看文件时间">查看文件时间</h3>
-<p><strong>Stat</strong></p>
-<pre tabindex="0"><code>stat install.log
-</code></pre><p><strong>Ls</strong></p>
-<ul>
-<li>modification time（mtime，修改时间）：当该文件的“内容数据”更改时，就会更新这个时间。内容数据指的是文件的内容，而不是文件的属性。</li>
-<li>status time（ctime，状态时间）：当该文件的”状态（status）”改变时，就会更新这个时间，举例来说，更改了权限与属性，就会更新这个时间。</li>
-<li>access time（atime，存取时间）：当“取用文件内容”时，就会更新这个读取时间。举例来说，使用cat去读取 ~/.bashrc，就会更新atime了。</li>
-</ul>
-<pre tabindex="0"><code>ls -l --time=ctime install.log
-</code></pre><h3 id="修改文件时间">修改文件时间</h3>
-<p><strong>Touch</strong></p>
-<ol>
-<li>同时修改文件的修改时间和访问时间</li>
-</ol>
-<pre tabindex="0"><code>touch -d &#34;2010-05-31 08:10:30&#34; install.log
-</code></pre><ol start="2">
-<li>只修改文件的修改时间</li>
-</ol>
-<pre tabindex="0"><code>touch -m -d &#34;2010-05-31 08:10:30&#34; install.log
-</code></pre><ol start="3">
-<li>只修改文件的访问时间</li>
-</ol>
-<pre tabindex="0"><code>touch -a -d &#34;2010-05-31 08:10:30&#34; install.log
+            </div><div class="content" id="content"><h3 id="查看-pg版本">查看 pg版本</h3>
+<pre tabindex="0"><code>psql --version
+</code></pre><hr>
+<h3 id="获取当前db中所有的表信息">获取当前db中所有的表信息</h3>
+<pre tabindex="0"><code>select * from pg_tables;
+//获取名为 public的 schema的所有表
+select tablename from pg_tables where schemaname=&#39;public&#39;
+</code></pre><h3 id="获取某个表结构信息">获取某个表结构信息</h3>
+<pre tabindex="0"><code>\d authentik_core_user;
+</code></pre><h3 id="获取某个表数据">获取某个表数据</h3>
+<pre tabindex="0"><code>SELECT * FROM authentik_core_user;
+</code></pre><h3 id="外网不能访问数据库">外网不能访问数据库</h3>
+<p>::: 1、修改postgresql.conf文件:::<!-- raw HTML omitted -->
+在安装目录下data/postgresql.confi文件中将listen address改为*</p>
+<pre tabindex="0"><code>listen_addresses = &#39;*&#39;
+</code></pre><p>::: 2、修改pg_hba.conf文件:::<!-- raw HTML omitted -->
+在data/pg_hba.conf中设置</p>
+<pre tabindex="0"><code>host all all 127.0.0.1/32 md5
+host all all 0.0.0.0/0 md5
+</code></pre><p>::: 3、重启 postgres服务:::<!-- raw HTML omitted --></p>
+<pre tabindex="0"><code>systemctl restart postgresql
 </code></pre></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2024-03-19</span>
+                <span>更新于 2024-04-07</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/linux/command/" data-title="Linux常用命令"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/linux/command/" data-title="Linux常用命令"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/db/postgresql/" data-title="Postgresql常用命令"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/db/postgresql/" data-title="Postgresql常用命令"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/db/">DB</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav">
-            <a href="/posts/linux/kubectl/" class="next" rel="next" title="Kubectl常用命令">Kubectl常用命令<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/business/auth/" class="prev" rel="prev" title="Authentik安装"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Authentik安装</a></div>
 </div>
 </article></div>
             </main><footer class="footer">

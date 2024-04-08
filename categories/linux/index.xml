@@ -13,7 +13,7 @@
     <description><![CDATA[配置及上下文 view kubectl config view # 显示合并后的 kubeconfig 配置 current-context kubectl config current-context # 显示当前的上下文 创建对象 kubectl create -f ./my-manifest.yaml # 创建资源 kubectl create -f https://git.io/vPieo]]></description>
 </item>
 <item>
-    <title>linux常用命令</title>
+    <title>Linux常用命令</title>
     <link>https://zucczwp.github.io/posts/linux/command/</link>
     <pubDate>Tue, 19 Mar 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>

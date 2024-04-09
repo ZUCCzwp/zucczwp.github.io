@@ -18,7 +18,7 @@
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/business/authentik-use/" /><link rel="prev" href="https://zucczwp.github.io/posts/db/postgresql/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/business/authentik-use/" /><link rel="prev" href="https://zucczwp.github.io/posts/db/postgresql/" /><link rel="next" href="https://zucczwp.github.io/posts/linux/docker/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zucczwp.github.io\/posts\/business\/authentik-use\/"
-        },"genre": "posts","keywords": "Auth","wordcount":  1019 ,
+        },"genre": "posts","keywords": "Auth","wordcount":  845 ,
         "url": "https:\/\/zucczwp.github.io\/posts\/business\/authentik-use\/","datePublished": "2024-04-08T00:00:00+00:00","dateModified": "2024-04-08T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,8 +103,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Authentik使用</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
 </span>&nbsp;<span class="post-category">收录于 <a href="/categories/auth/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Auth</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-04-08">2024-04-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1019 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-04-08">2024-04-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 845 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -130,45 +130,40 @@
         data-sizes="auto"
         alt="/images/authentik_proxy.png"
         title="authentik_proxy.png" width="1812" height="1130" />
-代理前哨设置以下用户特定的标头：<!-- raw HTML omitted -->
-<code>X-authentik-username</code>当前登录用户的用户名<!-- raw HTML omitted -->
-<code>X-authentik-groups</code>用户所属的组，用竖线分割<!-- raw HTML omitted -->
-<code>X-authentik-email</code>当前登录用户的邮箱地址<!-- raw HTML omitted -->
-<code>X-authentik-name</code>当前登录用户的全名<!-- raw HTML omitted -->
-<code>X-authentik-uid</code>当前登录用户的哈希标识符<!-- raw HTML omitted -->
-应用程序特定的标头<!-- raw HTML omitted -->
-<code>X-authentik-meta-outpost</code>前哨名称<!-- raw HTML omitted -->
-<code>X-authentik-meta-provider</code>提供者名称<!-- raw HTML omitted -->
-<code>X-authentik-meta-app</code>slug<!-- raw HTML omitted -->
-<code>X-authentik-meta-version</code>版本<!-- raw HTML omitted -->
-<code>X-Forwarded-Host</code>客户端发送原始 Host标头<!-- raw HTML omitted -->
-附加：<!-- raw HTML omitted -->
+代理前哨设置以下用户特定的标头：</p>
+<p><code>X-authentik-username</code>当前登录用户的用户名</p>
+<p><code>X-authentik-groups</code>用户所属的组，用竖线分割</p>
+<p><code>X-authentik-email</code>当前登录用户的邮箱地址</p>
+<p><code>X-authentik-name</code>当前登录用户的全名</p>
+<p><code>X-authentik-uid</code>当前登录用户的哈希标识符</p>
+<p>应用程序特定的标头</p>
+<p><code>X-authentik-meta-outpost</code>前哨名称</p>
+<p><code>X-authentik-meta-provider</code>提供者名称</p>
+<p><code>X-authentik-meta-app</code>slug</p>
+<p><code>X-authentik-meta-version</code>版本</p>
+<p><code>X-Forwarded-Host</code>客户端发送原始 Host标头</p>
+<p>附加：<!-- raw HTML omitted -->
 此外，您可以设置additionalHeaders组或用户的属性来设置其他标头：</p>
 <pre tabindex="0"><code>additionalHeaders:
     X-test-header: test-value
 </code></pre><h3 id="退出登录">退出登录</h3>
-<p>当您在没有有效 cookie 的情况下访问域时，会自动完成登录。<!-- raw HTML omitted -->
-使用单应用程序模式时，导航至app.domain.tld/outpost.goauthentik.io/sign_out.<!-- raw HTML omitted -->
-使用域级模式时，导航到auth.domain.tld/outpost.goauthentik.io/sign_out，其中 auth.domain.tld 是为提供商配置的外部主机。<!-- raw HTML omitted -->
-要注销，请导航至/outpost.goauthentik.io/sign_out。</p>
+<p>当您在没有有效 cookie 的情况下访问域时，会自动完成登录.</p>
+<p>使用单应用程序模式时，导航至app.domain.tld/outpost.goauthentik.io/sign_out.</p>
+<p>使用域级模式时，导航到auth.domain.tld/outpost.goauthentik.io/sign_out，其中 auth.domain.tld 是为提供商配置的外部主机。</p>
+<p>要注销，请导航至/outpost.goauthentik.io/sign_out。</p>
 <h3 id="转发认证">转发认证</h3>
 <p><em><strong>Nginx</strong></em></p>
 <pre tabindex="0"><code>server {
-    # SSL and VHost configuration
     listen                  443 ssl http2;
     server_name             _;
 
     ssl_certificate         /etc/ssl/certs/ssl-cert-snakeoil.pem;
     ssl_certificate_key     /etc/ssl/private/ssl-cert-snakeoil.key;
 
-    # Increase buffer size for large headers
-    # This is needed only if you get &#39;upstream sent too big header while reading response
-    # header from upstream&#39; error when trying to access an application protected by goauthentik
     proxy_buffers 8 16k;
     proxy_buffer_size 32k;
 
     location / {
-        # Put your proxy_pass to your application here, and all the other statements you&#39;ll need
         # proxy_pass http://localhost:5000;
         # proxy_set_header Host $host;
         # proxy_set_header ...
@@ -195,7 +190,6 @@
         proxy_set_header X-authentik-uid $authentik_uid;
     }
 
-    # all requests to /outpost.goauthentik.io must be accessible without authentication
     location /outpost.goauthentik.io {
         proxy_pass              http://outpost.company:9000/outpost.goauthentik.io;
         # 确保此虚拟服务器的主机与您配置的外部 URL 匹配
@@ -207,21 +201,16 @@
         proxy_set_header        Content-Length &#34;&#34;;
     }
 
-    # Special location for when the /auth endpoint returns a 401,
-    # redirect to the /start URL which initiates SSO
     location @goauthentik_proxy_signin {
         internal;
         add_header Set-Cookie $auth_cookie;
         return 302 /outpost.goauthentik.io/start?rd=$request_uri;
-        # For domain level, use the below error_page to redirect to your authentik server with the full redirect path
-        # return 302 https://authentik.company/outpost.goauthentik.io/start?rd=$scheme://$http_host$request_uri;
     }
 }
 </code></pre><p><em><strong>Nginx代理服务器</strong></em></p>
 <pre tabindex="0"><code>proxy_buffers 8 16k;
 proxy_buffer_size 32k;
 
-# Make sure not to redirect traffic to a port 4443
 port_in_redirect off;
 
 location / {
@@ -253,7 +242,6 @@ location / {
     proxy_set_header X-authentik-uid $authentik_uid;
 }
 
-# all requests to /outpost.goauthentik.io must be accessible without authentication
 location /outpost.goauthentik.io {
     proxy_pass              http://outpost.company:9000/outpost.goauthentik.io;
     # 确保此虚拟服务器的主机与您配置的外部 URL 匹配
@@ -265,14 +253,10 @@ location /outpost.goauthentik.io {
     proxy_set_header        Content-Length &#34;&#34;;
 }
 
-# Special location for when the /auth endpoint returns a 401,
-# redirect to the /start URL which initiates SSO
 location @goauthentik_proxy_signin {
     internal;
     add_header Set-Cookie $auth_cookie;
     return 302 /outpost.goauthentik.io/start?rd=$request_uri;
-    # For domain level, use the below error_page to redirect to your authentik server with the full redirect path
-    # return 302 https://authentik.company/outpost.goauthentik.io/start?rd=$scheme://$http_host$request_uri;
 }
 </code></pre></div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -295,7 +279,8 @@ location @goauthentik_proxy_signin {
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/db/postgresql/" class="prev" rel="prev" title="Postgresql常用命令"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Postgresql常用命令</a></div>
+    <div class="post-nav"><a href="/posts/db/postgresql/" class="prev" rel="prev" title="Postgresql常用命令"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Postgresql常用命令</a>
+            <a href="/posts/linux/docker/" class="next" rel="next" title="Docker常用命令">Docker常用命令<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

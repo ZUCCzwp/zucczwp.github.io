@@ -4,7 +4,15 @@
         <link>https://zucczwp.github.io/posts/</link>
         <description>所有文章 | Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 08 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 09 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Docker常用命令</title>
+    <link>https://zucczwp.github.io/posts/linux/docker/</link>
+    <pubDate>Tue, 09 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/linux/docker/</guid>
+    <description><![CDATA[服务相关 启动 docker 服务 systemctl start docker 停止 docker 服务 systemctl stop docker 重启 docker 服务 systemctl restart docker 查看 docker 服务状态 systemctl status docker 设置开机启动 docker 服务 systemctl enable docker]]></description>
+</item>
+<item>
     <title>Authentik使用</title>
     <link>https://zucczwp.github.io/posts/business/authentik-use/</link>
     <pubDate>Mon, 08 Apr 2024 00:00:00 &#43;0000</pubDate>
@@ -43,14 +51,6 @@
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/posts/linux/command/</guid>
     <description><![CDATA[删除多行 1.首先要显示对应的行数 :set nu 2.Esc退出 190,6233d 即[190 , 6233]都删除掉 清空文件 &gt; log.txt 显示发]]></description>
-</item>
-<item>
-    <title></title>
-    <link>https://zucczwp.github.io/posts/linux/docker/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
-    <author>jimi</author>
-    <guid>https://zucczwp.github.io/posts/linux/docker/</guid>
-    <description><![CDATA[]]></description>
 </item>
 </channel>
 </rss>

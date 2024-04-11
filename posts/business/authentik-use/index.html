@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zucczwp.github.io\/posts\/business\/authentik-use\/"
-        },"genre": "posts","keywords": "Auth","wordcount":  845 ,
+        },"genre": "posts","keywords": "Auth","wordcount":  1119 ,
         "url": "https:\/\/zucczwp.github.io\/posts\/business\/authentik-use\/","datePublished": "2024-04-08T00:00:00+00:00","dateModified": "2024-04-08T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,8 +103,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Authentik使用</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
 </span>&nbsp;<span class="post-category">收录于 <a href="/categories/auth/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Auth</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-04-08">2024-04-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 845 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-04-08">2024-04-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1119 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -115,8 +115,7 @@
     <li>
       <ul>
         <li><a href="#proxy-provider">Proxy Provider</a></li>
-        <li><a href="#退出登录">退出登录</a></li>
-        <li><a href="#转发认证">转发认证</a></li>
+        <li><a href="#oauth2-provider">Oauth2 Provider</a></li>
       </ul>
     </li>
   </ul>
@@ -142,16 +141,16 @@
 <p><code>X-authentik-meta-app</code>slug</p>
 <p><code>X-authentik-meta-version</code>版本</p>
 <p><code>X-Forwarded-Host</code>客户端发送原始 Host标头</p>
-<p>附加：<!-- raw HTML omitted -->
-此外，您可以设置additionalHeaders组或用户的属性来设置其他标头：</p>
+<p>附加：</p>
+<p>此外，您可以设置additionalHeaders组或用户的属性来设置其他标头：</p>
 <pre tabindex="0"><code>additionalHeaders:
     X-test-header: test-value
-</code></pre><h3 id="退出登录">退出登录</h3>
+</code></pre><h4 id="退出登录">退出登录</h4>
 <p>当您在没有有效 cookie 的情况下访问域时，会自动完成登录.</p>
 <p>使用单应用程序模式时，导航至app.domain.tld/outpost.goauthentik.io/sign_out.</p>
 <p>使用域级模式时，导航到auth.domain.tld/outpost.goauthentik.io/sign_out，其中 auth.domain.tld 是为提供商配置的外部主机。</p>
 <p>要注销，请导航至/outpost.goauthentik.io/sign_out。</p>
-<h3 id="转发认证">转发认证</h3>
+<h4 id="转发认证">转发认证</h4>
 <p><em><strong>Nginx</strong></em></p>
 <pre tabindex="0"><code>server {
     listen                  443 ssl http2;
@@ -258,7 +257,97 @@ location @goauthentik_proxy_signin {
     add_header Set-Cookie $auth_cookie;
     return 302 /outpost.goauthentik.io/start?rd=$request_uri;
 }
-</code></pre></div><div class="post-footer" id="post-footer">
+</code></pre><h3 id="oauth2-provider">Oauth2 Provider</h3>
+<h4 id="前期准备">前期准备</h4>
+<ol>
+<li>配置 authentik的oauth2 provider
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/oauth_provider.png"
+        data-srcset="/images/oauth_provider.png, /images/oauth_provider.png 1.5x, /images/oauth_provider.png 2x"
+        data-sizes="auto"
+        alt="/images/oauth_provider.png"
+        title="oauth_provider.png" width="1604" height="990" />
+重定向URI填写的是 portainer的主页地址</li>
+<li>配置 application
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/oauth_application.png"
+        data-srcset="/images/oauth_application.png, /images/oauth_application.png 1.5x, /images/oauth_application.png 2x"
+        data-sizes="auto"
+        alt="/images/oauth_application.png"
+        title="oauth_application.png" width="1713" height="928" />
+选择新增好的provider</li>
+</ol>
+<h4 id="配置portainer">配置portainer</h4>
+<p>我们使用 portainer作为演示</p>
+<ol>
+<li>安装 portainer</li>
+</ol>
+<p>这里我们使用 docker进行安装</p>
+<pre tabindex="0"><code>docker volume create portainer_data
+docker run -d -p 9000:9000 --name=portainer --restart=unless-stopped -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+</code></pre><ol start="2">
+<li>登录portainer平台、</li>
+</ol>
+<p>在浏览器中访问 http://localhost:9000 来登录 Portainer，首次使用，需要为 admin用户设置密码。</p>
+<ol start="3">
+<li>
+<p>点击设置里的认证模块
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/portainer_oauth2.png"
+        data-srcset="/images/portainer_oauth2.png, /images/portainer_oauth2.png 1.5x, /images/portainer_oauth2.png 2x"
+        data-sizes="auto"
+        alt="/images/portainer_oauth2.png"
+        title="portainer_oauth2.png" width="2529" height="1298" /></p>
+</li>
+<li>
+<p>配置对应的配置项
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/portainer_oauth2_setting.png"
+        data-srcset="/images/portainer_oauth2_setting.png, /images/portainer_oauth2_setting.png 1.5x, /images/portainer_oauth2_setting.png 2x"
+        data-sizes="auto"
+        alt="/images/portainer_oauth2_setting.png"
+        title="portainer_oauth2_setting.png" width="2361" height="898" /></p>
+</li>
+<li>
+<p>登出 portainer，出现 Login With Oauth
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/portainer_login.png"
+        data-srcset="/images/portainer_login.png, /images/portainer_login.png 1.5x, /images/portainer_login.png 2x"
+        data-sizes="auto"
+        alt="/images/portainer_login.png"
+        title="portainer_login.png" width="757" height="511" /></p>
+</li>
+<li>
+<p>点击Login With Oauth，会跳转到 authentik页面进行授权，授权通过后就能登录到 portainer首页
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/oauth_login.png"
+        data-srcset="/images/oauth_login.png, /images/oauth_login.png 1.5x, /images/oauth_login.png 2x"
+        data-sizes="auto"
+        alt="/images/oauth_login.png"
+        title="oauth_login.png" width="770" height="666" />
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/portainer_login_success.png"
+        data-srcset="/images/portainer_login_success.png, /images/portainer_login_success.png 1.5x, /images/portainer_login_success.png 2x"
+        data-sizes="auto"
+        alt="/images/portainer_login_success.png"
+        title="portainer_login_success.png" width="3540" height="1596" /></p>
+</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

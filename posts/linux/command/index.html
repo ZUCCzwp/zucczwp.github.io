@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zucczwp.github.io\/posts\/linux\/command\/"
-        },"genre": "posts","keywords": "Linux","wordcount":  478 ,
+        },"genre": "posts","keywords": "Linux","wordcount":  594 ,
         "url": "https:\/\/zucczwp.github.io\/posts\/linux\/command\/","datePublished": "2024-03-19T00:00:00+00:00","dateModified": "2024-03-19T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,8 +103,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux常用命令</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
 </span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-19">2024-03-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 478 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-19">2024-03-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 594 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -121,6 +121,8 @@
         <li><a href="#修改文件时间">修改文件时间</a></li>
         <li><a href="#开启-devel库">开启 devel库</a></li>
         <li><a href="#查看进程">查看进程</a></li>
+        <li><a href="#查看磁盘使用情况">查看磁盘使用情况</a></li>
+        <li><a href="#抓包">抓包</a></li>
       </ul>
     </li>
   </ul>
@@ -177,6 +179,15 @@ sudo apt install build-essential
 </code></pre><h3 id="查看进程">查看进程</h3>
 <pre tabindex="0"><code>lsof -i:端口号
 netstat -nap | grep 端口号
+</code></pre><h3 id="查看磁盘使用情况">查看磁盘使用情况</h3>
+<pre tabindex="0"><code>du -f
+</code></pre><h3 id="抓包">抓包</h3>
+<pre tabindex="0"><code>tcpdump -D //列出可用的网卡列表
+tcpdump -i eth0 //设置抓取的网卡名
+tcpdump -i eth0 -w debug.cap //把捕获的包数据写入到文件中
+tcpdump -A //以 ASCII 码方式显示每一个数据包
+tcpdump -c 10 //设置抓取到多少个包后退出
+tcpdump -w data.pcap port 80//将包数据写入文件 指定监听端口为 80
 </code></pre></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

@@ -20,7 +20,7 @@
     <pubDate>Mon, 08 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/posts/business/authentik-use/</guid>
-    <description><![CDATA[Proxy Provider 代理前哨设置以下用户特定的标头： X-authentik-username当前登录用户的用户名 X-]]></description>
+    <description><![CDATA[Proxy Provider Proxy Provider (process) 代理前哨设置以下用户特定的标头： X-authentik-username当前登录用户的用户]]></description>
 </item>
 <item>
     <title>Postgresql常用命令</title>

@@ -324,12 +324,10 @@ docker run -d -p 9000:9000 --name=portainer --restart=unless-stopped
 <h3 id="ldap-provider">LDAP Provider</h3>
 <h4 id="前期准备-1">前期准备</h4>
 <ol>
-<li>
-<p>配置 authentik的 ldap provider、 application</p>
+<li>配置 authentik的 ldap provider、 application</li>
+</ol>
 <p><a href="https://docs.goauthentik.io/docs/providers/ldap/generic_setup" target="_blank" rel="noopener noreffer">配置 authentik</a>
 </p>
-</li>
-</ol>
 <h4 id="ldapsearch">ldapsearch</h4>
 <pre tabindex="0"><code>ldapsearch -x -H ldap://10.2.4.76:389 -D &#39;cn=akadmin,ou=users,dc=ldap,dc=goauthentik,dc=io&#39; 
 -b &#39;ou=users,dc=ldap,dc=goauthentik,dc=io&#39; -w &#39;weyland@123&#39; &#34;cn=akadmin&#34;
@@ -342,8 +340,8 @@ docker run -d -p 9000:9000 --name=portainer --restart=unless-stopped
         <div class="details-content">
             <div class="admonition-content">安装 jumpserver,详见<a href="https://github.com/jumpserver/Dockerfile" target="_blank" rel="noopener noreffer">docker安装 jumpserver</a></div>
         </div>
-    </div>
-<figure><img src="/images/ldap_jumpserver_setting.png"/><figcaption>
+    </div></p>
+<p><figure><img src="/images/ldap_jumpserver_setting.png"/><figcaption>
             <h4>Jumpserver ldap setting Page</h4>
         </figcaption>
 </figure>

@@ -54,5 +54,13 @@
     <guid>https://zucczwp.github.io/posts/linux/command/</guid>
     <description><![CDATA[删除多行 1.首先要显示对应的行数 :set nu 2.Esc退出 190,6233d 即[190 , 6233]都删除掉 清空文件 &gt; log.txt 显示发]]></description>
 </item>
+<item>
+    <title>网站优化</title>
+    <link>https://zucczwp.github.io/posts/seo/optimize_web/</link>
+    <pubDate>Mon, 18 Mar 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/seo/optimize_web/</guid>
+    <description><![CDATA[定义 网站地图（sitemap.xml）是一个网站的概览。搜索引擎在此文件中得到网站上存在的可抓取的网]]></description>
+</item>
 </channel>
 </rss>

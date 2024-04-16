@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>网站优化 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了网站优化之 sitemap网站地图写法."><meta property="og:title" content="网站优化" />
-<meta property="og:description" content="这篇文章展示了网站优化之 sitemap网站地图写法." />
+        <title>Go-redis高级用法 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了Go-redis高级用法."><meta property="og:title" content="Go-redis高级用法" />
+<meta property="og:description" content="这篇文章展示了Go-redis高级用法." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/posts/seo/optimize_web/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-03-18T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-18T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
+<meta property="og:url" content="https://zucczwp.github.io/posts/db/go-redis/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-17T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
 
-<meta name="twitter:title" content="网站优化"/>
-<meta name="twitter:description" content="这篇文章展示了网站优化之 sitemap网站地图写法."/>
+<meta name="twitter:title" content="Go-redis高级用法"/>
+<meta name="twitter:description" content="这篇文章展示了Go-redis高级用法."/>
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/seo/optimize_web/" /><link rel="prev" href="https://zucczwp.github.io/posts/db/go-redis/" /><link rel="next" href="https://zucczwp.github.io/posts/linux/command/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/db/go-redis/" /><link rel="next" href="https://zucczwp.github.io/posts/seo/optimize_web/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "网站优化",
+        "headline": "Go-redis高级用法",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/zucczwp.github.io\/posts\/seo\/optimize_web\/"
-        },"genre": "posts","keywords": " Seo","wordcount":  892 ,
-        "url": "https:\/\/zucczwp.github.io\/posts\/seo\/optimize_web\/","datePublished": "2024-03-18T00:00:00+00:00","dateModified": "2024-03-18T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/zucczwp.github.io\/posts\/db\/go-redis\/"
+        },"genre": "posts","keywords": "Redis","wordcount":  907 ,
+        "url": "https:\/\/zucczwp.github.io\/posts\/db\/go-redis\/","datePublished": "2024-03-17T00:00:00+00:00","dateModified": "2024-03-17T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Jimi"
-            },"description": "这篇文章展示了网站优化之 sitemap网站地图写法."
+            },"description": "这篇文章展示了Go-redis高级用法."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -100,10 +100,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">网站优化</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Go-redis高级用法</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
-</span>&nbsp;<span class="post-category">收录于 <a href="/categories/seo/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Seo</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-18">2024-03-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 892 字&nbsp;
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/redis/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Redis</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-17">2024-03-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 907 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -114,99 +114,129 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#定义">定义</a></li>
-        <li><a href="#生成方法">生成方法</a></li>
-        <li><a href="#提交步骤">提交步骤</a></li>
+        <li><a href="#开启对-cluster中-slave-node的访问">开启对 Cluster中 Slave Node的访问</a></li>
+        <li><a href="#在集群模式下使用pipeline功能">在集群模式下使用pipeline功能</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="定义">定义</h3>
-<p>网站地图（sitemap.xml）是一个网站的概览。搜索引擎在此文件中得到网站上存在的可抓取的网页，提交sitemap有利于搜索引擎的收录。</p>
-<p>网站地图是一个网站的缩影，包含网站的内容地址，是根据网站的结构、框架、内容，生成的导航文件。网站地图分为三种文件格式：xml格式、html格式以及txt格式。xml格式和txt格式一般用于搜索引擎，为搜索引擎蜘蛛程序提供便利的入口到你的网站所有网页；html格式网站地图可以作为一个网页展示给访客，方便用户查看网站内容。</p>
-<h3 id="生成方法">生成方法</h3>
-<p>Sitemap 0.90 是依据创意公用授权-相同方式共享的条款提供的，并被广泛采用，受 Google、Yahoo! 和 Microsoft 在内的众多厂商的支持。[网址](https://www. sitemaps.org/zh_CN/faq.html)</p>
-<pre tabindex="0"><code>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
-&lt;urlset xmlns=&#34;http://www.sitemaps.org/schemas/sitemap/0.9&#34;     
- xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;     
- xsi:schemaLocation=&#34;http://www.sitemaps.org/schemas/sitemap/0.9            
- http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd&#34;&gt;
- &lt;url&gt; 
-     &lt;loc&gt;http://www.zwp.com/&lt;/loc&gt;  
-     &lt;changefreq&gt;daily&lt;/changefreq&gt;
- &lt;/url&gt;
- &lt;url&gt; 
-     &lt;loc&gt;http://www.zwp.com/wyblog?catid=43&lt;/loc&gt;  
-     &lt;changefreq&gt;daily&lt;/changefreq&gt;
- &lt;/url&gt;
- &lt;url&gt; 
-     &lt;loc&gt;http://www.zwp.com/wyblog/?catid=167&lt;/loc&gt;  
-     &lt;changefreq&gt;daily&lt;/changefreq&gt;
- &lt;/url&gt;
- &lt;url&gt; 
-     &lt;loc&gt;http://www.zwp.com/wyblog/?catid=170&lt;/loc&gt;  
-     &lt;changefreq&gt;daily&lt;/changefreq&gt;
- &lt;/url&gt; 
-&lt;/urlset&gt;
-</code></pre><h3 id="提交步骤">提交步骤</h3>
-<ol>
-<li>生成网站地图：</li>
-</ol>
-<ul>
-<li>网页版：http://www.xml-sitemaps.com/</li>
-<li>客户端：http://cn.sitemapx.com/</li>
+            </div><div class="content" id="content"><h3 id="开启对-cluster中-slave-node的访问">开启对 Cluster中 Slave Node的访问</h3>
+<p>在一个负载比较高的Redis Cluster中，如果允许对slave节点进行读操作将极大的提高集群的吞吐能力。
+开启对Slave 节点的访问，受以下3个参数的影响</p>
+<pre tabindex="0"><code>type ClusterOptions struct {
+    ReadOnly bool
+    RouteByLatency bool
+    RouteRandomly bool
+    ... 
+}
+</code></pre><p>go-redis 选择节点的逻辑如下</p>
+<pre tabindex="0"><code>func (c *ClusterClient) cmdSlotAndNode(cmd Cmder) (int, *clusterNode, error) {
+    state, err := c.state.Get()
+    if err != nil {
+        return 0, nil, err
+    }
+
+    cmdInfo := c.cmdInfo(cmd.Name())
+    slot := cmdSlot(cmd, cmdFirstKeyPos(cmd, cmdInfo))
+
+    if c.opt.ReadOnly &amp;&amp; cmdInfo != nil &amp;&amp; cmdInfo.ReadOnly {
+        if c.opt.RouteByLatency {
+            node, err := state.slotClosestNode(slot)
+            return slot, node, err
+        }
+
+        if c.opt.RouteRandomly {
+            node := state.slotRandomNode(slot)
+            return slot, node, nil
+        }
+
+        node, err := state.slotSlaveNode(slot)
+        return slot, node, err
+    }
+
+    node, err := state.slotMasterNode(slot)
+    return slot, node, err
+}
+</code></pre><ul>
+<li>如果ReadOnly = true，只选择Slave Node</li>
+<li>如果ReadOnly = true 且 RouteByLatency = true 将从slot对应的Master Node 和 Slave Node选择，选择策略为: 选择PING 延迟最低的节点</li>
+<li>如果ReadOnly = true 且 RouteRandomly = true 将从slot对应的Master Node 和 Slave Node选择，选择策略为:随机选择</li>
 </ul>
-<p>change frequency:指的是频率，地图的自动更新频率，默认每天(daily);</p>
-<p>last modification:是网站地图最后修改时间，默认使用服务器的响应(Use server&rsquo;s response);</p>
-<p>priority:权重-可自动计算。</p>
-<p>点击start开始生产。自动跳转到生成页面，稍等一段时间便可生成（时间和网站内容多少有关）。</p>
-<p>它提供多种格式的网站地图文件下载(xml、xml.gz、ror.xml、html等)，看你所提交的搜索引擎需要哪种格式的地图文件，就下载哪一个，或者直接打包全下载。</p>
-<ol start="2">
-<li>下载生成的地图文件sitemap.xml并上传至网站根目录</li>
-<li>到站长平台提交网站地图。</li>
-</ol>
+<h3 id="在集群模式下使用pipeline功能">在集群模式下使用pipeline功能</h3>
+<p>Redis的pipeline功能的原理是 Client通过一次性将多条redis命令发往Redis Server，减少了每条命令分别传输的IO开销。同时减少了系统调用的次数，因此提升了整体的吞吐能力。</p>
+<p>我们在主-从模式的Redis中，pipeline功能应该用的很多，但是Cluster模式下，估计还没有几个人用过。</p>
+<p>我们知道 redis cluster 默认分配了 16384 个slot，当我们set一个key 时，会用CRC16算法来取模得到所属的slot，然后将这个key 分到哈希槽区间的节点上，具体算法就是：CRC16(key) % 16384。如果我们使用pipeline功能，一个批次中包含的多条命令，每条命令涉及的key可能属于不同的slot</p>
+<p>go-redis 为了解决这个问题, 分为3步</p>
+<p>源码可以阅读 defaultProcessPipeline</p>
+<ol>
+<li>将计算command 所属的slot, 根据slot选择合适的Cluster Node</li>
+<li>将同一个Cluster Node 的所有command，放在一个批次中发送（并发操作）</li>
+<li>接收结果
 <div class="details admonition note open">
         <div class="details-summary admonition-title">
             <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>注意<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content"><p>各搜索引擎推荐网站地图格式：</p>
-<p>Google：建议使用xml格式的网站地图
-<a href="https://www.google.com/webmasters/tools/dashboard?hl=zh-CN" target="_blank" rel="noopener noreffer">Google提交地址</a>
-</p>
-<p>Yahoo： 建议使用Txt格式的网站地图
-<a href="http://sitemap.cn.yahoo.com/?require_login=1" target="_blank" rel="noopener noreffer">Yahoo提交地址</a>
-</p>
-<p>Baidu：建议使用robots.txt提交html格式的网站地图
-<a href="http://www.baidu.com/search/url_submit.html" target="_blank" rel="noopener noreffer">Baidu提交地址</a>
-</p>
-<p>在robots.txt爬虫协议中定义（Allow: /sitemap.hxml）robots.txt文档是表式允许蜘蛛网访问网站地图。爬虫协议写法参见：网站优化之robots.txt爬虫协议的写法。</p>
+            <div class="admonition-content"><p>注意：这里go-redis 为了处理简单，每个command 只能涉及一个key, 否则你可能会收到如下错误<code>err CROSSSLOT Keys in request don't hash to the same slot</code></p>
+<p>go-redis不支持类似 MGET 命令的用法</p>
 </div>
         </div>
-    </div>
-</div><div class="post-footer" id="post-footer">
+    </div></li>
+</ol>
+<pre tabindex="0"><code>package main
+
+import (
+    &#34;github.com/go-redis/redis&#34;
+    &#34;fmt&#34;
+)
+
+func main() {
+    client := redis.NewClusterClient(&amp;redis.ClusterOptions{
+        Addrs: []string{&#34;192.168.120.110:6380&#34;, &#34;192.168.120.111:6380&#34;},
+        ReadOnly: true,
+        RouteRandomly: true,
+    })
+
+    pipe := client.Pipeline()
+    pipe.HGetAll(&#34;1371648200&#34;)
+    pipe.HGetAll(&#34;1371648300&#34;)
+    pipe.HGetAll(&#34;1371648400&#34;)
+    cmders, err := pipe.Exec()
+    if err != nil {
+        fmt.Println(&#34;err&#34;, err)
+    }
+    for _, cmder := range cmders {
+        cmd := cmder.(*redis.StringStringMapCmd)
+        strMap, err := cmd.Result()
+        if err != nil {
+            fmt.Println(&#34;err&#34;, err)
+        }
+        fmt.Println(&#34;strMap&#34;, strMap)
+    }
+}
+</code></pre></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2024-03-18</span>
+                <span>更新于 2024-03-17</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/seo/optimize_web/" data-title="网站优化"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/seo/optimize_web/" data-title="网站优化"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/db/go-redis/" data-title="Go-redis高级用法"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/db/go-redis/" data-title="Go-redis高级用法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/seo/"> Seo</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/redis/">Redis</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/db/go-redis/" class="prev" rel="prev" title="Go-redis高级用法"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Go-redis高级用法</a>
-            <a href="/posts/linux/command/" class="next" rel="next" title="Linux常用命令">Linux常用命令<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav">
+            <a href="/posts/seo/optimize_web/" class="next" rel="next" title="网站优化">网站优化<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

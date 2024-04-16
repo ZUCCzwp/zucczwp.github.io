@@ -9,6 +9,7 @@
             <loc>https://zucczwp.github.io/posts/linux/kubectl/</loc><lastmod>2024-04-01T22:45:40&#43;08:00</lastmod></url><url>
             <loc>https://zucczwp.github.io/posts/linux/command/</loc><lastmod>2024-03-19T22:45:40&#43;08:00</lastmod></url><url>
             <loc>https://zucczwp.github.io/posts/seo/optimize_web/</loc><lastmod>2024-03-18T22:45:40&#43;08:00</lastmod></url><url>
+            <loc>https://zucczwp.github.io/posts/db/go-redis/</loc><lastmod>2024-03-17T22:45:40&#43;08:00</lastmod></url><url>
             <loc>https://zucczwp.github.io/categories/</loc><lastmod>2024-04-09T22:04:40&#43;08:00</lastmod></url><url>
             <loc>https://zucczwp.github.io/tags/docker/</loc><lastmod>2024-04-09T22:04:40&#43;08:00</lastmod></url><url>
             <loc>https://zucczwp.github.io/</loc><lastmod>2024-04-09T22:04:40&#43;08:00</lastmod></url><url>
@@ -22,4 +23,6 @@
             <loc>https://zucczwp.github.io/categories/db/</loc><lastmod>2024-04-07T14:21:40&#43;08:00</lastmod></url><url>
             <loc>https://zucczwp.github.io/tags/k8s/</loc><lastmod>2024-04-01T22:45:40&#43;08:00</lastmod></url><url>
             <loc>https://zucczwp.github.io/tags/seo/</loc><lastmod>2024-03-18T22:45:40&#43;08:00</lastmod></url><url>
-            <loc>https://zucczwp.github.io/categories/seo/</loc><lastmod>2024-03-18T22:45:40&#43;08:00</lastmod></url></urlset>
+            <loc>https://zucczwp.github.io/categories/seo/</loc><lastmod>2024-03-18T22:45:40&#43;08:00</lastmod></url><url>
+            <loc>https://zucczwp.github.io/tags/redis/</loc><lastmod>2024-03-17T22:45:40&#43;08:00</lastmod></url><url>
+            <loc>https://zucczwp.github.io/categories/redis/</loc><lastmod>2024-03-17T22:45:40&#43;08:00</lastmod></url></urlset>

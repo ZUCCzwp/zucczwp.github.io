@@ -62,5 +62,13 @@
     <guid>https://zucczwp.github.io/posts/seo/optimize_web/</guid>
     <description><![CDATA[定义 网站地图（sitemap.xml）是一个网站的概览。搜索引擎在此文件中得到网站上存在的可抓取的网]]></description>
 </item>
+<item>
+    <title>Go-redis高级用法</title>
+    <link>https://zucczwp.github.io/posts/db/go-redis/</link>
+    <pubDate>Sun, 17 Mar 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/db/go-redis/</guid>
+    <description><![CDATA[开启对 Cluster中 Slave Node的访问 在一个负载比较高的Redis Cluster中，如果允许对sla]]></description>
+</item>
 </channel>
 </rss>

@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Docker常用命令 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了基本的Docker常用命令."><meta property="og:title" content="Docker常用命令" />
-<meta property="og:description" content="这篇文章展示了基本的Docker常用命令." />
+        <title>金蝶云星空对接 authentik实现 sso登录 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了如何使用Authentik对接金蝶云星空."><meta property="og:title" content="金蝶云星空对接 authentik实现 sso登录" />
+<meta property="og:description" content="这篇文章展示了如何使用Authentik对接金蝶云星空." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/posts/linux/docker/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-04-09T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-04-09T22:04:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
+<meta property="og:url" content="https://zucczwp.github.io/posts/business/k3cloud_login/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-04-17T09:20:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Docker常用命令"/>
-<meta name="twitter:description" content="这篇文章展示了基本的Docker常用命令."/>
+<meta name="twitter:title" content="金蝶云星空对接 authentik实现 sso登录"/>
+<meta name="twitter:description" content="这篇文章展示了如何使用Authentik对接金蝶云星空."/>
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/linux/docker/" /><link rel="prev" href="https://zucczwp.github.io/posts/business/authentik-use/" /><link rel="next" href="https://zucczwp.github.io/posts/business/k3cloud_login/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/business/k3cloud_login/" /><link rel="prev" href="https://zucczwp.github.io/posts/linux/docker/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Docker常用命令",
+        "headline": "金蝶云星空对接 authentik实现 sso登录",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/zucczwp.github.io\/posts\/linux\/docker\/"
-        },"genre": "posts","keywords": "Docker, Linux","wordcount":  362 ,
-        "url": "https:\/\/zucczwp.github.io\/posts\/linux\/docker\/","datePublished": "2024-04-09T00:00:00+00:00","dateModified": "2024-04-09T22:04:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/zucczwp.github.io\/posts\/business\/k3cloud_login\/"
+        },"genre": "posts","keywords": "Auth, K3Cloud","wordcount":  473 ,
+        "url": "https:\/\/zucczwp.github.io\/posts\/business\/k3cloud_login\/","datePublished": "2024-04-17T00:00:00+00:00","dateModified": "2024-04-17T09:20:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Jimi"
-            },"description": "这篇文章展示了基本的Docker常用命令."
+            },"description": "这篇文章展示了如何使用Authentik对接金蝶云星空."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -100,10 +100,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker常用命令</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">金蝶云星空对接 authentik实现 sso登录</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
-</span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-04-09">2024-04-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 362 字&nbsp;
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/auth/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Auth</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-04-17">2024-04-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 473 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -114,88 +114,135 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#服务相关">服务相关</a></li>
-        <li><a href="#镜像相关">镜像相关</a></li>
-        <li><a href="#容器相关">容器相关</a></li>
+        <li><a href="#编写-proxy-服务">编写 proxy 服务</a></li>
+        <li><a href="#配置-authentik-proxy-provider">配置 authentik proxy provider</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="服务相关">服务相关</h3>
-<h4 id="启动-docker-服务">启动 docker 服务</h4>
-<pre tabindex="0"><code>systemctl start docker
-</code></pre><h4 id="停止-docker-服务">停止 docker 服务</h4>
-<pre tabindex="0"><code>systemctl stop docker
-</code></pre><h4 id="重启-docker-服务">重启 docker 服务</h4>
-<pre tabindex="0"><code>systemctl restart docker
-</code></pre><h4 id="查看-docker-服务状态">查看 docker 服务状态</h4>
-<pre tabindex="0"><code>systemctl status docker
-</code></pre><h4 id="设置开机启动-docker-服务">设置开机启动 docker 服务</h4>
-<pre tabindex="0"><code>systemctl enable docker
-</code></pre><h3 id="镜像相关">镜像相关</h3>
-<h4 id="搜索镜像">搜索镜像</h4>
-<pre tabindex="0"><code> docker search nginx
-</code></pre><h4 id="拉取镜像">拉取镜像</h4>
-<pre tabindex="0"><code> docker  pull nginx
-</code></pre><h4 id="构建镜像">构建镜像</h4>
-<pre tabindex="0"><code> docker build -t my_image:1.0 .
-</code></pre><h4 id="查看本地镜像">查看本地镜像</h4>
-<pre tabindex="0"><code> docker images
- docker images -q//查看本地镜像 id
-</code></pre><h4 id="删除本地镜像">删除本地镜像</h4>
-<pre tabindex="0"><code> docker rmi mysql:5.7
- docker rmi `docker images -q` //全部删除本地镜像
-</code></pre><h4 id="导出镜像">导出镜像</h4>
-<pre tabindex="0"><code> docker save -o image.tar target_image:tag
-</code></pre><h4 id="导入镜像">导入镜像</h4>
-<pre tabindex="0"><code> docker load -i image.tar
-</code></pre><h4 id="给镜像打标签">给镜像打标签</h4>
-<pre tabindex="0"><code> docker tag image_id new_image_name:tag
-</code></pre><h3 id="容器相关">容器相关</h3>
-<h4 id="创建容器">创建容器</h4>
-<pre tabindex="0"><code> docker run -d --name=my_container -p 8080:8080 tomcat:latest
-</code></pre><h4 id="查看容器列表">查看容器列表</h4>
-<pre tabindex="0"><code> docker ps
- docker ps -q //查看正在运行的容器ID列表
-</code></pre><h4 id="停止容器">停止容器</h4>
-<pre tabindex="0"><code> docker stop container
-</code></pre><h4 id="启动已停止的容器">启动已停止的容器</h4>
-<pre tabindex="0"><code> docker start my_container
-</code></pre><h4 id="删除容器">删除容器</h4>
-<pre tabindex="0"><code> docker rm my_container
-</code></pre><h4 id="进入容器">进入容器</h4>
-<pre tabindex="0"><code>docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
-</code></pre><p>其中，OPTIONS 可以指定一些参数，CONTAINER 是容器的名称或 ID，COMMAND 是要执行的命令，ARG 是命令的参数。</p>
-<p>举例：</p>
-<pre tabindex="0"><code>docker exec -it my_container sh -c &#34;echo Hello World &amp;&amp; ls -l&#34;
-</code></pre><h4 id="查看容器信息">查看容器信息</h4>
-<pre tabindex="0"><code> docker inspect my_container
-</code></pre><h4 id="数据拷贝">数据拷贝</h4>
-<pre tabindex="0"><code> docker cp container_id:/app/html /mnt/ //将容器中 /app/html 目录拷贝到宿主机 /mnt/ 目录中
- docker cp /mnt/dist container_id:/app/ //将宿主机 /mnt/dist 目录拷贝到容器的 /app 目录中
+            </div><div class="content" id="content"><h3 id="编写-proxy-服务">编写 proxy 服务</h3>
+<p>逻辑：</p>
+<ol>
+<li>获取authentik返回的请求头 X-authentik-username获取用户的用户名</li>
+<li>对接<a href="https://vip.kingdee.com/article/9788?productLineId=1&amp;lang=zh-CN" target="_blank" rel="noopener noreffer">金蝶第三方登录</a>
+生成html5跳转链接，并进行
+302 跳转</li>
+</ol>
+<pre tabindex="0"><code>username := r.Header.Get(&#34;X-authentik-username&#34;)
+req.Username = username
+l := logic.NewK3cloudLogic(r.Context(), svcCtx)
+resp, err := l.K3cloud(&amp;req)
+if err != nil {
+   httpx.ErrorCtx(r.Context(), w, err)
+} else {
+   w.Header().Set(&#34;Location&#34;, resp.Message)
+   w.WriteHeader(http.StatusFound)
+   http.RedirectHandler(resp.Message, http.StatusFound)
+}
+...
+
+func (l *K3cloudLogic) K3cloud(req *types.Request) (resp *types.Response, err error) {
+	//拼接
+	userName := req.Username
+	if userName == &#34;&#34; {
+		return nil, errors.New(&#34;invalid param&#34;)
+	}
+	dbId := l.svcCtx.Config.K3Cloud.DbId
+	appId := l.svcCtx.Config.K3Cloud.AppId
+	appSecret := l.svcCtx.Config.K3Cloud.AppSecret
+	timestamp := time.Now().Unix()
+	arr := []string{dbId, userName, appId, appSecret, fmt.Sprintf(&#34;%d&#34;, timestamp)}
+	sign := GetSignature(arr) // 签名
+	l.Debugf(&#34;generate sign param:%+v result:%v&#34;, arr, sign)
+
+	arg := domain.GenerateCloudSign{
+		DBID:       dbId,
+		Username:   userName,
+		AppId:      appId,
+		SignedData: sign,
+		Timestamp:  fmt.Sprintf(&#34;%d&#34;, timestamp),
+		LcId:       l.svcCtx.Config.K3Cloud.LcId,
+		OriginType: &#34;SimPas&#34;,
+		EntryRole:  &#34;&#34;,
+		FormId:     &#34;&#34;,
+		FormType:   &#34;&#34;,
+		Pkid:       &#34;&#34;,
+		OtherArgs:  &#34;&#34;,
+	}
+
+	argJson := arg.SerializeObject()
+	argJsonBase64 := base64.StdEncoding.EncodeToString([]byte(argJson))
+	html5Url := l.svcCtx.Config.K3Cloud.BaseUrl + argJsonBase64 // html5入口链接
+	result := types.Response{}
+	result.Message = html5Url
+	l.Debugf(&#34;generate html5 url result:%v&#34;, html5Url)
+	return &amp;result, nil
+}
+
+func GetSignature(arr []string) string {
+	// 将数组进行排序
+	sort.Strings(arr)
+	// 将数组拼接成一个字符串
+	arrString := strings.Join(arr, &#34;&#34;)
+	// 对拼接后的字符串进行SHA1加密
+	sha1Hash := sha1.New()
+	sha1Hash.Write([]byte(arrString))
+	sha1Bytes := sha1Hash.Sum(nil)
+	// 将加密后的字节转换为十六进制字符串
+	signature := hex.EncodeToString(sha1Bytes)
+	return signature
+}
+</code></pre><h3 id="配置-authentik-proxy-provider">配置 authentik proxy provider</h3>
+<p>详见 authentik proxy provider部分</p>
+<p>配置proxy的nginx,10.2.192.4:8888/from/authentik地址是编写 proxy服务地址</p>
+<pre tabindex="0"><code>location / {
+  # Put your proxy_pass to your application here, and all the other statements you&#39;ll need
+  proxy_pass http://10.2.192.4:8888/from/authentik;
+  proxy_set_header Host $host;
+
+  ##############################
+  # authentik-specific config
+  ##############################
+  auth_request     /outpost.goauthentik.io/auth/nginx;
+  error_page       401 = @goauthentik_proxy_signin;
+  auth_request_set $auth_cookie $upstream_http_set_cookie;
+  add_header       Set-Cookie $auth_cookie;
+
+  # translate headers from the outposts back to the actual upstream
+  auth_request_set $authentik_username $upstream_http_x_authentik_username;
+  auth_request_set $authentik_groups $upstream_http_x_authentik_groups;
+  auth_request_set $authentik_email $upstream_http_x_authentik_email;
+  auth_request_set $authentik_name $upstream_http_x_authentik_name;
+  auth_request_set $authentik_uid $upstream_http_x_authentik_uid;
+
+  proxy_set_header X-authentik-username $authentik_username;
+  proxy_set_header X-authentik-groups $authentik_groups;
+  proxy_set_header X-authentik-email $authentik_email;
+  proxy_set_header X-authentik-name $authentik_name;
+  proxy_set_header X-authentik-uid $authentik_uid;
+}
 </code></pre></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2024-04-09</span>
+                <span>更新于 2024-04-17</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/linux/docker/" data-title="Docker常用命令"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/linux/docker/" data-title="Docker常用命令"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/business/k3cloud_login/" data-title="金蝶云星空对接 authentik实现 sso登录"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/business/k3cloud_login/" data-title="金蝶云星空对接 authentik实现 sso登录"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/linux/">Linux</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/auth/">Auth</a>,&nbsp;<a href="/tags/k3cloud/">K3Cloud</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/business/authentik-use/" class="prev" rel="prev" title="Authentik使用"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Authentik使用</a>
-            <a href="/posts/business/k3cloud_login/" class="next" rel="next" title="金蝶云星空对接 authentik实现 sso登录">金蝶云星空对接 authentik实现 sso登录<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/linux/docker/" class="prev" rel="prev" title="Docker常用命令"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Docker常用命令</a></div>
 </div>
 </article></div>
             </main><footer class="footer">

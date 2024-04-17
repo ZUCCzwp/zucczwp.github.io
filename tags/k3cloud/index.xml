@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>K3Cloud - 标签 - Jimi’s Blog</title>
+        <link>https://zucczwp.github.io/tags/k3cloud/</link>
+        <description>K3Cloud - 标签 - Jimi’s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 17 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/k3cloud/" rel="self" type="application/rss+xml" /><item>
+    <title>金蝶云星空对接 authentik实现 sso登录</title>
+    <link>https://zucczwp.github.io/posts/business/k3cloud_login/</link>
+    <pubDate>Wed, 17 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/business/k3cloud_login/</guid>
+    <description><![CDATA[编写 proxy 服务 逻辑： 获取authentik返回的请求头 X-authentik-username获取用户的]]></description>
+</item>
+</channel>
+</rss>

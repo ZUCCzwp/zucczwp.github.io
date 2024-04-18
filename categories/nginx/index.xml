@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Nginx - 分类 - Jimi’s Blog</title>
+        <link>https://zucczwp.github.io/categories/nginx/</link>
+        <description>Nginx - 分类 - Jimi’s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 02 Mar 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/nginx/" rel="self" type="application/rss+xml" /><item>
+    <title>Nginx Error Page配置</title>
+    <link>https://zucczwp.github.io/posts/linux/nginx/</link>
+    <pubDate>Sat, 02 Mar 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/linux/nginx/</guid>
+    <description><![CDATA[语法 error_page code [ code... ] [ = | =answer-code ] uri |@named_location 示例 作用是当发生错误的时候能够显示一个预定义的uri error_page 502 503 /50x.html; location = /50x.html { root /usr/share/nginx/html;]]></description>
+</item>
+</channel>
+</rss>

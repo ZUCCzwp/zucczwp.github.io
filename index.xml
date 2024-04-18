@@ -78,5 +78,13 @@
     <guid>https://zucczwp.github.io/posts/db/go-redis/</guid>
     <description><![CDATA[开启对 Cluster中 Slave Node的访问 在一个负载比较高的Redis Cluster中，如果允许对sla]]></description>
 </item>
+<item>
+    <title>Nginx Error Page配置</title>
+    <link>https://zucczwp.github.io/posts/linux/nginx/</link>
+    <pubDate>Sat, 02 Mar 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/linux/nginx/</guid>
+    <description><![CDATA[语法 error_page code [ code... ] [ = | =answer-code ] uri |@named_location 示例 作用是当发生错误的时候能够显示一个预定义的uri error_page 502 503 /50x.html; location = /50x.html { root /usr/share/nginx/html;]]></description>
+</item>
 </channel>
 </rss>

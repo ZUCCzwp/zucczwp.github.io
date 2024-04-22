@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Go-redis高级用法 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了Go-redis高级用法."><meta property="og:title" content="Go-redis高级用法" />
-<meta property="og:description" content="这篇文章展示了Go-redis高级用法." />
+        <title>Nginx配置 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了 Nginx配置."><meta property="og:title" content="Nginx配置" />
+<meta property="og:description" content="这篇文章展示了 Nginx配置." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/posts/db/go-redis/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-03-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-17T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
+<meta property="og:url" content="https://zucczwp.github.io/posts/linux/nginx_error_page/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-01T10:12:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Go-redis高级用法"/>
-<meta name="twitter:description" content="这篇文章展示了Go-redis高级用法."/>
+<meta name="twitter:title" content="Nginx配置"/>
+<meta name="twitter:description" content="这篇文章展示了 Nginx配置."/>
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/db/go-redis/" /><link rel="prev" href="https://zucczwp.github.io/posts/linux/nginx_config/" /><link rel="next" href="https://zucczwp.github.io/posts/seo/optimize_web/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/linux/nginx_error_page/" /><link rel="next" href="https://zucczwp.github.io/posts/linux/nginx_config/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Go-redis高级用法",
+        "headline": "Nginx配置",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/zucczwp.github.io\/posts\/db\/go-redis\/"
-        },"genre": "posts","keywords": "Redis","wordcount":  907 ,
-        "url": "https:\/\/zucczwp.github.io\/posts\/db\/go-redis\/","datePublished": "2024-03-17T00:00:00+00:00","dateModified": "2024-03-17T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/zucczwp.github.io\/posts\/linux\/nginx_error_page\/"
+        },"genre": "posts","keywords": "Nginx","wordcount":  763 ,
+        "url": "https:\/\/zucczwp.github.io\/posts\/linux\/nginx_error_page\/","datePublished": "2024-03-02T00:00:00+00:00","dateModified": "2024-03-01T10:12:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Jimi"
-            },"description": "这篇文章展示了Go-redis高级用法."
+            },"description": "这篇文章展示了 Nginx配置."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -100,10 +100,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Go-redis高级用法</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Nginx配置</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
-</span>&nbsp;<span class="post-category">收录于 <a href="/categories/redis/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Redis</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-17">2024-03-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 907 字&nbsp;
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/nginx/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Nginx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-02">2024-03-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 763 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -114,129 +114,102 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#开启对-cluster中-slave-node的访问">开启对 Cluster中 Slave Node的访问</a></li>
-        <li><a href="#在集群模式下使用pipeline功能">在集群模式下使用pipeline功能</a></li>
+        <li><a href="#location-语法">location 语法</a></li>
+        <li><a href="#rewrite-语法">rewrite 语法</a></li>
+        <li><a href="#redirect-语法">redirect 语法</a></li>
+        <li><a href="#防盗链语法">防盗链语法</a></li>
+        <li><a href="#根据文件类型设置过期时间">根据文件类型设置过期时间</a></li>
+        <li><a href="#禁止访问某个目录">禁止访问某个目录</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="开启对-cluster中-slave-node的访问">开启对 Cluster中 Slave Node的访问</h3>
-<p>在一个负载比较高的Redis Cluster中，如果允许对slave节点进行读操作将极大的提高集群的吞吐能力。
-开启对Slave 节点的访问，受以下3个参数的影响</p>
-<pre tabindex="0"><code>type ClusterOptions struct {
-    ReadOnly bool
-    RouteByLatency bool
-    RouteRandomly bool
-    ... 
+            </div><div class="content" id="content"><h3 id="location-语法">location 语法</h3>
+<h4 id="规则">规则</h4>
+<pre tabindex="0"><code>location [=|~|~*|^~] /uri/ {
+        ····· 
 }
-</code></pre><p>go-redis 选择节点的逻辑如下</p>
-<pre tabindex="0"><code>func (c *ClusterClient) cmdSlotAndNode(cmd Cmder) (int, *clusterNode, error) {
-    state, err := c.state.Get()
-    if err != nil {
-        return 0, nil, err
+</code></pre><p>=     开头表示精确匹配</p>
+<p>^~    开头表示uri以某个常规字符串开头，理解为匹配 url路径即可。nginx不对url做编码，因此请求为/static/20%/aa，可以被规则^~ /static/ /aa匹配到（注意是空格）</p>
+<p>~     开头表示区分大小写的正则匹配</p>
+<p>~*    开头表示不区分大小写的正则匹配</p>
+<p>!~    区分大小写不匹配的正则</p>
+<p>!~*   不区分大小写不匹配的正则</p>
+<p>/     通用匹配，任何请求都会匹配到</p>
+<h4 id="匹配顺序">匹配顺序：</h4>
+<p>首先匹配 &ldquo;=&quot;，其次匹配 &ldquo;^~&rdquo;, 其次是按文件中顺序的正则匹配，最后是交给 &ldquo;/&rdquo; 通用匹配。</p>
+<p>当有匹配成功时候，停止匹配，按当前匹配规则处理请求</p>
+<h3 id="rewrite-语法">rewrite 语法</h3>
+<p>规则：</p>
+<p>last       – 基本上都用这个 Flag</p>
+<p>break      – 中止 Rewirte，不在继续匹配</p>
+<p>redirect   – 返回临时重定向的HTTP状态302</p>
+<p>permanent  – 返回永久重定向的HTTP状态301</p>
+<h4 id="可用来判断的表达式">可用来判断的表达式</h4>
+<p>-f 和 !-f    用来判断是否存在文件</p>
+<p>-d 和 !-d    用来判断是否存在目录</p>
+<p>-e 和 !-e    用来判断是否存在文件或目录</p>
+<p>-x 和 !-x    用来判断文件是否可执行</p>
+<h4 id="可用来判断的全局变量">可用来判断的全局变量</h4>
+<pre tabindex="0"><code>例：http://localhost:88/test1/test2/test.php
+$host：localhost
+$server_port：88
+$request_uri：http://localhost:88/test1/test2/test.php
+$document_uri：/test1/test2/test.php
+$document_root：D:\nginx/html
+$request_filename：D:\nginx/html/test1/test2/test.php
+</code></pre><h3 id="redirect-语法">redirect 语法</h3>
+<pre tabindex="0"><code>server {
+    listen 80;
+    server_name start.igrow.cn;
+    index index.html index.php;
+    root html;
+    if ($http_host !~ “^star\.igrow\.cn$&amp;quot {
+        rewrite ^(.*) http://star.igrow.cn$1 redirect;
     }
-
-    cmdInfo := c.cmdInfo(cmd.Name())
-    slot := cmdSlot(cmd, cmdFirstKeyPos(cmd, cmdInfo))
-
-    if c.opt.ReadOnly &amp;&amp; cmdInfo != nil &amp;&amp; cmdInfo.ReadOnly {
-        if c.opt.RouteByLatency {
-            node, err := state.slotClosestNode(slot)
-            return slot, node, err
-        }
-
-        if c.opt.RouteRandomly {
-            node := state.slotRandomNode(slot)
-            return slot, node, nil
-        }
-
-        node, err := state.slotSlaveNode(slot)
-        return slot, node, err
-    }
-
-    node, err := state.slotMasterNode(slot)
-    return slot, node, err
 }
-</code></pre><ul>
-<li>如果ReadOnly = true，只选择Slave Node</li>
-<li>如果ReadOnly = true 且 RouteByLatency = true 将从slot对应的Master Node 和 Slave Node选择，选择策略为: 选择PING 延迟最低的节点</li>
-<li>如果ReadOnly = true 且 RouteRandomly = true 将从slot对应的Master Node 和 Slave Node选择，选择策略为:随机选择</li>
-</ul>
-<h3 id="在集群模式下使用pipeline功能">在集群模式下使用pipeline功能</h3>
-<p>Redis的pipeline功能的原理是 Client通过一次性将多条redis命令发往Redis Server，减少了每条命令分别传输的IO开销。同时减少了系统调用的次数，因此提升了整体的吞吐能力。</p>
-<p>我们在主-从模式的Redis中，pipeline功能应该用的很多，但是Cluster模式下，估计还没有几个人用过。</p>
-<p>我们知道 redis cluster 默认分配了 16384 个slot，当我们set一个key 时，会用CRC16算法来取模得到所属的slot，然后将这个key 分到哈希槽区间的节点上，具体算法就是：CRC16(key) % 16384。如果我们使用pipeline功能，一个批次中包含的多条命令，每条命令涉及的key可能属于不同的slot</p>
-<p>go-redis 为了解决这个问题, 分为3步</p>
-<p>源码可以阅读 defaultProcessPipeline</p>
-<ol>
-<li>将计算command 所属的slot, 根据slot选择合适的Cluster Node</li>
-<li>将同一个Cluster Node 的所有command，放在一个批次中发送（并发操作）</li>
-<li>接收结果
-<div class="details admonition note open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>注意<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content"><p>注意：这里go-redis 为了处理简单，每个command 只能涉及一个key, 否则你可能会收到如下错误<code>err CROSSSLOT Keys in request don't hash to the same slot</code></p>
-<p>go-redis不支持类似 MGET 命令的用法</p>
-</div>
-        </div>
-    </div></li>
-</ol>
-<pre tabindex="0"><code>package main
-
-import (
-    &#34;github.com/go-redis/redis&#34;
-    &#34;fmt&#34;
-)
-
-func main() {
-    client := redis.NewClusterClient(&amp;redis.ClusterOptions{
-        Addrs: []string{&#34;192.168.120.110:6380&#34;, &#34;192.168.120.111:6380&#34;},
-        ReadOnly: true,
-        RouteRandomly: true,
-    })
-
-    pipe := client.Pipeline()
-    pipe.HGetAll(&#34;1371648200&#34;)
-    pipe.HGetAll(&#34;1371648300&#34;)
-    pipe.HGetAll(&#34;1371648400&#34;)
-    cmders, err := pipe.Exec()
-    if err != nil {
-        fmt.Println(&#34;err&#34;, err)
+</code></pre><h3 id="防盗链语法">防盗链语法</h3>
+<pre tabindex="0"><code>location ~* \.(gif|jpg|swf)$ {
+    valid_referers none blocked start.igrow.cn sta.igrow.cn;
+    if ($invalid_referer) {
+        rewrite ^/ http://$host/logo.png;
     }
-    for _, cmder := range cmders {
-        cmd := cmder.(*redis.StringStringMapCmd)
-        strMap, err := cmd.Result()
-        if err != nil {
-            fmt.Println(&#34;err&#34;, err)
-        }
-        fmt.Println(&#34;strMap&#34;, strMap)
+}
+</code></pre><h3 id="根据文件类型设置过期时间">根据文件类型设置过期时间</h3>
+<pre tabindex="0"><code>location ~* \.(js|css|jpg|jpeg|gif|png|swf)$ {
+    if (-f $request_filename) {
+        expires 1h;
+        break;
     }
+}
+</code></pre><h3 id="禁止访问某个目录">禁止访问某个目录</h3>
+<pre tabindex="0"><code>location ~* \.(txt|doc)${
+    root /data/www/wwwroot/linuxtone/test;
+    deny all;
 }
 </code></pre></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2024-03-17</span>
+                <span>更新于 2024-03-01</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/db/go-redis/" data-title="Go-redis高级用法"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/db/go-redis/" data-title="Go-redis高级用法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/linux/nginx_error_page/" data-title="Nginx配置"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/linux/nginx_error_page/" data-title="Nginx配置"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/redis/">Redis</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/nginx/">Nginx</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/linux/nginx_config/" class="prev" rel="prev" title="Nginx Error Page配置"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Nginx Error Page配置</a>
-            <a href="/posts/seo/optimize_web/" class="next" rel="next" title="网站优化">网站优化<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav">
+            <a href="/posts/linux/nginx_config/" class="next" rel="next" title="Nginx Error Page配置">Nginx Error Page配置<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

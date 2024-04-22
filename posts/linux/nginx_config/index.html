@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Go-redis高级用法 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了Go-redis高级用法."><meta property="og:title" content="Go-redis高级用法" />
-<meta property="og:description" content="这篇文章展示了Go-redis高级用法." />
+        <title>Nginx Error Page配置 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了 Nginx Error Page配置."><meta property="og:title" content="Nginx Error Page配置" />
+<meta property="og:description" content="这篇文章展示了 Nginx Error Page配置." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/posts/db/go-redis/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-03-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-17T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
+<meta property="og:url" content="https://zucczwp.github.io/posts/linux/nginx_config/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-02T10:12:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Go-redis高级用法"/>
-<meta name="twitter:description" content="这篇文章展示了Go-redis高级用法."/>
+<meta name="twitter:title" content="Nginx Error Page配置"/>
+<meta name="twitter:description" content="这篇文章展示了 Nginx Error Page配置."/>
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/db/go-redis/" /><link rel="prev" href="https://zucczwp.github.io/posts/linux/nginx_config/" /><link rel="next" href="https://zucczwp.github.io/posts/seo/optimize_web/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/linux/nginx_config/" /><link rel="prev" href="https://zucczwp.github.io/posts/linux/nginx_error_page/" /><link rel="next" href="https://zucczwp.github.io/posts/db/go-redis/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Go-redis高级用法",
+        "headline": "Nginx Error Page配置",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/zucczwp.github.io\/posts\/db\/go-redis\/"
-        },"genre": "posts","keywords": "Redis","wordcount":  907 ,
-        "url": "https:\/\/zucczwp.github.io\/posts\/db\/go-redis\/","datePublished": "2024-03-17T00:00:00+00:00","dateModified": "2024-03-17T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/zucczwp.github.io\/posts\/linux\/nginx_config\/"
+        },"genre": "posts","keywords": "Nginx","wordcount":  1013 ,
+        "url": "https:\/\/zucczwp.github.io\/posts\/linux\/nginx_config\/","datePublished": "2024-03-02T00:00:00+00:00","dateModified": "2024-03-02T10:12:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Jimi"
-            },"description": "这篇文章展示了Go-redis高级用法."
+            },"description": "这篇文章展示了 Nginx Error Page配置."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -100,11 +100,11 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Go-redis高级用法</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Nginx Error Page配置</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
-</span>&nbsp;<span class="post-category">收录于 <a href="/categories/redis/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Redis</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-17">2024-03-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 907 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/nginx/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Nginx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-02">2024-03-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1013 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -114,129 +114,105 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#开启对-cluster中-slave-node的访问">开启对 Cluster中 Slave Node的访问</a></li>
-        <li><a href="#在集群模式下使用pipeline功能">在集群模式下使用pipeline功能</a></li>
+        <li><a href="#语法">语法</a></li>
+        <li><a href="#示例">示例</a></li>
+        <li><a href="#nginx-自定义404错误页面配置中有无等号的区别">Nginx 自定义404错误页面配置中有无等号的区别</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="开启对-cluster中-slave-node的访问">开启对 Cluster中 Slave Node的访问</h3>
-<p>在一个负载比较高的Redis Cluster中，如果允许对slave节点进行读操作将极大的提高集群的吞吐能力。
-开启对Slave 节点的访问，受以下3个参数的影响</p>
-<pre tabindex="0"><code>type ClusterOptions struct {
-    ReadOnly bool
-    RouteByLatency bool
-    RouteRandomly bool
-    ... 
-}
-</code></pre><p>go-redis 选择节点的逻辑如下</p>
-<pre tabindex="0"><code>func (c *ClusterClient) cmdSlotAndNode(cmd Cmder) (int, *clusterNode, error) {
-    state, err := c.state.Get()
-    if err != nil {
-        return 0, nil, err
-    }
-
-    cmdInfo := c.cmdInfo(cmd.Name())
-    slot := cmdSlot(cmd, cmdFirstKeyPos(cmd, cmdInfo))
-
-    if c.opt.ReadOnly &amp;&amp; cmdInfo != nil &amp;&amp; cmdInfo.ReadOnly {
-        if c.opt.RouteByLatency {
-            node, err := state.slotClosestNode(slot)
-            return slot, node, err
-        }
-
-        if c.opt.RouteRandomly {
-            node := state.slotRandomNode(slot)
-            return slot, node, nil
-        }
-
-        node, err := state.slotSlaveNode(slot)
-        return slot, node, err
-    }
-
-    node, err := state.slotMasterNode(slot)
-    return slot, node, err
-}
-</code></pre><ul>
-<li>如果ReadOnly = true，只选择Slave Node</li>
-<li>如果ReadOnly = true 且 RouteByLatency = true 将从slot对应的Master Node 和 Slave Node选择，选择策略为: 选择PING 延迟最低的节点</li>
-<li>如果ReadOnly = true 且 RouteRandomly = true 将从slot对应的Master Node 和 Slave Node选择，选择策略为:随机选择</li>
-</ul>
-<h3 id="在集群模式下使用pipeline功能">在集群模式下使用pipeline功能</h3>
-<p>Redis的pipeline功能的原理是 Client通过一次性将多条redis命令发往Redis Server，减少了每条命令分别传输的IO开销。同时减少了系统调用的次数，因此提升了整体的吞吐能力。</p>
-<p>我们在主-从模式的Redis中，pipeline功能应该用的很多，但是Cluster模式下，估计还没有几个人用过。</p>
-<p>我们知道 redis cluster 默认分配了 16384 个slot，当我们set一个key 时，会用CRC16算法来取模得到所属的slot，然后将这个key 分到哈希槽区间的节点上，具体算法就是：CRC16(key) % 16384。如果我们使用pipeline功能，一个批次中包含的多条命令，每条命令涉及的key可能属于不同的slot</p>
-<p>go-redis 为了解决这个问题, 分为3步</p>
-<p>源码可以阅读 defaultProcessPipeline</p>
+            </div><div class="content" id="content"><h3 id="语法">语法</h3>
+<pre tabindex="0"><code>error_page code [ code... ] [ = | =answer-code ] uri |@named_location 
+</code></pre><h3 id="示例">示例</h3>
 <ol>
-<li>将计算command 所属的slot, 根据slot选择合适的Cluster Node</li>
-<li>将同一个Cluster Node 的所有command，放在一个批次中发送（并发操作）</li>
-<li>接收结果
+<li>作用是当发生错误的时候能够显示一个预定义的uri</li>
+</ol>
+<pre tabindex="0"><code>error_page 502 503 /50x.html;
+location = /50x.html {
+    root /usr/share/nginx/html;
+}  
+</code></pre><p>这样实际上产生了一个内部跳转(internal redirect)，当访问出现502、503的时候就能返回50x.html中的内容，这里需要注意是否可以找到50x.html页面，所以加了个location保证找到你自定义的50x页面。</p>
+<ol start="2">
+<li>同时我们也可以自己定义这种情况下的返回状态吗，比如：</li>
+</ol>
+<pre tabindex="0"><code>error_page 502 503 =200 /50x.html;
+location = /50x.html {
+    root /usr/share/nginx/html;
+} 
+</code></pre><p>这样用户访问产生502 、503的时候给用户的返回状态是200，内容是50x.html。</p>
+<ol start="3">
+<li>当error_page后面跟的不是一个静态的内容的话，比如是由proxyed server或者FastCGI/uwsgi/SCGI server处理的话，server返回的状态(200,
+302, 401 或者 404）也能返回给用户。</li>
+</ol>
+<pre tabindex="0"><code>error_page 404 = /404.php;
+location ~ \.php$ {
+    fastcgi_pass 127.0.0.1:9000;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+}  
+</code></pre><ol start="4">
+<li>也可以设置一个named location，然后在里边做对应的处理。</li>
+</ol>
+<pre tabindex="0"><code>error_page 500 502 503 504 @jump_to_error;
+location @jump_to_error {    
+    proxy_pass http://backend;
+}
+</code></pre><ol start="5">
+<li>同时也能够通过使客户端进行302、301等重定向的方式处理错误页面，默认状态码为302。</li>
+</ol>
+<pre tabindex="0"><code>error_page 403      http://example.com/forbidden.html;
+error_page 404 =301 http://example.com/notfound.html;
+</code></pre><p>同时error_page在一次请求中只能响应一次，对应的nginx有另外一个配置可以控制这个选项：recursive_error_pages
+默认为false，作用是控制error_page能否在一次请求中触发多次。</p>
+<h3 id="nginx-自定义404错误页面配置中有无等号的区别">Nginx 自定义404错误页面配置中有无等号的区别</h3>
+<p>error_page 404 /404.html 可显示自定义404页面内容，正常返回404状态码。</p>
+<p>error_page 404 = /404.html 可显示自定义404页面内容，但返回200状态码。</p>
+<p>error_page 404 /404.php 如果是动态404错误页面，包含 header 代码（例如301跳转），将无法正常执行。正常返回404代码。</p>
+<p>error_page 404 = /404.php 如果是动态404错误页面，包含 header 代码（例如301跳转），加等号配置可以正常执行，返回php中定义的状态码。但如果php中定义返回404状态码，404状态码可以正常返回，但无法显示自定义页面内容（出现系统默认404页面），这种情况可以考虑用410代码替代（ header(&ldquo;HTTP/1.1 410 Gone&rdquo;); 正常返回410状态码，且可正常显示自定义内容）。</p>
 <div class="details admonition note open">
         <div class="details-summary admonition-title">
             <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>注意<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content"><p>注意：这里go-redis 为了处理简单，每个command 只能涉及一个key, 否则你可能会收到如下错误<code>err CROSSSLOT Keys in request don't hash to the same slot</code></p>
-<p>go-redis不支持类似 MGET 命令的用法</p>
-</div>
+            <div class="admonition-content">由于在nginx配置中，设置了limit_req的流量限制，导致许多请求返回503错误代码，在限流的条件下，为提高用户体验，希望返回正常Code 200，且返回操作频繁的信息：</div>
         </div>
-    </div></li>
-</ol>
-<pre tabindex="0"><code>package main
-
-import (
-    &#34;github.com/go-redis/redis&#34;
-    &#34;fmt&#34;
-)
-
-func main() {
-    client := redis.NewClusterClient(&amp;redis.ClusterOptions{
-        Addrs: []string{&#34;192.168.120.110:6380&#34;, &#34;192.168.120.111:6380&#34;},
-        ReadOnly: true,
-        RouteRandomly: true,
-    })
-
-    pipe := client.Pipeline()
-    pipe.HGetAll(&#34;1371648200&#34;)
-    pipe.HGetAll(&#34;1371648300&#34;)
-    pipe.HGetAll(&#34;1371648400&#34;)
-    cmders, err := pipe.Exec()
-    if err != nil {
-        fmt.Println(&#34;err&#34;, err)
-    }
-    for _, cmder := range cmders {
-        cmd := cmder.(*redis.StringStringMapCmd)
-        strMap, err := cmd.Result()
-        if err != nil {
-            fmt.Println(&#34;err&#34;, err)
-        }
-        fmt.Println(&#34;strMap&#34;, strMap)
-    }
+    </div>
+<pre tabindex="0"><code>location  /test {
+  ... 
+  limit_req zone=zone_ip_rm burst=1 nodelay; 
+  error_page 503 =200 /dealwith_503?callback=$arg_callback;
+}
+location /dealwith_503{ 
+  set $ret_body &#39;{&#34;code&#34;: &#34;V00006&#34;,&#34;msg&#34;: &#34;操作太频繁了，请坐下来喝杯茶。&#34;}&#39;;
+   if ( $arg_callback != &#34;&#34; ) 
+   { 
+       return 200 &#39;try{$arg_callback($ret_body)}catch(e){}&#39;; 
+   } 
+   return 200 $ret_body; 
 }
 </code></pre></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2024-03-17</span>
+                <span>更新于 2024-03-02</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/db/go-redis/" data-title="Go-redis高级用法"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/db/go-redis/" data-title="Go-redis高级用法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/linux/nginx_config/" data-title="Nginx Error Page配置"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/linux/nginx_config/" data-title="Nginx Error Page配置"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/redis/">Redis</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/nginx/">Nginx</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/linux/nginx_config/" class="prev" rel="prev" title="Nginx Error Page配置"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Nginx Error Page配置</a>
-            <a href="/posts/seo/optimize_web/" class="next" rel="next" title="网站优化">网站优化<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/linux/nginx_error_page/" class="prev" rel="prev" title="Nginx配置"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Nginx配置</a>
+            <a href="/posts/db/go-redis/" class="next" rel="next" title="Go-redis高级用法">Go-redis高级用法<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

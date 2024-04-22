@@ -80,10 +80,10 @@
 </item>
 <item>
     <title>Nginx Error Page配置</title>
-    <link>https://zucczwp.github.io/posts/linux/nginx/</link>
+    <link>https://zucczwp.github.io/posts/linux/nginx_config/</link>
     <pubDate>Sat, 02 Mar 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/linux/nginx/</guid>
+    <guid>https://zucczwp.github.io/posts/linux/nginx_config/</guid>
     <description><![CDATA[语法 error_page code [ code... ] [ = | =answer-code ] uri |@named_location 示例 作用是当发生错误的时候能够显示一个预定义的uri error_page 502 503 /50x.html; location = /50x.html { root /usr/share/nginx/html;]]></description>
 </item>
 </channel>

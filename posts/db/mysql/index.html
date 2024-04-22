@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Mysql用法 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了Mysql用法."><meta property="og:title" content="Mysql用法" />
+<meta property="og:description" content="这篇文章展示了Mysql用法." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zucczwp.github.io/posts/db/mysql/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-02-17T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Mysql用法"/>
+<meta name="twitter:description" content="这篇文章展示了Mysql用法."/>
+<meta name="application-name" content="Jimi&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/db/mysql/" /><link rel="next" href="https://zucczwp.github.io/posts/linux/nginx_error_page/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Mysql用法",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zucczwp.github.io\/posts\/db\/mysql\/"
+        },"genre": "posts","keywords": "Mysql","wordcount":  2962 ,
+        "url": "https:\/\/zucczwp.github.io\/posts\/db\/mysql\/","datePublished": "2024-02-17T00:00:00+00:00","dateModified": "2024-02-17T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Jimi"
+            },"description": "这篇文章展示了Mysql用法."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Jimi’s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Jimi</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Jimi’s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Jimi</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Mysql用法</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Mysql</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-17">2024-02-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2962 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#导出">导出</a></li>
+        <li><a href="#索引策略">索引策略</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="导出">导出</h3>
+<pre tabindex="0"><code>mysqldump -uroot -pdbpasswd dbname test1 test2 test3&gt;db.sql
+</code></pre><h3 id="索引策略">索引策略</h3>
+<ol>
+<li>独立的列</li>
+</ol>
+<p>索引列不能是表达式的一部分，也不能是函数的参数</p>
+<ol start="2">
+<li>前缀索引和索引选择性</li>
+</ol>
+<p>索引的选择性：
+不重复的索引值和数据表的记录总数的比值，索引的选择性越高查询效率越高。</p>
+<p>对于BLOB/TEXT或者很长的VARCHAR类型的列，必须使用前缀索引。因为Mysql不允许索引这些列的完整的长度</p>
+<p>诀窍在于要选择足够长的前缀以保证较高的选择性，同时又不能太长。</p>
+<p>如何创建：</p>
+<pre tabindex="0"><code>ALTER TABLE sakila.city_demo ADD KEY (city(7));
+</code></pre><p>缺点：</p>
+<p>Mysql无法使用前缀索引做ORDER BY和GROUP BY，也无法使用前缀做覆盖扫描</p>
+<ol start="3">
+<li>多列索引</li>
+</ol>
+<p>当出现服务器对多个索引做相交操作时（通常有多个AND条件），通常意味着需要一个包含所有相关列的多列索引，而不是多个独立的单列索引</p>
+<ol start="4">
+<li>选择合适的索引列的顺序</li>
+</ol>
+<p>（适用于B-TREE索引）</p>
+<p>当不需要考虑排序和分组时，将选择性最高的列放在前面通常是很好的，这时候的索引的作用只是用于优化where条件的查找</p>
+<ol start="5">
+<li>聚簇索引</li>
+</ol>
+<p>聚簇索引并不是一种单独的索引类型，而是一种数据的存储方式</p>
+<p>优点：</p>
+<ul>
+<li>可以把相关数据保存在一起。例如实现电子邮件时，可以根据用户ID来聚集数据，这样只需要从磁盘读取少数的数据页就能获取某个用户的全部邮件。如果没有使用聚族索引，则每封邮件都可能导致一次磁盘I/O；</li>
+<li>数据访问更快。聚族索引将索引和数据保存在同一个B-Tree中，因此从聚族索引中获取数据通常比在非聚族索引中查找更快。</li>
+<li>使用覆盖索引扫描的查询可以直接使用节点中的主键值。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>
+<p>聚簇数据最大限度的提高了I/O密集型应用的性能，但如果数据全部都放在内存中，则访问的顺序就没有那么重要了，聚簇索引也就没有那么优势了；</p>
+</li>
+<li>
+<p>插入速度严重依赖于插入顺序。按照主键的顺序插入是加载数据到InnoDB表中速度最快的方式。但如果不是按照主键顺序加载数据，那么在加载完成后最好使用OPTIMIZE TABLE命令重新组织一下表。</p>
+</li>
+<li>
+<p>更新聚簇索引列的代价很高，因为会强制InnoDB将每个被更新的行移动到新的位置。</p>
+</li>
+<li></li>
+</ul>
+<p>基于聚簇索引的表在插入新行，或者主键被更新导致需要移动行的时候，可能面临“页分裂”的问题。当行的主键值要求必须将这一行插入到某个已满的页中时，存储引擎会将该页分裂成两个页面来容纳该行，这就是一次分裂操作。页分裂会导致表占用更多的磁盘空间。</p>
+<ul>
+<li>
+<p>聚簇索引可能导致全表扫描变慢，尤其是行比较稀疏，或者由于页分裂导致数据存储不连续的时候。</p>
+</li>
+<li>
+<p>二级索引（非聚簇索引）可能比想象的要更大，因为在二级索引的叶子节点包含了引用行的主键列。</p>
+</li>
+<li>
+<p>二级索引访问需要两次索引查找，而不是一次。</p>
+</li>
+</ul>
+<p>InnoDB的二级索引的叶子节点中存储的不是“行指针”。而是主键值，并以此作为指向行的“指针”。这样的策略减少了当出现行移动或者数据页分裂时二级索引的维护工作。</p>
+<p>使用InnoDB时应该尽可能的按照按键顺序插入数据，并且尽可能的使用单调增加的聚簇键的值来插入新行。</p>
+<ol start="6">
+<li>覆盖索引</li>
+</ol>
+<p>定义：</p>
+<p>如果一个索引包含所有需要查询的字段的值，我们称之为覆盖索引。</p>
+<p>优点：</p>
+<ul>
+<li>索引条目通常远小于数据行大小，所以如果只需要读取索引，那MySQL就会极大地减少数据访问量。这对缓存的负载非常重要，因为这种情况下响应时间大部分花费在数据拷贝上。覆盖索引对于I/O密集型的应用也有帮助，因为索引比数据更小，更容易全部放入内存中（这对于MyISAM尤其正确，因为MyISAM能压缩索引以变得更小）。</li>
+<li>因为索引是按照列值顺存储的（至少在单个页内是如此），所以对于I/O密集型的范围查询会比随机从磁盘读取每一行数据的I/O要少得多。对于某些存储引擎，例如MyISAM和Percona XtraDB，甚至可以通过OPTIMIZE命令使得索引完全顺序排列，这让简单的范围查询能使用完全顺序的索引访问。</li>
+<li>一些存储引擎如MyISAM在内存中只缓存索引，数据则依赖于操作系统来缓存，因此要访问数据需要一次系统调用。这可能会导致严重的性能问题，尤其是那些系统调用占了数据访问中的最大开销的场景。</li>
+<li>由于InnoDB的聚簇索引，覆盖索引对InnoDB表特别有用。InnoDB的二级索引在叶子节点中保存了行的主键值，所以如果二级主键能够覆盖查询，则可以避免对主键索引的二次查询。</li>
+</ul>
+<p>MySQL只能使用B-Tree索引做覆盖索引</p>
+<ol start="7">
+<li>使用索引扫描来做排序</li>
+</ol>
+<p>如果EXPLAIN出来的type列的值为“index”,则说明Mysql使用了索引扫描来做排序</p>
+<p>只有当索引的列顺序和ORDER BY子句的顺序完全一致，并且所有列的排序方向（倒序或正序）都一样时，MySQL才能够使用索引来对结果做排序。如果查询需要关联多张表，则只有当ORDER BY子句引用的字段全部为第一个表时，才能使用索引做排序。OEDER BY子句和查找型查询的限制是一样的：需要满足索引的最左前缀的要求；否则，MySQL都需要执行排序操作，而无法利用索引排序。</p>
+<p>有一种情况下ORDER BY子句可以不满足索引的最左前缀的要求，就是前导列为常量的时候。如果WHERE子句或者JOIN子句中对这些列制定了常量，就可以“弥补“索引的不足。</p>
+<p>即使OEDER BY子句不满足索引的最左前缀的要求，也可以用于查询排序，这是因为索引的第一列被指定为一个常数</p>
+<ol start="8">
+<li>前缀压缩索引</li>
+</ol>
+<p>MyISAM使用前缀压缩来减少索引的大小，从而让更多的索引可以放入内存，这在某些情况下能极大的提高性能。默认值压缩字符串，但通过参数设置也可以对整数做压缩。</p>
+<p>压缩使用更少的空间，待见是某些操作可能更慢。因为每个值的压缩前缀都依赖前面的值，所以MyISAM查找时无法在所言块中使用二分查找而只能从头开始扫描。正序的扫描速度还不错，但如果时倒序就是很好了。测试表明，对于cpu密集型应用，因为扫描需要随机查找，压缩索引使得MyISAM在索引查找上要慢好几倍。压缩索引的倒序扫描就更慢了。压缩索引需要在cpu内存资源与磁盘之间做平衡。压缩索引可能只需要十分之一大小的磁盘空间，如果是I/O密集型应用，对某些查询带来的好处会比成本多很多。</p>
+<p>可以在create table语句中指定PACK_KEYS参数来控制索引压缩的方式。</p>
+<ol start="9">
+<li>冗余和重复索引</li>
+</ol>
+<p>重复索引是指在相同的列上按照相同的顺序创建的相同类型的额索引。应该避免这样创建索引，发现以后也应该立即移除。</p>
+<p>如果创建了索引（A,B），再创建索引（A）就是冗余索引，因为这只是前一个索引的前缀索引。</p>
+<p>一般来说。增加索引将会导致INSERT/UODATE/DELETE等操作的速度变慢，特别是当新增索引后导致了内存瓶颈的时候</p>
+<ol start="10">
+<li>索引和锁</li>
+</ol>
+<p>索引和锁可以让查询锁定更少的行。如果你的查询从不访问那些不需要访问的行，那么就会锁定更少的行，从两个方面来看这对性能都有好处。首先，虽然innodb的行锁效率很高，内存使用也很少，但是锁定行的时候仍然会带来额外的开销，其次，锁定超过需要的行会增加锁竞争，并减少并发性。</p>
+<p>innodb只有在访问行的时候才会对其加锁，而索引能够减少innodb访问的行数，从而减少锁的数量。但只有当innodb在存储引擎能够过滤掉不需要的行时才有效。如果索引无法过滤掉无效的行，那么在innodb检索到数据并返回给服务器层以后，MySQL服务器才能应用WHERE子句。这时候，已经无法避免锁定行了：inno代表可以在服务器端过滤掉行后就释放锁，但是在早期的MySQL版本中，innodb只有在事务提交后才能释放锁。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-02-17</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/db/mysql/" data-title="Mysql用法"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/db/mysql/" data-title="Mysql用法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/mysql/">Mysql</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/posts/linux/nginx_error_page/" class="next" rel="next" title="Nginx配置">Nginx配置<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Stay Hungry,Stay Foolish</div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/ZUCCzwp/zucczwp.github.io" target="_blank">jimi</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"","algoliaIndex":"index.zh-cn","algoliaSearchKey":"","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

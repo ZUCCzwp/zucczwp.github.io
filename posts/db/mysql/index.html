@@ -18,7 +18,7 @@
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/db/mysql/" /><link rel="next" href="https://zucczwp.github.io/posts/linux/nginx_error_page/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/db/mysql/" /><link rel="prev" href="https://zucczwp.github.io/posts/db/mysql_scheme/" /><link rel="next" href="https://zucczwp.github.io/posts/linux/nginx_error_page/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zucczwp.github.io\/posts\/db\/mysql\/"
-        },"genre": "posts","keywords": "Mysql","wordcount":  2962 ,
+        },"genre": "posts","keywords": "Mysql","wordcount":  4467 ,
         "url": "https:\/\/zucczwp.github.io\/posts\/db\/mysql\/","datePublished": "2024-02-17T00:00:00+00:00","dateModified": "2024-02-17T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,8 +103,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Mysql用法</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
 </span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Mysql</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-17">2024-02-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2962 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-17">2024-02-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4467 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 9 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -116,6 +116,7 @@
       <ul>
         <li><a href="#导出">导出</a></li>
         <li><a href="#索引策略">索引策略</a></li>
+        <li><a href="#查询优化">查询优化</a></li>
       </ul>
     </li>
   </ul>
@@ -221,6 +222,34 @@
 </ol>
 <p>索引和锁可以让查询锁定更少的行。如果你的查询从不访问那些不需要访问的行，那么就会锁定更少的行，从两个方面来看这对性能都有好处。首先，虽然innodb的行锁效率很高，内存使用也很少，但是锁定行的时候仍然会带来额外的开销，其次，锁定超过需要的行会增加锁竞争，并减少并发性。</p>
 <p>innodb只有在访问行的时候才会对其加锁，而索引能够减少innodb访问的行数，从而减少锁的数量。但只有当innodb在存储引擎能够过滤掉不需要的行时才有效。如果索引无法过滤掉无效的行，那么在innodb检索到数据并返回给服务器层以后，MySQL服务器才能应用WHERE子句。这时候，已经无法避免锁定行了：inno代表可以在服务器端过滤掉行后就释放锁，但是在早期的MySQL版本中，innodb只有在事务提交后才能释放锁。</p>
+<h3 id="查询优化">查询优化</h3>
+<h4 id="优化数据访问">优化数据访问</h4>
+<p>是否向数据库请求了不需要的数据</p>
+<ul>
+<li>查询不需要的记录：加limit</li>
+<li>多表关联时返回全部列</li>
+<li>总是取出全部列</li>
+<li>重复查询相同的数据：做数据缓存</li>
+</ul>
+<h4 id="查询执行的基础">查询执行的基础</h4>
+<ul>
+<li>客户端发送一条查询给服务器。</li>
+<li>服务器先检查查询缓存，如果命中缓存，则立刻返回存储在缓存中的记过。否则进入下一阶段。</li>
+<li>服务器进行SQL解析，预处理，再由优化器生成对应的执行计划。</li>
+<li>MYSQL根据优化器生成的执行计划，调用存储引擎的API来执行查询。</li>
+<li>将结果返回给客户端。</li>
+</ul>
+<h4 id="mysql客户端和服务器之间的通信协议">mysql客户端和服务器之间的通信协议</h4>
+<p>是“半双工”的，这意味着，在任何一个时刻要么是由服务器向客户端发送数据，要么是由客户端向服务器发送数据，这两个动作不能懂事发生。所以我们也无需将一个消息切成小块独立来发送。</p>
+<p>这种协议让mysql通信简单快速，但也从很多地方限制了mysql。一个明显的限制是，这意味着没法进行流量控制。一旦一段开始发生消息，另一端要接受完整个消息才能响应它。这就像是来回抛球的游戏：在任何时刻，只有一个人能够控制球，而且只有控制球的人才能将消息抛回去（发送消息）。</p>
+<p>客户端用一个单独的数据包将查询传给服务器。这也是为什么当查询语句很长的时候，参数max_allowed_packet就非常重要了。一旦客户端发送了请求，它能做的事情就只是等待结果了。</p>
+<p>相反的，一般服务器响应给用户的数据通常很多，由多个数据包组成。当服务器开始响应客户端请求时，客户端必须完整地接受整个返回结果，而不能简单地只取前几条结果，然后让服务器停止发送数据。这种情况下，客户端若接受完整的结果，然后取前面几条需要的结果，或者接收完几调结果后就粗暴地断开链接，都不是好主意。这也是在必要的时候一定要在查询中加上limit限制的原因。</p>
+<p>换一种方式解释这种行为：当客户端从服务器取数据时，看起来是一个拉数据的过程，但实际上是mysql在向客户端推送数据的过程。客户端不断地接收从服务器推送的数据，客户端也没法让服务器停下来。客户端像是“从消防水管喝水”。</p>
+<p>多少连接mysql的库函数都可以获得全部结果集并缓存到内存里，还可以朱行获取需要的数据。默认一般是获得全部结果集并缓存在内存中。mysql通常需要等所有的数据都已经发送给客户端才能释放这条查询所占用的资源，所以接受全部结果并缓存通常可以减少服务器的压力，让查询能够早点结束、早点释放相应资源。</p>
+<p>当使用多数链接mysql的库函数从mysql获取数据时，其结果看起来都像是从mysql服务器获取数据，二实际上都是从这个库函数的缓存获取数据。多数情况下没什么问题，但是如果需要范湖一个很大的结果集的时候，这样做并不好，因为库函数会花很多时间和内存来存储所有的结果集。如果能够尽早开始处理这些结果集，就能大大减少内存的消耗，这种情况下可以不适用缓存来记录结果而是直接处理。这样做的缺点是，对于服务器来说需要查询完成后才能释放资源，所以在客户端交互的整个过程中，服务器的资源都是被这个查询锁占用的。</p>
+<h4 id="查询缓存">查询缓存</h4>
+<p>在解析一个查询语句之前，如果查询缓存是打开的，那么mysql会优先检查这个查询是否命中查询缓存中的数据。这个检查是通过一个对大小写敏感的哈希查找实现的。查询和缓存中的查询即使只是一个字节不同，那也不会匹配缓存结果，这种情况下查询就会进入下一阶段的处理。</p>
+<p>如果当前的查询恰好命中了查询缓存，那么在返回查询结果之前mysql会检查一次用户权限。这仍然是无需解析查询SQL语句的，因为在查询缓存中已经存放了当前查询需要访问的表信息。如果权限没有问题，mysql会跳过所有其他阶段，直接从缓存中拿到结果并返回给客户端。这种情况下，查询不会被解析，不用生成执行计划，不会被执行。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -242,7 +271,7 @@
         </section>
     </div>
 
-    <div class="post-nav">
+    <div class="post-nav"><a href="/posts/db/mysql_scheme/" class="prev" rel="prev" title="Mysql Scheme"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Mysql Scheme</a>
             <a href="/posts/linux/nginx_error_page/" class="next" rel="next" title="Nginx配置">Nginx配置<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>

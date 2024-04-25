@@ -29,6 +29,14 @@
     <description><![CDATA[修改最大连接数 通过命令 使用数据库提供 SQL语句 set GLOBAL max_connections=100; show variables like &#34;max_connections&#34;; 及时生效，不需要重启服务，确保使用 roo]]></description>
 </item>
 <item>
+    <title>Mysql DDL</title>
+    <link>https://zucczwp.github.io/posts/db/mysql_ddl/</link>
+    <pubDate>Wed, 14 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/db/mysql_ddl/</guid>
+    <description><![CDATA[基本语法 对数据库进行定义 create Database nba; drop Database nba; 对数据表进行定义 create table table_name; 数据库约束 主键约束 作用： 唯一标识一条记录，]]></description>
+</item>
+<item>
     <title>Mysql Scheme</title>
     <link>https://zucczwp.github.io/posts/db/mysql_scheme/</link>
     <pubDate>Thu, 08 Feb 2024 00:00:00 &#43;0000</pubDate>

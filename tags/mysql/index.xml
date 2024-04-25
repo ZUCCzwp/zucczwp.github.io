@@ -10,7 +10,7 @@
     <pubDate>Sat, 17 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/posts/db/mysql/</guid>
-    <description><![CDATA[导出 mysqldump -uroot -pdbpasswd dbname test1 test2 test3&gt;db.sql 索引策略 独立的列 索引列不能是表达式的一部分，也不能是函数的参数 前缀索引和索引选择性]]></description>
+    <description><![CDATA[导出 mysqldump -uroot -pdbpasswd dbname test1 test2 test3&gt;db.sql 合并 表达式 COALESCE是一个函数， (expression_1, expression_2, &hellip;,expression_]]></description>
 </item>
 <item>
     <title>Mysql Scheme</title>

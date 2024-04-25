@@ -13,6 +13,14 @@
     <description><![CDATA[导出 mysqldump -uroot -pdbpasswd dbname test1 test2 test3&gt;db.sql 合并 表达式 COALESCE是一个函数， (expression_1, expression_2, &hellip;,expression_]]></description>
 </item>
 <item>
+    <title>Mysql查询优化</title>
+    <link>https://zucczwp.github.io/posts/db/mysql_optimize/</link>
+    <pubDate>Fri, 16 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/db/mysql_optimize/</guid>
+    <description><![CDATA[查询分页数据方法 使用数据库提供 SQL语句 select * from table_name limit 0,5 语句样式： MySQL中,可用如下方法: SELECT * FROM 表名]]></description>
+</item>
+<item>
     <title>Mysql Scheme</title>
     <link>https://zucczwp.github.io/posts/db/mysql_scheme/</link>
     <pubDate>Thu, 08 Feb 2024 00:00:00 &#43;0000</pubDate>

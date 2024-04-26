@@ -37,6 +37,30 @@
     <description><![CDATA[基本语法 对数据库进行定义 create Database nba; drop Database nba; 对数据表进行定义 create table table_name; 数据库约束 主键约束 作用： 唯一标识一条记录，]]></description>
 </item>
 <item>
+    <title>Mysql查询</title>
+    <link>https://zucczwp.github.io/posts/db/mysql_select/</link>
+    <pubDate>Wed, 14 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/db/mysql_select/</guid>
+    <description><![CDATA[查询顺序 关键字顺序不能颠倒 select ...from...where...group by...having select语句执行顺序 from &gt; where &gt; group by &gt; having &gt; select的字段 &gt; dist 数据]]></description>
+</item>
+<item>
+    <title>Mysql Procedure</title>
+    <link>https://zucczwp.github.io/posts/db/mysql_procedure/</link>
+    <pubDate>Tue, 13 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/db/mysql_procedure/</guid>
+    <description><![CDATA[基本语法 创建存储过程 Create Procedure name BEGIN 执行语句 END 更新存储过程 Alter Procedure name BEGIN 执行语句 END 删除存储过程 Drop Procedure name 参数类型 参数类]]></description>
+</item>
+<item>
+    <title>Mysql事务</title>
+    <link>https://zucczwp.github.io/posts/db/mysql_transaction/</link>
+    <pubDate>Tue, 13 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/db/mysql_transaction/</guid>
+    <description><![CDATA[ACID原则 A原子性 数据处理操作的基本单位 C一致性 当事务提交后，或者当事务发生回滚后，数据库的完整性]]></description>
+</item>
+<item>
     <title>Mysql Scheme</title>
     <link>https://zucczwp.github.io/posts/db/mysql_scheme/</link>
     <pubDate>Thu, 08 Feb 2024 00:00:00 &#43;0000</pubDate>

@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Mysql Scheme - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了Mysql Scheme内容."><meta property="og:title" content="Mysql Scheme" />
-<meta property="og:description" content="这篇文章展示了Mysql Scheme内容." />
+        <title>Mysql Procedure - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了Mysql Procedure."><meta property="og:title" content="Mysql Procedure" />
+<meta property="og:description" content="这篇文章展示了Mysql Procedure." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/posts/db/mysql_scheme/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-02-08T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-02-08T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
+<meta property="og:url" content="https://zucczwp.github.io/posts/db/mysql_procedure/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-02-13T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Mysql Scheme"/>
-<meta name="twitter:description" content="这篇文章展示了Mysql Scheme内容."/>
+<meta name="twitter:title" content="Mysql Procedure"/>
+<meta name="twitter:description" content="这篇文章展示了Mysql Procedure."/>
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/db/mysql_scheme/" /><link rel="next" href="https://zucczwp.github.io/posts/data/struct/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/db/mysql_procedure/" /><link rel="prev" href="https://zucczwp.github.io/posts/db/mysql_transaction/" /><link rel="next" href="https://zucczwp.github.io/posts/db/mysql_select/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Mysql Scheme",
+        "headline": "Mysql Procedure",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/zucczwp.github.io\/posts\/db\/mysql_scheme\/"
-        },"genre": "posts","keywords": "Mysql","wordcount":  733 ,
-        "url": "https:\/\/zucczwp.github.io\/posts\/db\/mysql_scheme\/","datePublished": "2024-02-08T00:00:00+00:00","dateModified": "2024-02-08T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/zucczwp.github.io\/posts\/db\/mysql_procedure\/"
+        },"genre": "posts","keywords": "Mysql","wordcount":  259 ,
+        "url": "https:\/\/zucczwp.github.io\/posts\/db\/mysql_procedure\/","datePublished": "2024-02-13T00:00:00+00:00","dateModified": "2024-02-13T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Jimi"
-            },"description": "这篇文章展示了Mysql Scheme内容."
+            },"description": "这篇文章展示了Mysql Procedure."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -100,11 +100,11 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Mysql Scheme</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Mysql Procedure</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
 </span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Mysql</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-08">2024-02-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 733 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-13">2024-02-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 259 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -114,34 +114,88 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#选择优化的数据类型">选择优化的数据类型</a></li>
+        <li><a href="#基本语法">基本语法</a></li>
+        <li><a href="#参数类型">参数类型</a></li>
+        <li><a href="#流控制语句">流控制语句</a></li>
+        <li><a href="#优缺点">优缺点</a></li>
+        <li><a href="#缺点">缺点</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="选择优化的数据类型">选择优化的数据类型</h3>
-<h4 id="字符串类型">字符串类型</h4>
-<p>VARCHAR类型用于存储可变长的字符串，所以它需要1或2个额外的字节记录字符串的长度：如果列的长度小于或等于255个字节，则只使用1个字节表示，否则使用2个字节表示。例如varchar(10)就需要11个字节，varchar(1000)则需要1002个字节。</p>
-<p>VARCHAR节省了存储空间，所以对性能有所帮助。但由于行是变长的，在UPDATE时可能是原来的行更长，这就会导致需要做一些额外的工作。如果一个行占用的空间曾长，并且在页内没有更多的空间可以存储，这是INNODB就会分裂当前页来使行可以放进页内。</p>
-<p>下面这些情况使用VARCHAR是合适的：</p>
+            </div><div class="content" id="content"><h3 id="基本语法">基本语法</h3>
+<h4 id="创建存储过程">创建存储过程</h4>
+<pre tabindex="0"><code>Create Procedure name
+BEGIN
+  执行语句
+END
+</code></pre><h4 id="更新存储过程">更新存储过程</h4>
+<pre tabindex="0"><code>Alter Procedure name
+BEGIN
+  执行语句
+END
+</code></pre><h4 id="删除存储过程">删除存储过程</h4>
+<pre tabindex="0"><code>Drop Procedure name
+</code></pre><h3 id="参数类型">参数类型</h3>
+<table>
+<thead>
+<tr>
+<th>参数类型</th>
+<th>是否返回</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Out</td>
+<td>是</td>
+</tr>
+<tr>
+<td>InOut</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<h3 id="流控制语句">流控制语句</h3>
+<ol>
+<li>BEGIN &hellip; END 语句</li>
+<li>DECLARE 声明变量</li>
+<li>SET 赋值语句</li>
+<li>SELECT &hellip; INTO 为变量赋值</li>
+<li>IF&hellip;THEN&hellip;ENDIF 条件判断语句</li>
+<li>CASE多条件判断语句</li>
+<li>LOOP、 LEAVE和 ITERATE：LOOP循环语句，使用LEAVE可以跳出循环，使用ITERATE则可以进入下一次循环</li>
+<li>REPEAT&hellip;UNTIL&hellip;END REPEAT：循环语句</li>
+<li>WHILE&hellip;DO&hellip;END WHILE：循环语句</li>
+</ol>
+<h3 id="优缺点">优缺点</h3>
+<h4 id="优点">优点</h4>
 <ul>
-<li>字符串列的最大长度比平均长度大很多</li>
-<li>列的更新很少</li>
-<li>使用了UTF-8这样的字符集，每个字符都是用不同的字节存储</li>
+<li>一次编译多次使用</li>
+<li>提升 SQL的执行效率，减少开发工作量</li>
+<li>安全性强</li>
+<li>减少网络传输量</li>
 </ul>
-<p>CHAR类型是定长的：MySQL总是根据定义字符串的长度分配足够空间。因为CHAR会根据需要采用空格填充到字符串末尾，而且当你检索时，CHAR会删除末尾的空格。所以会有一个很有趣的事情发生，当你存储一个&quot;Johnson  &ldquo;到char(10)时，检索出来的结果却是&quot;Johnson&rdquo;，因为MySQL并不知道这空格是你存的还是系统自动填充的。</p>
-<p>CHAR很适合存储很短的字符串或所有值都接近同一个长度。例如密码的MD5值。</p>
-<p>BLOB和TEXT都是为了存储很大的数据类型而设计的字符串数据类型，分别采用二进制和字符方式存储。而且当它们存储的数据过大时，INNOSB会使用专门的‘外部’空间来存储数据，此时每个值的行内仅存储一个1 ～ 4个字节的指针，然后在外部区域存储真实的指。当需要对BLOB和TEXT排序时，它只对每个列的最前 max_sort_length 进行排序。这个值是可以配置的。</p>
+<h3 id="缺点">缺点</h3>
+<ul>
+<li>可移植性差</li>
+<li>调试困难</li>
+<li>版本管理困难</li>
+<li>不适合高并发的场景</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2024-02-08</span>
+                <span>更新于 2024-02-13</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/db/mysql_scheme/" data-title="Mysql Scheme"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/db/mysql_scheme/" data-title="Mysql Scheme"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/db/mysql_procedure/" data-title="Mysql Procedure"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/db/mysql_procedure/" data-title="Mysql Procedure"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -153,8 +207,8 @@
         </section>
     </div>
 
-    <div class="post-nav">
-            <a href="/posts/data/struct/" class="next" rel="next" title="数据结构">数据结构<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/db/mysql_transaction/" class="prev" rel="prev" title="Mysql事务"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Mysql事务</a>
+            <a href="/posts/db/mysql_select/" class="next" rel="next" title="Mysql查询">Mysql查询<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

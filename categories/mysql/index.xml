@@ -68,5 +68,13 @@
     <guid>https://zucczwp.github.io/posts/db/mysql_scheme/</guid>
     <description><![CDATA[选择优化的数据类型 字符串类型 VARCHAR类型用于存储可变长的字符串，所以它需要1或2个额外的字节记]]></description>
 </item>
+<item>
+    <title>Mysql架构</title>
+    <link>https://zucczwp.github.io/posts/db/mysql_prepare/</link>
+    <pubDate>Thu, 11 Jan 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/db/mysql_prepare/</guid>
+    <description><![CDATA[数据库架构与 SQL执行过程 &ndash;&gt;连接器&ndash;&gt;语法分析器&ndash;]]></description>
+</item>
 </channel>
 </rss>

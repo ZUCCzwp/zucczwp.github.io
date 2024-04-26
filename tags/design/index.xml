@@ -1,0 +1,32 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Design - 标签 - Jimi’s Blog</title>
+        <link>https://zucczwp.github.io/tags/design/</link>
+        <description>Design - 标签 - Jimi’s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 14 Jan 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/design/" rel="self" type="application/rss+xml" /><item>
+    <title>软件建模</title>
+    <link>https://zucczwp.github.io/posts/design/modeling/</link>
+    <pubDate>Sun, 14 Jan 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/design/modeling/</guid>
+    <description><![CDATA[软件建模 模型是对客观存在的抽象 抽象表达事务的本质规律 把握事物的本质规律和主要特征,正确建造模型和使用]]></description>
+</item>
+<item>
+    <title>软件设计文档</title>
+    <link>https://zucczwp.github.io/posts/design/doc/</link>
+    <pubDate>Sat, 13 Jan 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/design/doc/</guid>
+    <description><![CDATA[类图 类之间有 6 种静态关系:关联、依赖、组合、聚合、继承、泛化。 序列图 序列图则用来描述参与者之间的动态]]></description>
+</item>
+<item>
+    <title>软件设计原则</title>
+    <link>https://zucczwp.github.io/posts/design/mod/</link>
+    <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/design/mod/</guid>
+    <description><![CDATA[糟糕的设计 僵化性 软件代码之间耦合严重,难以改动,任何微小的改动都会引起更大范围的改动。 脆弱性 微小的改]]></description>
+</item>
+</channel>
+</rss>

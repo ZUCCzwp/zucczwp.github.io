@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Network - 分类 - Jimi’s Blog</title>
+        <link>https://zucczwp.github.io/categories/network/</link>
+        <description>Network - 分类 - Jimi’s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 10 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/network/" rel="self" type="application/rss+xml" /><item>
+    <title>网络编程</title>
+    <link>https://zucczwp.github.io/posts/network/programma/</link>
+    <pubDate>Sat, 10 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/network/programma/</guid>
+    <description><![CDATA[DNS 构成互联网 Internet 的最基本的网络协议就是互联网协议 InternetProtocol,简称 IP 协议。 事实上这]]></description>
+</item>
+</channel>
+</rss>

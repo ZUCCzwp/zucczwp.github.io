@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>数据结构 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了数据结构."><meta property="og:title" content="数据结构" />
-<meta property="og:description" content="这篇文章展示了数据结构." />
+        <title>文件系统 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了文件系统相关知识."><meta property="og:title" content="文件系统" />
+<meta property="og:description" content="这篇文章展示了文件系统相关知识." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/posts/data/struct/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-02-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-02-11T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
+<meta property="og:url" content="https://zucczwp.github.io/posts/file/system/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-02-09T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
 
-<meta name="twitter:title" content="数据结构"/>
-<meta name="twitter:description" content="这篇文章展示了数据结构."/>
+<meta name="twitter:title" content="文件系统"/>
+<meta name="twitter:description" content="这篇文章展示了文件系统相关知识."/>
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/data/struct/" /><link rel="prev" href="https://zucczwp.github.io/posts/network/programma/" /><link rel="next" href="https://zucczwp.github.io/posts/db/mysql_transaction/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/file/system/" /><link rel="prev" href="https://zucczwp.github.io/posts/db/mysql_scheme/" /><link rel="next" href="https://zucczwp.github.io/posts/network/programma/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "数据结构",
+        "headline": "文件系统",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/zucczwp.github.io\/posts\/data\/struct\/"
-        },"genre": "posts","keywords": "Data","wordcount":  671 ,
-        "url": "https:\/\/zucczwp.github.io\/posts\/data\/struct\/","datePublished": "2024-02-11T00:00:00+00:00","dateModified": "2024-02-11T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/zucczwp.github.io\/posts\/file\/system\/"
+        },"genre": "posts","keywords": "File","wordcount":  794 ,
+        "url": "https:\/\/zucczwp.github.io\/posts\/file\/system\/","datePublished": "2024-02-09T00:00:00+00:00","dateModified": "2024-02-09T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Jimi"
-            },"description": "这篇文章展示了数据结构."
+            },"description": "这篇文章展示了文件系统相关知识."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -100,10 +100,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">数据结构</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">文件系统</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
-</span>&nbsp;<span class="post-category">收录于 <a href="/categories/data/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Data</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-11">2024-02-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 671 字&nbsp;
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/file/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>File</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-09">2024-02-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 794 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -114,59 +114,50 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#数组">数组</a></li>
-        <li><a href="#链表">链表</a></li>
-        <li><a href="#栈">栈</a></li>
-        <li><a href="#hash表">hash表</a></li>
-        <li><a href="#队列">队列</a></li>
-        <li><a href="#树">树</a></li>
+        <li><a href="#硬盘">硬盘</a></li>
+        <li><a href="#文件系统">文件系统</a></li>
+        <li><a href="#raid">RAID</a></li>
+        <li><a href="#分布式文件系统">分布式文件系统</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="数组">数组</h3>
-<p>数组是最常用的数据结构,创建数组必须要内存中一块连续的空间,并且数组中必须存放相同的数据类型</p>
-<p>随机快速读写是数组的一个重要特性,但是要随机访问数据,必须知道数据在数组中的下标。如果我们只是知道数据的值,想要在数组中找到这个值,那么就只能遍历整个数组,时间复杂度为 O(N)</p>
-<h3 id="链表">链表</h3>
-<p>链表可以使用零散的内存空间存储数据。</p>
-<p>链表中的每个数据元素都必须包含一个指向下一个数据元素的内存地址指针。</p>
-<p>因为链表是不连续存储的,要想在链表中查找一个数据,只能遍历链表,所以链表的查找复杂度总是 O(N)。</p>
-<p>在链表中插入或者删除一个数据是非常容易的,只要找到要插入(删除)的位置,修改链表指针就可以了。</p>
-<h3 id="栈">栈</h3>
-<p>栈就是在线性表的基础上加了这样的操作限制条件:后面添加的数据,在删除的时候必须先删除,即通常所说的“后进先出”</p>
-<p>栈在线性表的基础上增加了操作限制,具体实现的时候,因为栈不需要随机访问、也不需要在中间添加、删除数据,所以可以用数组实现,也可以用链表实现。</p>
-<h3 id="hash表">hash表</h3>
-<p>Hash 表中数据以 Key、Value 的方式存储</p>
-<p>Hash 表的物理存储其实是一个数组,如果我们能够根据 Key 计算出数组下标,那么就可以快速在数组中查找到需要的 Key 和 Value。</p>
-<p>不同的 Key 有可能计算得到相同的数组下标,这就是所谓的 Hash 冲突,解决 Hash 冲突常用的方法是链表法。</p>
-<p>因为数组要求存储固定数据类型,主要目的是每个数组元素中要存放固定长度的数据。</p>
-<p>所以,数组中存储的是 Key、Value 数据元素的地址指针。一旦发生 Hash 冲突,只需要将相同下标,不同 Key 的数据元素添加到这个链表就可以了。查找的时候再遍历这个链表, 匹配正确的 Key。</p>
-<h3 id="队列">队列</h3>
-<p>队列是先进先出</p>
-<h3 id="树">树</h3>
+            </div><div class="content" id="content"><h3 id="硬盘">硬盘</h3>
+<p>硬盘是一种可持久保存、多次读写数据的存储介质</p>
+<p>机械式硬盘的数据就存储在具有磁性特质的盘片上,因此这种硬盘也被称为磁盘</p>
+<p>固态硬盘则没有这种磁性特质的存储介质,也没有电机驱动的机械式结构</p>
+<h3 id="文件系统">文件系统</h3>
+<p>inode 中记录着文件权限、所有者、修改时间和文件大小等文件属性信息,以及文件数据块硬盘地址索引。inode 是固定结构的,能够记录的硬盘地址索引数也是固定的,只有 15 个索引。其中前 12 个索引直接记录数据块地址,第 13 个索引记录索引地址,也就是说, 索引块指向的硬盘数据块并不直接记录文件数据,而是记录文件数据块的索引表,每个索引表可以记录 256 个索引;第 14 个索引记录二级索引地址,第 15 个索引记录三级索引地址</p>
+<h3 id="raid">RAID</h3>
+<p>RAID,即独立硬盘冗余阵列,将多块硬盘通过硬件 RAID 卡或者软件 RAID 的方案管理起来,使其共同对外提供服务。</p>
+<p>常用 RAID 有五种,分别是 RAID 0、RAID 1、RAID 10、RAID 5 和 RAID 6。</p>
+<h3 id="分布式文件系统">分布式文件系统</h3>
+<p>DataNode 负责文件数据的存储和读写操作,HDFS 将文件数据分割成若干数据块(Block),每个 DataNode 存储一部分数据块,这样文件就分布存储在整个 HDFS 服务器集群中。</p>
+<p>NameNode 负责整个分布式文件系统的元数据(MetaData)管理,也就是文件路径名、访问权限、数据块的 ID 以及存储位置等信息,相当于 Linux 系统中 inode 的角色。HDFS 为了保证数据的高可用,会将一个数据块复制为多份(缺省情况为3份),并将多份相同的数据块存储在不同的服务器上,甚至不同的机架上。这样当有硬盘损坏,或者某个 DataNode 服务器宕机,甚至某个交换机宕机,导致其存储的数据块不能访问的时候,客户端会查找其备份的数据块进行访问。</p>
+<p>DFS为了保证数据的高可用,会将一个数据块复制为多份(缺省情况为3份),并将多份相同的数据块存储在不同的服务器上,甚至不同的机架上。这样当有硬盘损坏,或者某个DataNode服务器宕机,甚至某个交换机宕机,导致其存储的数据块不能访问的时候,客户端会查找其备份的数据块进行访问。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2024-02-11</span>
+                <span>更新于 2024-02-09</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/data/struct/" data-title="数据结构"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/data/struct/" data-title="数据结构"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/file/system/" data-title="文件系统"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/file/system/" data-title="文件系统"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/data/">Data</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/file/">File</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/network/programma/" class="prev" rel="prev" title="网络编程"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>网络编程</a>
-            <a href="/posts/db/mysql_transaction/" class="next" rel="next" title="Mysql事务">Mysql事务<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/db/mysql_scheme/" class="prev" rel="prev" title="Mysql Scheme"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Mysql Scheme</a>
+            <a href="/posts/network/programma/" class="next" rel="next" title="网络编程">网络编程<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

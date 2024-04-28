@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>rwmutex用法 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了rwmutex用法"><meta property="og:title" content="rwmutex用法" />
-<meta property="og:description" content="这篇文章展示了rwmutex用法" />
+        <title>channel用法 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了channel用法"><meta property="og:title" content="channel用法" />
+<meta property="og:description" content="这篇文章展示了channel用法" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/posts/go/rwmutex/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://zucczwp.github.io/posts/go/channel/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-01-12T00:00:00+00:00" />
 <meta property="article:modified_time" content="2024-01-12T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
 
-<meta name="twitter:title" content="rwmutex用法"/>
-<meta name="twitter:description" content="这篇文章展示了rwmutex用法"/>
+<meta name="twitter:title" content="channel用法"/>
+<meta name="twitter:description" content="这篇文章展示了channel用法"/>
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/go/rwmutex/" /><link rel="prev" href="https://zucczwp.github.io/posts/design/mod/" /><link rel="next" href="https://zucczwp.github.io/posts/go/cond/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/posts/go/channel/" /><link rel="prev" href="https://zucczwp.github.io/posts/go/cond/" /><link rel="next" href="https://zucczwp.github.io/posts/design/doc/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "rwmutex用法",
+        "headline": "channel用法",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/zucczwp.github.io\/posts\/go\/rwmutex\/"
-        },"genre": "posts","keywords": "Go","wordcount":  889 ,
-        "url": "https:\/\/zucczwp.github.io\/posts\/go\/rwmutex\/","datePublished": "2024-01-12T00:00:00+00:00","dateModified": "2024-01-12T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/zucczwp.github.io\/posts\/go\/channel\/"
+        },"genre": "posts","keywords": "Go","wordcount":  1545 ,
+        "url": "https:\/\/zucczwp.github.io\/posts\/go\/channel\/","datePublished": "2024-01-12T00:00:00+00:00","dateModified": "2024-01-12T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Jimi"
-            },"description": "这篇文章展示了rwmutex用法"
+            },"description": "这篇文章展示了channel用法"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -100,11 +100,11 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">rwmutex用法</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">channel用法</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
 </span>&nbsp;<span class="post-category">收录于 <a href="/categories/go/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Go</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-01-12">2024-01-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 889 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-01-12">2024-01-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1545 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -114,210 +114,147 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#什么是rwmutex">什么是RWMutex？</a></li>
+        <li><a href="#channel的应用场景">channel的应用场景</a></li>
+        <li><a href="#channel的基本用法">channel的基本用法</a></li>
+        <li><a href="#实现原理">实现原理</a></li>
+        <li><a href="#容易犯的错误">容易犯的错误</a></li>
+        <li><a href="#选择方法">选择方法</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="什么是rwmutex">什么是RWMutex？</h3>
-<h4 id="方法">方法：</h4>
-<p>Lock/Unlock：写操作时调用的方法</p>
-<p>RLock/RUnlock：读操作时调用的方法</p>
-<p>RLocker：为读操作返回一个Locker接口的对象</p>
-<pre tabindex="0"><code>package main
-
-import (
-	&#34;sync&#34;
-	&#34;time&#34;
-)
-
-type Counter struct {
-	mu    sync.RWMutex
-	count uint64
-}
-
-func (c *Counter) Incr() {
-	c.mu.Lock()
-	c.count++
-	c.mu.Unlock()
-}
-
-func (c *Counter) Value() uint64 {
-	c.mu.RLock()
-	defer c.mu.RUnlock()
-	return c.count
-}
-
-func main() {
-	var counter Counter
-	for i := 0; i &lt; 10; i++ {
-		go func() {
-			for {
-				counter.Value()
-				time.Sleep(time.Millisecond)
-			}
-		}()
-	}
-
-	for {
-		counter.Incr()
-		time.Sleep(time.Millisecond)
-	}
-}
-</code></pre><h4 id="应用场景">应用场景</h4>
-<p>如果你遇到可以明确区分 reader 和 writer goroutine 的场景，且有大量的并发读、少量的并发写，并且有强烈的性能需求，你就可以考虑使用读写锁 RWMutex 替换 Mutex。</p>
-<h4 id="实现原理">实现原理</h4>
-<p>readers-writers问题分为三类：</p>
+            </div><div class="content" id="content"><p>CSP 允许使用进程组件来描述系统，它们独立运行，并且只通过消息传递的方式通信</p>
+<h3 id="channel的应用场景">channel的应用场景</h3>
+<p>执行业务处理的 goroutine 不要通过共享内存的方式通信，而是要通过 Channel 通信的方式分享数据
+五种类型：</p>
+<ol>
+<li>数据交流</li>
+<li>数据传递</li>
+<li>信号通知</li>
+<li>任务编排</li>
+<li>锁</li>
+</ol>
+<h3 id="channel的基本用法">channel的基本用法</h3>
+<p>只能接收、只能发送、既可以接收又可以发送三种类型</p>
 <ul>
-<li>Read-preferring</li>
-<li>Write-preferring</li>
-<li>不指定优先级</li>
+<li>发送数据</li>
 </ul>
-<p>Go 标准库中的 RWMutex 设计是 Write-preferring 方案。一个正在阻塞的 Lock 调用会排除新的 reader 请求到锁</p>
-<h4 id="实现">实现</h4>
-<p>RLock/RUnlock实现</p>
-<pre tabindex="0"><code>func (rw *RWMutex) RLock() {
-	if race.Enabled {
-		_ = rw.w.state
-		race.Disable()
-	}
-	if rw.readerCount.Add(1) &lt; 0 {
-		// A writer is pending, wait for it.
-		runtime_SemacquireRWMutexR(&amp;rw.readerSem, false, 0)
-	}
-	if race.Enabled {
-		race.Enable()
-		race.Acquire(unsafe.Pointer(&amp;rw.readerSem))
-	}
-}
-....
-func (rw *RWMutex) RUnlock() {
-    if race.Enabled {
-        _ = rw.w.state
-        race.ReleaseMerge(unsafe.Pointer(&amp;rw.writerSem))
-        race.Disable()
+<pre tabindex="0"><code>ch &lt;- 2000
+</code></pre><ul>
+<li>接收数据</li>
+</ul>
+<pre tabindex="0"><code>x := &lt;-ch //把接收的一条数据赋值给变量x
+foo(&lt;-ch) //把接收的一个数据作为参数传给函数
+&lt;-ch //丢弃接收的一条数据
+</code></pre><ul>
+<li>其他操作</li>
+</ul>
+<p>send和recv都可以作为select语句的case clause</p>
+<p>可以用于for-range语句中</p>
+<h3 id="实现原理">实现原理</h3>
+<p>数据结构</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/channel.png"
+        data-srcset="/images/channel.png, /images/channel.png 1.5x, /images/channel.png 2x"
+        data-sizes="auto"
+        alt="/images/channel.png"
+        title="channel.png" width="479" height="461" /></p>
+<ul>
+<li>qcount：代表 chan 中已经接收但还没被取走的元素的个数。内建函数 len 可以返回这个字段的值。</li>
+<li>dataqsiz：队列的大小。chan 使用一个循环队列来存放元素，循环队列很适合这种生产者 - 消费者的场景（我很好奇为什么这个字段省略 size 中的 e）。</li>
+<li>buf：存放元素的循环队列的 buffer。</li>
+<li>elemtype 和 elemsize：chan 中元素的类型和 size。因为 chan 一旦声明，它的元素类型是固定的，即普通类型或者指针类型，所以元素大小也是固定的</li>
+<li>sendx：处理发送数据的指针在 buf 中的位置。一旦接收了新的数据，指针就会加上elemsize，移向下一个位置。buf 的总大小是 elemsize 的整数倍，而且 buf 是一个循环列表。</li>
+<li>recvx：处理接收请求时的指针在 buf 中的位置。一旦取出数据，此指针会移动到下一个位置。</li>
+<li>recvq：chan 是多生产者多消费者的模式，如果消费者因为没有数据可读而被阻塞了，就会被加入到 recvq 队列中。</li>
+<li>sendq：如果生产者因为 buf 满了而阻塞，会被加入到 sendq 队列</li>
+</ul>
+<p>初始化</p>
+<p>Go 在编译的时候，会根据容量的大小选择调用 makechan64，还是 makechan。</p>
+<p>我们只关注 makechan 就好了，因为 makechan64 只是做了 size 检查，底层还是调用makechan 实现的。makechan 的目标就是生成 hchan 对象。</p>
+<p>send</p>
+<p>Go 在编译发送数据给 chan 的时候，会把 send 语句转换成 chansend1 函数，chansend1 函数会调用 chansend</p>
+<p>recv</p>
+<p>在处理从 chan 中接收数据时，Go 会把代码转换成 chanrecv1 函数，如果要返回两个返回值，会转换成 chanrecv2，chanrecv1 函数和 chanrecv2 会调用 chanrecv。</p>
+<p>close</p>
+<p>通过 close 函数，可以把 chan 关闭，编译器会替换成 closechan 方法的调用</p>
+<h3 id="容易犯的错误">容易犯的错误</h3>
+<p>常见panic</p>
+<ol>
+<li>close 为 nil 的 chan；</li>
+<li>send 已经 close 的 chan；</li>
+<li>close 已经 close 的 chan</li>
+</ol>
+<p>goroutine泄漏：</p>
+<pre tabindex="0"><code>func process(timeout time.Duration) bool {
+    ch := make(chan bool)
+
+    go func() {
+        // 模拟处理耗时的业务
+        time.Sleep((timeout + time.Second))
+        ch &lt;- true // block
+        fmt.Println(&#34;exit goroutine&#34;)
+    }()
+    select {
+    case result := &lt;-ch:
+        return result
+    case &lt;-time.After(timeout):
+        return false
     }
-    if r := rw.readerCount.Add(-1); r &lt; 0 {
-        // 有等待的 writer
-        rw.rUnlockSlow(r)
-    }
-    if race.Enabled {
-        race.Enable()
-    }
 }
-
-func (rw *RWMutex) rUnlockSlow(r int32) {
-    if r+1 == 0 || r+1 == -rwmutexMaxReaders {
-        race.Enable()
-        fatal(&#34;sync: RUnlock of unlocked RWMutex&#34;)
-    }
-    if rw.readerWait.Add(-1) == 0 {
-        //最后一个 reader,writer有机会获取锁了
-        runtime_Semrelease(&amp;rw.writerSem, false, 1)
-    }
-}
-</code></pre><p>Lock</p>
-<pre tabindex="0"><code>func (rw *RWMutex) Lock() {
-	if race.Enabled {
-		_ = rw.w.state
-		race.Disable()
-	}
-	// 首先解决其他 writer的竞争问题
-	rw.w.Lock()
-	// 反转 readerCount,告诉 reader有 writer竞争锁
-	r := rw.readerCount.Add(-rwmutexMaxReaders) + rwmutexMaxReaders
-	// 如果当前 reader持有锁，那么需要等待
-	if r != 0 &amp;&amp; rw.readerWait.Add(r) != 0 {
-		runtime_SemacquireRWMutex(&amp;rw.writerSem, false, 0)
-	}
-	if race.Enabled {
-		race.Enable()
-		race.Acquire(unsafe.Pointer(&amp;rw.readerSem))
-		race.Acquire(unsafe.Pointer(&amp;rw.writerSem))
-	}
-}
-</code></pre><p>Unlock</p>
-<pre tabindex="0"><code>func (rw *RWMutex) Unlock() {
-	if race.Enabled {
-		_ = rw.w.state
-		race.Release(unsafe.Pointer(&amp;rw.readerSem))
-		race.Disable()
-	}
-
-	// 告诉 reader没有活跃的 writer了
-	r := rw.readerCount.Add(rwmutexMaxReaders)
-	if r &gt;= rwmutexMaxReaders {
-		race.Enable()
-		fatal(&#34;sync: Unlock of unlocked RWMutex&#34;)
-	}
-	//  唤醒阻塞的 reader们
-	for i := 0; i &lt; int(r); i++ {
-		runtime_Semrelease(&amp;rw.readerSem, false, 0)
-	}
-	// 释放内部的互斥锁
-	rw.w.Unlock()
-	if race.Enabled {
-		race.Enable()
-	}
-}
-</code></pre><h4 id="3-个踩坑点">3 个踩坑点</h4>
-<p>坑点1：不可复制</p>
-<p>坑点2：重入导致死锁
-场景 1：</p>
-<pre tabindex="0"><code>func main() {
-	l := &amp;sync.RWMutex{}
-	foo(l)
-}
-
-func foo(l *sync.RWMutex) {
-	fmt.Println(&#34;in foo&#34;)
-	l.Lock()
-	bar(l)
-	l.Unlock()
-}
-
-func bar(l *sync.RWMutex) {
-	l.Lock()
-	fmt.Println(&#34;in bar&#34;)
-	l.Unlock()
-}
-</code></pre><p>场景二：</p>
-<p>有活跃 reader 的时候，writer 会等待，如果我们在 reader 的读操作时调用 writer 的写操作（它会调用 Lock 方法），那么，这个 reader和 writer 就会形成互相依赖的死锁状态</p>
-<p>场景三：</p>
-<p>writer 依赖活跃的 reader -&gt; 活跃的 reader 依赖新来的 reader -&gt; 新来的 reader依赖 writer</p>
-<pre tabindex="0"><code>func main() {
-	var mu sync.RWMutex
-
-	go func() {
-		time.Sleep(100 * time.Millisecond)
-		mu.Lock()
-		fmt.Println(&#34;Lock&#34;)
-		time.Sleep(100 * time.Millisecond)
-		mu.Unlock()
-		fmt.Println(&#34;Unlock&#34;)
-	}()
-
-	go func() {
-		factorial(&amp;mu, 10)
-	}()
-
-	select {}
-}
-
-func factorial(mu *sync.RWMutex, n int) int {
-	if n &lt; 1 {
-		return 0
-	}
-	fmt.Println(&#34;Rlock&#34;)
-	mu.RLock()
-	defer func() {
-		fmt.Println(&#34;RUnlock&#34;)
-		mu.RUnlock()
-	}()
-	time.Sleep(100 * time.Millisecond)
-	return factorial(mu, n-1) * n
-}
-</code></pre><p>坑点3：释放未加锁的RWMutex</p>
+</code></pre><p>在这个例子中，process 函数会启动一个 goroutine，去处理需要长时间处理的业务，处理完之后，会发送 true 到 chan 中，目的是通知其它等待的 goroutine，可以继续处理了。</p>
+<p>我们来看一下第 10 行到第 15 行，主 goroutine 接收到任务处理完成的通知，或者超时后就返回了。这段代码有问题吗？</p>
+<p>如果发生超时，process 函数就返回了，这就会导致 unbuffered 的 chan 从来就没有被读取。我们知道，unbuffered chan 必须等 reader 和 writer 都准备好了才能交流，否则就会阻塞。超时导致未读，结果就是子 goroutine 就阻塞在第 7 行永远结束不了，进而导致 goroutine 泄漏。</p>
+<p>解决这个 Bug 的办法很简单，就是将 unbuffered chan 改成容量为 1 的 chan，这样第 7 行就不会被阻塞了。</p>
+<h3 id="选择方法">选择方法</h3>
+<ul>
+<li>共享资源的并发访问使用传统并发原语；</li>
+<li>复杂的任务编排和消息传递使用 Channel；</li>
+<li>消息通知机制使用 Channel，除非只想 signal 一个 goroutine，才使用 Cond</li>
+<li>简单等待所有任务的完成用 WaitGroup，也有 Channel 的推崇者用 Channel，都可以；</li>
+<li>需要和 Select 语句结合，使用 Channel；</li>
+<li>需要和超时配合时，使用 Channel 和 Context。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>nil</th>
+<th>empty</th>
+<th>full</th>
+<th>not full&amp;empty</th>
+<th>closed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>receive</td>
+<td>block</td>
+<td>block</td>
+<td>read value</td>
+<td>read value</td>
+<td>返回未读的元素，读完后返回零值</td>
+</tr>
+<tr>
+<td>send</td>
+<td>block</td>
+<td>write value</td>
+<td>block</td>
+<td>write value</td>
+<td>panic</td>
+</tr>
+<tr>
+<td>closed</td>
+<td>panic</td>
+<td>closed,没有未读元素</td>
+<td>closed,保留未读元素</td>
+<td>closed,保留未读元素</td>
+<td>panic</td>
+</tr>
+</tbody>
+</table>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -327,7 +264,7 @@ func factorial(mu *sync.RWMutex, n int) int {
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/go/rwmutex/" data-title="rwmutex用法"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/go/rwmutex/" data-title="rwmutex用法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/posts/go/channel/" data-title="channel用法"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/posts/go/channel/" data-title="channel用法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -339,8 +276,8 @@ func factorial(mu *sync.RWMutex, n int) int {
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/design/mod/" class="prev" rel="prev" title="软件设计原则"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>软件设计原则</a>
-            <a href="/posts/go/cond/" class="next" rel="next" title="cond用法">cond用法<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/go/cond/" class="prev" rel="prev" title="cond用法"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>cond用法</a>
+            <a href="/posts/design/doc/" class="next" rel="next" title="软件设计文档">软件设计文档<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

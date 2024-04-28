@@ -124,47 +124,47 @@
 <p>Lock/Unlock：写操作时调用的方法</p>
 <p>RLock/RUnlock：读操作时调用的方法</p>
 <p>RLocker：为读操作返回一个Locker接口的对象</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;sync&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;time&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Counter</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">mu</span>    <span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">RWMutex</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">count</span> <span style="color:#66d9ef">uint64</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Counter</span>) <span style="color:#a6e22e">Incr</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">mu</span>.<span style="color:#a6e22e">Lock</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">mu</span>.<span style="color:#a6e22e">Unlock</span>()
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Counter</span>) <span style="color:#a6e22e">Value</span>() <span style="color:#66d9ef">uint64</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">mu</span>.<span style="color:#a6e22e">RLock</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">mu</span>.<span style="color:#a6e22e">RUnlock</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">count</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">counter</span> <span style="color:#a6e22e">Counter</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">for</span> {
-</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">counter</span>.<span style="color:#a6e22e">Value</span>()
-</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>)
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}()
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">counter</span>.<span style="color:#a6e22e">Incr</span>()
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h4 id="应用场景">应用场景</h4>
+<pre tabindex="0"><code>package main
+
+import (
+	&#34;sync&#34;
+	&#34;time&#34;
+)
+
+type Counter struct {
+	mu    sync.RWMutex
+	count uint64
+}
+
+func (c *Counter) Incr() {
+	c.mu.Lock()
+	c.count++
+	c.mu.Unlock()
+}
+
+func (c *Counter) Value() uint64 {
+	c.mu.RLock()
+	defer c.mu.RUnlock()
+	return c.count
+}
+
+func main() {
+	var counter Counter
+	for i := 0; i &lt; 10; i++ {
+		go func() {
+			for {
+				counter.Value()
+				time.Sleep(time.Millisecond)
+			}
+		}()
+	}
+
+	for {
+		counter.Incr()
+		time.Sleep(time.Millisecond)
+	}
+}
+</code></pre><h4 id="应用场景">应用场景</h4>
 <p>如果你遇到可以明确区分 reader 和 writer goroutine 的场景，且有大量的并发读、少量的并发写，并且有强烈的性能需求，你就可以考虑使用读写锁 RWMutex 替换 Mutex。</p>
 <h4 id="实现原理">实现原理</h4>
 <p>readers-writers问题分为三类：</p>
@@ -176,148 +176,148 @@
 <p>Go 标准库中的 RWMutex 设计是 Write-preferring 方案。一个正在阻塞的 Lock 调用会排除新的 reader 请求到锁</p>
 <h4 id="实现">实现</h4>
 <p>RLock/RUnlock实现</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">rw</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">RWMutex</span>) <span style="color:#a6e22e">RLock</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Enabled</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">state</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Disable</span>()
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">readerCount</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#ae81ff">1</span>) &lt; <span style="color:#ae81ff">0</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// A writer is pending, wait for it.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">runtime_SemacquireRWMutexR</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">readerSem</span>, <span style="color:#66d9ef">false</span>, <span style="color:#ae81ff">0</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Enabled</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Enable</span>()
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Acquire</span>(<span style="color:#a6e22e">unsafe</span>.<span style="color:#a6e22e">Pointer</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">readerSem</span>))
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>.
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">rw</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">RWMutex</span>) <span style="color:#a6e22e">RUnlock</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Enabled</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">state</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">ReleaseMerge</span>(<span style="color:#a6e22e">unsafe</span>.<span style="color:#a6e22e">Pointer</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">writerSem</span>))
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Disable</span>()
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">readerCount</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>); <span style="color:#a6e22e">r</span> &lt; <span style="color:#ae81ff">0</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 有等待的 writer
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">rUnlockSlow</span>(<span style="color:#a6e22e">r</span>)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Enabled</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Enable</span>()
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">rw</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">RWMutex</span>) <span style="color:#a6e22e">rUnlockSlow</span>(<span style="color:#a6e22e">r</span> <span style="color:#66d9ef">int32</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">r</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">r</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">rwmutexMaxReaders</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Enable</span>()
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fatal</span>(<span style="color:#e6db74">&#34;sync: RUnlock of unlocked RWMutex&#34;</span>)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">readerWait</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//最后一个 reader,writer有机会获取锁了
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">runtime_Semrelease</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">writerSem</span>, <span style="color:#66d9ef">false</span>, <span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Lock</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">rw</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">RWMutex</span>) <span style="color:#a6e22e">Lock</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Enabled</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">state</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Disable</span>()
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 首先解决其他 writer的竞争问题
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Lock</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 反转 readerCount,告诉 reader有 writer竞争锁
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">readerCount</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#f92672">-</span><span style="color:#a6e22e">rwmutexMaxReaders</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">rwmutexMaxReaders</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 如果当前 reader持有锁，那么需要等待
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">r</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">readerWait</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#a6e22e">r</span>) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">runtime_SemacquireRWMutex</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">writerSem</span>, <span style="color:#66d9ef">false</span>, <span style="color:#ae81ff">0</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Enabled</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Enable</span>()
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Acquire</span>(<span style="color:#a6e22e">unsafe</span>.<span style="color:#a6e22e">Pointer</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">readerSem</span>))
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Acquire</span>(<span style="color:#a6e22e">unsafe</span>.<span style="color:#a6e22e">Pointer</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">writerSem</span>))
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Unlock</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">rw</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">RWMutex</span>) <span style="color:#a6e22e">Unlock</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Enabled</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">state</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Release</span>(<span style="color:#a6e22e">unsafe</span>.<span style="color:#a6e22e">Pointer</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">readerSem</span>))
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Disable</span>()
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 告诉 reader没有活跃的 writer了
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">readerCount</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#a6e22e">rwmutexMaxReaders</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">r</span> <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">rwmutexMaxReaders</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Enable</span>()
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fatal</span>(<span style="color:#e6db74">&#34;sync: Unlock of unlocked RWMutex&#34;</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//  唤醒阻塞的 reader们
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; int(<span style="color:#a6e22e">r</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">runtime_Semrelease</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">readerSem</span>, <span style="color:#66d9ef">false</span>, <span style="color:#ae81ff">0</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 释放内部的互斥锁
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">rw</span>.<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Unlock</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Enabled</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">race</span>.<span style="color:#a6e22e">Enable</span>()
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h4 id="3-个踩坑点">3 个踩坑点</h4>
+<pre tabindex="0"><code>func (rw *RWMutex) RLock() {
+	if race.Enabled {
+		_ = rw.w.state
+		race.Disable()
+	}
+	if rw.readerCount.Add(1) &lt; 0 {
+		// A writer is pending, wait for it.
+		runtime_SemacquireRWMutexR(&amp;rw.readerSem, false, 0)
+	}
+	if race.Enabled {
+		race.Enable()
+		race.Acquire(unsafe.Pointer(&amp;rw.readerSem))
+	}
+}
+....
+func (rw *RWMutex) RUnlock() {
+    if race.Enabled {
+        _ = rw.w.state
+        race.ReleaseMerge(unsafe.Pointer(&amp;rw.writerSem))
+        race.Disable()
+    }
+    if r := rw.readerCount.Add(-1); r &lt; 0 {
+        // 有等待的 writer
+        rw.rUnlockSlow(r)
+    }
+    if race.Enabled {
+        race.Enable()
+    }
+}
+
+func (rw *RWMutex) rUnlockSlow(r int32) {
+    if r+1 == 0 || r+1 == -rwmutexMaxReaders {
+        race.Enable()
+        fatal(&#34;sync: RUnlock of unlocked RWMutex&#34;)
+    }
+    if rw.readerWait.Add(-1) == 0 {
+        //最后一个 reader,writer有机会获取锁了
+        runtime_Semrelease(&amp;rw.writerSem, false, 1)
+    }
+}
+</code></pre><p>Lock</p>
+<pre tabindex="0"><code>func (rw *RWMutex) Lock() {
+	if race.Enabled {
+		_ = rw.w.state
+		race.Disable()
+	}
+	// 首先解决其他 writer的竞争问题
+	rw.w.Lock()
+	// 反转 readerCount,告诉 reader有 writer竞争锁
+	r := rw.readerCount.Add(-rwmutexMaxReaders) + rwmutexMaxReaders
+	// 如果当前 reader持有锁，那么需要等待
+	if r != 0 &amp;&amp; rw.readerWait.Add(r) != 0 {
+		runtime_SemacquireRWMutex(&amp;rw.writerSem, false, 0)
+	}
+	if race.Enabled {
+		race.Enable()
+		race.Acquire(unsafe.Pointer(&amp;rw.readerSem))
+		race.Acquire(unsafe.Pointer(&amp;rw.writerSem))
+	}
+}
+</code></pre><p>Unlock</p>
+<pre tabindex="0"><code>func (rw *RWMutex) Unlock() {
+	if race.Enabled {
+		_ = rw.w.state
+		race.Release(unsafe.Pointer(&amp;rw.readerSem))
+		race.Disable()
+	}
+
+	// 告诉 reader没有活跃的 writer了
+	r := rw.readerCount.Add(rwmutexMaxReaders)
+	if r &gt;= rwmutexMaxReaders {
+		race.Enable()
+		fatal(&#34;sync: Unlock of unlocked RWMutex&#34;)
+	}
+	//  唤醒阻塞的 reader们
+	for i := 0; i &lt; int(r); i++ {
+		runtime_Semrelease(&amp;rw.readerSem, false, 0)
+	}
+	// 释放内部的互斥锁
+	rw.w.Unlock()
+	if race.Enabled {
+		race.Enable()
+	}
+}
+</code></pre><h4 id="3-个踩坑点">3 个踩坑点</h4>
 <p>坑点1：不可复制</p>
 <p>坑点2：重入导致死锁
 场景 1：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">l</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">RWMutex</span>{}
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">foo</span>(<span style="color:#a6e22e">l</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">foo</span>(<span style="color:#a6e22e">l</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">RWMutex</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;in foo&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">l</span>.<span style="color:#a6e22e">Lock</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">bar</span>(<span style="color:#a6e22e">l</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">l</span>.<span style="color:#a6e22e">Unlock</span>()
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">bar</span>(<span style="color:#a6e22e">l</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">RWMutex</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">l</span>.<span style="color:#a6e22e">Lock</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;in bar&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">l</span>.<span style="color:#a6e22e">Unlock</span>()
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>场景二：</p>
+<pre tabindex="0"><code>func main() {
+	l := &amp;sync.RWMutex{}
+	foo(l)
+}
+
+func foo(l *sync.RWMutex) {
+	fmt.Println(&#34;in foo&#34;)
+	l.Lock()
+	bar(l)
+	l.Unlock()
+}
+
+func bar(l *sync.RWMutex) {
+	l.Lock()
+	fmt.Println(&#34;in bar&#34;)
+	l.Unlock()
+}
+</code></pre><p>场景二：</p>
 <p>有活跃 reader 的时候，writer 会等待，如果我们在 reader 的读操作时调用 writer 的写操作（它会调用 Lock 方法），那么，这个 reader和 writer 就会形成互相依赖的死锁状态</p>
 <p>场景三：</p>
 <p>writer 依赖活跃的 reader -&gt; 活跃的 reader 依赖新来的 reader -&gt; 新来的 reader依赖 writer</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mu</span> <span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">RWMutex</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#ae81ff">100</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">mu</span>.<span style="color:#a6e22e">Lock</span>()
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Lock&#34;</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#ae81ff">100</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">mu</span>.<span style="color:#a6e22e">Unlock</span>()
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Unlock&#34;</span>)
-</span></span><span style="display:flex;"><span>	}()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">factorial</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">mu</span>, <span style="color:#ae81ff">10</span>)
-</span></span><span style="display:flex;"><span>	}()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">select</span> {}
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">factorial</span>(<span style="color:#a6e22e">mu</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">RWMutex</span>, <span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> &lt; <span style="color:#ae81ff">1</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Rlock&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">mu</span>.<span style="color:#a6e22e">RLock</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#66d9ef">func</span>() {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;RUnlock&#34;</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">mu</span>.<span style="color:#a6e22e">RUnlock</span>()
-</span></span><span style="display:flex;"><span>	}()
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#ae81ff">100</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">factorial</span>(<span style="color:#a6e22e">mu</span>, <span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">n</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>坑点3：释放未加锁的RWMutex</p>
+<pre tabindex="0"><code>func main() {
+	var mu sync.RWMutex
+
+	go func() {
+		time.Sleep(100 * time.Millisecond)
+		mu.Lock()
+		fmt.Println(&#34;Lock&#34;)
+		time.Sleep(100 * time.Millisecond)
+		mu.Unlock()
+		fmt.Println(&#34;Unlock&#34;)
+	}()
+
+	go func() {
+		factorial(&amp;mu, 10)
+	}()
+
+	select {}
+}
+
+func factorial(mu *sync.RWMutex, n int) int {
+	if n &lt; 1 {
+		return 0
+	}
+	fmt.Println(&#34;Rlock&#34;)
+	mu.RLock()
+	defer func() {
+		fmt.Println(&#34;RUnlock&#34;)
+		mu.RUnlock()
+	}()
+	time.Sleep(100 * time.Millisecond)
+	return factorial(mu, n-1) * n
+}
+</code></pre><p>坑点3：释放未加锁的RWMutex</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

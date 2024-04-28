@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zucczwp.github.io\/posts\/db\/mysql\/"
-        },"genre": "posts","keywords": "Mysql","wordcount":  6645 ,
+        },"genre": "posts","keywords": "Mysql","wordcount":  7399 ,
         "url": "https:\/\/zucczwp.github.io\/posts\/db\/mysql\/","datePublished": "2024-02-17T00:00:00+00:00","dateModified": "2024-02-17T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,8 +103,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Mysql用法</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
 </span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Mysql</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-17">2024-02-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 6645 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 14 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-17">2024-02-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7399 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 15 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -126,8 +126,10 @@
         <li><a href="#更新过程">更新过程</a></li>
         <li><a href="#索引下推">索引下推</a></li>
         <li><a href="#最左前缀原则">最左前缀原则</a></li>
+        <li><a href="#前缀索引">前缀索引</a></li>
         <li><a href="#基于主键索引和普通索引的查询有什么区别">基于主键索引和普通索引的查询有什么区别？</a></li>
         <li><a href="#索引的类型">索引的类型</a></li>
+        <li><a href="#mysql为什么有时候会选错索引">Mysql为什么有时候会选错索引？</a></li>
       </ul>
     </li>
   </ul>
@@ -318,6 +320,8 @@ ASC
 <p>对于唯一索引来说，需要将数据页读入内存，判断到没有冲突，插入这个值，语句执行结束；</p>
 <p>对于普通索引来说，则是将更新记录在 change buffer，语句执行就结束了。</p>
 <p>将数据从磁盘读入内存涉及随机 IO 的访问，是数据库里面成本最高的操作之一。changebuffer 因为减少了随机磁盘访问，所以对更新性能的提升是会很明显的。</p>
+<h4 id="change-buffer和redo-log">Change buffer和redo log</h4>
+<p>redo log 主要节省的是随机写磁盘的 IO 消耗（转成顺序写），而 change buffer 主要节省的则是随机读磁盘的 IO 消耗。</p>
 <h3 id="索引下推">索引下推</h3>
 <p>使用ICP的情况下，查询过程：</p>
 <ol>
@@ -329,6 +333,24 @@ ASC
 <h3 id="最左前缀原则">最左前缀原则</h3>
 <p>当你创建了一个联合索引，该索引的任何最左前缀都可以用于查询</p>
 <p>mysql会一直向右匹配直到遇到范围查询(&gt;、&lt;、between、like)就停止匹配，比如a = 1 and b = 2 and c &gt; 3 and d = 4 如果建立(a,b,c,d)顺序的索引，d是用不到索引的，如果建立(a,b,d,c)的索引则都可以用到，a,b,d的顺序可以任意调整。</p>
+<h3 id="前缀索引">前缀索引</h3>
+<p>使用前缀索引，定义好长度，就可以做到既节省空间，又不用额外增加太多的查询成本。
+我们在建立索引时关注的是区分度，区分度越高越好。因为区分度越高，意味着重复的键值越少。因此，我们可以通过统计索引上有多少个不同的值来判断要使用多长的前缀。</p>
+<h4 id="怎么确定前缀长度">怎么确定前缀长度？</h4>
+<ol>
+<li>计算出列上有多少个不同的值</li>
+</ol>
+<pre tabindex="0"><code>Select count(distinct email) as L from SUSer;
+</code></pre><ol start="2">
+<li>依次选取不同长度的前缀来看这个值</li>
+</ol>
+<pre tabindex="0"><code>Select
+count(distinct left(email,4)) as L4
+count(distinct left(email,5)) as L5
+from SUSer;
+</code></pre><p>要预先设定一个可以接受的损失比例，比如 5%。然后，在返回的 L4~L5 中，找出不小于 L * 95% 的值</p>
+<h4 id="前缀索引对覆盖索引的影响">前缀索引对覆盖索引的影响</h4>
+<p>使用前缀索引就用不上覆盖索引对查询性能的优化了，这也是你在选择是否使用前缀索引时需要考虑的一个因素。</p>
 <h3 id="基于主键索引和普通索引的查询有什么区别">基于主键索引和普通索引的查询有什么区别？</h3>
 <p>如果语句是 select * from T where ID=500，主键查询方式，则只需要搜索 ID 这棵B+ 树；</p>
 <p>如果语句是 select * from T where k=5，普通索引查询方式，则需要先搜索 k 索引树，得到 ID 的值为 500，再到 ID 索引树搜索一次。这个过程称为回表。</p>
@@ -338,6 +360,24 @@ ASC
 <h4 id="哪些场景应该使用自增主键">哪些场景应该使用自增主键？</h4>
 <p>自增主键的插入数据模式，正符合了我们前面提到的递增插入的场景。每次插入一条新记录，都是追加操作，都不涉及到挪动其他记录，也不会触发叶子节点的分裂。主键长度越小，普通索引的叶子节点就越小，普通索引占用的空间也就越小。</p>
 <p>有些业务的场景需求是这样的：1. 只有一个索引；2. 该索引必须是唯一索引。此时更适合用业务字段作为主键</p>
+<h3 id="mysql为什么有时候会选错索引">Mysql为什么有时候会选错索引？</h3>
+<h4 id="优化器的逻辑">优化器的逻辑</h4>
+<h5 id="扫描行数是怎么判断的">扫描行数是怎么判断的？</h5>
+<p>MySQL 在真正开始执行语句之前，并不能精确地知道满足这个条件的记录有多少条，而只能根据统计信息来估算记录数。</p>
+<h5 id="mysql-是怎样得到索引的基数的呢">MySQL 是怎样得到索引的基数的呢？</h5>
+<p>InnoDB 默认会选择 N 个数据页，统计这些页面上的不同值，得到一个平均值，然后乘以这个索引的页面数，就得到了这个索引的基数。</p>
+<p>当变更的数据行数超过1/M 的时候，会自动触发重新做一次索引统计。</p>
+<p>在 MySQL 中，有两种存储索引统计的方式，可以通过设置参数 innodb_stats_persistent的值来选择：</p>
+<p>设置为 on 的时候，表示统计信息会持久化存储。这时，默认的 N 是 20，M 是 10。</p>
+<p>设置为 off 的时候，表示统计信息只存储在内存中。这时，默认的 N 是 8，M 是 16。</p>
+<p>重新统计索引信息：</p>
+<pre tabindex="0"><code>analyze table t
+</code></pre><h4 id="索引选择异常和处理">索引选择异常和处理</h4>
+<ul>
+<li>采用 force index 强行选择一个索引。</li>
+<li>我们可以考虑修改语句，引导 MySQL 使用我们期望的索引。</li>
+<li>在有些场景下，我们可以新建一个更合适的索引，来提供给优化器做选择，或删掉误用的索引。</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

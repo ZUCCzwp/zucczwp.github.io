@@ -61,6 +61,14 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
+    <title>Go</title>
+    <link>https://zucczwp.github.io/categories/go/</link>
+    <pubDate>Mon, 12 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>jimi</author>
+    <guid>https://zucczwp.github.io/categories/go/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Data</title>
     <link>https://zucczwp.github.io/categories/data/</link>
     <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
@@ -74,14 +82,6 @@
     <pubDate>Sat, 10 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
     <guid>https://zucczwp.github.io/categories/network/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>File</title>
-    <link>https://zucczwp.github.io/categories/file/</link>
-    <pubDate>Fri, 09 Feb 2024 00:00:00 &#43;0000</pubDate>
-    <author>jimi</author>
-    <guid>https://zucczwp.github.io/categories/file/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

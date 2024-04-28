@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zucczwp.github.io\/posts\/db\/mysql_prepare\/"
-        },"genre": "posts","keywords": "Mysql","wordcount":  790 ,
+        },"genre": "posts","keywords": "Mysql","wordcount":  1219 ,
         "url": "https:\/\/zucczwp.github.io\/posts\/db\/mysql_prepare\/","datePublished": "2024-01-11T00:00:00+00:00","dateModified": "2024-01-11T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,8 +103,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Mysql架构</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
 </span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Mysql</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-01-11">2024-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 790 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-01-11">2024-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1219 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -117,6 +117,7 @@
         <li><a href="#数据库架构与-sql执行过程">数据库架构与 SQL执行过程</a></li>
         <li><a href="#使用-preparestatement-执行-sql-的好处">使用 PrepareStatement 执行 SQL 的好处</a></li>
         <li><a href="#数据库文件存储原理">数据库文件存储原理</a></li>
+        <li><a href="#基础架构">基础架构</a></li>
       </ul>
     </li>
   </ul>
@@ -151,6 +152,35 @@
         data-sizes="auto"
         alt="/images/B-tree.png"
         title="img.png" width="834" height="486" /></p>
+<h3 id="基础架构">基础架构</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/mysql_prerare.png"
+        data-srcset="/images/mysql_prerare.png, /images/mysql_prerare.png 1.5x, /images/mysql_prerare.png 2x"
+        data-sizes="auto"
+        alt="/images/mysql_prerare.png"
+        title="img.png" width="666" height="511" /></p>
+<h4 id="连接器">连接器</h4>
+<p>命令：</p>
+<pre tabindex="0"><code>Mysql -h$ip -P$port -u$user -p
+</code></pre><p>查看mysql是否是空闲状态：</p>
+<pre tabindex="0"><code>Show processlist
+</code></pre><p>其中的Command 列显示为“Sleep”的这一行，就表示现在系统里面有一个空闲连接。</p>
+<p>长连接和短链接：</p>
+<p>长连接是指连接成功后，如果客户端持续有请求，则一直使用同一个连接。短连接则是指每次执行完很少的几次查询就断开连接，下次查询再重新建立一个。</p>
+<p>查询缓存</p>
+<p>将参数 query_cache_type 设置成 DEMAND，这样对于默认的 SQL 语句都不使用查询缓存。而对于你确定要使用查询缓存的语句，可以用 SQL_CACHE 显式指定，像下面这个语句一样：</p>
+<pre tabindex="0"><code>Select SQL_CACHE * from T where id = 10;
+</code></pre><p>Mysql8.0以上版本不在适用。</p>
+<h4 id="分析器">分析器</h4>
+<p>词法分析-&gt;语法分析</p>
+<h4 id="优化器">优化器</h4>
+<p>在表里面有多个索引的时候，决定使用哪个索引；或者在一个语句有多表关联（join）的时候，决定各个表的连接顺序。</p>
+<h4 id="执行器">执行器</h4>
+<p>判断是否有执行查询的权限</p>
+<p>慢查询日志中看到一个 rows_examined 的字段，表示这个语句执行过程中扫描了多少行。这个值就是在执行器每次调用引擎获取数据行的时候累加的。</p>
+<p>引擎扫描行数跟rows_examined 并不是完全相同的。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

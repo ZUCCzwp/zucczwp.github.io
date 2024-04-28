@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zucczwp.github.io\/posts\/db\/mysql\/"
-        },"genre": "posts","keywords": "Mysql","wordcount":  4868 ,
+        },"genre": "posts","keywords": "Mysql","wordcount":  6645 ,
         "url": "https:\/\/zucczwp.github.io\/posts\/db\/mysql\/","datePublished": "2024-02-17T00:00:00+00:00","dateModified": "2024-02-17T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,8 +103,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Mysql用法</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a>
 </span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Mysql</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-17">2024-02-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4868 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 10 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-17">2024-02-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 6645 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 14 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -117,9 +117,17 @@
         <li><a href="#导出">导出</a></li>
         <li><a href="#合并">合并</a></li>
         <li><a href="#强制索引">强制索引</a></li>
+        <li><a href="#重建索引">重建索引</a></li>
         <li><a href="#排序-过滤">排序 过滤</a></li>
         <li><a href="#索引策略">索引策略</a></li>
         <li><a href="#查询优化">查询优化</a></li>
+        <li><a href="#索引选择和实践">索引选择和实践</a></li>
+        <li><a href="#普通索引和唯一索引应该怎么选择">普通索引和唯一索引，应该怎么选择？</a></li>
+        <li><a href="#更新过程">更新过程</a></li>
+        <li><a href="#索引下推">索引下推</a></li>
+        <li><a href="#最左前缀原则">最左前缀原则</a></li>
+        <li><a href="#基于主键索引和普通索引的查询有什么区别">基于主键索引和普通索引的查询有什么区别？</a></li>
+        <li><a href="#索引的类型">索引的类型</a></li>
       </ul>
     </li>
   </ul>
@@ -142,6 +150,8 @@ where created between &#34;2015-07-06&#34; and &#34;2015-07-07&#34;
 group by customer   
 having c &gt; 15  
 order by c desc
+</code></pre><h3 id="重建索引">重建索引</h3>
+<pre tabindex="0"><code>alter table T engine=InnoDB。
 </code></pre><h3 id="排序-过滤">排序 过滤</h3>
 <p>过滤 is_buy=0的值</p>
 <pre tabindex="0"><code>SELECT
@@ -174,9 +184,8 @@ ASC
 </ol>
 <p>当出现服务器对多个索引做相交操作时（通常有多个AND条件），通常意味着需要一个包含所有相关列的多列索引，而不是多个独立的单列索引</p>
 <ol start="4">
-<li>选择合适的索引列的顺序</li>
+<li>选择合适的索引列的顺序 （适用于B-TREE索引）</li>
 </ol>
-<p>（适用于B-TREE索引）</p>
 <p>当不需要考虑排序和分组时，将选择性最高的列放在前面通常是很好的，这时候的索引的作用只是用于优化where条件的查找</p>
 <ol start="5">
 <li>聚簇索引</li>
@@ -280,6 +289,55 @@ ASC
 <h4 id="查询缓存">查询缓存</h4>
 <p>在解析一个查询语句之前，如果查询缓存是打开的，那么mysql会优先检查这个查询是否命中查询缓存中的数据。这个检查是通过一个对大小写敏感的哈希查找实现的。查询和缓存中的查询即使只是一个字节不同，那也不会匹配缓存结果，这种情况下查询就会进入下一阶段的处理。</p>
 <p>如果当前的查询恰好命中了查询缓存，那么在返回查询结果之前mysql会检查一次用户权限。这仍然是无需解析查询SQL语句的，因为在查询缓存中已经存放了当前查询需要访问的表信息。如果权限没有问题，mysql会跳过所有其他阶段，直接从缓存中拿到结果并返回给客户端。这种情况下，查询不会被解析，不用生成执行计划，不会被执行。</p>
+<h4 id="change-buffer的使用场景">change buffer的使用场景</h4>
+<p>普通索引的所有场景，使用 change buffer 都可以起到加速作用吗？</p>
+<p>因为 merge 的时候是真正进行数据更新的时刻，而 change buffer 的主要目的就是将记录的变更动作缓存下来，所以在一个数据页做 merge 之前，change buffer 记录的变更越多（也就是这个页面上要更新的次数越多），收益就越大。</p>
+<p>因此，对于写多读少的业务来说，页面在写完以后马上被访问到的概率比较小，此时change buffer 的使用效果最好。这种业务模型常见的就是账单类、日志类的系统。</p>
+<h3 id="索引选择和实践">索引选择和实践</h3>
+<p>这两类索引在查询能力上是没差别的，主要考虑的是对更新性能的影响。所以，我建议你尽量选择普通索引。</p>
+<p>尽量使用普通索引，然后把 change buffer 尽量开大，以确保这个“历史数据”表的数据写入速度。</p>
+<h3 id="普通索引和唯一索引应该怎么选择">普通索引和唯一索引，应该怎么选择？</h3>
+<p>查询过程</p>
+<p>对于普通索引来说，查找到满足条件的第一个记录 (5,500) 后，需要查找下一个记录，直到碰到第一个不满足 k=5 条件的记录。</p>
+<p>对于唯一索引来说，由于索引定义了唯一性，查找到第一个满足条件的记录后，就会停止继续检索。</p>
+<h3 id="更新过程">更新过程</h3>
+<p>当需要更新一个数据页时，如果数据页在内存中就直接更新，而如果这个数据页还没有在内存中的话，在不影响数据一致性的前提下，InooDB 会将这些更新操作缓存在 changebuffer 中，这样就不需要从磁盘中读入这个数据页了。在下次查询需要访问这个数据页的时候，将数据页读入内存，然后执行 change buffer 中与这个页有关的操作。通过这种方式就能保证这个数据逻辑的正确性。</p>
+<p>change buffer，实际上它是可以持久化的数据。也就是说，change buffer 在内存中有拷贝，也会被写入到磁盘上。</p>
+<h4 id="什么条件下可以使用change-buffer呢">什么条件下可以使用change buffer呢？</h4>
+<p>唯一索引的更新就不能使用 change buffer，实际上也只有普通索引可以使用。</p>
+<p>change buffer 的大小，可以通过参数 innodb_change_buffer_max_size 来动态设置。这个参数设置为 50 的时候，表示 change buffer 的大小最多只能占用 buffer pool 的 50%。</p>
+<p>如果要在这张表中插入一个新记录 (4,400) 的话，InnoDB 的处理流程是怎样的？</p>
+<ol>
+<li>这个记录要更新的目标页在内存中。这时，InnoDB 的处理流程如下：</li>
+</ol>
+<p>对于唯一索引来说，找到 3 和 5 之间的位置，判断到没有冲突，插入这个值，语句执行结束；</p>
+<p>对于普通索引来说，找到 3 和 5 之间的位置，插入这个值，语句执行结束。</p>
+<ol start="2">
+<li>这个记录要更新的目标页不在内存中。这时，InnoDB 的处理流程如下：</li>
+</ol>
+<p>对于唯一索引来说，需要将数据页读入内存，判断到没有冲突，插入这个值，语句执行结束；</p>
+<p>对于普通索引来说，则是将更新记录在 change buffer，语句执行就结束了。</p>
+<p>将数据从磁盘读入内存涉及随机 IO 的访问，是数据库里面成本最高的操作之一。changebuffer 因为减少了随机磁盘访问，所以对更新性能的提升是会很明显的。</p>
+<h3 id="索引下推">索引下推</h3>
+<p>使用ICP的情况下，查询过程：</p>
+<ol>
+<li>存储引擎读取索引记录（不是完整的行记录）；</li>
+<li>判断WHERE条件部分能否用索引中的列来做检查，条件不满足，则处理下一行索引记录（+1）</li>
+<li>条件满足，使用索引中的主键去定位并读取完整的行记录（就是所谓的回表）；</li>
+<li>存储引擎把记录交给Server层，Server层检测该记录是否满足WHERE条件的其余部分。</li>
+</ol>
+<h3 id="最左前缀原则">最左前缀原则</h3>
+<p>当你创建了一个联合索引，该索引的任何最左前缀都可以用于查询</p>
+<p>mysql会一直向右匹配直到遇到范围查询(&gt;、&lt;、between、like)就停止匹配，比如a = 1 and b = 2 and c &gt; 3 and d = 4 如果建立(a,b,c,d)顺序的索引，d是用不到索引的，如果建立(a,b,d,c)的索引则都可以用到，a,b,d的顺序可以任意调整。</p>
+<h3 id="基于主键索引和普通索引的查询有什么区别">基于主键索引和普通索引的查询有什么区别？</h3>
+<p>如果语句是 select * from T where ID=500，主键查询方式，则只需要搜索 ID 这棵B+ 树；</p>
+<p>如果语句是 select * from T where k=5，普通索引查询方式，则需要先搜索 k 索引树，得到 ID 的值为 500，再到 ID 索引树搜索一次。这个过程称为回表。</p>
+<h3 id="索引的类型">索引的类型</h3>
+<p>主键索引（聚簇索引）：主键索引的叶子节点存的是整行数据</p>
+<p>非主键索引（二级索引）：非主键索引的叶子节点内容是主键的值</p>
+<h4 id="哪些场景应该使用自增主键">哪些场景应该使用自增主键？</h4>
+<p>自增主键的插入数据模式，正符合了我们前面提到的递增插入的场景。每次插入一条新记录，都是追加操作，都不涉及到挪动其他记录，也不会触发叶子节点的分裂。主键长度越小，普通索引的叶子节点就越小，普通索引占用的空间也就越小。</p>
+<p>有些业务的场景需求是这样的：1. 只有一个索引；2. 该索引必须是唯一索引。此时更适合用业务字段作为主键</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

@@ -61,20 +61,28 @@
     <description><![CDATA[ACID原则 A原子性 数据处理操作的基本单位 C一致性 当事务提交后，或者当事务发生回滚后，数据库的完整性]]></description>
 </item>
 <item>
+    <title>Mysql日志</title>
+    <link>https://zucczwp.github.io/posts/db/mysql_log/</link>
+    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/db/mysql_log/</guid>
+    <description><![CDATA[binlog的写入机制 写入逻辑: 事务执行过程中，先把日志写到 binlog cache，事务提交的时候，再把 binlog cache 写]]></description>
+</item>
+<item>
+    <title>Mysql锁</title>
+    <link>https://zucczwp.github.io/posts/db/mysql_lock/</link>
+    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/db/mysql_lock/</guid>
+    <description><![CDATA[行锁功过：怎么减少行锁对性能的影响？ 从两阶段锁说起 在 InnoDB 事务中，行锁是在需要的时候才加上的，但并不是不]]></description>
+</item>
+<item>
     <title>Mysql Scheme</title>
     <link>https://zucczwp.github.io/posts/db/mysql_scheme/</link>
     <pubDate>Thu, 08 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/posts/db/mysql_scheme/</guid>
     <description><![CDATA[选择优化的数据类型 字符串类型 VARCHAR类型用于存储可变长的字符串，所以它需要1或2个额外的字节记]]></description>
-</item>
-<item>
-    <title>Mysql架构</title>
-    <link>https://zucczwp.github.io/posts/db/mysql_prepare/</link>
-    <pubDate>Thu, 11 Jan 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/db/mysql_prepare/</guid>
-    <description><![CDATA[数据库架构与 SQL执行过程 &ndash;&gt;连接器&ndash;&gt;语法分析器&ndash;]]></description>
 </item>
 </channel>
 </rss>

@@ -79,7 +79,7 @@
 <item>
     <title>使用Goroutine如何控制HTTP请求的并发量</title>
     <link>https://zucczwp.github.io/posts/go/concurrency/</link>
-    <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
+    <pubDate>Wed, 10 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/posts/go/concurrency/</guid>
     <description><![CDATA[场景 我们使用 go 并发调用接口发起 HTTP 请求时，只需要在 func() 前面加上 go 关键字就很容易完成了，就是因为让并发变得]]></description>

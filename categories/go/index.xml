@@ -37,6 +37,14 @@
     <description><![CDATA[go标准库cond cond通常应用于等待某个条件一组gorotine，等条件变为true的时候，其中]]></description>
 </item>
 <item>
+    <title>context用法</title>
+    <link>https://zucczwp.github.io/posts/go/context/</link>
+    <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/go/context/</guid>
+    <description><![CDATA[来历 Go在1.7的版本中才正式把context加入到标准库中 适用场景 上下文信息传递 控制子gorout]]></description>
+</item>
+<item>
     <title>map用法</title>
     <link>https://zucczwp.github.io/posts/go/map/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
@@ -67,6 +75,14 @@
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/posts/go/waitgroup/</guid>
     <description><![CDATA[基本用法 once常常用来初始化单例资源，或者并发访问只需初始化一次的共享资源，或者在测试的时候初始化]]></description>
+</item>
+<item>
+    <title>使用Goroutine如何控制HTTP请求的并发量</title>
+    <link>https://zucczwp.github.io/posts/go/concurrency/</link>
+    <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/go/concurrency/</guid>
+    <description><![CDATA[场景 我们使用 go 并发调用接口发起 HTTP 请求时，只需要在 func() 前面加上 go 关键字就很容易完成了，就是因为让并发变得]]></description>
 </item>
 </channel>
 </rss>

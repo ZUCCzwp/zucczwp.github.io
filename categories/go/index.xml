@@ -52,5 +52,13 @@
     <guid>https://zucczwp.github.io/posts/go/rwmutex/</guid>
     <description><![CDATA[什么是RWMutex？ 方法： Lock/Unlock：写操作时调用的方法 RLock/RUnlock：读]]></description>
 </item>
+<item>
+    <title>waitgroup用法</title>
+    <link>https://zucczwp.github.io/posts/go/waitgroup/</link>
+    <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/posts/go/waitgroup/</guid>
+    <description><![CDATA[基本用法 once常常用来初始化单例资源，或者并发访问只需初始化一次的共享资源，或者在测试的时候初始化]]></description>
+</item>
 </channel>
 </rss>

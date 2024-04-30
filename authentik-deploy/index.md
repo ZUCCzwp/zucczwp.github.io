@@ -2,7 +2,7 @@
 
 
 
-### Docker安装
+## Docker安装
 ***MacOs***
 1. 下载 docker composer文件
 ```
@@ -48,14 +48,14 @@ docker compose up -d
 http://<your server's IP or hostname>/if/flow/initial-setup/
 ```
 
-### 二进制安装
+## 二进制安装
 1. 确定 linux系统的架构
 ```
 uname -m 
 ```
 如果显示x86_64则是 amd架构 不是则是 arm,也可通过 arch命令得到
 2. 前期准备
-##### 安装依赖 #####
+#### 安装依赖 ####
 + 安装 lib库
 ```
 sudo yum update -y && sudo yum upgrade -y
@@ -101,7 +101,7 @@ pip install virtualenv black ruff codespell bandit poetry pycparser psycopg2 xml
 ``` 
 无网模式需要设置pypi代理
 + 安装 golangci-lint
-#### 下载https://github.com/golangci/golangci-lint/releases对应 rpm ####
+### 下载https://github.com/golangci/golangci-lint/releases对应 rpm ###
 ```
 sudo rpm -ivh golangci-lint-1.57.2-linux-386.rpm
 ```
@@ -111,7 +111,7 @@ cd /opt/authentik
 make install
 ```
 + 安装 postgreSql
-#### 下载路径：https://www.postgresql.org/ftp/source/v16.2/ ####
+### 下载路径：https://www.postgresql.org/ftp/source/v16.2/ ###
 ```
 tar -zxvf postgresql-16.2.tar.gz
 cd postgresql-16.2 
@@ -147,10 +147,11 @@ ak命令为 lifecycle目录下的可执行文件
 ak server
 ak worker
 ```
-### 使用 ###
+## 使用 ##
 1. 初始化管理员账号密码
 
 打开初始化页面 https://{{your host}}/if/flow/initial-setup/，设置邮箱密码
+
 2. 访问管理后台
 
 打开管理后台 https://{{your host}}/if/admin/#/administration/overview

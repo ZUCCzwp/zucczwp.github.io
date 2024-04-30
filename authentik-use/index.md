@@ -1,7 +1,7 @@
 # Authentik使用
 
 
-### Proxy Provider
+## Proxy Provider
 {{< figure src="/images/authentik_proxy.png" title="Proxy Provider (process)" >}}
 代理前哨设置以下用户特定的标头：
 
@@ -34,7 +34,7 @@
 additionalHeaders:
     X-test-header: test-value
 ```
-#### 退出登录 ####
+### 退出登录 ####
 当您在没有有效 cookie 的情况下访问域时，会自动完成登录.
 
 使用单应用程序模式时，导航至app.domain.tld/outpost.goauthentik.io/sign_out.
@@ -43,7 +43,7 @@ additionalHeaders:
 
 要注销，请导航至/outpost.goauthentik.io/sign_out。
 
-#### 转发认证 ####
+### 转发认证 ####
 ***Nginx*** 
 ```
 server {
@@ -155,8 +155,8 @@ location @goauthentik_proxy_signin {
 }
 ```
 
-### Oauth2 Provider
-#### 前期准备
+## Oauth2 Provider
+### 前期准备
 
 1. 配置 authentik的oauth2 provider
 {{< figure src="/images/oauth_provider.png" title="Provider Setting Page" >}}
@@ -165,7 +165,7 @@ location @goauthentik_proxy_signin {
 {{< figure src="/images/oauth_application.png" title="Application Setting Page" >}}
 选择新增好的provider
 
-#### 配置portainer
+### 配置portainer
 我们使用 portainer作为演示
 1. 安装 portainer
 
@@ -190,21 +190,21 @@ docker run -d -p 9000:9000 --name=portainer --restart=unless-stopped
 {{< figure src="/images/portainer_login_success.png" title="Portainer Login Success" >}}
 
 
-### LDAP Provider
-#### 前期准备
+## LDAP Provider
+### 前期准备
 1. 新增 ldap flow
 2. 配置 authentik的 ldap provider、 application
 
 [配置 authentik](https://docs.goauthentik.io/docs/providers/ldap/generic_setup)
 
-#### 测试
-##### ldapsearch
+### 测试
+#### ldapsearch
 ```
 ldapsearch -x -H ldap://ladp_addr:389 -D 'cn=akadmin,ou=users,dc=ldap,dc=goauthentik,dc=io' 
 -b 'ou=users,dc=ldap,dc=goauthentik,dc=io' -w 'xxx@123' "cn=akadmin"
 ```
 
-##### jumpserver 
+#### jumpserver 
 我们使用 jumpserver作为演示ldap登录
 {{<admonition >}}
 安装 jumpserver,详见[docker安装 jumpserver](https://github.com/jumpserver/Dockerfile)

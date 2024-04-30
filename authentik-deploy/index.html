@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zucczwp.github.io\/authentik-deploy\/"
-        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Auth","wordcount":  853 ,
+        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Auth","wordcount":  852 ,
         "url": "https:\/\/zucczwp.github.io\/authentik-deploy\/","datePublished": "2024-04-02T00:00:00+00:00","dateModified": "2024-04-02T10:12:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/zucczwp.github.io\/images\/avatar.png"},"author": {
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Authentik安装</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/auth/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Auth</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-04-02">2024-04-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 853 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-04-02">2024-04-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 852 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/authentik-deploy/" class="leancloud_visitors" data-flag-title="Authentik安装">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -114,26 +114,22 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#docker安装">Docker安装</a></li>
+    <li><a href="#二进制安装">二进制安装</a>
       <ul>
-        <li><a href="#docker安装">Docker安装</a></li>
-        <li><a href="#二进制安装">二进制安装</a>
+        <li>
           <ul>
-            <li>
-              <ul>
-                <li><a href="#安装依赖">安装依赖</a></li>
-              </ul>
-            </li>
-            <li><a href="#下载httpsgithubcomgolangcigolangci-lintreleases对应-rpm">下载https://github.com/golangci/golangci-lint/releases对应 rpm</a></li>
-            <li><a href="#下载路径httpswwwpostgresqlorgftpsourcev162">下载路径：https://www.postgresql.org/ftp/source/v16.2/</a></li>
+            <li><a href="#安装依赖">安装依赖</a></li>
           </ul>
         </li>
-        <li><a href="#使用">使用</a></li>
+        <li><a href="#下载httpsgithubcomgolangcigolangci-lintreleases对应-rpm">下载https://github.com/golangci/golangci-lint/releases对应 rpm</a></li>
+        <li><a href="#下载路径httpswwwpostgresqlorgftpsourcev162">下载路径：https://www.postgresql.org/ftp/source/v16.2/</a></li>
       </ul>
     </li>
+    <li><a href="#使用">使用</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="docker安装">Docker安装</h3>
+            </div><div class="content" id="content"><h2 id="docker安装">Docker安装</h2>
 <p><em><strong>MacOs</strong></em></p>
 <ol>
 <li>下载 docker composer文件</li>
@@ -242,7 +238,7 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">http://&lt;your server&#39;s IP or hostname&gt;/if/flow/initial-setup/
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="二进制安装">二进制安装</h3>
+</div><h2 id="二进制安装">二进制安装</h2>
 <ol>
 <li>确定 linux系统的架构</li>
 </ol>
@@ -256,7 +252,7 @@
 </div>
 </div><p>如果显示x86_64则是 amd架构 不是则是 arm,也可通过 arch命令得到
 2. 前期准备</p>
-<h5 id="安装依赖">安装依赖</h5>
+<h4 id="安装依赖">安装依赖</h4>
 <ul>
 <li>安装 lib库</li>
 </ul>
@@ -363,7 +359,7 @@
 <ul>
 <li>安装 golangci-lint</li>
 </ul>
-<h4 id="下载httpsgithubcomgolangcigolangci-lintreleases对应-rpm">下载https://github.com/golangci/golangci-lint/releases对应 rpm</h4>
+<h3 id="下载httpsgithubcomgolangcigolangci-lintreleases对应-rpm">下载https://github.com/golangci/golangci-lint/releases对应 rpm</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -388,7 +384,7 @@
 </div><ul>
 <li>安装 postgreSql</li>
 </ul>
-<h4 id="下载路径httpswwwpostgresqlorgftpsourcev162">下载路径：https://www.postgresql.org/ftp/source/v16.2/</h4>
+<h3 id="下载路径httpswwwpostgresqlorgftpsourcev162">下载路径：https://www.postgresql.org/ftp/source/v16.2/</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -469,12 +465,14 @@ ak命令为 lifecycle目录下的可执行文件</li>
 </span></span><span class="line"><span class="cl">ak worker
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="使用">使用</h3>
+</div><h2 id="使用">使用</h2>
 <ol>
 <li>初始化管理员账号密码</li>
 </ol>
-<p>打开初始化页面 https://{{your host}}/if/flow/initial-setup/，设置邮箱密码
-2. 访问管理后台</p>
+<p>打开初始化页面 https://{{your host}}/if/flow/initial-setup/，设置邮箱密码</p>
+<ol start="2">
+<li>访问管理后台</li>
+</ol>
 <p>打开管理后台 https://{{your host}}/if/admin/#/administration/overview</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">

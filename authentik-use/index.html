@@ -114,36 +114,32 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#proxy-provider">Proxy Provider</a>
       <ul>
-        <li><a href="#proxy-provider">Proxy Provider</a>
+        <li><a href="#退出登录">退出登录</a></li>
+        <li><a href="#转发认证">转发认证</a></li>
+      </ul>
+    </li>
+    <li><a href="#oauth2-provider">Oauth2 Provider</a>
+      <ul>
+        <li><a href="#前期准备">前期准备</a></li>
+        <li><a href="#配置portainer">配置portainer</a></li>
+      </ul>
+    </li>
+    <li><a href="#ldap-provider">LDAP Provider</a>
+      <ul>
+        <li><a href="#前期准备-1">前期准备</a></li>
+        <li><a href="#测试">测试</a>
           <ul>
-            <li><a href="#退出登录">退出登录</a></li>
-            <li><a href="#转发认证">转发认证</a></li>
-          </ul>
-        </li>
-        <li><a href="#oauth2-provider">Oauth2 Provider</a>
-          <ul>
-            <li><a href="#前期准备">前期准备</a></li>
-            <li><a href="#配置portainer">配置portainer</a></li>
-          </ul>
-        </li>
-        <li><a href="#ldap-provider">LDAP Provider</a>
-          <ul>
-            <li><a href="#前期准备-1">前期准备</a></li>
-            <li><a href="#测试">测试</a>
-              <ul>
-                <li><a href="#ldapsearch">ldapsearch</a></li>
-                <li><a href="#jumpserver">jumpserver</a></li>
-              </ul>
-            </li>
+            <li><a href="#ldapsearch">ldapsearch</a></li>
+            <li><a href="#jumpserver">jumpserver</a></li>
           </ul>
         </li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="proxy-provider">Proxy Provider</h3>
+            </div><div class="content" id="content"><h2 id="proxy-provider">Proxy Provider</h2>
 <p><figure><img src="/images/authentik_proxy.png"/><figcaption>
             <h4>Proxy Provider (process)</h4>
         </figcaption>
@@ -173,12 +169,12 @@
 </span></span><span class="line"><span class="cl">    X-test-header: test-value
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="退出登录">退出登录</h4>
+</div><h3 id="退出登录">退出登录</h3>
 <p>当您在没有有效 cookie 的情况下访问域时，会自动完成登录.</p>
 <p>使用单应用程序模式时，导航至app.domain.tld/outpost.goauthentik.io/sign_out.</p>
 <p>使用域级模式时，导航到auth.domain.tld/outpost.goauthentik.io/sign_out，其中 auth.domain.tld 是为提供商配置的外部主机。</p>
 <p>要注销，请导航至/outpost.goauthentik.io/sign_out。</p>
-<h4 id="转发认证">转发认证</h4>
+<h3 id="转发认证">转发认证</h3>
 <p><em><strong>Nginx</strong></em></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -401,8 +397,8 @@
 </span></span><span class="line"><span class="cl">}
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="oauth2-provider">Oauth2 Provider</h3>
-<h4 id="前期准备">前期准备</h4>
+</div><h2 id="oauth2-provider">Oauth2 Provider</h2>
+<h3 id="前期准备">前期准备</h3>
 <ol>
 <li>配置 authentik的oauth2 provider
 <figure><img src="/images/oauth_provider.png"/><figcaption>
@@ -419,7 +415,7 @@
 
 选择新增好的provider</li>
 </ol>
-<h4 id="配置portainer">配置portainer</h4>
+<h3 id="配置portainer">配置portainer</h3>
 <p>我们使用 portainer作为演示</p>
 <ol>
 <li>安装 portainer</li>
@@ -476,15 +472,15 @@
 </figure>
 </li>
 </ol>
-<h3 id="ldap-provider">LDAP Provider</h3>
-<h4 id="前期准备-1">前期准备</h4>
+<h2 id="ldap-provider">LDAP Provider</h2>
+<h3 id="前期准备-1">前期准备</h3>
 <ol>
 <li>新增 ldap flow</li>
 <li>配置 authentik的 ldap provider、 application</li>
 </ol>
 <p><a href="https://docs.goauthentik.io/docs/providers/ldap/generic_setup" target="_blank" rel="noopener noreffer ">配置 authentik</a></p>
-<h4 id="测试">测试</h4>
-<h5 id="ldapsearch">ldapsearch</h5>
+<h3 id="测试">测试</h3>
+<h4 id="ldapsearch">ldapsearch</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -495,7 +491,7 @@
 </span></span><span class="line"><span class="cl">-b &#39;ou=users,dc=ldap,dc=goauthentik,dc=io&#39; -w &#39;xxx@123&#39; &#34;cn=akadmin&#34;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h5 id="jumpserver">jumpserver</h5>
+</div><h4 id="jumpserver">jumpserver</h4>
 <p>我们使用 jumpserver作为演示ldap登录
 <div class="details admonition note open">
         <div class="details-summary admonition-title">

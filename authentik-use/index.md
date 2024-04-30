@@ -2,7 +2,8 @@
 
 
 ## Proxy Provider
-{{< figure src="/images/authentik_proxy.png" title="Proxy Provider (process)" >}}
+{{< image src="/images/authentik_proxy.png" title="Proxy Provider" >}}
+
 代理前哨设置以下用户特定的标头：
 
 `X-authentik-username`当前登录用户的用户名
@@ -159,10 +160,10 @@ location @goauthentik_proxy_signin {
 ### 前期准备
 
 1. 配置 authentik的oauth2 provider
-{{< figure src="/images/oauth_provider.png" title="Provider Setting Page" >}}
+{{< image src="/images/oauth_provider.png"  height= "500" width= "1000" title="Provider Setting Page" >}}
 重定向URI填写的是 portainer的主页地址
 2. 配置 application
-{{< figure src="/images/oauth_application.png" title="Application Setting Page" >}}
+{{< image src="/images/oauth_application.png" height= "500" width= "1000" title="Application Setting Page" >}}
 选择新增好的provider
 
 ### 配置portainer
@@ -180,14 +181,14 @@ docker run -d -p 9000:9000 --name=portainer --restart=unless-stopped
 在浏览器中访问 http://localhost:9000 来登录 Portainer，首次使用，需要为 admin用户设置密码。
 
 3. 点击设置里的认证模块
-{{< figure src="/images/portainer_oauth2.png" title="Portainer Setting Page" >}}
+{{< image src="/images/portainer_oauth2.png" height= "500" width= "1000" title="Portainer Setting Page" >}}
 4. 配置对应的配置项
 {{< image src="/images/portainer_oauth2_setting.png" height= "500" width= "1000" title="Portainer Setting Page" >}}
 5. 登出 portainer，出现 Login With Oauth
-{{< figure src="/images/portainer_login.png" title="Portainer Login Page" >}}
+{{< image src="/images/portainer_login.png" height= "500" width= "1000" title="Portainer Login Page" >}}
 6. 点击Login With Oauth，会跳转到 authentik页面进行授权，授权通过后就能登录到 portainer首页
-{{< figure src="/images/oauth_login.png" title="Authentik Login Page" >}}
-{{< figure src="/images/portainer_login_success.png" title="Portainer Login Success" >}}
+{{< image src="/images/oauth_login.png" height= "500" width= "1000" title="Authentik Login Page" >}}
+{{< image src="/images/portainer_login_success.png" height= "500" width= "1000" title="Portainer Login Success" >}}
 
 
 ## LDAP Provider
@@ -210,7 +211,8 @@ ldapsearch -x -H ldap://ladp_addr:389 -D 'cn=akadmin,ou=users,dc=ldap,dc=goauthe
 安装 jumpserver,详见[docker安装 jumpserver](https://github.com/jumpserver/Dockerfile)
 {{</admonition >}}
 
-{{<figure src="/images/ldap_jumpserver_setting.png" title="Jumpserver ldap setting Page">}}
+{{<image src="/images/ldap_jumpserver_setting.png"  height= "500" width= "1000" 
+title="Jumpserver ldap setting Page">}}
 
 配置完之后就能用 authentik用户登录 jumpserver了
 

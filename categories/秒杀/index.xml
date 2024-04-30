@@ -10,7 +10,7 @@
     <pubDate>Sat, 17 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/miaosha/</guid>
-    <description><![CDATA[主要挑战 瞬时高并发 高并发无法避开的热点数据问题 来自黑产的刷子流量 页面静态化 cdn加速 秒杀按钮 js文件控制 定时器 读多写少 redis 缓存问题 缓存击穿 缓存]]></description>
+    <description><![CDATA[主要挑战 瞬时高并发 高并发无法避开的热点数据问题 来自黑产的刷子流量 页面静态化 cdn加速 设计 秒杀按钮 js文件控制 定时器 读多写少 redis 缓存问题 缓存击穿]]></description>
 </item>
 </channel>
 </rss>

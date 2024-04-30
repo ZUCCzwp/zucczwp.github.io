@@ -11,6 +11,11 @@
 ## 页面静态化
 cdn加速
 
+## 设计
+{{<image src="/images/miaosha_process.png" height= "500" width= "1000"  title="miaosha process">}}
+{{<image src="/images/miaosha_yugu.png" height= "500" width= "1000"  title="miaosha yugu">}}
+{{<image src="/images/miaosha_loudou.png" height= "500" width= "1000"  title="miaosha loudou">}}
+
 ## 秒杀按钮
 js文件控制
 
@@ -46,13 +51,13 @@ redis
 * Lua脚本扣减库存
 ## 分布式锁
 ### Setnx加锁
-### set加锁
+### Set加锁
 * lockKey
 * requestId
 * NX
 * PX
 * expireTime
-### 
+### 释放锁
 通过requestId，只释放自己的锁，不允许释放别人加的锁
 ### 自旋锁
 解决均匀分布的秒杀问题

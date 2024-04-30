@@ -1,12 +1,13 @@
 # 金蝶云星空对接 authentik实现 sso登录
 
 
-### 编写 proxy 服务
+## 编写 proxy 服务
+端口开放为：8888
+
 逻辑：
 1. 获取authentik返回的请求头 X-authentik-username获取用户的用户名
-2. 对接[金蝶第三方登录](https://vip.kingdee.com/article/9788?productLineId=1&lang=zh-CN)生成html5跳转链接，并进行 
-   302 跳转
-```markdown
+2. 对接[金蝶第三方登录](https://vip.kingdee.com/article/9788?productLineId=1&lang=zh-CN)生成html5跳转链接，并进行302 跳转
+```golang
 username := r.Header.Get("X-authentik-username")
 req.Username = username
 l := logic.NewK3cloudLogic(r.Context(), svcCtx)
@@ -72,11 +73,11 @@ func GetSignature(arr []string) string {
 	return signature
 }
 ```
-### 配置 authentik proxy provider
+## 配置 authentik proxy provider
 详见 authentik proxy provider部分
 
 配置proxy的nginx,10.2.192.4:8888/from/authentik地址是编写 proxy服务地址
-```
+```nginx
 location / {
   # Put your proxy_pass to your application here, and all the other statements you'll need
   proxy_pass http://10.2.192.4:8888/from/authentik;

@@ -32,12 +32,7 @@
         },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Go","wordcount":  3309 ,
         "url": "https:\/\/zucczwp.github.io\/mutex\/","datePublished": "2024-01-12T00:00:00+00:00","dateModified": "2024-02-11T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
-            "name": "xxxx","logo": {
-                    "@type": "ImageObject",
-                    "url": "https:\/\/zucczwp.github.io\/images\/avatar.png",
-                    "width":  2040 ,
-                    "height":  1836 
-                }},"author": {
+            "name": "xxxx","logo": "https:\/\/zucczwp.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
                 "name": "Jimi"
             },"description": "这篇文章展示了mutex用法"
@@ -318,7 +313,7 @@
         data-srcset="/images/mutex.png, /images/mutex.png 1.5x, /images/mutex.png 2x"
         data-sizes="auto"
         alt="/images/mutex.png"
-        title="img.png" width="597" height="310" /></p>
+        title="img.png" /></p>
 <h3 id="初版的互斥锁">初版的互斥锁</h3>
 <p>Unlock 方法可以被任意的 goroutine 调用释放锁，即使是没持有这个互斥锁的goroutine，也可以进行这个操作。这是因为，Mutex 本身并没有包含持有这把锁的goroutine 的信息，所以，Unlock 也不会对此进行检查。Mutex 的这个设计一直保持至今</p>
 <p>mutex包含两个字段：</p>
@@ -332,7 +327,7 @@
         data-srcset="/images/first_mutex.png, /images/first_mutex.png 1.5x, /images/first_mutex.png 2x"
         data-sizes="auto"
         alt="/images/first_mutex.png"
-        title="img.png" width="454" height="321" /></li>
+        title="img.png" /></li>
 </ul>
 <h4 id="初版的-mutex-实现有一个问题">初版的 Mutex 实现有一个问题：</h4>
 <p>请求锁的 goroutine 会排队等待获取互斥锁。虽然这貌似很公平，但是从性能上来看，却不是最优的</p>
@@ -345,7 +340,7 @@
         data-srcset="/images/second_mutex.png, /images/second_mutex.png 1.5x, /images/second_mutex.png 2x"
         data-sizes="auto"
         alt="/images/second_mutex.png"
-        title="img.png" width="575" height="362" /></p>
+        title="img.png" /></p>
 <p>相对于初版的设计，这次的改动主要就是，新来的 goroutine 也有机会先获取到锁，甚至一个 goroutine 可能连续获取到锁，打破了先来先得的逻辑。但是，代码复杂度也显而易见</p>
 <h3 id="多给些机会">多给些机会</h3>
 <p>如果新来的 goroutine 或者是被唤醒的 goroutine 首次获取不到锁，它们就会通过自旋（spin，通过循环不断尝试，spin 的逻辑是在runtime 实现的）的方式，尝试检查锁是否被释放。在尝试一定的自旋次数后，再执行原来的逻辑</p>

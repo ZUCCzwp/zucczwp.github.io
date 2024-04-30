@@ -12,7 +12,7 @@
     <pubDate>Wed, 17 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/k3cloud_login/</guid>
-    <description><![CDATA[编写 proxy 服务 逻辑： 获取authentik返回的请求头 X-authentik-username获取用户的用户名 对接金蝶第三方登录生成html5跳]]></description>
+    <description><![CDATA[编写 proxy 服务 端口开放为：8888 逻辑： 获取authentik返回的请求头 X-authentik-username获取用户的用户名 对接金蝶第三方]]></description>
 </item>
 <item>
     <title>Docker常用命令</title>

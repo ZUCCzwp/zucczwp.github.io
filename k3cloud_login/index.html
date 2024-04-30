@@ -29,15 +29,10 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zucczwp.github.io\/k3cloud_login\/"
-        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Auth, K3Cloud","wordcount":  563 ,
+        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Auth, K3Cloud","wordcount":  575 ,
         "url": "https:\/\/zucczwp.github.io\/k3cloud_login\/","datePublished": "2024-04-17T00:00:00+00:00","dateModified": "2024-04-17T09:20:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
-            "name": "xxxx","logo": {
-                    "@type": "ImageObject",
-                    "url": "https:\/\/zucczwp.github.io\/images\/avatar.png",
-                    "width":  2040 ,
-                    "height":  1836 
-                }},"author": {
+            "name": "xxxx","logo": "https:\/\/zucczwp.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
                 "name": "Jimi"
             },"description": "这篇文章展示了如何使用Authentik对接金蝶云星空."
@@ -108,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">金蝶云星空对接 authentik实现 sso登录</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/auth/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Auth</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-04-17">2024-04-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 563 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-04-17">2024-04-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 575 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/k3cloud_login/" class="leancloud_visitors" data-flag-title="金蝶云星空对接 authentik实现 sso登录">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -119,20 +114,16 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#编写-proxy-服务">编写 proxy 服务</a></li>
-        <li><a href="#配置-authentik-proxy-provider">配置 authentik proxy provider</a></li>
-      </ul>
-    </li>
+    <li><a href="#编写-proxy-服务">编写 proxy 服务</a></li>
+    <li><a href="#配置-authentik-proxy-provider">配置 authentik proxy provider</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="编写-proxy-服务">编写 proxy 服务</h3>
+            </div><div class="content" id="content"><h2 id="编写-proxy-服务">编写 proxy 服务</h2>
+<p>端口开放为：8888</p>
 <p>逻辑：</p>
 <ol>
 <li>获取authentik返回的请求头 X-authentik-username获取用户的用户名</li>
-<li>对接<a href="https://vip.kingdee.com/article/9788?productLineId=1&amp;lang=zh-CN" target="_blank" rel="noopener noreffer ">金蝶第三方登录</a>生成html5跳转链接，并进行
-302 跳转</li>
+<li>对接<a href="https://vip.kingdee.com/article/9788?productLineId=1&amp;lang=zh-CN" target="_blank" rel="noopener noreffer ">金蝶第三方登录</a>生成html5跳转链接，并进行302 跳转</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -202,73 +193,73 @@
 </span><span class="lnt">64
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">username := r.Header.Get(&#34;X-authentik-username&#34;)
-</span></span><span class="line"><span class="cl">req.Username = username
-</span></span><span class="line"><span class="cl">l := logic.NewK3cloudLogic(r.Context(), svcCtx)
-</span></span><span class="line"><span class="cl">resp, err := l.K3cloud(<span class="err">&amp;</span>req)
-</span></span><span class="line"><span class="cl">if err != nil {
-</span></span><span class="line"><span class="cl">   httpx.ErrorCtx(r.Context(), w, err)
-</span></span><span class="line"><span class="cl">} else {
-</span></span><span class="line"><span class="cl">   w.Header().Set(&#34;Location&#34;, resp.Message)
-</span></span><span class="line"><span class="cl">   w.WriteHeader(http.StatusFound)
-</span></span><span class="line"><span class="cl">   http.RedirectHandler(resp.Message, http.StatusFound)
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">...
+<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="line"><span class="cl"><span class="nx">username</span> <span class="o">:=</span> <span class="nx">r</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;X-authentik-username&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">req</span><span class="p">.</span><span class="nx">Username</span> <span class="p">=</span> <span class="nx">username</span>
+</span></span><span class="line"><span class="cl"><span class="nx">l</span> <span class="o">:=</span> <span class="nx">logic</span><span class="p">.</span><span class="nf">NewK3cloudLogic</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nf">Context</span><span class="p">(),</span> <span class="nx">svcCtx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">l</span><span class="p">.</span><span class="nf">K3cloud</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">req</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">httpx</span><span class="p">.</span><span class="nf">ErrorCtx</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nf">Context</span><span class="p">(),</span> <span class="nx">w</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">w</span><span class="p">.</span><span class="nf">Header</span><span class="p">().</span><span class="nf">Set</span><span class="p">(</span><span class="s">&#34;Location&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">w</span><span class="p">.</span><span class="nf">WriteHeader</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusFound</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">http</span><span class="p">.</span><span class="nf">RedirectHandler</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Message</span><span class="p">,</span> <span class="nx">http</span><span class="p">.</span><span class="nx">StatusFound</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">func (l *K3cloudLogic) K3cloud(req *types.Request) (resp *types.Response, err error) {
-</span></span><span class="line"><span class="cl">	//拼接
-</span></span><span class="line"><span class="cl">	userName := req.Username
-</span></span><span class="line"><span class="cl">	if userName == &#34;&#34; {
-</span></span><span class="line"><span class="cl">		return nil, errors.New(&#34;invalid param&#34;)
-</span></span><span class="line"><span class="cl">	}
-</span></span><span class="line"><span class="cl">	dbId := l.svcCtx.Config.K3Cloud.DbId
-</span></span><span class="line"><span class="cl">	appId := l.svcCtx.Config.K3Cloud.AppId
-</span></span><span class="line"><span class="cl">	appSecret := l.svcCtx.Config.K3Cloud.AppSecret
-</span></span><span class="line"><span class="cl">	timestamp := time.Now().Unix()
-</span></span><span class="line"><span class="cl">	arr := []string{dbId, userName, appId, appSecret, fmt.Sprintf(&#34;%d&#34;, timestamp)}
-</span></span><span class="line"><span class="cl">	sign := GetSignature(arr) // 签名
-</span></span><span class="line"><span class="cl">	l.Debugf(&#34;generate sign param:%+v result:%v&#34;, arr, sign)
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">l</span> <span class="o">*</span><span class="nx">K3cloudLogic</span><span class="p">)</span> <span class="nf">K3cloud</span><span class="p">(</span><span class="nx">req</span> <span class="o">*</span><span class="nx">types</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">(</span><span class="nx">resp</span> <span class="o">*</span><span class="nx">types</span><span class="p">.</span><span class="nx">Response</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//拼接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">userName</span> <span class="o">:=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">Username</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">userName</span> <span class="o">==</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;invalid param&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">dbId</span> <span class="o">:=</span> <span class="nx">l</span><span class="p">.</span><span class="nx">svcCtx</span><span class="p">.</span><span class="nx">Config</span><span class="p">.</span><span class="nx">K3Cloud</span><span class="p">.</span><span class="nx">DbId</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">appId</span> <span class="o">:=</span> <span class="nx">l</span><span class="p">.</span><span class="nx">svcCtx</span><span class="p">.</span><span class="nx">Config</span><span class="p">.</span><span class="nx">K3Cloud</span><span class="p">.</span><span class="nx">AppId</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">appSecret</span> <span class="o">:=</span> <span class="nx">l</span><span class="p">.</span><span class="nx">svcCtx</span><span class="p">.</span><span class="nx">Config</span><span class="p">.</span><span class="nx">K3Cloud</span><span class="p">.</span><span class="nx">AppSecret</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">timestamp</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Unix</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">arr</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="nx">dbId</span><span class="p">,</span> <span class="nx">userName</span><span class="p">,</span> <span class="nx">appId</span><span class="p">,</span> <span class="nx">appSecret</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sign</span> <span class="o">:=</span> <span class="nf">GetSignature</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="c1">// 签名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">l</span><span class="p">.</span><span class="nf">Debugf</span><span class="p">(</span><span class="s">&#34;generate sign param:%+v result:%v&#34;</span><span class="p">,</span> <span class="nx">arr</span><span class="p">,</span> <span class="nx">sign</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	arg := domain.GenerateCloudSign{
-</span></span><span class="line"><span class="cl">		DBID:       dbId,
-</span></span><span class="line"><span class="cl">		Username:   userName,
-</span></span><span class="line"><span class="cl">		AppId:      appId,
-</span></span><span class="line"><span class="cl">		SignedData: sign,
-</span></span><span class="line"><span class="cl">		Timestamp:  fmt.Sprintf(&#34;%d&#34;, timestamp),
-</span></span><span class="line"><span class="cl">		LcId:       l.svcCtx.Config.K3Cloud.LcId,
-</span></span><span class="line"><span class="cl">		OriginType: &#34;SimPas&#34;,
-</span></span><span class="line"><span class="cl">		EntryRole:  &#34;&#34;,
-</span></span><span class="line"><span class="cl">		FormId:     &#34;&#34;,
-</span></span><span class="line"><span class="cl">		FormType:   &#34;&#34;,
-</span></span><span class="line"><span class="cl">		Pkid:       &#34;&#34;,
-</span></span><span class="line"><span class="cl">		OtherArgs:  &#34;&#34;,
-</span></span><span class="line"><span class="cl">	}
+</span></span><span class="line"><span class="cl">	<span class="nx">arg</span> <span class="o">:=</span> <span class="nx">domain</span><span class="p">.</span><span class="nx">GenerateCloudSign</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">DBID</span><span class="p">:</span>       <span class="nx">dbId</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Username</span><span class="p">:</span>   <span class="nx">userName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">AppId</span><span class="p">:</span>      <span class="nx">appId</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">SignedData</span><span class="p">:</span> <span class="nx">sign</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Timestamp</span><span class="p">:</span>  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">LcId</span><span class="p">:</span>       <span class="nx">l</span><span class="p">.</span><span class="nx">svcCtx</span><span class="p">.</span><span class="nx">Config</span><span class="p">.</span><span class="nx">K3Cloud</span><span class="p">.</span><span class="nx">LcId</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">OriginType</span><span class="p">:</span> <span class="s">&#34;SimPas&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">EntryRole</span><span class="p">:</span>  <span class="s">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">FormId</span><span class="p">:</span>     <span class="s">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">FormType</span><span class="p">:</span>   <span class="s">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Pkid</span><span class="p">:</span>       <span class="s">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">OtherArgs</span><span class="p">:</span>  <span class="s">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	argJson := arg.SerializeObject()
-</span></span><span class="line"><span class="cl">	argJsonBase64 := base64.StdEncoding.EncodeToString([]byte(argJson))
-</span></span><span class="line"><span class="cl">	html5Url := l.svcCtx.Config.K3Cloud.BaseUrl + argJsonBase64 // html5入口链接
-</span></span><span class="line"><span class="cl">	result := types.Response{}
-</span></span><span class="line"><span class="cl">	result.Message = html5Url
-</span></span><span class="line"><span class="cl">	l.Debugf(&#34;generate html5 url result:%v&#34;, html5Url)
-</span></span><span class="line"><span class="cl">	return <span class="err">&amp;</span>result, nil
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">	<span class="nx">argJson</span> <span class="o">:=</span> <span class="nx">arg</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">argJsonBase64</span> <span class="o">:=</span> <span class="nx">base64</span><span class="p">.</span><span class="nx">StdEncoding</span><span class="p">.</span><span class="nf">EncodeToString</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">argJson</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">html5Url</span> <span class="o">:=</span> <span class="nx">l</span><span class="p">.</span><span class="nx">svcCtx</span><span class="p">.</span><span class="nx">Config</span><span class="p">.</span><span class="nx">K3Cloud</span><span class="p">.</span><span class="nx">BaseUrl</span> <span class="o">+</span> <span class="nx">argJsonBase64</span> <span class="c1">// html5入口链接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">result</span> <span class="o">:=</span> <span class="nx">types</span><span class="p">.</span><span class="nx">Response</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">result</span><span class="p">.</span><span class="nx">Message</span> <span class="p">=</span> <span class="nx">html5Url</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">l</span><span class="p">.</span><span class="nf">Debugf</span><span class="p">(</span><span class="s">&#34;generate html5 url result:%v&#34;</span><span class="p">,</span> <span class="nx">html5Url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">result</span><span class="p">,</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">func GetSignature(arr []string) string {
-</span></span><span class="line"><span class="cl">	// 将数组进行排序
-</span></span><span class="line"><span class="cl">	sort.Strings(arr)
-</span></span><span class="line"><span class="cl">	// 将数组拼接成一个字符串
-</span></span><span class="line"><span class="cl">	arrString := strings.Join(arr, &#34;&#34;)
-</span></span><span class="line"><span class="cl">	// 对拼接后的字符串进行SHA1加密
-</span></span><span class="line"><span class="cl">	sha1Hash := sha1.New()
-</span></span><span class="line"><span class="cl">	sha1Hash.Write([]byte(arrString))
-</span></span><span class="line"><span class="cl">	sha1Bytes := sha1Hash.Sum(nil)
-</span></span><span class="line"><span class="cl">	// 将加密后的字节转换为十六进制字符串
-</span></span><span class="line"><span class="cl">	signature := hex.EncodeToString(sha1Bytes)
-</span></span><span class="line"><span class="cl">	return signature
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">GetSignature</span><span class="p">(</span><span class="nx">arr</span> <span class="p">[]</span><span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 将数组进行排序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">sort</span><span class="p">.</span><span class="nf">Strings</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 将数组拼接成一个字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">arrString</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 对拼接后的字符串进行SHA1加密
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">sha1Hash</span> <span class="o">:=</span> <span class="nx">sha1</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sha1Hash</span><span class="p">.</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">arrString</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sha1Bytes</span> <span class="o">:=</span> <span class="nx">sha1Hash</span><span class="p">.</span><span class="nf">Sum</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 将加密后的字节转换为十六进制字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">signature</span> <span class="o">:=</span> <span class="nx">hex</span><span class="p">.</span><span class="nf">EncodeToString</span><span class="p">(</span><span class="nx">sha1Bytes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">signature</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="配置-authentik-proxy-provider">配置 authentik proxy provider</h3>
+</div><h2 id="配置-authentik-proxy-provider">配置 authentik proxy provider</h2>
 <p>详见 authentik proxy provider部分</p>
 <p>配置proxy的nginx,10.2.192.4:8888/from/authentik地址是编写 proxy服务地址</p>
 <div class="highlight"><div class="chroma">
@@ -301,32 +292,32 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">location / {
-</span></span><span class="line"><span class="cl">  # Put your proxy_pass to your application here, and all the other statements you&#39;ll need
-</span></span><span class="line"><span class="cl">  proxy_pass http://10.2.192.4:8888/from/authentik;
-</span></span><span class="line"><span class="cl">  proxy_set_header Host $host;
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">location</span> <span class="s">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Put your proxy_pass to your application here, and all the other statements you&#39;ll need
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kn">proxy_pass</span> <span class="s">http://10.2.192.4:8888/from/authentik</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  ##############################
-</span></span><span class="line"><span class="cl">  # authentik-specific config
-</span></span><span class="line"><span class="cl">  ##############################
-</span></span><span class="line"><span class="cl">  auth_request     /outpost.goauthentik.io/auth/nginx;
-</span></span><span class="line"><span class="cl">  error_page       401 = @goauthentik_proxy_signin;
-</span></span><span class="line"><span class="cl">  auth_request_set $auth_cookie $upstream_http_set_cookie;
-</span></span><span class="line"><span class="cl">  add_header       Set-Cookie $auth_cookie;
+</span></span><span class="line"><span class="cl">  <span class="c1">##############################
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1"># authentik-specific config
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">##############################
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kn">auth_request</span>     <span class="s">/outpost.goauthentik.io/auth/nginx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">error_page</span>       <span class="mi">401</span> <span class="p">=</span> <span class="s">@goauthentik_proxy_signin</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">auth_request_set</span> <span class="nv">$auth_cookie</span> <span class="nv">$upstream_http_set_cookie</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">add_header</span>       <span class="s">Set-Cookie</span> <span class="nv">$auth_cookie</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  # translate headers from the outposts back to the actual upstream
-</span></span><span class="line"><span class="cl">  auth_request_set $authentik_username $upstream_http_x_authentik_username;
-</span></span><span class="line"><span class="cl">  auth_request_set $authentik_groups $upstream_http_x_authentik_groups;
-</span></span><span class="line"><span class="cl">  auth_request_set $authentik_email $upstream_http_x_authentik_email;
-</span></span><span class="line"><span class="cl">  auth_request_set $authentik_name $upstream_http_x_authentik_name;
-</span></span><span class="line"><span class="cl">  auth_request_set $authentik_uid $upstream_http_x_authentik_uid;
+</span></span><span class="line"><span class="cl">  <span class="c1"># translate headers from the outposts back to the actual upstream
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kn">auth_request_set</span> <span class="nv">$authentik_username</span> <span class="nv">$upstream_http_x_authentik_username</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">auth_request_set</span> <span class="nv">$authentik_groups</span> <span class="nv">$upstream_http_x_authentik_groups</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">auth_request_set</span> <span class="nv">$authentik_email</span> <span class="nv">$upstream_http_x_authentik_email</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">auth_request_set</span> <span class="nv">$authentik_name</span> <span class="nv">$upstream_http_x_authentik_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">auth_request_set</span> <span class="nv">$authentik_uid</span> <span class="nv">$upstream_http_x_authentik_uid</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  proxy_set_header X-authentik-username $authentik_username;
-</span></span><span class="line"><span class="cl">  proxy_set_header X-authentik-groups $authentik_groups;
-</span></span><span class="line"><span class="cl">  proxy_set_header X-authentik-email $authentik_email;
-</span></span><span class="line"><span class="cl">  proxy_set_header X-authentik-name $authentik_name;
-</span></span><span class="line"><span class="cl">  proxy_set_header X-authentik-uid $authentik_uid;
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_set_header</span> <span class="s">X-authentik-username</span> <span class="nv">$authentik_username</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_set_header</span> <span class="s">X-authentik-groups</span> <span class="nv">$authentik_groups</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_set_header</span> <span class="s">X-authentik-email</span> <span class="nv">$authentik_email</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_set_header</span> <span class="s">X-authentik-name</span> <span class="nv">$authentik_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_set_header</span> <span class="s">X-authentik-uid</span> <span class="nv">$authentik_uid</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">

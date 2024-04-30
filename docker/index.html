@@ -32,12 +32,7 @@
         },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Docker, Linux","wordcount":  388 ,
         "url": "https:\/\/zucczwp.github.io\/docker\/","datePublished": "2024-04-09T00:00:00+00:00","dateModified": "2024-04-09T22:04:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
-            "name": "xxxx","logo": {
-                    "@type": "ImageObject",
-                    "url": "https:\/\/zucczwp.github.io\/images\/avatar.png",
-                    "width":  2040 ,
-                    "height":  1836 
-                }},"author": {
+            "name": "xxxx","logo": "https:\/\/zucczwp.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
                 "name": "Jimi"
             },"description": "这篇文章展示了基本的Docker常用命令."
@@ -161,7 +156,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl start docker
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl start docker
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="停止-docker-服务">停止 docker 服务</h3>
@@ -170,7 +165,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl stop docker
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl stop docker
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="重启-docker-服务">重启 docker 服务</h3>
@@ -179,7 +174,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl restart docker
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl restart docker
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="查看-docker-服务状态">查看 docker 服务状态</h3>
@@ -188,7 +183,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl status docker
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl status docker
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="设置开机启动-docker-服务">设置开机启动 docker 服务</h3>
@@ -197,7 +192,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl enable docker
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> docker
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="镜像相关">镜像相关</h2>
@@ -207,7 +202,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker search nginx
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> docker search nginx
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="拉取镜像">拉取镜像</h3>
@@ -216,7 +211,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker  pull nginx
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> docker  pull nginx
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="构建镜像">构建镜像</h3>
@@ -225,7 +220,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker build -t my_image:1.0 .
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> docker build -t my_image:1.0 .
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="查看本地镜像">查看本地镜像</h3>
@@ -235,7 +230,7 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker images
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> docker images
 </span></span><span class="line"><span class="cl"> docker images -q//查看本地镜像 id
 </span></span></code></pre></td></tr></table>
 </div>
@@ -246,8 +241,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker rmi mysql:5.7
-</span></span><span class="line"><span class="cl"> docker rmi `docker images -q` //全部删除本地镜像
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> docker rmi mysql:5.7
+</span></span><span class="line"><span class="cl"> docker rmi <span class="sb">`</span>docker images -q<span class="sb">`</span> //全部删除本地镜像
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="导出镜像">导出镜像</h3>
@@ -256,7 +251,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker save -o image.tar target_image:tag
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> docker save -o image.tar target_image:tag
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="导入镜像">导入镜像</h3>
@@ -265,7 +260,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker load -i image.tar
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> docker load -i image.tar
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="给镜像打标签">给镜像打标签</h3>
@@ -274,7 +269,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker tag image_id new_image_name:tag
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> docker tag image_id new_image_name:tag
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="容器相关">容器相关</h2>
@@ -284,7 +279,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker run -d --name=my_container -p 8080:8080 tomcat:latest
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> docker run -d --name<span class="o">=</span>my_container -p 8080:8080 tomcat:latest
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="查看容器列表">查看容器列表</h3>
@@ -294,7 +289,7 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker ps
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> docker ps
 </span></span><span class="line"><span class="cl"> docker ps -q //查看正在运行的容器ID列表
 </span></span></code></pre></td></tr></table>
 </div>
@@ -304,7 +299,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker stop container
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> docker stop container
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="启动已停止的容器">启动已停止的容器</h3>
@@ -313,7 +308,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker start my_container
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> docker start my_container
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="删除容器">删除容器</h3>
@@ -322,7 +317,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker rm my_container
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> docker rm my_container
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="进入容器">进入容器</h3>
@@ -331,7 +326,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker <span class="nb">exec</span> <span class="o">[</span>OPTIONS<span class="o">]</span> CONTAINER COMMAND <span class="o">[</span>ARG...<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中，OPTIONS 可以指定一些参数，CONTAINER 是容器的名称或 ID，COMMAND 是要执行的命令，ARG 是命令的参数。</p>
@@ -341,7 +336,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker exec -it my_container sh -c &#34;echo Hello World &amp;&amp; ls -l&#34;
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it my_container sh -c <span class="s2">&#34;echo Hello World &amp;&amp; ls -l&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="查看容器信息">查看容器信息</h3>
@@ -350,7 +345,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker inspect my_container
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> docker inspect my_container
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="数据拷贝">数据拷贝</h3>
@@ -360,7 +355,7 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker cp container_id:/app/html /mnt/ //将容器中 /app/html 目录拷贝到宿主机 /mnt/ 目录中
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> docker cp container_id:/app/html /mnt/ //将容器中 /app/html 目录拷贝到宿主机 /mnt/ 目录中
 </span></span><span class="line"><span class="cl"> docker cp /mnt/dist container_id:/app/ //将宿主机 /mnt/dist 目录拷贝到容器的 /app 目录中
 </span></span></code></pre></td></tr></table>
 </div>

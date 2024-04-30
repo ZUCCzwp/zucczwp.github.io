@@ -34,7 +34,7 @@
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/posts/go/cond/</guid>
-    <description><![CDATA[go标准库cond cond通常应用于等待某个条件一组gorotine，等条件变为true的时候，其中]]></description>
+    <description><![CDATA[这篇文章展示了cond用法]]></description>
 </item>
 <item>
     <title>context用法</title>

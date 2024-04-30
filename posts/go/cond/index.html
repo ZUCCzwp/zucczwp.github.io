@@ -112,69 +112,76 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#go标准库cond">go标准库cond</a></li>
+    <li><a href="#cond的基本用法">cond的基本用法</a>
       <ul>
-        <li><a href="#go标准库cond">go标准库cond</a></li>
-        <li><a href="#cond的基本用法">cond的基本用法</a></li>
-        <li><a href="#使用cond的2个常见错误">使用cond的2个常见错误</a></li>
-        <li><a href="#知名项目中cond的使用">知名项目中cond的使用</a></li>
-        <li><a href="#使用案例">使用案例</a></li>
+        <li><a href="#signal">signal</a></li>
+        <li><a href="#broadcase">broadcase</a></li>
+        <li><a href="#wait">wait</a></li>
       </ul>
     </li>
+    <li><a href="#使用cond的2个常见错误">使用cond的2个常见错误</a></li>
+    <li><a href="#知名项目中cond的使用">知名项目中cond的使用</a>
+      <ul>
+        <li><a href="#k8s">K8s</a></li>
+        <li><a href="#cond有3点特性是channel无法替代的">cond有3点特性，是channel无法替代的</a></li>
+      </ul>
+    </li>
+    <li><a href="#使用案例">使用案例</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="go标准库cond">go标准库cond</h3>
+            </div><div class="content" id="content"><h2 id="go标准库cond">go标准库cond</h2>
 <p>cond通常应用于等待某个条件一组gorotine，等条件变为true的时候，其中一个goroutine或者所有goroutine都会被唤醒执行</p>
-<h3 id="cond的基本用法">cond的基本用法</h3>
-<h4 id="signal">signal</h4>
+<h2 id="cond的基本用法">cond的基本用法</h2>
+<h3 id="signal">signal</h3>
 <p>允许调用者caller唤醒一个等待此cond的goroutine</p>
-<h4 id="broadcase">broadcase</h4>
+<h3 id="broadcase">broadcase</h3>
 <p>允许调用者caller唤醒所有等待此cond的goroutine</p>
-<h4 id="wait">wait</h4>
+<h3 id="wait">wait</h3>
 <p>会把调用者caller放入cond的等待队列中并阻塞，直到被signal或者broadcast的方法从等待队列中移除并唤醒</p>
-<h3 id="使用cond的2个常见错误">使用cond的2个常见错误</h3>
+<h2 id="使用cond的2个常见错误">使用cond的2个常见错误</h2>
 <p>调用wait的时候没有加锁</p>
 <p>只调用了一次wait，没有检查等待条件是否满足，结果条件没满足。程序就继续执行</p>
-<h3 id="知名项目中cond的使用">知名项目中cond的使用</h3>
-<h4 id="k8s">K8s</h4>
+<h2 id="知名项目中cond的使用">知名项目中cond的使用</h2>
+<h3 id="k8s">K8s</h3>
 <p>定义了优先队列PriorityQueue这样一个数据结构，用来实现pod的调用</p>
-<h4 id="cond有3点特性是channel无法替代的">cond有3点特性，是channel无法替代的</h4>
+<h3 id="cond有3点特性是channel无法替代的">cond有3点特性，是channel无法替代的</h3>
 <p>cond和一个locker关联，可以利用这个locker对相关的依赖条件更改提供保护</p>
 <p>cond可以同时支持signal和broadcast方法，而channel只能同时支持其中一个</p>
 <p>cond的broadcast方法可以被重复调用</p>
-<h3 id="使用案例">使用案例</h3>
-<pre tabindex="0"><code>var done = false
-
-func read(name string, c *sync.Cond) {
-	c.L.Lock()
-	for !done {
-		c.Wait()
-	}
-	log.Println(name, &#34;starts reading&#34;)
-	c.L.Unlock()
-}
-
-func write(name string, c *sync.Cond) {
-	log.Println(name, &#34;starts writing&#34;)
-	time.Sleep(time.Second)
-	c.L.Lock()
-	done = true
-	c.L.Unlock()
-	log.Println(name, &#34;wakes all&#34;)
-	c.Broadcast()
-}
-
-func main() {
-	cond := sync.NewCond(&amp;sync.Mutex{})
-
-	go read(&#34;reader1&#34;, cond)
-	go read(&#34;reader2&#34;, cond)
-	go read(&#34;reader3&#34;, cond)
-	write(&#34;writer&#34;, cond)
-
-	time.Sleep(time.Second * 3)
-}
-</code></pre></div><div class="post-footer" id="post-footer">
+<h2 id="使用案例">使用案例</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>var done = false
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>func read(name string, c *sync.Cond) {
+</span></span><span style="display:flex;"><span>	c.L.Lock()
+</span></span><span style="display:flex;"><span>	for !done {
+</span></span><span style="display:flex;"><span>		c.Wait()
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	log.Println(name, &#34;starts reading&#34;)
+</span></span><span style="display:flex;"><span>	c.L.Unlock()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>func write(name string, c *sync.Cond) {
+</span></span><span style="display:flex;"><span>	log.Println(name, &#34;starts writing&#34;)
+</span></span><span style="display:flex;"><span>	time.Sleep(time.Second)
+</span></span><span style="display:flex;"><span>	c.L.Lock()
+</span></span><span style="display:flex;"><span>	done = true
+</span></span><span style="display:flex;"><span>	c.L.Unlock()
+</span></span><span style="display:flex;"><span>	log.Println(name, &#34;wakes all&#34;)
+</span></span><span style="display:flex;"><span>	c.Broadcast()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>func main() {
+</span></span><span style="display:flex;"><span>	cond := sync.NewCond(<span style="color:#960050;background-color:#1e0010">&amp;</span>sync.Mutex{})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	go read(&#34;reader1&#34;, cond)
+</span></span><span style="display:flex;"><span>	go read(&#34;reader2&#34;, cond)
+</span></span><span style="display:flex;"><span>	go read(&#34;reader3&#34;, cond)
+</span></span><span style="display:flex;"><span>	write(&#34;writer&#34;, cond)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	time.Sleep(time.Second * 3)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

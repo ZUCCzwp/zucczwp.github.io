@@ -128,71 +128,71 @@
 生成html5跳转链接，并进行
 302 跳转</li>
 </ol>
-<pre tabindex="0"><code>username := r.Header.Get(&#34;X-authentik-username&#34;)
-req.Username = username
-l := logic.NewK3cloudLogic(r.Context(), svcCtx)
-resp, err := l.K3cloud(&amp;req)
-if err != nil {
-   httpx.ErrorCtx(r.Context(), w, err)
-} else {
-   w.Header().Set(&#34;Location&#34;, resp.Message)
-   w.WriteHeader(http.StatusFound)
-   http.RedirectHandler(resp.Message, http.StatusFound)
-}
-...
-
-func (l *K3cloudLogic) K3cloud(req *types.Request) (resp *types.Response, err error) {
-	//拼接
-	userName := req.Username
-	if userName == &#34;&#34; {
-		return nil, errors.New(&#34;invalid param&#34;)
-	}
-	dbId := l.svcCtx.Config.K3Cloud.DbId
-	appId := l.svcCtx.Config.K3Cloud.AppId
-	appSecret := l.svcCtx.Config.K3Cloud.AppSecret
-	timestamp := time.Now().Unix()
-	arr := []string{dbId, userName, appId, appSecret, fmt.Sprintf(&#34;%d&#34;, timestamp)}
-	sign := GetSignature(arr) // 签名
-	l.Debugf(&#34;generate sign param:%+v result:%v&#34;, arr, sign)
-
-	arg := domain.GenerateCloudSign{
-		DBID:       dbId,
-		Username:   userName,
-		AppId:      appId,
-		SignedData: sign,
-		Timestamp:  fmt.Sprintf(&#34;%d&#34;, timestamp),
-		LcId:       l.svcCtx.Config.K3Cloud.LcId,
-		OriginType: &#34;SimPas&#34;,
-		EntryRole:  &#34;&#34;,
-		FormId:     &#34;&#34;,
-		FormType:   &#34;&#34;,
-		Pkid:       &#34;&#34;,
-		OtherArgs:  &#34;&#34;,
-	}
-
-	argJson := arg.SerializeObject()
-	argJsonBase64 := base64.StdEncoding.EncodeToString([]byte(argJson))
-	html5Url := l.svcCtx.Config.K3Cloud.BaseUrl + argJsonBase64 // html5入口链接
-	result := types.Response{}
-	result.Message = html5Url
-	l.Debugf(&#34;generate html5 url result:%v&#34;, html5Url)
-	return &amp;result, nil
-}
-
-func GetSignature(arr []string) string {
-	// 将数组进行排序
-	sort.Strings(arr)
-	// 将数组拼接成一个字符串
-	arrString := strings.Join(arr, &#34;&#34;)
-	// 对拼接后的字符串进行SHA1加密
-	sha1Hash := sha1.New()
-	sha1Hash.Write([]byte(arrString))
-	sha1Bytes := sha1Hash.Sum(nil)
-	// 将加密后的字节转换为十六进制字符串
-	signature := hex.EncodeToString(sha1Bytes)
-	return signature
-}
-</code></pre><h3 id="配置-authentik-proxy-provider">配置 authentik proxy provider</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>username := r.Header.Get(&#34;X-authentik-username&#34;)
+</span></span><span style="display:flex;"><span>req.Username = username
+</span></span><span style="display:flex;"><span>l := logic.NewK3cloudLogic(r.Context(), svcCtx)
+</span></span><span style="display:flex;"><span>resp, err := l.K3cloud(<span style="color:#960050;background-color:#1e0010">&amp;</span>req)
+</span></span><span style="display:flex;"><span>if err != nil {
+</span></span><span style="display:flex;"><span>   httpx.ErrorCtx(r.Context(), w, err)
+</span></span><span style="display:flex;"><span>} else {
+</span></span><span style="display:flex;"><span>   w.Header().Set(&#34;Location&#34;, resp.Message)
+</span></span><span style="display:flex;"><span>   w.WriteHeader(http.StatusFound)
+</span></span><span style="display:flex;"><span>   http.RedirectHandler(resp.Message, http.StatusFound)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>func (l *K3cloudLogic) K3cloud(req *types.Request) (resp *types.Response, err error) {
+</span></span><span style="display:flex;"><span>	//拼接
+</span></span><span style="display:flex;"><span>	userName := req.Username
+</span></span><span style="display:flex;"><span>	if userName == &#34;&#34; {
+</span></span><span style="display:flex;"><span>		return nil, errors.New(&#34;invalid param&#34;)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	dbId := l.svcCtx.Config.K3Cloud.DbId
+</span></span><span style="display:flex;"><span>	appId := l.svcCtx.Config.K3Cloud.AppId
+</span></span><span style="display:flex;"><span>	appSecret := l.svcCtx.Config.K3Cloud.AppSecret
+</span></span><span style="display:flex;"><span>	timestamp := time.Now().Unix()
+</span></span><span style="display:flex;"><span>	arr := []string{dbId, userName, appId, appSecret, fmt.Sprintf(&#34;%d&#34;, timestamp)}
+</span></span><span style="display:flex;"><span>	sign := GetSignature(arr) // 签名
+</span></span><span style="display:flex;"><span>	l.Debugf(&#34;generate sign param:%+v result:%v&#34;, arr, sign)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	arg := domain.GenerateCloudSign{
+</span></span><span style="display:flex;"><span>		DBID:       dbId,
+</span></span><span style="display:flex;"><span>		Username:   userName,
+</span></span><span style="display:flex;"><span>		AppId:      appId,
+</span></span><span style="display:flex;"><span>		SignedData: sign,
+</span></span><span style="display:flex;"><span>		Timestamp:  fmt.Sprintf(&#34;%d&#34;, timestamp),
+</span></span><span style="display:flex;"><span>		LcId:       l.svcCtx.Config.K3Cloud.LcId,
+</span></span><span style="display:flex;"><span>		OriginType: &#34;SimPas&#34;,
+</span></span><span style="display:flex;"><span>		EntryRole:  &#34;&#34;,
+</span></span><span style="display:flex;"><span>		FormId:     &#34;&#34;,
+</span></span><span style="display:flex;"><span>		FormType:   &#34;&#34;,
+</span></span><span style="display:flex;"><span>		Pkid:       &#34;&#34;,
+</span></span><span style="display:flex;"><span>		OtherArgs:  &#34;&#34;,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	argJson := arg.SerializeObject()
+</span></span><span style="display:flex;"><span>	argJsonBase64 := base64.StdEncoding.EncodeToString([]byte(argJson))
+</span></span><span style="display:flex;"><span>	html5Url := l.svcCtx.Config.K3Cloud.BaseUrl + argJsonBase64 // html5入口链接
+</span></span><span style="display:flex;"><span>	result := types.Response{}
+</span></span><span style="display:flex;"><span>	result.Message = html5Url
+</span></span><span style="display:flex;"><span>	l.Debugf(&#34;generate html5 url result:%v&#34;, html5Url)
+</span></span><span style="display:flex;"><span>	return <span style="color:#960050;background-color:#1e0010">&amp;</span>result, nil
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>func GetSignature(arr []string) string {
+</span></span><span style="display:flex;"><span>	// 将数组进行排序
+</span></span><span style="display:flex;"><span>	sort.Strings(arr)
+</span></span><span style="display:flex;"><span>	// 将数组拼接成一个字符串
+</span></span><span style="display:flex;"><span>	arrString := strings.Join(arr, &#34;&#34;)
+</span></span><span style="display:flex;"><span>	// 对拼接后的字符串进行SHA1加密
+</span></span><span style="display:flex;"><span>	sha1Hash := sha1.New()
+</span></span><span style="display:flex;"><span>	sha1Hash.Write([]byte(arrString))
+</span></span><span style="display:flex;"><span>	sha1Bytes := sha1Hash.Sum(nil)
+</span></span><span style="display:flex;"><span>	// 将加密后的字节转换为十六进制字符串
+</span></span><span style="display:flex;"><span>	signature := hex.EncodeToString(sha1Bytes)
+</span></span><span style="display:flex;"><span>	return signature
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="配置-authentik-proxy-provider">配置 authentik proxy provider</h3>
 <p>详见 authentik proxy provider部分</p>
 <p>配置proxy的nginx,10.2.192.4:8888/from/authentik地址是编写 proxy服务地址</p>
 <pre tabindex="0"><code>location / {

@@ -6,19 +6,19 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
             <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 10 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/network/" rel="self" type="application/rss+xml" /><item>
     <title>程序运行状态</title>
-    <link>https://zucczwp.github.io/posts/network/programma_status/</link>
+    <link>https://zucczwp.github.io/programma_status/</link>
     <pubDate>Sat, 10 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/network/programma_status/</guid>
-    <description><![CDATA[系统为什么会变慢,为什么会崩溃 当某些代码修改内存堆里的数据的时候,如果有多个线程在同时执行,就可能会]]></description>
+    <guid>https://zucczwp.github.io/programma_status/</guid>
+    <description><![CDATA[系统为什么会变慢,为什么会崩溃 当某些代码修改内存堆里的数据的时候,如果有多个线程在同时执行,就可能会出现同时修改数据的情况,比如,两个线程同]]></description>
 </item>
 <item>
     <title>网络编程</title>
-    <link>https://zucczwp.github.io/posts/network/programma/</link>
+    <link>https://zucczwp.github.io/programma/</link>
     <pubDate>Sat, 10 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/network/programma/</guid>
-    <description><![CDATA[DNS 构成互联网 Internet 的最基本的网络协议就是互联网协议 InternetProtocol,简称 IP 协议。 事实上这]]></description>
+    <guid>https://zucczwp.github.io/programma/</guid>
+    <description><![CDATA[DNS 构成互联网 Internet 的最基本的网络协议就是互联网协议 InternetProtocol,简称 IP 协议。 事实上这个 IP 地址是通过 DNS 域名解析服务器得到的。 CDN]]></description>
 </item>
 </channel>
 </rss>

@@ -6,83 +6,83 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
             <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 12 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/go/" rel="self" type="application/rss+xml" /><item>
     <title>once用法</title>
-    <link>https://zucczwp.github.io/posts/go/once/</link>
+    <link>https://zucczwp.github.io/once/</link>
     <pubDate>Mon, 12 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/go/once/</guid>
-    <description><![CDATA[使用场景 once常常用来初始化单例资源，或者并发访问只需初始化一次的共享资源，或者在测试的时候初始化]]></description>
+    <guid>https://zucczwp.github.io/once/</guid>
+    <description><![CDATA[使用场景 once常常用来初始化单例资源，或者并发访问只需初始化一次的共享资源，或者在测试的时候初始化一次测试资源 实现 一个正确的once实现要]]></description>
 </item>
 <item>
     <title>random用法</title>
-    <link>https://zucczwp.github.io/posts/go/rand/</link>
+    <link>https://zucczwp.github.io/rand/</link>
     <pubDate>Mon, 12 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/go/rand/</guid>
-    <description><![CDATA[golang生成随机数可以使用math/rand包 示例如下： package main import ( &#34;fmt&#34; &#34;math/rand&#34; ) func main() { for i:=0; i&lt;10; i++ { fmt.Println(rand.Intn(100)) } } 而发]]></description>
+    <guid>https://zucczwp.github.io/rand/</guid>
+    <description><![CDATA[golang生成随机数可以使用math/rand包 示例如下： 1 2 3 4 5 6 7 8 9 10 11 12 package main import ( &#34;fmt&#34; &#34;math/rand&#34; ) func main() { for i:=0; i&lt;10; i++ { fmt.Println(rand.Intn(100)) } } 而发现这种情况,每次]]></description>
 </item>
 <item>
     <title>channel用法</title>
-    <link>https://zucczwp.github.io/posts/go/channel/</link>
+    <link>https://zucczwp.github.io/channel/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/go/channel/</guid>
-    <description><![CDATA[CSP 允许使用进程组件来描述系统，它们独立运行，并且只通过消息传递的方式通信 channel的应用场景 执行]]></description>
+    <guid>https://zucczwp.github.io/channel/</guid>
+    <description><![CDATA[CSP 允许使用进程组件来描述系统，它们独立运行，并且只通过消息传递的方式通信 channel的应用场景 执行业务处理的 goroutine 不要通过共享内存的方式通信，]]></description>
 </item>
 <item>
     <title>cond用法</title>
-    <link>https://zucczwp.github.io/posts/go/cond/</link>
+    <link>https://zucczwp.github.io/cond/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/go/cond/</guid>
+    <guid>https://zucczwp.github.io/cond/</guid>
     <description><![CDATA[这篇文章展示了cond用法]]></description>
 </item>
 <item>
     <title>context用法</title>
-    <link>https://zucczwp.github.io/posts/go/context/</link>
+    <link>https://zucczwp.github.io/context/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/go/context/</guid>
-    <description><![CDATA[来历 Go在1.7的版本中才正式把context加入到标准库中 适用场景 上下文信息传递 控制子gorout]]></description>
+    <guid>https://zucczwp.github.io/context/</guid>
+    <description><![CDATA[来历 Go在1.7的版本中才正式把context加入到标准库中 适用场景 上下文信息传递 控制子goroutine的运行 超时控制 可以取消的方法调用 基]]></description>
 </item>
 <item>
     <title>map用法</title>
-    <link>https://zucczwp.github.io/posts/go/map/</link>
+    <link>https://zucczwp.github.io/map/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/go/map/</guid>
-    <description><![CDATA[go内建的map类型 map的类型是map[key] key类型的k必须是可比较的 map[key]函数返]]></description>
+    <guid>https://zucczwp.github.io/map/</guid>
+    <description><![CDATA[go内建的map类型 map的类型是map[key] key类型的k必须是可比较的 map[key]函数返回结果可以是一个值，也可以是两个值 map]]></description>
 </item>
 <item>
     <title>mutex用法</title>
-    <link>https://zucczwp.github.io/posts/go/mutex/</link>
+    <link>https://zucczwp.github.io/mutex/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/go/mutex/</guid>
-    <description><![CDATA[互斥锁的实现机制 在并发编程中，如果程序中的一部分会被并发访问或修改，那么，为了避免并发访问导致的意想]]></description>
+    <guid>https://zucczwp.github.io/mutex/</guid>
+    <description><![CDATA[互斥锁的实现机制 在并发编程中，如果程序中的一部分会被并发访问或修改，那么，为了避免并发访问导致的意想不到的结果，这部分程序需要被保护起来，这]]></description>
 </item>
 <item>
     <title>rwmutex用法</title>
-    <link>https://zucczwp.github.io/posts/go/rwmutex/</link>
+    <link>https://zucczwp.github.io/rwmutex/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/go/rwmutex/</guid>
-    <description><![CDATA[什么是RWMutex？ 方法： Lock/Unlock：写操作时调用的方法 RLock/RUnlock：读]]></description>
+    <guid>https://zucczwp.github.io/rwmutex/</guid>
+    <description><![CDATA[什么是RWMutex？ 方法： Lock/Unlock：写操作时调用的方法 RLock/RUnlock：读操作时调用的方法 RLocker：为读操作]]></description>
 </item>
 <item>
     <title>waitgroup用法</title>
-    <link>https://zucczwp.github.io/posts/go/waitgroup/</link>
+    <link>https://zucczwp.github.io/waitgroup/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/go/waitgroup/</guid>
-    <description><![CDATA[基本用法 once常常用来初始化单例资源，或者并发访问只需初始化一次的共享资源，或者在测试的时候初始化]]></description>
+    <guid>https://zucczwp.github.io/waitgroup/</guid>
+    <description><![CDATA[基本用法 once常常用来初始化单例资源，或者并发访问只需初始化一次的共享资源，或者在测试的时候初始化一次测试资源 实现 Add方法逻辑： Add 方法主]]></description>
 </item>
 <item>
     <title>使用Goroutine如何控制HTTP请求的并发量</title>
-    <link>https://zucczwp.github.io/posts/go/concurrency/</link>
+    <link>https://zucczwp.github.io/concurrency/</link>
     <pubDate>Wed, 10 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/go/concurrency/</guid>
-    <description><![CDATA[场景 我们使用 go 并发调用接口发起 HTTP 请求时，只需要在 func() 前面加上 go 关键字就很容易完成了，就是因为让并发变得]]></description>
+    <guid>https://zucczwp.github.io/concurrency/</guid>
+    <description><![CDATA[场景 我们使用 go 并发调用接口发起 HTTP 请求时，只需要在 func() 前面加上 go 关键字就很容易完成了，就是因为让并发变得如此简单，所以有的时候我们就需要控制一下]]></description>
 </item>
 </channel>
 </rss>

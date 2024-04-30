@@ -6,11 +6,11 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
             <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 07 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/db/" rel="self" type="application/rss+xml" /><item>
     <title>Postgresql常用命令</title>
-    <link>https://zucczwp.github.io/posts/db/postgresql/</link>
+    <link>https://zucczwp.github.io/postgresql/</link>
     <pubDate>Sun, 07 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/db/postgresql/</guid>
-    <description><![CDATA[查看 pg版本 psql --version 获取当前db中所有的表信息 select * from pg_tables; //获取名为 public的 schema的所有表 select tablename]]></description>
+    <guid>https://zucczwp.github.io/postgresql/</guid>
+    <description><![CDATA[查看 pg版本 1 psql --version 获取当前db中所有的表信息 1 2 3 select * from pg_tables; //获取名为 public的 schema的所有表 select tablename from pg_tables where schemaname=&#39;public&#39; 获取某个表结构信息 1 \d authentik_core_user;]]></description>
 </item>
 </channel>
 </rss>

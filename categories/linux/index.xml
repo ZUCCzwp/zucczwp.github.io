@@ -6,27 +6,27 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
             <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 09 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
     <title>Docker常用命令</title>
-    <link>https://zucczwp.github.io/posts/linux/docker/</link>
+    <link>https://zucczwp.github.io/docker/</link>
     <pubDate>Tue, 09 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/linux/docker/</guid>
-    <description><![CDATA[服务相关 启动 docker 服务 systemctl start docker 停止 docker 服务 systemctl stop docker 重启 docker 服务 systemctl restart docker 查看 docker 服务状态 systemctl status docker 设置开机启动 docker 服务 systemctl enable docker]]></description>
+    <guid>https://zucczwp.github.io/docker/</guid>
+    <description><![CDATA[这篇文章展示了基本的Docker常用命令.]]></description>
 </item>
 <item>
     <title>Kubectl常用命令</title>
-    <link>https://zucczwp.github.io/posts/linux/kubectl/</link>
+    <link>https://zucczwp.github.io/kubectl/</link>
     <pubDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/linux/kubectl/</guid>
-    <description><![CDATA[配置及上下文 view kubectl config view # 显示合并后的 kubeconfig 配置 current-context kubectl config current-context # 显示当前的上下文 创建对象 kubectl create -f ./my-manifest.yaml # 创建资源 kubectl create -f https://git.io/vPieo]]></description>
+    <guid>https://zucczwp.github.io/kubectl/</guid>
+    <description><![CDATA[配置及上下文 view 1 kubectl config view # 显示合并后的 kubeconfig 配置 current-context 1 kubectl config current-context # 显示当前的上下文 创建对象 1 2 kubectl create -f ./my-manifest.yaml # 创建资源 kubectl create -f https://git.io/vPieo # 使用 url 来创建资源 显示和查找资源]]></description>
 </item>
 <item>
     <title>Linux常用命令</title>
-    <link>https://zucczwp.github.io/posts/linux/command/</link>
+    <link>https://zucczwp.github.io/command/</link>
     <pubDate>Tue, 19 Mar 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/linux/command/</guid>
-    <description><![CDATA[删除多行 1.首先要显示对应的行数 :set nu 2.Esc退出 190,6233d 即[190 , 6233]都删除掉 清空文件 &gt; log.txt 显示发]]></description>
+    <guid>https://zucczwp.github.io/command/</guid>
+    <description><![CDATA[删除多行 1.首先要显示对应的行数 1 :set nu 2.Esc退出 1 190,6233d 即[190 , 6233]都删除掉 清空文件 1 &gt; log.txt 显示发行版本信息 1 2 3 4 5 6 7 8 lsb_release -v 显示]]></description>
 </item>
 </channel>
 </rss>

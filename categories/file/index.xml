@@ -6,11 +6,11 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
             <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 09 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/file/" rel="self" type="application/rss+xml" /><item>
     <title>文件系统</title>
-    <link>https://zucczwp.github.io/posts/file/system/</link>
+    <link>https://zucczwp.github.io/system/</link>
     <pubDate>Fri, 09 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/file/system/</guid>
-    <description><![CDATA[硬盘 硬盘是一种可持久保存、多次读写数据的存储介质 机械式硬盘的数据就存储在具有磁性特质的盘片上,因此这]]></description>
+    <guid>https://zucczwp.github.io/system/</guid>
+    <description><![CDATA[硬盘 硬盘是一种可持久保存、多次读写数据的存储介质 机械式硬盘的数据就存储在具有磁性特质的盘片上,因此这种硬盘也被称为磁盘 固态硬盘则没有这种磁性]]></description>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>mutex用法 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了mutex用法"><meta property="og:title" content="mutex用法" />
+<meta property="og:description" content="这篇文章展示了mutex用法" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zucczwp.github.io/mutex/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-02-11T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
+
+<meta name="twitter:title" content="mutex用法"/>
+<meta name="twitter:description" content="这篇文章展示了mutex用法"/>
+<meta name="application-name" content="Jimi&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/mutex/" /><link rel="prev" href="https://zucczwp.github.io/rwmutex/" /><link rel="next" href="https://zucczwp.github.io/map/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "mutex用法",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zucczwp.github.io\/mutex\/"
+        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Go","wordcount":  3309 ,
+        "url": "https:\/\/zucczwp.github.io\/mutex\/","datePublished": "2024-01-12T00:00:00+00:00","dateModified": "2024-02-11T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/zucczwp.github.io\/images\/avatar.png",
+                    "width":  2040 ,
+                    "height":  1836 
+                }},"author": {
+                "@type": "Person",
+                "name": "Jimi"
+            },"description": "这篇文章展示了mutex用法"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Jimi’s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Jimi</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/ZUCCzwp/zucczwp.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Jimi’s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Jimi</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/ZUCCzwp/zucczwp.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">mutex用法</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/go/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Go</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-01-12">2024-01-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3309 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/mutex/" class="leancloud_visitors" data-flag-title="mutex用法">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#互斥锁的实现机制">互斥锁的实现机制</a>
+      <ul>
+        <li><a href="#适用场景">适用场景：</a></li>
+      </ul>
+    </li>
+    <li><a href="#mutex的基本使用方法">Mutex的基本使用方法</a></li>
+    <li><a href="#基本用法">基本用法</a></li>
+    <li><a href="#演进之路">演进之路</a>
+      <ul>
+        <li><a href="#初版的互斥锁">初版的互斥锁</a>
+          <ul>
+            <li><a href="#初版的-mutex-实现有一个问题">初版的 Mutex 实现有一个问题：</a></li>
+          </ul>
+        </li>
+        <li><a href="#给新人机会">给新人机会</a></li>
+        <li><a href="#多给些机会">多给些机会</a></li>
+        <li><a href="#解决饥饿">解决饥饿</a>
+          <ul>
+            <li><a href="#饥饿模式和正常模式">饥饿模式和正常模式</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#常见的-4-种错误场景">常见的 4 种错误场景</a>
+      <ul>
+        <li><a href="#mutex-不是可重入的锁">Mutex 不是可重入的锁</a>
+          <ul>
+            <li><a href="#方案一gorotine-id">方案一：gorotine id</a></li>
+            <li><a href="#方案二token">方案二：token</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#功能扩展">功能扩展</a>
+      <ul>
+        <li><a href="#trylock">TryLock</a></li>
+        <li><a href="#获取等待者的数量等指标">获取等待者的数量等指标</a></li>
+      </ul>
+    </li>
+    <li><a href="#实现一个线程安全的队列">实现一个线程安全的队列</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="互斥锁的实现机制">互斥锁的实现机制</h2>
+<p>在并发编程中，如果程序中的一部分会被并发访问或修改，那么，为了避免并发访问导致的意想不到的结果，这部分程序需要被保护起来，这部分被保护起来的程序，就叫做临界区</p>
+<p>使用互斥锁，限定临界区只能同时由一个线程持有</p>
+<h3 id="适用场景">适用场景：</h3>
+<p>共享资源。并发地读写共享资源，会出现数据竞争（data race）的问题，所以需要Mutex、RWMutex 这样的并发原语来保护。</p>
+<h2 id="mutex的基本使用方法">Mutex的基本使用方法</h2>
+<p>互斥锁 Mutex 就提供两个方法 Lock 和 Unlock：进入临界区之前调用 Lock方法，退出临界区的时候调用 Unlock 方法</p>
+<p>当一个 goroutine 通过调用 Lock 方法获得了这个锁的拥有权后，其它请求锁的goroutine 就会阻塞在 Lock 方法的调用上，直到锁被释放并且自己获取到了这个锁的拥有权。</p>
+<p>Go race detector是基于 Google 的 C/C++ sanitizers 技术实现的，编译器通过探测所有的内存访问，加入代码能监视对这些内存地址的访问（读还是写）。在代码运行的时候，race detector 就能监控到对共享变量的非同步访问，出现 race 的时候，就会打印出警告信息</p>
+<h2 id="基本用法">基本用法</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">func main() {
+</span></span><span class="line"><span class="cl">	var mu sync.Mutex
+</span></span><span class="line"><span class="cl">	var count = 0
+</span></span><span class="line"><span class="cl">	var wg sync.WaitGroup
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	wg.Add(10)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	for i := 0; i &lt; 10; i++ {
+</span></span><span class="line"><span class="cl">		go func() {
+</span></span><span class="line"><span class="cl">			defer wg.Done()
+</span></span><span class="line"><span class="cl">			for j := 0; j &lt; 100000; j++ {
+</span></span><span class="line"><span class="cl">				mu.Lock()
+</span></span><span class="line"><span class="cl">				count++
+</span></span><span class="line"><span class="cl">				mu.Unlock()
+</span></span><span class="line"><span class="cl">			}
+</span></span><span class="line"><span class="cl">		}()
+</span></span><span class="line"><span class="cl">	}
+</span></span><span class="line"><span class="cl">	wg.Wait()
+</span></span><span class="line"><span class="cl">	fmt.Println(count)
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>很多情况下，Mutex 会嵌入到其它 struct 中使用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;sync&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Counter</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">CounterType</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Name</span>        <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">mu</span>          <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">count</span>       <span class="kt">uint64</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Counter</span><span class="p">)</span> <span class="nf">Incr</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Counter</span><span class="p">)</span> <span class="nf">Count</span><span class="p">()</span> <span class="kt">uint64</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">count</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">counter</span> <span class="nx">Counter</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">wg</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">defer</span> <span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="mi">100000</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">counter</span><span class="p">.</span><span class="nf">Incr</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">counter</span><span class="p">.</span><span class="nf">Count</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="演进之路">演进之路</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/mutex.png"
+        data-srcset="/images/mutex.png, /images/mutex.png 1.5x, /images/mutex.png 2x"
+        data-sizes="auto"
+        alt="/images/mutex.png"
+        title="img.png" width="597" height="310" /></p>
+<h3 id="初版的互斥锁">初版的互斥锁</h3>
+<p>Unlock 方法可以被任意的 goroutine 调用释放锁，即使是没持有这个互斥锁的goroutine，也可以进行这个操作。这是因为，Mutex 本身并没有包含持有这把锁的goroutine 的信息，所以，Unlock 也不会对此进行检查。Mutex 的这个设计一直保持至今</p>
+<p>mutex包含两个字段：</p>
+<ul>
+<li>字段key</li>
+<li>字段sema
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/first_mutex.png"
+        data-srcset="/images/first_mutex.png, /images/first_mutex.png 1.5x, /images/first_mutex.png 2x"
+        data-sizes="auto"
+        alt="/images/first_mutex.png"
+        title="img.png" width="454" height="321" /></li>
+</ul>
+<h4 id="初版的-mutex-实现有一个问题">初版的 Mutex 实现有一个问题：</h4>
+<p>请求锁的 goroutine 会排队等待获取互斥锁。虽然这貌似很公平，但是从性能上来看，却不是最优的</p>
+<h3 id="给新人机会">给新人机会</h3>
+<p>第一个字段改成了state</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/second_mutex.png"
+        data-srcset="/images/second_mutex.png, /images/second_mutex.png 1.5x, /images/second_mutex.png 2x"
+        data-sizes="auto"
+        alt="/images/second_mutex.png"
+        title="img.png" width="575" height="362" /></p>
+<p>相对于初版的设计，这次的改动主要就是，新来的 goroutine 也有机会先获取到锁，甚至一个 goroutine 可能连续获取到锁，打破了先来先得的逻辑。但是，代码复杂度也显而易见</p>
+<h3 id="多给些机会">多给些机会</h3>
+<p>如果新来的 goroutine 或者是被唤醒的 goroutine 首次获取不到锁，它们就会通过自旋（spin，通过循环不断尝试，spin 的逻辑是在runtime 实现的）的方式，尝试检查锁是否被释放。在尝试一定的自旋次数后，再执行原来的逻辑</p>
+<h3 id="解决饥饿">解决饥饿</h3>
+<p>只需要记住，Mutex 绝不容忍一个goroutine 被落下，永远没有机会获取锁。不抛弃不放弃是它的宗旨，而且它也尽可能地让等待较长的 goroutine 更有机会获取到锁</p>
+<p>跟之前的实现相比，当前的 Mutex 最重要的变化，就是增加饥饿模式。第 12 行将饥饿模式的最大等待时间阈值设置成了 1 毫秒，这就意味着，一旦等待者等待的时间超过了这个阈值，Mutex 的处理就有可能进入饥饿模式，优先让等待者先获取到锁</p>
+<h4 id="饥饿模式和正常模式">饥饿模式和正常模式</h4>
+<p>正常模式下，waiter 都是进入先入先出队列，被唤醒的 waiter 并不会直接持有锁，而是要和新来的 goroutine 进行竞争。新来的 goroutine 有先天的优势，它们正在 CPU 中运行，可能它们的数量还不少，所以，在高并发情况下，被唤醒的 waiter 可能比较悲剧地获取不到锁，这时，它会被插入到队列的前面。如果 waiter 获取不到锁的时间超过阈值 1 毫秒，那么，这个 Mutex 就进入到了饥饿模式。
+在饥饿模式下，Mutex 的拥有者将直接把锁交给队列最前面的 waiter。新来的 goroutine不会尝试获取锁，即使看起来锁没有被持有，它也不会去抢，也不会 spin，它会乖乖地加入到等待队列的尾部。
+如果拥有 Mutex 的 waiter 发现下面两种情况的其中之一，它就会把这个 Mutex 转换成正常模式：
+此 waiter 已经是队列中的最后一个 waiter 了，没有其它的等待锁的 goroutine 了；</p>
+<h2 id="常见的-4-种错误场景">常见的 4 种错误场景</h2>
+<ul>
+<li>lock/unlock不是成对出现</li>
+</ul>
+<p>Lock/Unlock 没有成对出现，就意味着会出现死锁的情况，或者是因为 Unlock 一个未加锁的 Mutex 而导致 panic</p>
+<ul>
+<li>Copy已使用的Mutex</li>
+</ul>
+<p>vet 工具，把检查写在 Makefile 文件中，在持续集成的时候跑一跑，这样可以及时发现问题，及时修复。我们可以使用 go vet 检查这个 Go文件</p>
+<ul>
+<li>重入</li>
+</ul>
+<p>当一个线程获取锁时，如果没有其它线程拥有这个锁，那么，这个线程就成功获取到这个锁。之后，如果其它线程再请求这个锁，就会处于阻塞等待的状态。但是，如果拥有这把锁的线程再请求这把锁的话，不会阻塞，而是成功返回，所以叫可重入锁（有时候也叫做递归锁）。只要你拥有这把锁，你可以可着劲儿地调用，比如通过递归实现一些算法，调用者不会阻塞或者死锁</p>
+<h3 id="mutex-不是可重入的锁">Mutex 不是可重入的锁</h3>
+<p>实现重入锁的方案：</p>
+<h4 id="方案一gorotine-id">方案一：gorotine id</h4>
+<p>第一步：我们先获取到 TLS 对象；</p>
+<p>第二步：再从 TLS 中获取 goroutine 结构的 g 指针；</p>
+<p>第三步：再从 g 指针中取出 goroutine id</p>
+<p>推荐一个常用的库：petermattis/goid</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// RecursiveMutex 包装一个Mutex,实现可重入
+</span></span><span class="line"><span class="cl">type RecursiveMutex struct {
+</span></span><span class="line"><span class="cl">    sync.Mutex
+</span></span><span class="line"><span class="cl">    owner     int64 // 当前持有锁的goroutine id
+</span></span><span class="line"><span class="cl">    recursion int32 // 这个goroutine 重入的次数
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">func (m *RecursiveMutex) Lock() {
+</span></span><span class="line"><span class="cl">    gid := goid.Get()
+</span></span><span class="line"><span class="cl">    // 如果当前持有锁的goroutine就是这次调用的goroutine,说明是重入
+</span></span><span class="line"><span class="cl">    if atomic.LoadInt64(&amp;m.owner) == gid {
+</span></span><span class="line"><span class="cl">        m.recursion++
+</span></span><span class="line"><span class="cl">        return
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    m.Mutex.Lock()
+</span></span><span class="line"><span class="cl">    // 获得锁的goroutine第一次调用，记录下它的goroutine id,调用次数加1
+</span></span><span class="line"><span class="cl">    atomic.StoreInt64(&amp;m.owner, gid)
+</span></span><span class="line"><span class="cl">    m.recursion = 1
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">func (m *RecursiveMutex) Unlock() {
+</span></span><span class="line"><span class="cl">    gid := goid.Get()
+</span></span><span class="line"><span class="cl">    // 非持有锁的goroutine尝试释放锁，错误的使用
+</span></span><span class="line"><span class="cl">    if atomic.LoadInt64(&amp;m.owner) != gid {
+</span></span><span class="line"><span class="cl">        panic(fmt.Sprintf(&#34;wrong the owner(%d): %d!&#34;, m.owner, gid))
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    // 调用次数减1
+</span></span><span class="line"><span class="cl">    m.recursion--
+</span></span><span class="line"><span class="cl">    if m.recursion != 0 { // 如果这个goroutine还没有完全释放，则直接返回
+</span></span><span class="line"><span class="cl">        return
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    // 此goroutine最后一次调用，需要释放锁
+</span></span><span class="line"><span class="cl">    atomic.StoreInt64(&amp;m.owner, -1)
+</span></span><span class="line"><span class="cl">    m.Mutex.Unlock()
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="方案二token">方案二：token</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// Token方式的递归锁
+</span></span><span class="line"><span class="cl">type TokenRecursiveMutex struct {
+</span></span><span class="line"><span class="cl">    sync.Mutex
+</span></span><span class="line"><span class="cl">    token     int64
+</span></span><span class="line"><span class="cl">    recursion int32
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 请求锁，需要传入token
+</span></span><span class="line"><span class="cl">func (m *TokenRecursiveMutex) Lock(token int64) {
+</span></span><span class="line"><span class="cl">    if atomic.LoadInt64(&amp;m.token) == token { //如果传入的token和持有锁的token一致，说明是递归调用
+</span></span><span class="line"><span class="cl">        m.recursion++
+</span></span><span class="line"><span class="cl">        return
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    m.Mutex.Lock() // 传入的token不一致，说明不是递归调用
+</span></span><span class="line"><span class="cl">    // 抢到锁之后记录这个token
+</span></span><span class="line"><span class="cl">    atomic.StoreInt64(&amp;m.token, token)
+</span></span><span class="line"><span class="cl">    m.recursion = 1
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 释放锁
+</span></span><span class="line"><span class="cl">func (m *TokenRecursiveMutex) Unlock(token int64) {
+</span></span><span class="line"><span class="cl">    if atomic.LoadInt64(&amp;m.token) != token { // 释放其它token持有的锁
+</span></span><span class="line"><span class="cl">        panic(fmt.Sprintf(&#34;wrong the owner(%d): %d!&#34;, m.token, token))
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    m.recursion-- // 当前持有这个锁的token释放锁
+</span></span><span class="line"><span class="cl">    if m.recursion != 0 { // 还没有回退到最初的递归调用
+</span></span><span class="line"><span class="cl">        return
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    atomic.StoreInt64(&amp;m.token, 0) // 没有递归调用了，释放锁
+</span></span><span class="line"><span class="cl">    m.Mutex.Unlock()
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>死锁
+四个条件：
+互斥
+持有和等待
+不可剥夺
+环路等待</li>
+</ul>
+<h2 id="功能扩展">功能扩展</h2>
+<h3 id="trylock">TryLock</h3>
+<p>当一个 goroutine 调用这个TryLock 方法请求锁的时候，如果这把锁没有被其他 goroutine 所持有，那么，这个goroutine 就持有了这把锁，并返回 true；如果这把锁已经被其他 goroutine 所持有，或者是正在准备交给某个被唤醒的 goroutine，那么，这个请求锁的 goroutine 就直接返回false，不会阻塞在方法调用上</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">func (m *Mutex) TryLock() bool {
+</span></span><span class="line"><span class="cl">    // 已加锁/饥饿状态返回false
+</span></span><span class="line"><span class="cl">    old := m.state
+</span></span><span class="line"><span class="cl">    if old&amp;(mutexLocked|mutexStarving) != 0 {
+</span></span><span class="line"><span class="cl">        return false
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    // 竞争失败则返回false，否则标记锁状态
+</span></span><span class="line"><span class="cl">    if !atomic.CompareAndSwapInt32(&amp;m.state, old, old|mutexLocked) {
+</span></span><span class="line"><span class="cl">        return false
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    if race.Enabled {
+</span></span><span class="line"><span class="cl">        race.Acquire(unsafe.Pointer(m))
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    return true
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="获取等待者的数量等指标">获取等待者的数量等指标</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">const (
+</span></span><span class="line"><span class="cl">	mutexLocked = 1 &lt;&lt; iota // mutex is locked
+</span></span><span class="line"><span class="cl">	mutexWoken
+</span></span><span class="line"><span class="cl">	mutexStarving
+</span></span><span class="line"><span class="cl">	mutexWaiterShift = iota
+</span></span><span class="line"><span class="cl">)
+</span></span><span class="line"><span class="cl">type Mutex struct {
+</span></span><span class="line"><span class="cl">	sync.Mutex
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">func (m *Mutex) Count() int {
+</span></span><span class="line"><span class="cl">	// 获取state字段的值
+</span></span><span class="line"><span class="cl">	v := atomic.LoadInt32((*int32)(unsafe.Pointer(&amp;m.Mutex)))
+</span></span><span class="line"><span class="cl">	v = v &gt;&gt; mutexWaiterShift //得到等待者的数值
+</span></span><span class="line"><span class="cl">	v = v + (v &amp; mutexLocked) //再加上锁持有者的数量，0或者1
+</span></span><span class="line"><span class="cl">	return int(v)
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>state 这个字段的第一位是用来标记锁是否被持有，第二位用来标记是否已经唤醒了一个等待者，第三位标记锁是否处于饥饿状态，通过分析这个 state 字段我们就可以得到这些状态信息。我们可以为这些状态提供查询的方法，这样就可以实时地知道锁的状态了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 锁是否被持有
+</span></span><span class="line"><span class="cl">func (m *Mutex) IsLocked() bool {
+</span></span><span class="line"><span class="cl">	state := atomic.LoadInt32((*int32)(unsafe.Pointer(&amp;m.Mutex)))
+</span></span><span class="line"><span class="cl">	return state&amp;mutexLocked == mutexLocked
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">// 是否有等待者被唤醒
+</span></span><span class="line"><span class="cl">func (m *Mutex) IsWoken() bool {
+</span></span><span class="line"><span class="cl">	state := atomic.LoadInt32((*int32)(unsafe.Pointer(&amp;m.Mutex)))
+</span></span><span class="line"><span class="cl">	return state&amp;mutexWoken == mutexWoken
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">// 锁是否处于饥饿状态
+</span></span><span class="line"><span class="cl">func (m *Mutex) IsStarving() bool {
+</span></span><span class="line"><span class="cl">	state := atomic.LoadInt32((*int32)(unsafe.Pointer(&amp;m.Mutex)))
+</span></span><span class="line"><span class="cl">	return state&amp;mutexStarving == mutexStarving
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="实现一个线程安全的队列">实现一个线程安全的队列</h2>
+<p>队列，我们可以通过 Slice 来实现，但是通过 Slice 实现的队列不是线程安全的，出队（Dequeue）和入队（Enqueue）会有 data race 的问题。这个时候，Mutex 就要隆重出场了，通过它，我们可以在出队和入队的时候加上锁的保护</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">type SliceQueue struct {
+</span></span><span class="line"><span class="cl">	data []interface{}
+</span></span><span class="line"><span class="cl">	mu sync.Mutex
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">func NewSliceQueue(n int) (q *SliceQueue) {
+</span></span><span class="line"><span class="cl">	return &amp;SliceQueue{data: make([]interface{}, 0, n)}
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">// Enqueue 把值放在队尾
+</span></span><span class="line"><span class="cl">func (q *SliceQueue) Enqueue(v interface{}) {
+</span></span><span class="line"><span class="cl">	q.mu.Lock()
+</span></span><span class="line"><span class="cl">	q.data = append(q.data, v)
+</span></span><span class="line"><span class="cl">	q.mu.Unlock()
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">// Dequeue 移去队头并返回
+</span></span><span class="line"><span class="cl">func (q *SliceQueue) Dequeue() interface{} {
+</span></span><span class="line"><span class="cl">	q.mu.Lock()
+</span></span><span class="line"><span class="cl">	if len(q.data) == 0 {
+</span></span><span class="line"><span class="cl">		q.mu.Unlock()
+</span></span><span class="line"><span class="cl">		return nil
+</span></span><span class="line"><span class="cl">	}
+</span></span><span class="line"><span class="cl">	v := q.data[0]
+</span></span><span class="line"><span class="cl">	q.data = q.data[1:]
+</span></span><span class="line"><span class="cl">	q.mu.Unlock()
+</span></span><span class="line"><span class="cl">	return v
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-02-11</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/mutex/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/mutex/" data-title="mutex用法"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/mutex/" data-title="mutex用法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/go/">Go</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/rwmutex/" class="prev" rel="prev" title="rwmutex用法"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>rwmutex用法</a>
+            <a href="/map/" class="next" rel="next" title="map用法">map用法<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Stay Hungry,Stay Foolish</div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/ZUCCzwp/zucczwp.github.io" target="_blank">jimi</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightgallery":true,"search":{"algoliaAppID":"TYML0LBTDE","algoliaIndex":"jimi","algoliaSearchKey":"5a7eaaebcc023673ae0a33ef9d90c2b7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/custom.js"></script></body>
+</html>

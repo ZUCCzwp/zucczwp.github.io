@@ -6,11 +6,11 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
             <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/data/" rel="self" type="application/rss+xml" /><item>
     <title>数据结构</title>
-    <link>https://zucczwp.github.io/posts/data/struct/</link>
+    <link>https://zucczwp.github.io/struct/</link>
     <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/posts/data/struct/</guid>
-    <description><![CDATA[数组 数组是最常用的数据结构,创建数组必须要内存中一块连续的空间,并且数组中必须存放相同的数据类型 随机]]></description>
+    <guid>https://zucczwp.github.io/struct/</guid>
+    <description><![CDATA[数组 数组是最常用的数据结构,创建数组必须要内存中一块连续的空间,并且数组中必须存放相同的数据类型 随机快速读写是数组的一个重要特性,但是要随机]]></description>
 </item>
 </channel>
 </rss>

@@ -10,7 +10,7 @@
     <pubDate>Sat, 10 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/programma_status/</guid>
-    <description><![CDATA[系统为什么会变慢,为什么会崩溃 当某些代码修改内存堆里的数据的时候,如果有多个线程在同时执行,就可能会出现同时修改数据的情况,比如,两个线程同]]></description>
+    <description><![CDATA[程序是如何运行起来的 不管是文本格式的代码还是可执行的代码,都被称为程序 要想让程序处理数据,完成计算任务,必须把程序从外部设备加载到内存中, 并]]></description>
 </item>
 <item>
     <title>网络编程</title>

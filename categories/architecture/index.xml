@@ -52,5 +52,13 @@
     <guid>https://zucczwp.github.io/micro_service/</guid>
     <description><![CDATA[单体架构的困难和挑战 编译、部署困难 代码分支管理困难 因为单体应用非常庞大，所以代码模块也是由多个团队共同维护的。但最后还是要编译成一 个单体应用]]></description>
 </item>
+<item>
+    <title>异步架构</title>
+    <link>https://zucczwp.github.io/async/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/async/</guid>
+    <description><![CDATA[使用消息队列实现异步架构 同步架构是说，当应用程序调用服务的时候，当前程序需要阻塞等待服务 完成，返回服务结果后才能继续向下执行。 消息队列异步架]]></description>
+</item>
 </channel>
 </rss>

@@ -55,6 +55,14 @@
     <description><![CDATA[单体架构的困难和挑战 编译、部署困难 代码分支管理困难 因为单体应用非常庞大，所以代码模块也是由多个团队共同维护的。但最后还是要编译成一 个单体应用]]></description>
 </item>
 <item>
+    <title>异步架构</title>
+    <link>https://zucczwp.github.io/async/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/async/</guid>
+    <description><![CDATA[使用消息队列实现异步架构 同步架构是说，当应用程序调用服务的时候，当前程序需要阻塞等待服务 完成，返回服务结果后才能继续向下执行。 消息队列异步架]]></description>
+</item>
+<item>
     <title>金蝶云星空对接 authentik实现 sso登录</title>
     <link>https://zucczwp.github.io/k3cloud_login/</link>
     <pubDate>Wed, 17 Apr 2024 00:00:00 &#43;0000</pubDate>
@@ -77,14 +85,6 @@
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/authentik-use/</guid>
     <description><![CDATA[Proxy Provider 代理前哨设置以下用户特定的标头： X-authentik-username当前登录用户的用户名 X-authentik-groups用户所属]]></description>
-</item>
-<item>
-    <title>Postgresql常用命令</title>
-    <link>https://zucczwp.github.io/postgresql/</link>
-    <pubDate>Sun, 07 Apr 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/postgresql/</guid>
-    <description><![CDATA[查看 pg版本 1 psql --version 获取当前db中所有的表信息 1 2 3 select * from pg_tables; //获取名为 public的 schema的所有表 select tablename from pg_tables where schemaname=&#39;public&#39; 获取某个表结构信息 1 \d authentik_core_user;]]></description>
 </item>
 </channel>
 </rss>

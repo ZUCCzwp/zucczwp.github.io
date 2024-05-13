@@ -109,6 +109,16 @@
         <a href="/high_performance/">阅读全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/architecture/">Architecture</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/data_storage/">数据存储架构</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2024-05-13">2024-05-13</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/architecture/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Architecture</a></span></div><div class="content">数据库主从复制 将 MySQL 主数据库中的数据复制到从数据库中去 原理： 当应用程序客户端发送一条更新命令到主服务器数据库的时候，数据库会 把这条更新命令同步</div><div class="post-footer">
+        <a href="/data_storage/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/architecture/">Architecture</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/search_engine/">搜索引擎架构</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2024-05-13">2024-05-13</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/architecture/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Architecture</a></span></div><div class="content">搜索引擎倒排索引 事实上，互联网一方面是将全世界的人和网络应用联系起来，另一方面，也将全世界的网页 通过超链接联系起来，几乎每个网页都包含了一些</div><div class="post-footer">
+        <a href="/search_engine/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/architecture/">Architecture</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/micro_service/">微服务架构</a>
     </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2024-05-13">2024-05-13</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/architecture/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Architecture</a></span></div><div class="content">单体架构的困难和挑战 编译、部署困难 代码分支管理困难 因为单体应用非常庞大，所以代码模块也是由多个团队共同维护的。但最后还是要编译成一 个单体应用</div><div class="post-footer">
         <a href="/micro_service/">阅读全文</a><div class="post-tags">
@@ -138,16 +148,6 @@
     </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2024-04-02">2024-04-02</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/auth/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Auth</a></span></div><div class="content">Docker安装 MacOs 下载 docker composer文件 1 curl -O https://goauthentik.io/docker-compose.yml 生成 password和 secret key到.env文件 1 2 echo &#34;PG_PASS=$(openssl rand -base64 36)&#34; &gt;&gt; .env echo &#34;AUTHENTIK_SECRET_KEY=$(openssl rand -base64 36)&#34; &gt;&gt; .env 如果只要开启</div><div class="post-footer">
         <a href="/authentik-deploy/">阅读全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/auth/">Auth</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/kubectl/">Kubectl常用命令</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2024-04-01">2024-04-01</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div><div class="content">配置及上下文 view 1 kubectl config view # 显示合并后的 kubeconfig 配置 current-context 1 kubectl config current-context # 显示当前的上下文 创建对象 1 2 kubectl create -f ./my-manifest.yaml # 创建资源 kubectl create -f https://git.io/vPieo # 使用 url 来创建资源 显示和查找资源</div><div class="post-footer">
-        <a href="/kubectl/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/k8s/">K8s</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/command/">Linux常用命令</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2024-03-19">2024-03-19</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div><div class="content">删除多行 1.首先要显示对应的行数 1 :set nu 2.Esc退出 1 190,6233d 即[190 , 6233]都删除掉 清空文件 1 &gt; log.txt 显示发行版本信息 1 2 3 4 5 6 7 8 lsb_release -v 显示</div><div class="post-footer">
-        <a href="/command/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>

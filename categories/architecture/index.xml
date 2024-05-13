@@ -21,6 +21,22 @@
     <description><![CDATA[性能指标 响应时间 从发出请求开始到收到最后响应数据所需要的时间。响应时间是系统最 重要的性能指标，最直接地反映了系统的快慢。 并发数 系统同时处理的]]></description>
 </item>
 <item>
+    <title>数据存储架构</title>
+    <link>https://zucczwp.github.io/data_storage/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/data_storage/</guid>
+    <description><![CDATA[数据库主从复制 将 MySQL 主数据库中的数据复制到从数据库中去 原理： 当应用程序客户端发送一条更新命令到主服务器数据库的时候，数据库会 把这条更新命令同步]]></description>
+</item>
+<item>
+    <title>搜索引擎架构</title>
+    <link>https://zucczwp.github.io/search_engine/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/search_engine/</guid>
+    <description><![CDATA[搜索引擎倒排索引 事实上，互联网一方面是将全世界的人和网络应用联系起来，另一方面，也将全世界的网页 通过超链接联系起来，几乎每个网页都包含了一些]]></description>
+</item>
+<item>
     <title>微服务架构</title>
     <link>https://zucczwp.github.io/micro_service/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>

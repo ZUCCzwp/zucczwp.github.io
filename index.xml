@@ -23,6 +23,22 @@
     <description><![CDATA[性能指标 响应时间 从发出请求开始到收到最后响应数据所需要的时间。响应时间是系统最 重要的性能指标，最直接地反映了系统的快慢。 并发数 系统同时处理的]]></description>
 </item>
 <item>
+    <title>数据存储架构</title>
+    <link>https://zucczwp.github.io/data_storage/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/data_storage/</guid>
+    <description><![CDATA[数据库主从复制 将 MySQL 主数据库中的数据复制到从数据库中去 原理： 当应用程序客户端发送一条更新命令到主服务器数据库的时候，数据库会 把这条更新命令同步]]></description>
+</item>
+<item>
+    <title>搜索引擎架构</title>
+    <link>https://zucczwp.github.io/search_engine/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/search_engine/</guid>
+    <description><![CDATA[搜索引擎倒排索引 事实上，互联网一方面是将全世界的人和网络应用联系起来，另一方面，也将全世界的网页 通过超链接联系起来，几乎每个网页都包含了一些]]></description>
+</item>
+<item>
     <title>微服务架构</title>
     <link>https://zucczwp.github.io/micro_service/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
@@ -69,22 +85,6 @@
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/authentik-deploy/</guid>
     <description><![CDATA[Docker安装 MacOs 下载 docker composer文件 1 curl -O https://goauthentik.io/docker-compose.yml 生成 password和 secret key到.env文件 1 2 echo &#34;PG_PASS=$(openssl rand -base64 36)&#34; &gt;&gt; .env echo &#34;AUTHENTIK_SECRET_KEY=$(openssl rand -base64 36)&#34; &gt;&gt; .env 如果只要开启]]></description>
-</item>
-<item>
-    <title>Kubectl常用命令</title>
-    <link>https://zucczwp.github.io/kubectl/</link>
-    <pubDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/kubectl/</guid>
-    <description><![CDATA[配置及上下文 view 1 kubectl config view # 显示合并后的 kubeconfig 配置 current-context 1 kubectl config current-context # 显示当前的上下文 创建对象 1 2 kubectl create -f ./my-manifest.yaml # 创建资源 kubectl create -f https://git.io/vPieo # 使用 url 来创建资源 显示和查找资源]]></description>
-</item>
-<item>
-    <title>Linux常用命令</title>
-    <link>https://zucczwp.github.io/command/</link>
-    <pubDate>Tue, 19 Mar 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/command/</guid>
-    <description><![CDATA[删除多行 1.首先要显示对应的行数 1 :set nu 2.Esc退出 1 190,6233d 即[190 , 6233]都删除掉 清空文件 1 &gt; log.txt 显示发行版本信息 1 2 3 4 5 6 7 8 lsb_release -v 显示]]></description>
 </item>
 </channel>
 </rss>

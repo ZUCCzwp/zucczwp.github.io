@@ -5,6 +5,14 @@
         <description>Architecture - 分类 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
             <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 13 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/architecture/" rel="self" type="application/rss+xml" /><item>
+    <title>负载均衡架构</title>
+    <link>https://zucczwp.github.io/lb/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/lb/</guid>
+    <description><![CDATA[HTTP重定向负载均衡 HTTP 重定向负载均衡是一种比较简单的负载均衡技术实现。来自用户的 HTTP 请求到达负 载均衡服务器以后，负载均衡服务器根据某种负载均]]></description>
+</item>
+<item>
     <title>高可用架构</title>
     <link>https://zucczwp.github.io/high_availability/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>

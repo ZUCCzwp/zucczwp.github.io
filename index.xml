@@ -7,6 +7,14 @@
             <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 13 May 2024 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://zucczwp.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>负载均衡架构</title>
+    <link>https://zucczwp.github.io/lb/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/lb/</guid>
+    <description><![CDATA[HTTP重定向负载均衡 HTTP 重定向负载均衡是一种比较简单的负载均衡技术实现。来自用户的 HTTP 请求到达负 载均衡服务器以后，负载均衡服务器根据某种负载均]]></description>
+</item>
+<item>
     <title>高可用架构</title>
     <link>https://zucczwp.github.io/high_availability/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
@@ -77,14 +85,6 @@
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/postgresql/</guid>
     <description><![CDATA[查看 pg版本 1 psql --version 获取当前db中所有的表信息 1 2 3 select * from pg_tables; //获取名为 public的 schema的所有表 select tablename from pg_tables where schemaname=&#39;public&#39; 获取某个表结构信息 1 \d authentik_core_user;]]></description>
-</item>
-<item>
-    <title>Authentik安装</title>
-    <link>https://zucczwp.github.io/authentik-deploy/</link>
-    <pubDate>Tue, 02 Apr 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/authentik-deploy/</guid>
-    <description><![CDATA[Docker安装 MacOs 下载 docker composer文件 1 curl -O https://goauthentik.io/docker-compose.yml 生成 password和 secret key到.env文件 1 2 echo &#34;PG_PASS=$(openssl rand -base64 36)&#34; &gt;&gt; .env echo &#34;AUTHENTIK_SECRET_KEY=$(openssl rand -base64 36)&#34; &gt;&gt; .env 如果只要开启]]></description>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,40 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Manage - 分类 - Jimi’s Blog</title>
+        <link>https://zucczwp.github.io/categories/manage/</link>
+        <description>Manage - 分类 - Jimi’s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 09 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/manage/" rel="self" type="application/rss+xml" /><item>
+    <title>解决的问题是什么？</title>
+    <link>https://zucczwp.github.io/what_is_problem/</link>
+    <pubDate>Fri, 09 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/what_is_problem/</guid>
+    <description><![CDATA[不要把解决方案当作问题的定义，而忽略了真正要解决的问题是什么 会议讨论的重点就是解决方案本身：这个功能怎么做，这个技术怎么应用落 地。而不是讨论]]></description>
+</item>
+<item>
+    <title>如何成长</title>
+    <link>https://zucczwp.github.io/how_to_change/</link>
+    <pubDate>Fri, 09 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/how_to_change/</guid>
+    <description><![CDATA[德雷福斯模型 德雷福斯是一个专业人员能力成长模型，这个模型认为所有专 业人员都需要经历 5 个成长阶段，不管是医生还是律师，或者是软件开发，任何专业]]></description>
+</item>
+<item>
+    <title>如何解决问题</title>
+    <link>https://zucczwp.github.io/how_to_solve_problem/</link>
+    <pubDate>Fri, 09 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/how_to_solve_problem/</guid>
+    <description><![CDATA[如果某人能够解决问题，而他自己却感受不到问题，那么就让他感受一下 在工作合作的过程中，有的时候，对于对方来说，明明是举手之劳的事情，但他偏偏在]]></description>
+</item>
+<item>
+    <title>文件系统</title>
+    <link>https://zucczwp.github.io/skill_manage/</link>
+    <pubDate>Fri, 09 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/skill_manage/</guid>
+    <description><![CDATA[彼得定律 彼得在 20 世纪 70 年代，研究了美国数千个组织，包括政府部门、学校、企业等各种类型 的组织后，发现，在一个成熟有效的组织中，当一个员工在其岗]]></description>
+</item>
+</channel>
+</rss>

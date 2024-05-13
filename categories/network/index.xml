@@ -13,6 +13,14 @@
     <description><![CDATA[程序是如何运行起来的 不管是文本格式的代码还是可执行的代码,都被称为程序 要想让程序处理数据,完成计算任务,必须把程序从外部设备加载到内存中, 并]]></description>
 </item>
 <item>
+    <title>网络安全</title>
+    <link>https://zucczwp.github.io/security/</link>
+    <pubDate>Sat, 10 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/security/</guid>
+    <description><![CDATA[数据加解密 单向散列加密 所谓的单向散列加密是指对一串明文信息进行散 列（hash）加密，得到的密文信息是不可以被解密的，也就是说给定一个密文，即]]></description>
+</item>
+<item>
     <title>网络编程</title>
     <link>https://zucczwp.github.io/programma/</link>
     <pubDate>Sat, 10 Feb 2024 00:00:00 &#43;0000</pubDate>

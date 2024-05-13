@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Architecture - 标签 - Jimi’s Blog</title>
+        <link>https://zucczwp.github.io/tags/architecture/</link>
+        <description>Architecture - 标签 - Jimi’s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 13 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/architecture/" rel="self" type="application/rss+xml" /><item>
+    <title>高可用架构</title>
+    <link>https://zucczwp.github.io/high_availability/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/high_availability/</guid>
+    <description><![CDATA[高可用的度量 一般说来，两个 9 表示系统基本可用，年度不可用时间小于 88 小时；3 个 9 是较高可 用，年度不可用时间小于 9 个小时；4 个 9 是具有自动恢复能]]></description>
+</item>
+<item>
+    <title>高性能</title>
+    <link>https://zucczwp.github.io/high_performance/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/high_performance/</guid>
+    <description><![CDATA[性能指标 响应时间 从发出请求开始到收到最后响应数据所需要的时间。响应时间是系统最 重要的性能指标，最直接地反映了系统的快慢。 并发数 系统同时处理的]]></description>
+</item>
+</channel>
+</rss>

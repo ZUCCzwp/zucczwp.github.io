@@ -4,7 +4,23 @@
         <link>https://zucczwp.github.io/posts/</link>
         <description>所有文章 | Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 17 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 13 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>高可用架构</title>
+    <link>https://zucczwp.github.io/high_availability/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/high_availability/</guid>
+    <description><![CDATA[高可用的度量 一般说来，两个 9 表示系统基本可用，年度不可用时间小于 88 小时；3 个 9 是较高可 用，年度不可用时间小于 9 个小时；4 个 9 是具有自动恢复能]]></description>
+</item>
+<item>
+    <title>高性能</title>
+    <link>https://zucczwp.github.io/high_performance/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/high_performance/</guid>
+    <description><![CDATA[性能指标 响应时间 从发出请求开始到收到最后响应数据所需要的时间。响应时间是系统最 重要的性能指标，最直接地反映了系统的快慢。 并发数 系统同时处理的]]></description>
+</item>
+<item>
     <title>金蝶云星空对接 authentik实现 sso登录</title>
     <link>https://zucczwp.github.io/k3cloud_login/</link>
     <pubDate>Wed, 17 Apr 2024 00:00:00 &#43;0000</pubDate>
@@ -67,22 +83,6 @@
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/optimize_web/</guid>
     <description><![CDATA[定义 网站地图（sitemap.xml）是一个网站的概览。搜索引擎在此文件中得到网站上存在的可抓取的网页，提交sitemap有利于搜索引擎的收]]></description>
-</item>
-<item>
-    <title>Go-redis高级用法</title>
-    <link>https://zucczwp.github.io/go-redis/</link>
-    <pubDate>Sun, 17 Mar 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/go-redis/</guid>
-    <description><![CDATA[开启对 Cluster中 Slave Node的访问 在一个负载比较高的Redis Cluster中，如果允许对slave节点进行读操作将极大的提高集群的吞吐]]></description>
-</item>
-<item>
-    <title>Nginx Error Page配置</title>
-    <link>https://zucczwp.github.io/nginx_config/</link>
-    <pubDate>Sat, 02 Mar 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/nginx_config/</guid>
-    <description><![CDATA[语法 1 error_page code [ code... ] [ = | =answer-code ] uri |@named_location 示例 作用是当发生错误的时候能够显示一个预定义的uri 1 2 3 4 error_page 502 503 /50x.html; location = /50x.html { root /usr/share/nginx/html; } 这样实际上产生了一个内部跳转]]></description>
 </item>
 </channel>
 </rss>

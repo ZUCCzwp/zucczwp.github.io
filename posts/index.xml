@@ -29,6 +29,14 @@
     <description><![CDATA[性能指标 响应时间 从发出请求开始到收到最后响应数据所需要的时间。响应时间是系统最 重要的性能指标，最直接地反映了系统的快慢。 并发数 系统同时处理的]]></description>
 </item>
 <item>
+    <title>缓存架构</title>
+    <link>https://zucczwp.github.io/cache/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/cache/</guid>
+    <description><![CDATA[通读缓存 应用程序访问通读缓存获取数据的时候，如果通读缓存有应 用程序需要的数据，那么就返回这个数据；如果没有，那么通读缓存就自己负责访问数据 源]]></description>
+</item>
+<item>
     <title>数据存储架构</title>
     <link>https://zucczwp.github.io/data_storage/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
@@ -75,14 +83,6 @@
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/docker/</guid>
     <description><![CDATA[这篇文章展示了基本的Docker常用命令.]]></description>
-</item>
-<item>
-    <title>Authentik使用</title>
-    <link>https://zucczwp.github.io/authentik-use/</link>
-    <pubDate>Mon, 08 Apr 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/authentik-use/</guid>
-    <description><![CDATA[Proxy Provider 代理前哨设置以下用户特定的标头： X-authentik-username当前登录用户的用户名 X-authentik-groups用户所属]]></description>
 </item>
 </channel>
 </rss>

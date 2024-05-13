@@ -4,38 +4,38 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>高性能 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了高性能相关知识."><meta property="og:title" content="高性能" />
-<meta property="og:description" content="这篇文章展示了高性能相关知识." />
+        <title>缓存架构 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了缓存架构相关知识."><meta property="og:title" content="缓存架构" />
+<meta property="og:description" content="这篇文章展示了缓存架构相关知识." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/high_performance/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://zucczwp.github.io/cache/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-05-13T00:00:00+00:00" />
 <meta property="article:modified_time" content="2024-05-13T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
 
-<meta name="twitter:title" content="高性能"/>
-<meta name="twitter:description" content="这篇文章展示了高性能相关知识."/>
+<meta name="twitter:title" content="缓存架构"/>
+<meta name="twitter:description" content="这篇文章展示了缓存架构相关知识."/>
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/high_performance/" /><link rel="prev" href="https://zucczwp.github.io/cache/" /><link rel="next" href="https://zucczwp.github.io/high_availability/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/cache/" /><link rel="prev" href="https://zucczwp.github.io/data_storage/" /><link rel="next" href="https://zucczwp.github.io/high_performance/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "高性能",
+        "headline": "缓存架构",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/zucczwp.github.io\/high_performance\/"
-        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Architecture","wordcount":  1413 ,
-        "url": "https:\/\/zucczwp.github.io\/high_performance\/","datePublished": "2024-05-13T00:00:00+00:00","dateModified": "2024-05-13T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/zucczwp.github.io\/cache\/"
+        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Architecture","wordcount":  925 ,
+        "url": "https:\/\/zucczwp.github.io\/cache\/","datePublished": "2024-05-13T00:00:00+00:00","dateModified": "2024-05-13T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/zucczwp.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
                 "name": "Jimi"
-            },"description": "这篇文章展示了高性能相关知识."
+            },"description": "这篇文章展示了缓存架构相关知识."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -101,10 +101,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">高性能</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">缓存架构</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/architecture/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Architecture</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-13">2024-05-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1413 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/high_performance/" class="leancloud_visitors" data-flag-title="高性能">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-13">2024-05-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 925 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/cache/" class="leancloud_visitors" data-flag-title="缓存架构">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -114,98 +114,75 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#性能指标">性能指标</a>
+    <li><a href="#通读缓存">通读缓存</a>
       <ul>
-        <li><a href="#响应时间">响应时间</a></li>
-        <li><a href="#并发数">并发数</a></li>
-        <li><a href="#吞吐量">吞吐量</a></li>
-        <li><a href="#性能计数器">性能计数器</a></li>
+        <li><a href="#cdn">CDN</a></li>
+        <li><a href="#反向代理缓存">反向代理缓存</a></li>
       </ul>
     </li>
-    <li><a href="#性能测试">性能测试</a>
+    <li><a href="#旁路缓存">旁路缓存</a>
       <ul>
-        <li><a href="#性能测试-1">性能测试</a></li>
-        <li><a href="#负载测试">负载测试</a></li>
-        <li><a href="#压力测试">压力测试</a></li>
+        <li><a href="#对象缓存">对象缓存</a></li>
       </ul>
     </li>
-    <li><a href="#性能优化">性能优化</a>
+    <li><a href="#缓存注意事项">缓存注意事项</a>
       <ul>
-        <li><a href="#用户体验优化">用户体验优化</a>
-          <ul>
-            <li><a href="#第一层数据中心优化">第一层：数据中心优化</a></li>
-            <li><a href="#第二层硬件优化">第二层：硬件优化</a></li>
-            <li><a href="#第三层操作系统优化">第三层：操作系统优化</a></li>
-            <li><a href="#第四层虚拟机优化">第四层：虚拟机优化</a></li>
-            <li><a href="#第五层基础组件优化">第五层：基础组件优化</a></li>
-            <li><a href="#第六层架构优化">第六层：架构优化</a></li>
-            <li><a href="#第七层代码优化">第七层：代码优化</a></li>
-          </ul>
-        </li>
+        <li><a href="#数据脏读">数据脏读</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="性能指标">性能指标</h2>
-<h3 id="响应时间">响应时间</h3>
-<p>从发出请求开始到收到最后响应数据所需要的时间。响应时间是系统最
-重要的性能指标，最直接地反映了系统的快慢。</p>
-<h3 id="并发数">并发数</h3>
-<p>系统同时处理的请求数，这个数字反映了系统的负载压力情况。</p>
-<h3 id="吞吐量">吞吐量</h3>
-<p>单位时间内系统处理请求的数量，体现的是系统的处理能力。我们一般用每秒
-HTTP 请求数 HPS、每秒事务数 TPS、每秒查询数 QPS 这样的一些指标来衡量</p>
-<p>吞吐量、响应时间和并发数三者之间是有关联性的。并发数不变，响应时间足够快，那么单
-位时间的吞吐量就会相应的提高。</p>
-<h3 id="性能计数器">性能计数器</h3>
-<p>服务器或者操作系统性能的一些指标数据，包括系统负载 System
-Load、对象和线程数、内存使用、CPU 使用、磁盘和网络 I/O 使用等指标，这些指标是系
-统监控的重要参数，反映系统负载和处理能力的一些关键指标，通常这些指标和性能是强相
-关的。这些指标很高，成为瓶颈，通常也预示着性能可能会出现问题。</p>
-<h2 id="性能测试">性能测试</h2>
-<h3 id="性能测试-1">性能测试</h3>
-<p>性能测试是指以系统设计初期规划的性能指标为预期目标，对系统不断地施加压力，验证系
-统在资源可接受的范围内是否达到了性能的预期目标。这个过程中，随着并发数的增加，吞
-入量也在增加，但是响应时间变化不大。系统正常情况下的并发访问压力应该都在这个范围
-内。</p>
-<h3 id="负载测试">负载测试</h3>
-<p>负载测试则是对系统不断地施加并发请求，增加系统的压力，直到系统的某项或多项指标达
-到安全临界值。这个过程中，随着并发数的增加，吞吐量只有小幅的增加，达到最大值后，
-吞吐量还会下降，而响应时间则会不断增加。</p>
-<h3 id="压力测试">压力测试</h3>
-<p>压力测试是指在超过安全负载的情况下，增加并发请求数，对系统继续施加压力，直到系统
-崩溃，或者不再处理任何请求，此时的并发数就是系统的最大压力承受能力。这个过程中，
-吞吐量迅速下降，响应时间迅速增加，到了系统崩溃点，吞吐量为 0，响应时间无穷大。</p>
-<h2 id="性能优化">性能优化</h2>
-<h3 id="用户体验优化">用户体验优化</h3>
-<p>性能优化的最终目的是让用户有更好的性能体验，所以性能优化最直接的其实是优化用户体
-验。同样 500 毫秒的响应时间，如果收到全部响应数据后才开始显示给用户，相比收到部
-分数据就开始显示，对用户的体验就完全不一样。同样，在等待响应结果的时候，只显示一
-个空白的页面和显示一个进度条，用户感受到的性能也是完全不同的。</p>
-<h4 id="第一层数据中心优化">第一层：数据中心优化</h4>
-<p>在全球各个主要区域都部署自己
-的数据中心，就近为区域用户提供服务，加快响应速度。</p>
-<h4 id="第二层硬件优化">第二层：硬件优化</h4>
-<p>事实上，即便使用水平伸缩，在分布式集群服务器内部，依然可以使用垂直伸缩，优化服务
-器的硬件能力。有时候，硬件能力的提升，对系统性能的影响是非常巨大的。</p>
-<h4 id="第三层操作系统优化">第三层：操作系统优化</h4>
-<p>不同操作系统以及操作系统内的某些特性也会对软件性能有重要影响</p>
-<h4 id="第四层虚拟机优化">第四层：虚拟机优化</h4>
-<p>特别是垃圾回收，可能会导致应用程序出现巨大的卡顿。</p>
-<h4 id="第五层基础组件优化">第五层：基础组件优化</h4>
-<p>如 Web 容器，数据库连接
-池，MVC 框架等等。这些基础组件的性能也会对系统性能有较大影响。</p>
-<h4 id="第六层架构优化">第六层：架构优化</h4>
-<p>主要有缓存、消息队列、集群。
-<strong>缓存</strong>：通过从缓存读取数据，加快响应时间，减少后端计算压力，缓存主要是提升读的性
-能。</p>
-<p><strong>消息队列</strong>：通过将数据写入消息队列，异步进行计算处理，提升系统的响应时间和处理速
-度，消息队列主要是提升写的性能。</p>
-<p><strong>集群</strong>：将单一服务器进行伸缩，构建成一个集群完成同一种计算任务，从而提高系统在高并
-发压力时候的性能。各种服务器都可以构建集群，应用集群、缓存集群、数据库集群等等。</p>
-<h4 id="第七层代码优化">第七层：代码优化</h4>
-<p>通过各种编程技巧和设计模式提升代码的执行效率，也是我们最能控制的一个优化手段。</p>
-<p>此外，还可以使用线程池、连接池等对象池化技术，复用资源，减少资源的创建。</p>
+            </div><div class="content" id="content"><h2 id="通读缓存">通读缓存</h2>
+<p>应用程序访问通读缓存获取数据的时候，如果通读缓存有应
+用程序需要的数据，那么就返回这个数据；如果没有，那么通读缓存就自己负责访问数据
+源，从数据源获取数据返回给应用程序，并将这个数据缓存在自己的缓存中。这样，下次应
+用程序需要数据的时候，就可以通过通读缓存直接获得数据了。</p>
+<h3 id="cdn">CDN</h3>
+<p>即内容分发网络。CDN 只能缓存静态数据内容</p>
+<h3 id="反向代理缓存">反向代理缓存</h3>
+<p>既然所有的请求都需要通过反向代
+理才能到达应用服务器，那么在这里加一个缓存，尽快将数据返回给用户，而不是发送给应
+用服务器，这就是反向代理缓存。</p>
+<h2 id="旁路缓存">旁路缓存</h2>
+<p>应用程序访问旁路缓存获取数据的时候，如果旁路缓存中有应
+用程序需要的数据，那么就返回这个数据；如果没有，就返回空（null）。应用程序需要自
+己从数据源读取数据，然后将这个数据写入到旁路缓存中。这样，下次应用程序需要数据的
+时候，就可以通过旁路缓存直接获得数据了。</p>
+<h3 id="对象缓存">对象缓存</h3>
+<p>一种是本地缓存，缓存和应用程序在同一个进程中
+启动，使用程序的堆空间存放缓存数据。本地缓存的响应速度快，但是缓存可以使用的内存
+空间相对比较小，但是对于大型互联网应用所需要缓存的数据通以 T 计，这时候就要使用
+远程的分布式缓存了。</p>
+<h2 id="缓存注意事项">缓存注意事项</h2>
+<p>好处：</p>
+<ol>
+<li>
+<p>缓存的数据通常存储在内存中，距离使用数据的应用也更近一点，因此相比从硬盘上获
+取，或者从远程网络上获取，它获取数据的速度更快一点，响应时间更快，性能表现更
+好。</p>
+</li>
+<li>
+<p>缓存的数据通常是计算结果数据，比如对象缓存中，通常存放经过计算加工的结果对
+象，如果缓存不命中，那么就需要从数据库中获取原始数据，然后进行计算加工才能得
+到结果对象，因此使用缓存可以减少 CPU 的计算消耗，节省计算资源，同样也加快了处
+理的速度。</p>
+</li>
+<li>
+<p>通过对象缓存获取数据，可以降低数据库的负载压力；通过 CDN、反向代理等通读缓存
+获取数据，可以降低服务器的负载压力。这些被释放出来的计算资源，可以提供给其他
+更有需要的计算场景，比如写数据的场景，间接提高整个系统的处理能力。</p>
+</li>
+</ol>
+<p>问题：</p>
+<h3 id="数据脏读">数据脏读</h3>
+<p>解决办法：</p>
+<ol>
+<li>过期失效</li>
+<li>失效通知： 应用程序更新数据源的数据，同时发送通知，将该数据从缓存中
+清除。失效通知看起来数据更新更加及时，但是实践中，更多使用的还是过期失效。</li>
+</ol>
+<p><strong>如果缓存的数据没有热点，写入缓存的数据很难被重复读取，那么使用缓存就不是很
+有必要了。</strong></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -214,10 +191,10 @@ Load、对象和线程数、内存使用、CPU 使用、磁盘和网络 I/O 使�
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/high_performance/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/cache/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/high_performance/" data-title="高性能"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/high_performance/" data-title="高性能"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/cache/" data-title="缓存架构"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/cache/" data-title="缓存架构"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -229,8 +206,8 @@ Load、对象和线程数、内存使用、CPU 使用、磁盘和网络 I/O 使�
         </section>
     </div>
 
-    <div class="post-nav"><a href="/cache/" class="prev" rel="prev" title="缓存架构"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>缓存架构</a>
-            <a href="/high_availability/" class="next" rel="next" title="高可用架构">高可用架构<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/data_storage/" class="prev" rel="prev" title="数据存储架构"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>数据存储架构</a>
+            <a href="/high_performance/" class="next" rel="next" title="高性能">高性能<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

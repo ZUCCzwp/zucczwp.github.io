@@ -20,5 +20,13 @@
     <guid>https://zucczwp.github.io/high_performance/</guid>
     <description><![CDATA[性能指标 响应时间 从发出请求开始到收到最后响应数据所需要的时间。响应时间是系统最 重要的性能指标，最直接地反映了系统的快慢。 并发数 系统同时处理的]]></description>
 </item>
+<item>
+    <title>微服务架构</title>
+    <link>https://zucczwp.github.io/micro_service/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/micro_service/</guid>
+    <description><![CDATA[单体架构的困难和挑战 编译、部署困难 代码分支管理困难 因为单体应用非常庞大，所以代码模块也是由多个团队共同维护的。但最后还是要编译成一 个单体应用]]></description>
+</item>
 </channel>
 </rss>

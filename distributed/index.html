@@ -4,38 +4,38 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>负载均衡架构 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了负载均衡架构相关知识."><meta property="og:title" content="负载均衡架构" />
-<meta property="og:description" content="这篇文章展示了负载均衡架构相关知识." />
+        <title>分布式架构 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了分布式架构相关知识."><meta property="og:title" content="分布式架构" />
+<meta property="og:description" content="这篇文章展示了分布式架构相关知识." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/lb/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://zucczwp.github.io/distributed/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-05-13T00:00:00+00:00" />
 <meta property="article:modified_time" content="2024-05-13T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
 
-<meta name="twitter:title" content="负载均衡架构"/>
-<meta name="twitter:description" content="这篇文章展示了负载均衡架构相关知识."/>
+<meta name="twitter:title" content="分布式架构"/>
+<meta name="twitter:description" content="这篇文章展示了分布式架构相关知识."/>
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/lb/" /><link rel="prev" href="https://zucczwp.github.io/high_availability/" /><link rel="next" href="https://zucczwp.github.io/distributed/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/distributed/" /><link rel="prev" href="https://zucczwp.github.io/lb/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "负载均衡架构",
+        "headline": "分布式架构",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/zucczwp.github.io\/lb\/"
-        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Architecture","wordcount":  1450 ,
-        "url": "https:\/\/zucczwp.github.io\/lb\/","datePublished": "2024-05-13T00:00:00+00:00","dateModified": "2024-05-13T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/zucczwp.github.io\/distributed\/"
+        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Architecture","wordcount":  709 ,
+        "url": "https:\/\/zucczwp.github.io\/distributed\/","datePublished": "2024-05-13T00:00:00+00:00","dateModified": "2024-05-13T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/zucczwp.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
                 "name": "Jimi"
-            },"description": "这篇文章展示了负载均衡架构相关知识."
+            },"description": "这篇文章展示了分布式架构相关知识."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -101,10 +101,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">负载均衡架构</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">分布式架构</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/architecture/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Architecture</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-13">2024-05-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1450 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/lb/" class="leancloud_visitors" data-flag-title="负载均衡架构">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-13">2024-05-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 709 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/distributed/" class="leancloud_visitors" data-flag-title="分布式架构">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -114,61 +114,82 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#http重定向负载均衡">HTTP重定向负载均衡</a></li>
-    <li><a href="#dns-负载均衡">DNS 负载均衡</a></li>
-    <li><a href="#反向代理负载均衡">反向代理负载均衡</a></li>
-    <li><a href="#ip负载均衡">IP负载均衡</a></li>
-    <li><a href="#数据链路层负载均衡">数据链路层负载均衡</a></li>
+    <li><a href="#垂直伸缩与水平伸缩">垂直伸缩与水平伸缩</a></li>
+    <li><a href="#互联网分布式架构演化">互联网分布式架构演化</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="http重定向负载均衡">HTTP重定向负载均衡</h2>
-<p>HTTP 重定向负载均衡是一种比较简单的负载均衡技术实现。来自用户的 HTTP 请求到达负
-载均衡服务器以后，负载均衡服务器根据某种负载均衡算法计算得到一个应用服务器的地
-址，通过 HTTP 状态码 302 重定向响应，将新的 IP 地址发送给用户浏览器，用户浏览器收
-到重定向响应以后，重新发送请求到真正的应用服务器，以此来实现负载均衡</p>
-<p>HTTP 重定向负载均衡的优点是设计比较简单，但是它的缺点也比较明显，一方面用户完成
-一次访问，就需要请求两次数据中心，一次请求负载均衡服务器，一次是请求应用服务器，
-请求处理性能会受很大的影响。</p>
-<p>另一个问题是因为响应要重定向到真正的应用服务器，所以需要把应用服务器的 IP 地址暴
-露给外部用户，这样可能会带来安全性的问题。</p>
-<h2 id="dns-负载均衡">DNS 负载均衡</h2>
-<p>当用户从浏览器
-发起 HTTP 请求的时候，首先要到 DNS 域名服务器进行域名解析，解析得到 IP 地址以
-后，用户才能够根据 IP 地址建立 HTTP 连接，访问真正的数据中心的应用服务器，这时候
-就可以在 DNS 域名解析的时候进行负载均衡，也就是说，不同的用户进行域名解析的时
-候，返回不同的 IP 地址，从而实现负载均衡。</p>
-<p>域名解析直接得到应用服务器的 IP 地址，确实会存在安全性问
-题。但是大型互联网应用通常并不直接通过 DNS 解析得到应用服务器 IP 地址，而是解析
-得到负载均衡服务器的 IP 地址。也就是说，大型网互联网应用需要两次负载均衡，一次通
-过 DNS 负载均衡，用户请求访问数据中心负载均衡服务器集群的某台机器，然后这台负载
-均衡服务器再进行一次负载均衡，将用户请求分发到应用服务器集群的某台服务器上。通过
-这种方式，应用服务器不需要用公网 IP 将自己暴露给外部访问者，避免了安全性问题。</p>
-<h2 id="反向代理负载均衡">反向代理负载均衡</h2>
-<p>用户请求到达数据中心以后，最先到达的就是反向代理服
-务器。反向代理服务器查找本机是否有请求的资源，如果有就直接返回资源数据，如果没
-有，就将请求发送给后面的应用服务器继续处理。事实上，发送请求给应用服务器的时候，
-就可以进行负载均衡，将不同的用户请求分发到不同的服务器上面去。Nginx 这样的 HTTP
-服务器就会同时提供反向代理与负载均衡功能。</p>
-<p>作为互联网应用层的一个协议，HTTP 协议相对说来比较重，效率比较低，所以反向代理负
-载均衡通常用在小规模的互联网系统上，只有几台或者十几台服务器的规模。</p>
-<h2 id="ip负载均衡">IP负载均衡</h2>
-<p>网络层负载均衡。它的主要工作原理是当用户的请求到达负载
-均衡服务器以后，负载均衡服务器会对网络层的数据包的 IP 地址进行转换，修改 IP 地址，
-将其修改为应用服务器的 IP 地址，然后把数据包重新发送出去，请求数据就会到达应用服
-务器。</p>
-<p>IP 负载均衡不需要在 HTTP 协议层工作，可以在操作系统内核直接修改 IP 数据包的地址，
-因此，效率比应用层的反向代理负载均衡高得多。但是它依然有一个缺陷，不管是请求还是
-响应的数据包，都要通过负载均衡服务器进行 IP 地址转换，才能够正确地把请求数据分发
-到应用服务器，或者正确地将响应数据包发送到用户端程序。</p>
-<h2 id="数据链路层负载均衡">数据链路层负载均衡</h2>
-<p>负载均衡服务器并不修改数据包的 IP 地址，而是修改数据链路层里的网卡 mac
-地址，在数据链路层实现负载均衡。而应用服务器和负载均衡服务器都使用相同的虚拟 IP
-地址，这样 IP 路由就不会受到影响，但是网卡会根据自己的 mac 地址，选择负载均衡服
-务器发送到自己网卡的数据包，交给对应的应用程序去处理，处理结束以后，当把响应的数
-据包发送到网络上的时候，因为 IP 地址没有修改过，所以这个响应会直接到达用户的浏览
-器，而不会再经过负载均衡服务器。</p>
-<p>链路层负载均衡避免响应数据再经过负载均衡服务器，因而可以承受较大的数据传输压力，
-所以，目前大型互联网应用基本都使用链路层负载均衡。</p>
+            </div><div class="content" id="content"><h2 id="垂直伸缩与水平伸缩">垂直伸缩与水平伸缩</h2>
+<p>为了应对高并发用户访问带来的系统资源消耗，一种解决办法是垂直伸缩。所谓的垂直伸缩
+就是提升单台服务器的处理能力</p>
+<p>垂直伸缩带来的价格成本和服务器的处理能力并不一定呈线性关系，也就是说，增加同样的
+费用，并不能得到同样的计算能力。而且计算能力越强大，需要花费的钱就越多。</p>
+<p>所谓的水平伸缩，指的是不去提升单机的处理能力，不使用更昂贵更快更厉害的硬件，而是
+使用更多的服务器，将这些服务器构成一个分布式集群，通过这个集群，对外统一提供服务，以此来提高系统整体的处理能力。</p>
+<h2 id="互联网分布式架构演化">互联网分布式架构演化</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/danti.png"
+        data-srcset="/images/danti.png, /images/danti.png 1.5x, /images/danti.png 2x"
+        data-sizes="auto"
+        alt="/images/danti.png"
+        title="danti.png" /></p>
+<p>第一次分离,只需要把数据库、文件系统进行远程部署，进行
+远程访问就可以了.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/first.png"
+        data-srcset="/images/first.png, /images/first.png 1.5x, /images/first.png 2x"
+        data-sizes="auto"
+        alt="/images/first.png"
+        title="first.png" /></p>
+<p>使用缓存改善性能</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/second.png"
+        data-srcset="/images/second.png, /images/second.png 1.5x, /images/second.png 2x"
+        data-sizes="auto"
+        alt="/images/second.png"
+        title="second.png" /></p>
+<p>通过负载均衡服务器，将应用服务器部署为一个集群，添加更多的应用服务器去处
+理用户的访问。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/third.png"
+        data-srcset="/images/third.png, /images/third.png 1.5x, /images/third.png 2x"
+        data-sizes="auto"
+        alt="/images/third.png"
+        title="third.png" /></p>
+<p>数据库的读写分离，将一个数据库通过数据复制的方式，分裂为两个
+数据库，主数据库主要负责数据的写操作，所有的写操作都复制到从数据库上，保证从数据
+库的数据和主数据库数据一致，而从数据库主要提供数据的读操作。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/fourth.png"
+        data-srcset="/images/fourth.png, /images/fourth.png 1.5x, /images/fourth.png 2x"
+        data-sizes="auto"
+        alt="/images/fourth.png"
+        title="fourth.png" /></p>
+<p>海量数据的存储，主要通过分布式数据库、分布式文件系统、NoSQL 数据库解决。直接在
+数据库上查询已经无法满足这些数据的查询性能要求，还需要部署独立的搜索引擎提供查询
+服务。同时减少数据中心的网络带宽压力，提供更好的用户访问延时，使用 CDN 和反向代
+理提供前置缓存，尽快返回静态文件资源给用户。</p>
+<p>为了使各个子系统更灵活易于扩展，则使用分布式消息队列将相关子系统解耦，通过消息的
+发布订阅完成子系统间的协作。使用微服务架构将逻辑上独立的模块在物理上也独立部署，
+单独维护，应用系统通过组合多个微服务完成自己的业务逻辑，实现模块更高级别的复用，
+从而更快速地开发系统和维护系统。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/fiveth.png"
+        data-srcset="/images/fiveth.png, /images/fiveth.png 1.5x, /images/fiveth.png 2x"
+        data-sizes="auto"
+        alt="/images/fiveth.png"
+        title="fiveth.png" /></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -177,10 +198,10 @@
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/lb/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/distributed/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/lb/" data-title="负载均衡架构"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/lb/" data-title="负载均衡架构"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/distributed/" data-title="分布式架构"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/distributed/" data-title="分布式架构"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -192,8 +213,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/high_availability/" class="prev" rel="prev" title="高可用架构"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>高可用架构</a>
-            <a href="/distributed/" class="next" rel="next" title="分布式架构">分布式架构<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/lb/" class="prev" rel="prev" title="负载均衡架构"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>负载均衡架构</a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

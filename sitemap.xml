@@ -2,6 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://zucczwp.github.io/distributed/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://zucczwp.github.io/lb/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://zucczwp.github.io/high_availability/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://zucczwp.github.io/high_performance/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
@@ -12,7 +13,7 @@
             <loc>https://zucczwp.github.io/async/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://zucczwp.github.io/k3cloud_login/</loc><lastmod>2024-04-17T09:20:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
             <loc>https://zucczwp.github.io/docker/</loc><lastmod>2024-04-09T22:04:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>https://zucczwp.github.io/authentik-use/</loc><lastmod>2024-04-08T21:55:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/authentik-use/</loc><lastmod>2024-04-08T21:55:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/postgresql/</loc><lastmod>2024-04-07T14:21:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/authentik-deploy/</loc><lastmod>2024-04-02T10:12:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/kubectl/</loc><lastmod>2024-04-01T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

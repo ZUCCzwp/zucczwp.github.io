@@ -5,6 +5,14 @@
         <description>Architecture - 分类 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
             <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 13 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/architecture/" rel="self" type="application/rss+xml" /><item>
+    <title>分布式架构</title>
+    <link>https://zucczwp.github.io/distributed/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/distributed/</guid>
+    <description><![CDATA[垂直伸缩与水平伸缩 为了应对高并发用户访问带来的系统资源消耗，一种解决办法是垂直伸缩。所谓的垂直伸缩 就是提升单台服务器的处理能力 垂直伸缩带来的]]></description>
+</item>
+<item>
     <title>负载均衡架构</title>
     <link>https://zucczwp.github.io/lb/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>

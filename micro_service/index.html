@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zucczwp.github.io\/micro_service\/"
-        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Architecture","wordcount":  561 ,
+        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Architecture","wordcount":  1522 ,
         "url": "https:\/\/zucczwp.github.io\/micro_service\/","datePublished": "2024-05-13T00:00:00+00:00","dateModified": "2024-05-13T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/zucczwp.github.io\/images\/avatar.png"},"author": {
@@ -103,8 +103,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">微服务架构</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/architecture/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Architecture</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-13">2024-05-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 561 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/micro_service/" class="leancloud_visitors" data-flag-title="微服务架构">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-13">2024-05-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1522 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/micro_service/" class="leancloud_visitors" data-flag-title="微服务架构">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -125,6 +125,34 @@
     </li>
     <li><a href="#微服务框架原理">微服务框架原理</a></li>
     <li><a href="#微服务架构的落地实践">微服务架构的落地实践</a></li>
+    <li><a href="#微服务间如何通讯">微服务间如何通讯</a>
+      <ul>
+        <li><a href="#从通讯协议角度考虑">从通讯协议角度考虑</a></li>
+        <li><a href="#从通讯模式角度考虑">从通讯模式角度考虑</a></li>
+        <li><a href="#如何选择-rpc框架">如何选择 RPC框架</a></li>
+      </ul>
+    </li>
+    <li><a href="#服务发现">服务发现</a>
+      <ul>
+        <li><a href="#客户端发现">客户端发现</a></li>
+        <li><a href="#服务端发现">服务端发现</a></li>
+      </ul>
+    </li>
+    <li><a href="#服务编排">服务编排</a>
+      <ul>
+        <li><a href="#kubernetes">kubernetes</a>
+          <ul>
+            <li><a href="#设计理念">设计理念</a></li>
+            <li><a href="#网络">网络</a></li>
+            <li><a href="#scheduler-preselect预选规则">scheduler-preselect(预选规则)</a></li>
+            <li><a href="#scheduler-optimize-select优选规则">scheduler-optimize-select(优选规则)</a></li>
+            <li><a href="#pod通讯">pod通讯</a></li>
+            <li><a href="#服务发现-1">服务发现</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#cicd和-devops">CICD和 DevOps</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="单体架构的困难和挑战">单体架构的困难和挑战</h2>
@@ -150,6 +178,143 @@ merge 带来的问题，各种情况纠缠在一起，极易出错。</p>
 <p>首先明确自己的需求：我们到底想用微服务达到什么样的目的？需求清晰了，再去考虑具体
 要实现的价值，再根据价值构建我们的设计原则，根据原则寻找最佳实践，最后根据实践去
 选择最合适的工具。</p>
+<h2 id="微服务间如何通讯">微服务间如何通讯</h2>
+<h3 id="从通讯协议角度考虑">从通讯协议角度考虑</h3>
+<ul>
+<li>Rest Api</li>
+<li>RPC</li>
+<li>MQ</li>
+</ul>
+<h3 id="从通讯模式角度考虑">从通讯模式角度考虑</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>一对一</th>
+<th>一对多</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同步</td>
+<td>请求响应模式，最常见</td>
+<td>&ndash;</td>
+</tr>
+<tr>
+<td>异步</td>
+<td>通知/请求异步响应</td>
+<td>发布订阅/发布异步响应</td>
+</tr>
+</tbody>
+</table>
+<h3 id="如何选择-rpc框架">如何选择 RPC框架</h3>
+<ul>
+<li>I/O、线程调度模型</li>
+<li>序列化方式</li>
+<li>多语言支持</li>
+</ul>
+<h2 id="服务发现">服务发现</h2>
+<h3 id="客户端发现">客户端发现</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/client_find.png"
+        data-srcset="/images/client_find.png, /images/client_find.png 1.5x, /images/client_find.png 2x"
+        data-sizes="auto"
+        alt="/images/client_find.png"
+        title="client_find.png" /></p>
+<h3 id="服务端发现">服务端发现</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/service_find.png"
+        data-srcset="/images/service_find.png, /images/service_find.png 1.5x, /images/service_find.png 2x"
+        data-sizes="auto"
+        alt="/images/service_find.png"
+        title="service_find.png" /></p>
+<h2 id="服务编排">服务编排</h2>
+<h3 id="kubernetes">kubernetes</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/k8s_cluster.png"
+        data-srcset="/images/k8s_cluster.png, /images/k8s_cluster.png 1.5x, /images/k8s_cluster.png 2x"
+        data-sizes="auto"
+        alt="/images/k8s_cluster.png"
+        title="k8s_cluster.png" /></p>
+<p>六边形表示的是 node节点，即 worker节点。每个工作节点上运行了kubelet服务以及 docker服务。
+kubelet就相当于是该节点运行时的一个总管，他会管理这个当前 node上面运行的所有服务</p>
+<p>deployment相当于是一个部署，圆圈相当于是一个 pod.pod是k8s概念中的最小单元
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/pod.png"
+        data-srcset="/images/pod.png, /images/pod.png 1.5x, /images/pod.png 2x"
+        data-sizes="auto"
+        alt="/images/pod.png"
+        title="pod.png" /></p>
+<p>pod里边是容器。有独立的 ip地址。pod里面的容器可以共享网络以及存储的。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/k8s_service.png"
+        data-srcset="/images/k8s_service.png, /images/k8s_service.png 1.5x, /images/k8s_service.png 2x"
+        data-sizes="auto"
+        alt="/images/k8s_service.png"
+        title="k8s_service.png" /></p>
+<p>虚线表示 service,service也有自己独立的 ip。可对多个 pod进行负载均衡。使用 label selector来定义。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/k8s_architecture.png"
+        data-srcset="/images/k8s_architecture.png, /images/k8s_architecture.png 1.5x, /images/k8s_architecture.png 2x"
+        data-sizes="auto"
+        alt="/images/k8s_architecture.png"
+        title="k8s_architecture.png" /></p>
+<p>master虚线框代表的是 api server,他提供了资源操作的唯一入口，并且提供了认证、授权和访问控制。control manager负责维护集群的状态，
+scheduler负责资源调度。按照预定的调度策略。把 pod调度给相应的 node节点上，etcd主要用于一致性存储，保存了集群状态等等的信息。</p>
+<p>kubelet负责维护当前节点上的容器的生命周期，也负责维护当前的节点的 volume和网络的管理。 kube-proxy负责 service提供内部的服务发现和负载均衡
+kube-DNS负责整个集群的 DNS服务</p>
+<p>dashboard提供一些集群相关的数据的展示和操作。</p>
+<p>集群外要访问集群内部服务时，k8s可以把服务端口直接暴露在当前的 node上。直接访问 node的 ip就可以关联到这个端口</p>
+<h4 id="设计理念">设计理念</h4>
+<ul>
+<li>API设计原则（申明式）</li>
+<li>控制机设计原则</li>
+</ul>
+<h4 id="网络">网络</h4>
+<ul>
+<li>CNI</li>
+<li>Flannel、Calico、Weave</li>
+<li>Pod网络</li>
+</ul>
+<h4 id="scheduler-preselect预选规则">scheduler-preselect(预选规则)</h4>
+<ul>
+<li>NodiskConflict(挂载冲突)</li>
+<li>CheckNodeMemoryPressure</li>
+<li>NodeSelector</li>
+<li>FitResource</li>
+<li>Affinity</li>
+</ul>
+<h4 id="scheduler-optimize-select优选规则">scheduler-optimize-select(优选规则)</h4>
+<p>SelectorSpreadPriority
+LeastRequestedPriority
+AffinityPriority</p>
+<h4 id="pod通讯">pod通讯</h4>
+<ul>
+<li>同一个 pod内部通讯 用localhost地址访问彼此的端口。</li>
+<li>同一个 node,不同 pod通讯 可通过 docker0网桥进行通讯，具体可通过访问pod的ip</li>
+<li>不同 node，不同 pod通讯 通过 pod的 ip和 node的 ip关联</li>
+</ul>
+<h4 id="服务发现-1">服务发现</h4>
+<ul>
+<li>kube-proxy(ClusterIp)</li>
+<li>kube-proxy(NodePort)</li>
+<li>kube-DNS</li>
+</ul>
+<h2 id="cicd和-devops">CICD和 DevOps</h2>
+<p>持续集成
+持续部署</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

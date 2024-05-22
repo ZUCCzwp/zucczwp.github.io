@@ -80,7 +80,7 @@
 HTTP 接口访问领域模型，也可以通过 Web Service 或者消息队列访问领域模型，只需要
 为这些不同的访问接口提供不同的适配器就可以了。
 
-![ddd_hexagon.png](ddd_hexagon.png)
+![ddd_hexagon.png](/images/ddd_hexagon.png)
 
 领域驱动设计的技术体系内还有其他一些方法和概念，但是最核心的还是领域模型本身，**通
 过领域实体及其交互完成业务逻辑处理才是 DDD 的核心目标**。至于是不是用了 CQRS，是

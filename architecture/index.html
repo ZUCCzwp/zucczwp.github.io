@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Docker - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了Docker基本知识."><meta property="og:title" content="Docker" />
+<meta property="og:description" content="这篇文章展示了Docker基本知识." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zucczwp.github.io/architecture/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-01-14T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Docker"/>
+<meta name="twitter:description" content="这篇文章展示了Docker基本知识."/>
+<meta name="application-name" content="Jimi&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/architecture/" /><link rel="prev" href="https://zucczwp.github.io/monitor/" /><link rel="next" href="https://zucczwp.github.io/vim/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Docker",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zucczwp.github.io\/architecture\/"
+        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Docker","wordcount":  1612 ,
+        "url": "https:\/\/zucczwp.github.io\/architecture\/","datePublished": "2024-01-14T00:00:00+00:00","dateModified": "2024-01-14T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/zucczwp.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Jimi"
+            },"description": "这篇文章展示了Docker基本知识."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Jimi’s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Jimi</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/ZUCCzwp/zucczwp.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Jimi’s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Jimi</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/ZUCCzwp/zucczwp.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-01-14">2024-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1612 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/architecture/" class="leancloud_visitors" data-flag-title="Docker">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#docker架构及底层技术">Docker架构及底层技术</a>
+      <ul>
+        <li><a href="#docker-engine">Docker Engine</a></li>
+        <li><a href="#架构">架构</a></li>
+        <li><a href="#底层技术支持">底层技术支持</a></li>
+      </ul>
+    </li>
+    <li><a href="#docker-image">Docker Image</a>
+      <ul>
+        <li><a href="#定义">定义</a></li>
+        <li><a href="#获取">获取</a></li>
+      </ul>
+    </li>
+    <li><a href="#docker-container">Docker Container</a>
+      <ul>
+        <li><a href="#定义-1">定义</a></li>
+        <li><a href="#构建自己的镜像">构建自己的镜像</a></li>
+      </ul>
+    </li>
+    <li><a href="#dockerfile语法梳理及最佳实践">Dockerfile语法梳理及最佳实践</a>
+      <ul>
+        <li><a href="#from">From</a></li>
+        <li><a href="#label">Label</a></li>
+        <li><a href="#run">RUN</a></li>
+        <li><a href="#workdir">WORKDIR</a></li>
+        <li><a href="#add-and-copy">ADD and COPY</a></li>
+        <li><a href="#env">ENV</a></li>
+        <li><a href="#volume-and-expose">VOLUME and EXPOSE</a></li>
+        <li><a href="#cmd-and-entrypoint">CMD and ENTRYPOINT</a>
+          <ul>
+            <li><a href="#shell-格式">Shell 格式</a></li>
+            <li><a href="#exec-格式">Exec 格式</a></li>
+          </ul>
+        </li>
+        <li><a href="#最佳实践">最佳实践</a></li>
+      </ul>
+    </li>
+    <li><a href="#镜像的发布">镜像的发布</a></li>
+    <li><a href="#docker-network">Docker Network</a>
+      <ul>
+        <li><a href="#网络的分层">网络的分层</a>
+          <ul>
+            <li><a href="#公有-ip和私有-ip">公有 ip和私有 ip</a></li>
+            <li><a href="#网络地址转换-nat">网络地址转换 NAT</a></li>
+            <li><a href="#ping和-telnet">ping和 telnet</a></li>
+            <li><a href="#wireshark">wireshark</a></li>
+          </ul>
+        </li>
+        <li><a href="#linux网络命名空间">Linux网络命名空间</a></li>
+        <li><a href="#bridge0详解">Bridge0详解</a></li>
+        <li><a href="#容器之间的-link">容器之间的 link</a></li>
+        <li><a href="#单机">单机</a>
+          <ul>
+            <li><a href="#bridge-network">Bridge Network</a></li>
+            <li><a href="#host-network">Host Network</a></li>
+            <li><a href="#none-network">None Network</a></li>
+          </ul>
+        </li>
+        <li><a href="#多机">多机</a>
+          <ul>
+            <li><a href="#overlay-network">Overlay Network</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#docker的持久化存储和数据共享">Docker的持久化存储和数据共享</a>
+      <ul>
+        <li><a href="#data-volume">Data Volume</a></li>
+        <li><a href="#bind-mouting">Bind Mouting</a></li>
+        <li><a href="#持久化方案">持久化方案</a></li>
+        <li><a href="#volume-类型">Volume 类型</a></li>
+      </ul>
+    </li>
+    <li><a href="#docker-compose">Docker Compose</a>
+      <ul>
+        <li><a href="#定义-2">定义</a></li>
+        <li><a href="#三大概念">三大概念</a>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#networks">Networks</a></li>
+            <li><a href="#volumes">Volumes</a></li>
+          </ul>
+        </li>
+        <li><a href="#水平扩容和负载均衡">水平扩容和负载均衡</a></li>
+      </ul>
+    </li>
+    <li><a href="#容器编排kubenetes">容器编排kubenetes</a>
+      <ul>
+        <li><a href="#replicaset和-replication-controller">ReplicaSet和 Replication Controller</a></li>
+        <li><a href="#deployment">Deployment</a></li>
+        <li><a href="#services-1">Services</a></li>
+        <li><a href="#clusterip">ClusterIP</a></li>
+        <li><a href="#nodeport">NodePort</a></li>
+        <li><a href="#loadbalancer">LoadBalancer</a></li>
+        <li><a href="#external-name">External name</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="docker架构及底层技术">Docker架构及底层技术</h2>
+<h3 id="docker-engine">Docker Engine</h3>
+<p>后台进程（dockerd）
+Rest Api Server
+CLI接口</p>
+<h3 id="架构">架构</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/docker_arch.png"
+        data-srcset="/images/docker_arch.png, /images/docker_arch.png 1.5x, /images/docker_arch.png 2x"
+        data-sizes="auto"
+        alt="/images/docker_arch.png"
+        title="docker_arch.png" /></p>
+<h3 id="底层技术支持">底层技术支持</h3>
+<p>Namespaces：做隔离pid,net,ipc,mnt,uts
+Control groups: 做资源限制
+Union file systems：Container和 image的分层</p>
+<h2 id="docker-image">Docker Image</h2>
+<h3 id="定义">定义</h3>
+<p>文件和meta data的集合
+分层的，并且每一层都可以添加改变删除文件，成为一个新的 image
+不同的 image可以共享相同的 layer
+本身是 read-only的</p>
+<h3 id="获取">获取</h3>
+<p>Build from Dockerfile
+Pull from Registry</p>
+<h2 id="docker-container">Docker Container</h2>
+<h3 id="定义-1">定义</h3>
+<p>通过 Image创建
+在 Image layer之上建立一个 container layer
+类比面向对象：类和实例
+Image负责 app的存储和分发，Container负责运行 app</p>
+<h3 id="构建自己的镜像">构建自己的镜像</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker commit container_name repositry_name/tag_name 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="dockerfile语法梳理及最佳实践">Dockerfile语法梳理及最佳实践</h2>
+<h3 id="from">From</h3>
+<p>尽量使用官方的 image</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">FROM scratch # 制作 base image
+</span></span><span class="line"><span class="cl">FROM centos # 使用 base image
+</span></span><span class="line"><span class="cl">FROM ubuntu:14.04
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="label">Label</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">LABEL maintainer=&#34;email.com&#34;
+</span></span><span class="line"><span class="cl">LABEL version=&#34;1.0&#34;
+</span></span><span class="line"><span class="cl">LABEL description=&#34;this is description&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="run">RUN</h3>
+<p>复杂的 RUN请用反斜线换行
+避免无用分层，合并多条命令成一行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">RUN yum update &amp;&amp; yum install -y vim \
+</span></span><span class="line"><span class="cl">    python-dev
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="workdir">WORKDIR</h3>
+<p>不要使用 RUN cd</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">WORKDIR /root
+</span></span><span class="line"><span class="cl">WORKDIR /test #如果没有会自动创建 test目录
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="add-and-copy">ADD and COPY</h3>
+<p>COPY优于 ADD
+ADD 除了 COPY还有额外的功能（解压）
+添加远程文件/目录请使用 curl或者 wget</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ADD hello /
+</span></span><span class="line"><span class="cl">ADD test.tar.gz / # 添加到根目录并解压
+</span></span><span class="line"><span class="cl">WORDIR /root
+</span></span><span class="line"><span class="cl">COPY hello test/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="env">ENV</h3>
+<p>尽量使用 ENV</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ENV MYSQL_VERSION 5.6
+</span></span><span class="line"><span class="cl">RUN apt-get install -y mysql-server= &#34;${MYSQL_VERSION}&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="volume-and-expose">VOLUME and EXPOSE</h3>
+<h3 id="cmd-and-entrypoint">CMD and ENTRYPOINT</h3>
+<ul>
+<li>CMD</li>
+</ul>
+<p>设置容器启动时默认执行的命令和参数</p>
+<p>如果 doker run制定了其他命令，CMD命令将被忽略</p>
+<p>如果定义了多个 CMD,只有最后一个会执行</p>
+<ul>
+<li>ENTRYPOINT</li>
+</ul>
+<p>设置容器启动时运行的命令</p>
+<p>让容器以应用程序或者服务的形式运行</p>
+<p>不会被忽略，一定会执行</p>
+<p>最佳实践：写一个 shell脚本作为 entrypoint</p>
+<h4 id="shell-格式">Shell 格式</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">RUN apt-get install -y vim 
+</span></span><span class="line"><span class="cl">CMD echo &#34;hello docker&#34;
+</span></span><span class="line"><span class="cl">ENTRYPOINT echo &#34;hello docker&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="exec-格式">Exec 格式</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">RUN [&#34;apt-get&#34;, &#34;install&#34;, &#34;-y&#34;, &#34;vim&#34;]
+</span></span><span class="line"><span class="cl">CMD [&#34;/bin/echo&#34;, &#34;hello docker&#34;]
+</span></span><span class="line"><span class="cl">ENTRYPOINT [&#34;/bin/echo&#34;, &#34;hello docker&#34;]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="最佳实践">最佳实践</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">FROM python:2.7
+</span></span><span class="line"><span class="cl">LABEL &#34;maintaioner=mail.com&#34;
+</span></span><span class="line"><span class="cl">RUN pip install flask
+</span></span><span class="line"><span class="cl">COPY app.py /app/
+</span></span><span class="line"><span class="cl">WORKDIR /app
+</span></span><span class="line"><span class="cl">EXPOSE 5000
+</span></span><span class="line"><span class="cl">CMD [&#34;python&#34;, &#34;app.py&#34;]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="镜像的发布">镜像的发布</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker login
+</span></span><span class="line"><span class="cl">docker push dockerhub_id/name
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>推荐的做法是跟 github做关联</p>
+<h2 id="docker-network">Docker Network</h2>
+<h3 id="网络的分层">网络的分层</h3>
+<p>ISO/OSI 7层
+TCP/IP 5 层</p>
+<h4 id="公有-ip和私有-ip">公有 ip和私有 ip</h4>
+<p>Public IP：可以访问 Internet
+Private IP:不可访问 internet</p>
+<ul>
+<li>A类 10.0.0.0&ndash;10.255.255.255</li>
+<li>B类 172.16.0.0&ndash;172.31.255.255</li>
+<li>C类 192.168.0.0&ndash;192.168.255.255</li>
+</ul>
+<h4 id="网络地址转换-nat">网络地址转换 NAT</h4>
+<h4 id="ping和-telnet">ping和 telnet</h4>
+<ul>
+<li>ping（ICMP）:验证 ip的可达性</li>
+<li>telnet:验证服务的可用性</li>
+</ul>
+<h4 id="wireshark">wireshark</h4>
+<h3 id="linux网络命名空间">Linux网络命名空间</h3>
+<p>主机和容器网络隔离，容器具有自己独立的网络命名空间，且他们也可以互通</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ip netns add test1
+</span></span><span class="line"><span class="cl">ip netns add test2
+</span></span><span class="line"><span class="cl">ip netns list
+</span></span><span class="line"><span class="cl">ip netns exec test1 ip a
+</span></span><span class="line"><span class="cl">ip netns exec test1 ip link set dev lo up
+</span></span><span class="line"><span class="cl">ip link add veth-test1 type veth peer name veth-test2
+</span></span><span class="line"><span class="cl">ip link set veth-test1 netns test1
+</span></span><span class="line"><span class="cl">ip link set veth-test2 netns test2
+</span></span><span class="line"><span class="cl">ip netns exec test1 ip addr add 192.168.1.1/24 dev veth-test1
+</span></span><span class="line"><span class="cl">ip netns exec test2 ip addr add 192.168.1.2/24 dev veth-test2
+</span></span><span class="line"><span class="cl">ip netns exec test1 ip link set dev veth-test1 up
+</span></span><span class="line"><span class="cl">ip netns exec test2 ip link set dev veth-test2 up
+</span></span><span class="line"><span class="cl">ip netns exec test1 ping 192.168.1.2
+</span></span><span class="line"><span class="cl">ip netns exec test2 ping 192.168.1.1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/network_namespace.png"
+        data-srcset="/images/network_namespace.png, /images/network_namespace.png 1.5x, /images/network_namespace.png 2x"
+        data-sizes="auto"
+        alt="/images/network_namespace.png"
+        title="network_namespace.png" /></p>
+<h3 id="bridge0详解">Bridge0详解</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="bridge_network.png"
+        data-srcset="bridge_network.png, bridge_network.png 1.5x, bridge_network.png 2x"
+        data-sizes="auto"
+        alt="bridge_network.png"
+        title="bridge_network.png" /></p>
+<h3 id="容器之间的-link">容器之间的 link</h3>
+<p>一个容器如果想访问到另外一个容器，可以通过link的方式，知道对方的network name即可访问
+link是有方向限制的
+如果是连接到用户自定义的 bridge network，默认两者网络都已关联，没有方向限制</p>
+<h3 id="单机">单机</h3>
+<h4 id="bridge-network">Bridge Network</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker network create -d bridge my-bridge
+</span></span><span class="line"><span class="cl">brctl show #可以看到创建好的 bridge
+</span></span><span class="line"><span class="cl">docker run -d --name test --network my-bridge busybox
+</span></span><span class="line"><span class="cl">docker network connect my-bridge test
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="host-network">Host Network</h4>
+<p>host模式类似于Vmware的桥接模式，与宿主机在同一个网络中，但没有独立IP地址。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run --name=nginx --net=host -p 80:80 -d nginx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="none-network">None Network</h4>
+<p>容器有自己的 network namespace，但是没有做任何的网络配置。</p>
+<h3 id="多机">多机</h3>
+<h4 id="overlay-network">Overlay Network</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker network create -d overlay demo
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="docker的持久化存储和数据共享">Docker的持久化存储和数据共享</h2>
+<h3 id="data-volume">Data Volume</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/volume_arch.png"
+        data-srcset="/images/volume_arch.png, /images/volume_arch.png 1.5x, /images/volume_arch.png 2x"
+        data-sizes="auto"
+        alt="/images/volume_arch.png"
+        title="volume_arch.png" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run -v mysql:/var/lib/mysql
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="bind-mouting">Bind Mouting</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run -v /home/aaa:/root/aaa
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="持久化方案">持久化方案</h3>
+<ul>
+<li>基于本地文件系统的 Volume</li>
+<li>基于 plugin的 Volume,例如 NAS,aws</li>
+</ul>
+<h3 id="volume-类型">Volume 类型</h3>
+<ul>
+<li>受管理的 data Volume，由 docker后台自动创建</li>
+<li>绑定挂载的 Volume,具体挂载位置可以由用户指定</li>
+</ul>
+<h2 id="docker-compose">Docker Compose</h2>
+<h3 id="定义-2">定义</h3>
+<p>Docker Compose是一个工具，可以通过一个 yml文件定义多容器的 docker应用</p>
+<h3 id="三大概念">三大概念</h3>
+<h4 id="services">Services</h4>
+<p>一个 service代表一个 container
+Service的启动类似 docker run,可以给其指定 network和 volume</p>
+<h4 id="networks">Networks</h4>
+<h4 id="volumes">Volumes</h4>
+<h3 id="水平扩容和负载均衡">水平扩容和负载均衡</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker-compose up --scale web=2 -d
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>负载均衡</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">lb</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">dockercloud/haproxy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">links</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">web</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="m">8080</span><span class="p">:</span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">/var/run/docker.sock:/var/run/docker.sock</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="容器编排kubenetes">容器编排kubenetes</h2>
+<h3 id="replicaset和-replication-controller">ReplicaSet和 Replication Controller</h3>
+<h3 id="deployment">Deployment</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">kubectl create -f deployment.yml
+</span></span><span class="line"><span class="cl">kubectl get deployment -o wide
+</span></span><span class="line"><span class="cl">##升级
+</span></span><span class="line"><span class="cl">kubectl set image deployment nginx-deployment nginx=nginx:1.13
+</span></span><span class="line"><span class="cl">kubectl rollout history deployment nginx-deployment
+</span></span><span class="line"><span class="cl">##回滚
+</span></span><span class="line"><span class="cl">kubectl rollout undo deployment nginx-deployment
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>技巧<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>自动补全：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">kubectl completion zsh
+</span></span><span class="line"><span class="cl">source &lt;(kubectl completion zsh)
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<h3 id="services-1">Services</h3>
+<h3 id="clusterip">ClusterIP</h3>
+<p>pod改变，service的 clusterIP不会改变</p>
+<p>内部使用</p>
+<h3 id="nodeport">NodePort</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">kubectl expose pods nginx-pod --type=NodePort
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>有端口范围限制</p>
+<h3 id="loadbalancer">LoadBalancer</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">kubectl expose pods nginx-pod --type=LoadBalancer
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="external-name">External name</h3>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-01-14</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/architecture/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/architecture/" data-title="Docker"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/architecture/" data-title="Docker"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/monitor/" class="prev" rel="prev" title="容器监控"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>容器监控</a>
+            <a href="/vim/" class="next" rel="next" title="vim">vim<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Stay Hungry,Stay Foolish</div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/ZUCCzwp/zucczwp.github.io" target="_blank">jimi</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"TYML0LBTDE","algoliaIndex":"jimi","algoliaSearchKey":"5a7eaaebcc023673ae0a33ef9d90c2b7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/custom.js"></script></body>
+</html>

@@ -4,38 +4,38 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>领域驱动设计 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了领域驱动设计基本知识."><meta property="og:title" content="领域驱动设计" />
-<meta property="og:description" content="这篇文章展示了领域驱动设计基本知识." />
+        <title>容器监控 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了容器监控基本知识."><meta property="og:title" content="容器监控" />
+<meta property="og:description" content="这篇文章展示了容器监控基本知识." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/ddd/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-05-14T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-05-14T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
+<meta property="og:url" content="https://zucczwp.github.io/monitor/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-01-14T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
 
-<meta name="twitter:title" content="领域驱动设计"/>
-<meta name="twitter:description" content="这篇文章展示了领域驱动设计基本知识."/>
+<meta name="twitter:title" content="容器监控"/>
+<meta name="twitter:description" content="这篇文章展示了容器监控基本知识."/>
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/ddd/" /><link rel="prev" href="https://zucczwp.github.io/distributed/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/monitor/" /><link rel="prev" href="https://zucczwp.github.io/modeling/" /><link rel="next" href="https://zucczwp.github.io/architecture/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "领域驱动设计",
+        "headline": "容器监控",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/zucczwp.github.io\/ddd\/"
-        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Design","wordcount":  1892 ,
-        "url": "https:\/\/zucczwp.github.io\/ddd\/","datePublished": "2024-05-14T00:00:00+00:00","dateModified": "2024-05-14T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/zucczwp.github.io\/monitor\/"
+        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Docker","wordcount":  72 ,
+        "url": "https:\/\/zucczwp.github.io\/monitor\/","datePublished": "2024-01-14T00:00:00+00:00","dateModified": "2024-01-14T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/zucczwp.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
                 "name": "Jimi"
-            },"description": "这篇文章展示了领域驱动设计基本知识."
+            },"description": "这篇文章展示了容器监控基本知识."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -101,10 +101,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">领域驱动设计</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/design/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Design</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-14">2024-05-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1892 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/ddd/" class="leancloud_visitors" data-flag-title="领域驱动设计">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">容器监控</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-01-14">2024-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 72 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/monitor/" class="leancloud_visitors" data-flag-title="容器监控">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -114,126 +114,76 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#领域模型模式">领域模型模式</a></li>
-    <li><a href="#领域驱动设计">领域驱动设计</a></li>
+    <li><a href="#基本监控">基本监控</a>
+      <ul>
+        <li><a href="#单个容器">单个容器</a></li>
+        <li><a href="#weavescope图形化界面">weavescope图形化界面</a></li>
+        <li><a href="#集群">集群</a></li>
+      </ul>
+    </li>
+    <li><a href="#根据资源占用自动横向伸缩">根据资源占用自动横向伸缩</a></li>
+    <li><a href="#日志">日志</a></li>
+    <li><a href="#prometheus">Prometheus</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="领域模型模式">领域模型模式</h2>
-<p>目前企业级应用开发中，业务逻辑的组织方式主要是<strong>事务脚本</strong>模式。事务脚本按照业务处理
-的过程组织业务逻辑，每个过程处理来自客户端的单个请求。客户端的每次请求都包含了一
-定的业务处理逻辑，而程序则按照每次请求的业务逻辑进行划分。</p>
-<p>事务脚本模式典型的就是 Controller→Service→Dao 这样的程序设计模式。Controller 封
-装用户请求，根据请求参数构造一些数据对象调用 Service，Service 里面包含大量的业务
-逻辑代码，完成对数据的处理，期间可能需要通过 Dao 从数据库中获取数据，或者将数据
-写入数据库中。</p>
-<p><strong>领域模型</strong>模式和事务脚本模式不同。在领域模型模式下，业务逻辑围绕领域模型设计。</p>
-<p>领域模型的对象则包含了对象的数据和计算逻辑</p>
-<p><strong>领域模型是合并了行为和数据的领域的对
-象模型</strong>。通过领域模型对象的交互完成业务逻辑的实现，也就是说，设计好了领域模型对
-象，也就设计好了业务逻辑实现。和事务脚本被称作贫血模型相对应的，领域模型也被称为
-充血模型。</p>
-<p>对于复杂的业务逻辑实现来说，用领域模型模式更有优势。特别是在持续的需求变更和业务
-迭代过程中，把握好领域模型，对业务逻辑本身也会有更清晰的认识。使用领域模型增加新
-的产品类型的时候，就不需要修改现有的代码，只需要扩展新的产品类和收入策略类就可以
-了。</p>
-<p>在需求变更过程中，如果一个需求和领域模型有冲突，和模型的定义以及模型间的交互逻辑
-不一致，那么很有可能这个需求本身就是伪需求。很多看似合理的需求其实和业务的内在逻
-辑是有冲突的，这样的需求也不会带来业务的价值，通过领域模型分析，可以识别出这样的
-伪需求，使系统更好地保持一致性，也可以使开发资源投入到更有价值的地方去。</p>
-<h2 id="领域驱动设计">领域驱动设计</h2>
-<p><strong>领域</strong>是一个组织所做的事情以及其包含的一切，通俗地说，就是组织的业务范围和做事方
-式，也是软件开发的目标范围。比如对于淘宝这样一个以电子商务为主要业务的组织，C2C
-电子商务就是它的领域。<strong>领域驱动设计就是从领域出发，分析领域内模型及其关系，进而设
-计软件系统的方法</strong>。</p>
-<p>如果我们说要对 C2C 电子商务这个领域进行建模设计，那么这个范围就太大了，不知
-道该如何下手。所以通常的做法是把整个领域拆分成多个<strong>子域</strong>，比如用户、商品、订单、库
-存、物流、发票等。强相关的多个子域组成一个<strong>界限上下文</strong>，界限上下文是对业务领域范围
-的描述，对于系统实现而言，可以想象成相当于是一个子系统或者是一个模块。界限上下文
-和子域共同组成组织的领域</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/images/ddd.png"
-        data-srcset="/images/ddd.png, /images/ddd.png 1.5x, /images/ddd.png 2x"
-        data-sizes="auto"
-        alt="/images/ddd.png"
-        title="ddd.png" /></p>
-<p>不同的界限上下文，也就是不同的子系统或者模块之间会有各种的交互合作。如何设计这些
-交互合作呢？DDD 使用上下文映射图来完成
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/images/context.png"
-        data-srcset="/images/context.png, /images/context.png 1.5x, /images/context.png 2x"
-        data-sizes="auto"
-        alt="/images/context.png"
-        title="context.png" /></p>
-<p>在 DDD 中，领域模型对象也被称为实体，每个实体都是唯一的，具有一个唯一标识，一个
-订单对象是一个实体，一个产品对象也是一个实体，订单 ID 或者产品 ID 是它们的唯一标
-识。实体可能会发生变化，比如订单的状态会变化，但是它们的唯一标识不会变化。</p>
-<p><strong>实体设计</strong>是 DDD 的核心所在，首先通过业务分析，识别出实体对象，然后通过相关的业务
-逻辑设计实体的属性和方法。这里最重要的，是要把握住实体的特征是什么，实体应该承担
-什么职责，不应该承担什么职责，分析的时候要放在业务场景和界限上下文中，而不是想当
-然地认为这样的实体就应该承担这样的角色。</p>
-<p>事实上，并不是领域内的对象都应该被设计为实体，DDD 推荐尽可能将对象设计为值对
-象。比如像住址这样的对象就是典型的<strong>值对象</strong>，也许建在住址上的房子可以被当做一个实
-体，但是住址仅仅是对房子的一个描述，像这样仅仅用来做度量或描述的对象应该被设计为
-值对象。</p>
-<p>值对象的一个特点是不变性，一个值对象创建以后就不能再改变了。如果地址改变了，那就
-是一个新地址，而一个订单实体则可能会经历创建、待支付、已支付、代发货、已发货、待
-签收、待评价等各种变化。</p>
-<p>领域实体和界限上下文包含了业务的主要逻辑，但是最终如何构建一个系统，如何将领域实
-体对外暴露，开发出一个完整的系统。事实上，DDD 支持各种架构方案，比如典型的分层
-架构：</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/images/ddd_mvc.png"
-        data-srcset="/images/ddd_mvc.png, /images/ddd_mvc.png 1.5x, /images/ddd_mvc.png 2x"
-        data-sizes="auto"
-        alt="/images/ddd_mvc.png"
-        title="ddd_mvc.png" /></p>
-<p>领域实体被放置在领域层，通过应用层对领域实体进行包装，最终提供一组访问接口，通过
-接口层对外开放。</p>
-<p>六边形架构是 DDD 中比较知名的一种架构方式，领域模型通过应用程序封装成一个相对比
-较独立的模块，而不同的外部系统则通过不同的适配器和领域模型交互，比如可以通过
-HTTP 接口访问领域模型，也可以通过 Web Service 或者消息队列访问领域模型，只需要
-为这些不同的访问接口提供不同的适配器就可以了。</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/images/ddd_hexagon.png"
-        data-srcset="/images/ddd_hexagon.png, /images/ddd_hexagon.png 1.5x, /images/ddd_hexagon.png 2x"
-        data-sizes="auto"
-        alt="/images/ddd_hexagon.png"
-        title="ddd_hexagon.png" /></p>
-<p>领域驱动设计的技术体系内还有其他一些方法和概念，但是最核心的还是领域模型本身，<strong>通
-过领域实体及其交互完成业务逻辑处理才是 DDD 的核心目标</strong>。至于是不是用了 CQRS，是
-不是事件驱动，有没有事件溯源，并不是 DDD 的核心。</p>
+            </div><div class="content" id="content"><h2 id="基本监控">基本监控</h2>
+<h3 id="单个容器">单个容器</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker ps -a
+</span></span><span class="line"><span class="cl">docker top container_name
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="weavescope图形化界面">weavescope图形化界面</h3>
+<p><a href="https://github.com/weaveworks/scope" target="_blank" rel="noopener noreffer ">scope</a></p>
+<h3 id="集群">集群</h3>
+<p>grafana</p>
+<h2 id="根据资源占用自动横向伸缩">根据资源占用自动横向伸缩</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">kubectl run php-apache --image=us.gcr.io/k8s-artifacts-prod/hpa-example --requests=cpu=200m --expose --port=80
+</span></span><span class="line"><span class="cl">kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
+</span></span><span class="line"><span class="cl">kubectl get horizontalpodautoscaler
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="日志">日志</h2>
+<p>ELK</p>
+<h2 id="prometheus">Prometheus</h2>
+<p><a href="https://github.com/prometheus-operator/prometheus-operator" target="_blank" rel="noopener noreffer ">Prometheus</a></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2024-05-14</span>
+                <span>更新于 2024-01-14</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/ddd/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/monitor/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/ddd/" data-title="领域驱动设计"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/ddd/" data-title="领域驱动设计"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/monitor/" data-title="容器监控"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/monitor/" data-title="容器监控"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/design/">Design</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/distributed/" class="prev" rel="prev" title="分布式架构"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>分布式架构</a></div>
+    <div class="post-nav"><a href="/modeling/" class="prev" rel="prev" title="软件建模"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>软件建模</a>
+            <a href="/architecture/" class="next" rel="next" title="Docker">Docker<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

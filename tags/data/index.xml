@@ -5,6 +5,14 @@
         <description>Data - 标签 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
             <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/data/" rel="self" type="application/rss+xml" /><item>
+    <title>如何高效学习数据结构</title>
+    <link>https://zucczwp.github.io/how_to_learn/</link>
+    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/how_to_learn/</guid>
+    <description><![CDATA[什么是数据结构？什么是算法？ 从广义上讲，数据结构就是指一组数据的存储结构。算法就是操作数据的一组方法。 关系 数据结构和算法是相辅相成的。数据结]]></description>
+</item>
+<item>
     <title>数据结构</title>
     <link>https://zucczwp.github.io/struct/</link>
     <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>

@@ -5,6 +5,14 @@
         <description>Data - 标签 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
             <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/data/" rel="self" type="application/rss+xml" /><item>
+    <title>复杂度</title>
+    <link>https://zucczwp.github.io/complexity/</link>
+    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/complexity/</guid>
+    <description><![CDATA[为什么需要复杂度分析？ 测试结果非常依赖测试环境 测试结果受数据规模的影响很大 所以，我们需要一个不用具体的测试数据来测试，就可以粗略地估计算法的]]></description>
+</item>
+<item>
     <title>如何高效学习数据结构</title>
     <link>https://zucczwp.github.io/how_to_learn/</link>
     <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>

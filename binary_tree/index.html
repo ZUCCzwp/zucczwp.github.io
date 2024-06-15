@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>二叉树 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了二叉树."><meta property="og:title" content="二叉树" />
+<meta property="og:description" content="这篇文章展示了二叉树." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zucczwp.github.io/binary_tree/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-02-11T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
+
+<meta name="twitter:title" content="二叉树"/>
+<meta name="twitter:description" content="这篇文章展示了二叉树."/>
+<meta name="application-name" content="Jimi&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/binary_tree/" /><link rel="prev" href="https://zucczwp.github.io/complexity/" /><link rel="next" href="https://zucczwp.github.io/dynamic_programming/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "二叉树",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zucczwp.github.io\/binary_tree\/"
+        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Data","wordcount":  3749 ,
+        "url": "https:\/\/zucczwp.github.io\/binary_tree\/","datePublished": "2024-02-11T00:00:00+00:00","dateModified": "2024-02-11T22:45:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/zucczwp.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Jimi"
+            },"description": "这篇文章展示了二叉树."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Jimi’s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Jimi</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/ZUCCzwp/zucczwp.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Jimi’s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Jimi</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/ZUCCzwp/zucczwp.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">二叉树</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/data/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Data</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-11">2024-02-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3749 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/binary_tree/" class="leancloud_visitors" data-flag-title="二叉树">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#树">树</a></li>
+    <li><a href="#二叉树">二叉树</a></li>
+    <li><a href="#二叉树的遍历">二叉树的遍历</a></li>
+    <li><a href="#二叉查找树binary-search-tree">二叉查找树（Binary Search Tree）</a>
+      <ul>
+        <li><a href="#查找操作">查找操作</a></li>
+        <li><a href="#插入操作">插入操作</a></li>
+        <li><a href="#删除操作">删除操作</a></li>
+        <li><a href="#其他操作">其他操作</a></li>
+      </ul>
+    </li>
+    <li><a href="#支持重复数据的二叉查找树">支持重复数据的二叉查找树</a></li>
+    <li><a href="#什么是平衡二叉查找树">什么是“平衡二叉查找树”？</a></li>
+    <li><a href="#如何定义一棵红黑树">如何定义一棵“红黑树”？</a></li>
+    <li><a href="#为什么说红黑树是近似平衡的">为什么说红黑树是“近似平衡”的？</a></li>
+    <li><a href="#实现红黑树的基本思想">实现红黑树的基本思想</a>
+      <ul>
+        <li><a href="#插入操作的平衡调整">插入操作的平衡调整</a>
+          <ul>
+            <li><a href="#case-1如果关注节点是-a它的叔叔节点-d-是红色">CASE 1：如果关注节点是 a，它的叔叔节点 d 是红色</a></li>
+            <li><a href="#case-2如果关注节点是-a它的叔叔节点-d-是黑色关注节点-a-是其父节点-b-的右子节点">CASE 2：如果关注节点是 a，它的叔叔节点 d 是黑色，关注节点 a 是其父节点 b 的右子节点</a></li>
+            <li><a href="#case-3如果关注节点是-a它的叔叔节点-d-是黑色关注节点-a-是其父节点-b-的左子节点">CASE 3：如果关注节点是 a，它的叔叔节点 d 是黑色，关注节点 a 是其父节点 b 的左子节点</a></li>
+          </ul>
+        </li>
+        <li><a href="#删除操作的平衡调整">删除操作的平衡调整</a>
+          <ul>
+            <li><a href="#1-针对删除节点初步调整">1. 针对删除节点初步调整</a></li>
+            <li><a href="#2-针对关注节点进行二次调整">2. 针对关注节点进行二次调整</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#递归树与时间复杂度分析">递归树与时间复杂度分析</a>
+      <ul>
+        <li><a href="#实战一分析快速排序的时间复杂度">实战一：分析快速排序的时间复杂度</a></li>
+        <li><a href="#实战二分析斐波那契的时间复杂度">实战二：分析斐波那契的时间复杂度</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="树">树</h2>
+<p>比如下面这幅图，A 节点就是 B 节点的父节点，B 节点是 A 节点的子节点。B、C、D 这三
+个节点的父节点是同一个节点，所以它们之间互称为兄弟节点。我们把没有父节点的节点叫
+作根节点，也就是图中的节点 E。我们把没有子节点的节点叫作叶子节点或者叶节点，比如
+图中的 G、H、I、J、K、L 都是叶子节点。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/tree.png"
+        data-srcset="/images/tree.png, /images/tree.png 1.5x, /images/tree.png 2x"
+        data-sizes="auto"
+        alt="/images/tree.png"
+        title="tree.png" />
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/tree_gainian.png"
+        data-srcset="/images/tree_gainian.png, /images/tree_gainian.png 1.5x, /images/tree_gainian.png 2x"
+        data-sizes="auto"
+        alt="/images/tree_gainian.png"
+        title="tree_gainian.png" /></p>
+<h2 id="二叉树">二叉树</h2>
+<p>二叉树，顾名思义，每个节点最多有两个“叉”，也就是两个子节点，分别是<strong>左子节点</strong>和<strong>右
+子节点</strong>。</p>
+<p>二叉树中，叶子节点全都在最底层，除了叶子节点之外，每个节点都有左
+右两个子节点，这种二叉树就叫作<strong>满二叉树</strong>。</p>
+<p>二叉树中，叶子节点都在最底下两层，最后一层的叶子节点都靠左排列，并且除
+了最后一层，其他层的节点个数都要达到最大，这种二叉树叫作<strong>完全二叉树</strong>。</p>
+<h2 id="二叉树的遍历">二叉树的遍历</h2>
+<p>遍历方式
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/bianli_tree.png"
+        data-srcset="/images/bianli_tree.png, /images/bianli_tree.png 1.5x, /images/bianli_tree.png 2x"
+        data-sizes="auto"
+        alt="/images/bianli_tree.png"
+        title="bianli_tree.png" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//前序遍历
+</span></span><span class="line"><span class="cl">void preOrder(Node* root) {
+</span></span><span class="line"><span class="cl">if (root == null) return;
+</span></span><span class="line"><span class="cl">print root // 此处为伪代码，表示打印 root 节点
+</span></span><span class="line"><span class="cl">preOrder(root-&gt;left);
+</span></span><span class="line"><span class="cl">preOrder(root-&gt;right);
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//中序遍历
+</span></span><span class="line"><span class="cl">void inOrder(Node* root) {
+</span></span><span class="line"><span class="cl">if (root == null) return;
+</span></span><span class="line"><span class="cl">inOrder(root-&gt;left);
+</span></span><span class="line"><span class="cl">print root // 此处为伪代码，表示打印 root 节点
+</span></span><span class="line"><span class="cl">inOrder(root-&gt;right);
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//后序遍历
+</span></span><span class="line"><span class="cl">void postOrder(Node* root) {
+</span></span><span class="line"><span class="cl">if (root == null) return;
+</span></span><span class="line"><span class="cl">postOrder(root-&gt;left);
+</span></span><span class="line"><span class="cl">postOrder(root-&gt;right);
+</span></span><span class="line"><span class="cl">print root // 此处为伪代码，表示打印 root 节点
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="二叉查找树binary-search-tree">二叉查找树（Binary Search Tree）</h2>
+<p>二叉查找树要求，在树中的任意一个节点，其左子树
+中的每个节点的值，都要小于这个节点的值，而右子树节点的值都大于这个节点的值。</p>
+<h3 id="查找操作">查找操作</h3>
+<p>首先，我们看如何在二叉查找树中查找一个节点。我们先取根节点，如果它等于我们要查找
+的数据，那就返回。如果要查找的数据比根节点的值小，那就在左子树中递归查找；如果要
+查找的数据比根节点的值大，那就在右子树中递归查找。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public class BinarySearchTree {
+</span></span><span class="line"><span class="cl">    private Node tree;
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    public Node find(int data) {
+</span></span><span class="line"><span class="cl">        Node p = tree;
+</span></span><span class="line"><span class="cl">        while (p != null) {
+</span></span><span class="line"><span class="cl">            if (data &lt; p.data) p = p.left;
+</span></span><span class="line"><span class="cl">            else if (data &gt; p.data) p = p.right;
+</span></span><span class="line"><span class="cl">            else return p;
+</span></span><span class="line"><span class="cl">        }   
+</span></span><span class="line"><span class="cl">        return null;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    public static class Node {
+</span></span><span class="line"><span class="cl">        private int data;
+</span></span><span class="line"><span class="cl">        private Node left;
+</span></span><span class="line"><span class="cl">        private Node right;
+</span></span><span class="line"><span class="cl">        public Node(int data) {
+</span></span><span class="line"><span class="cl">            this.data = data;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="插入操作">插入操作</h3>
+<p>如果要插入的数据比节点的数据大，并且节点的右子树为空，就将新数据直接插到右子节点
+的位置；如果不为空，就再递归遍历右子树，查找插入位置。同理，如果要插入的数据比节
+点数值小，并且节点的左子树为空，就将新数据插入到左子节点的位置；如果不为空，就再
+递归遍历左子树，查找插入位置。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public void insert(int data) {
+</span></span><span class="line"><span class="cl">    if (tree == null) {
+</span></span><span class="line"><span class="cl">        tree = new Node(data);
+</span></span><span class="line"><span class="cl">        return;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    Node p = tree;
+</span></span><span class="line"><span class="cl">    while (p != null) {
+</span></span><span class="line"><span class="cl">        if (data &gt; p.data) {
+</span></span><span class="line"><span class="cl">          if (p.right == null) {
+</span></span><span class="line"><span class="cl">            p.right = new Node(data);
+</span></span><span class="line"><span class="cl">            return;
+</span></span><span class="line"><span class="cl">          }
+</span></span><span class="line"><span class="cl">          p = p.right;
+</span></span><span class="line"><span class="cl">        } else { // data &lt; p.data
+</span></span><span class="line"><span class="cl">            if (p.left == null) {
+</span></span><span class="line"><span class="cl">                p.left = new Node(data);
+</span></span><span class="line"><span class="cl">                 return;
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">            p = p.left;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="删除操作">删除操作</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public void delete(int data) {
+</span></span><span class="line"><span class="cl">    Node p = tree; // p 指向要删除的节点，初始化指向根节点
+</span></span><span class="line"><span class="cl">    Node pp = null; // pp 记录的是 p 的父节点
+</span></span><span class="line"><span class="cl">    while (p != null &amp;&amp; p.data != data) {
+</span></span><span class="line"><span class="cl">        pp = p;
+</span></span><span class="line"><span class="cl">        if (data &gt; p.data) p = p.right;
+</span></span><span class="line"><span class="cl">        else p = p.left;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    if (p == null) return; // 没有找到
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    // 要删除的节点有两个子节点
+</span></span><span class="line"><span class="cl">    if (p.left != null &amp;&amp; p.right != null) { // 查找右子树中最小节点
+</span></span><span class="line"><span class="cl">        Node minP = p.right;
+</span></span><span class="line"><span class="cl">        Node minPP = p; // minPP 表示 minP 的父节点
+</span></span><span class="line"><span class="cl">        while (minP.left != null) {
+</span></span><span class="line"><span class="cl">        minPP = minP;
+</span></span><span class="line"><span class="cl">        minP = minP.left;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">        p.data = minP.data; // 将 minP 的数据替换到 p 中
+</span></span><span class="line"><span class="cl">        p = minP; // 下面就变成了删除 minP 了
+</span></span><span class="line"><span class="cl">        pp = minPP;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    // 删除节点是叶子节点或者仅有一个子节点
+</span></span><span class="line"><span class="cl">    Node child; // p 的子节点
+</span></span><span class="line"><span class="cl">    if (p.left != null) child = p.left;
+</span></span><span class="line"><span class="cl">    else if (p.right != null) child = p.right;
+</span></span><span class="line"><span class="cl">    else child = null;
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    if (pp == null) tree = child; // 删除的是根节点
+</span></span><span class="line"><span class="cl">    else if (pp.left == p) pp.left = child;
+</span></span><span class="line"><span class="cl">    else pp.right = child;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="其他操作">其他操作</h3>
+<p>支持快速地查找最大节点和最小节
+点、前驱节点和后继节点。</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>注意<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">重要的特性，就是中序遍历二叉查找树，
+可以输出有序的数据序列，时间复杂度是 O(n)，非常高效</div>
+        </div>
+    </div>
+<h2 id="支持重复数据的二叉查找树">支持重复数据的二叉查找树</h2>
+<p>针对的都是不存在键值相同的情况。那如果存储的两个对
+象键值相同，这种情况该怎么处理呢？</p>
+<p>第一种方法比较容易。二叉查找树中每一个节点不仅会存储一个数据，因此我们通过链表和
+支持动态扩容的数组等数据结构，把值相同的数据都存储在同一个节点上。</p>
+<p>第二种方法比较不好理解，不过更加优雅。</p>
+<p>每个节点仍然只存储一个数据。在查找插入位置的过程中，如果碰到一个节点的值，与要插
+入数据的值相同，我们就将这个要插入的数据放到这个节点的右子树，也就是说，把这个新
+插入的数据当作大于这个节点的值来处理。</p>
+<p>当要查找数据的时候，遇到值相同的节点，我们并不停止查找操作，而是继续在右子树中查
+找，直到遇到叶子节点，才停止。这样就可以把键值等于要查找值的所有节点都找出来</p>
+<p>对于删除操作，我们也需要先查找到每个要删除的节点，然后再按前面讲的删除操作的方
+法，依次删除。</p>
+<h2 id="什么是平衡二叉查找树">什么是“平衡二叉查找树”？</h2>
+<p>平衡二叉树的严格定义是这样的：二叉树中任意一个节点的左右子树的高度相差不能大于
+1。</p>
+<p>平衡二叉查找树中“平衡”的意思，其实就是让整棵树左右看起来比较“对称”、比
+较“平衡”，不要出现左子树很高、右子树很矮的情况。这样就能让整棵树的高度相对来说
+低一些，相应的插入、删除、查找等操作的效率高一些。</p>
+<h2 id="如何定义一棵红黑树">如何定义一棵“红黑树”？</h2>
+<p>红黑树的英文是“Red-Black Tree”，简称 R-B Tree。它是一种不严格的平衡二叉查找
+树</p>
+<p>一棵红黑
+树还需要满足这样几个要求：</p>
+<ul>
+<li>根节点是黑色的；</li>
+<li>每个叶子节点都是黑色的空节点（NIL），也就是说，叶子节点不存储数据；</li>
+<li>任何相邻的节点都不能同时为红色，也就是说，红色节点是被黑色节点隔开的；</li>
+<li>每个节点，从该节点到达其可达叶子节点的所有路径，都包含相同数目的黑色节点；</li>
+</ul>
+<h2 id="为什么说红黑树是近似平衡的">为什么说红黑树是“近似平衡”的？</h2>
+<p>平衡”的意思可以等价为性能不退化。“近似平衡”就等价为性能不会
+退化的太严重。</p>
+<p>二叉查找树很多操作的性能都跟树的高度成正比。一棵极其平衡的二叉
+树（满二叉树或完全二叉树）的高度大约是 log2n，所以如果要证明红黑树是近似平衡的，
+我们只需要分析，红黑树的高度是否比较稳定地趋近 log2n 就好了。</p>
+<p>首先，我们来看，如果我们将红色节点从红黑树中去掉，那单纯包含黑色节点的红黑树的高
+度是多少呢？</p>
+<p>红色节点删除之后，有些节点就没有父节点了，它们会直接拿这些节点的祖父节点（父节点
+的父节点）作为父节点。所以，之前的二叉树就变成了四叉树。</p>
+<p>前面红黑树的定义里有这么一条：从任意节点到可达的叶子节点的每个路径包含相同数目的
+黑色节点。我们从四叉树中取出某些节点，放到叶节点位置，四叉树就变成了完全二叉树。
+所以，仅包含黑色节点的四叉树的高度，比包含相同节点个数的完全二叉树的高度还要小。</p>
+<p><strong>我们现在知道只包含黑色节点的“黑树”的高度，那我们现在把红色节点加回去，高度会变
+成多少呢？</strong></p>
+<p>在红黑树中，红色节点不能相邻，也就是说，有一个
+红色节点就要至少有一个黑色节点，将它跟其他红色节点隔开。红黑树中包含最多黑色节点
+的路径不会超过 log2n，所以加入红色节点之后，最长路径不会超过 2log2n，也就是说，
+红黑树的高度近似2log2n</p>
+<h2 id="实现红黑树的基本思想">实现红黑树的基本思想</h2>
+<h3 id="插入操作的平衡调整">插入操作的平衡调整</h3>
+<p>红黑树规定，插入的节点必须是红色的。而且，二叉查找树中新插入的节点都是放在叶子节
+点上。所以，关于插入操作的平衡调整，有这样两种特殊情况，但是也都非常好处理。</p>
+<ul>
+<li>如果插入节点的父节点是黑色的，那我们什么都不用做，它仍然满足红黑树的定义。</li>
+<li>如果插入的节点是根节点，那我们直接改变它的颜色，把它变成黑色就可以了
+除此之外，其他情况都会违背红黑树的定义，于是我们就需要进行调整，调整的过程包含两
+种基础的操作：<strong>左右旋转和改变颜色</strong></li>
+</ul>
+<h4 id="case-1如果关注节点是-a它的叔叔节点-d-是红色">CASE 1：如果关注节点是 a，它的叔叔节点 d 是红色</h4>
+<ol>
+<li>将关注节点 a 的父节点 b、叔叔节点 d 的颜色都设置成黑色；</li>
+<li>将关注节点 a 的祖父节点 c 的颜色设置成红色；</li>
+<li>关注节点变成 a 的祖父节点 c；</li>
+<li>跳到 CASE 2 或者 CASE 3。</li>
+</ol>
+<h4 id="case-2如果关注节点是-a它的叔叔节点-d-是黑色关注节点-a-是其父节点-b-的右子节点">CASE 2：如果关注节点是 a，它的叔叔节点 d 是黑色，关注节点 a 是其父节点 b 的右子节点</h4>
+<ol>
+<li>关注节点变成节点 a 的父节点 b；</li>
+<li>围绕新的关注节点b 左旋；</li>
+<li>跳到 CASE 3。</li>
+</ol>
+<h4 id="case-3如果关注节点是-a它的叔叔节点-d-是黑色关注节点-a-是其父节点-b-的左子节点">CASE 3：如果关注节点是 a，它的叔叔节点 d 是黑色，关注节点 a 是其父节点 b 的左子节点</h4>
+<ol>
+<li>围绕关注节点 a 的祖父节点 c 右旋；</li>
+<li>将关注节点 a 的父节点 b、兄弟节点 c 的颜色互换。</li>
+<li>调整结束。</li>
+</ol>
+<h3 id="删除操作的平衡调整">删除操作的平衡调整</h3>
+<h4 id="1-针对删除节点初步调整">1. 针对删除节点初步调整</h4>
+<h4 id="2-针对关注节点进行二次调整">2. 针对关注节点进行二次调整</h4>
+<h2 id="递归树与时间复杂度分析">递归树与时间复杂度分析</h2>
+<p>递归的思想就是，将大问题分解为小问题来求解，然后再将小问题分解为小
+小问题。这样一层一层地分解，直到问题的数据规模被分解得足够小，不用继续递归分解为
+止。</p>
+<p>如果我们把这个一层一层的分解过程画成图，它其实就是一棵树。我们给这棵树起一个名
+字，叫作<strong>递归树</strong>。</p>
+<h3 id="实战一分析快速排序的时间复杂度">实战一：分析快速排序的时间复杂度</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/kuaipai_diguishu.png"
+        data-srcset="/images/kuaipai_diguishu.png, /images/kuaipai_diguishu.png 1.5x, /images/kuaipai_diguishu.png 2x"
+        data-sizes="auto"
+        alt="/images/kuaipai_diguishu.png"
+        title="kuaipai_diguishu.png" />
+快速排序的过程中，每次分区都要遍历待分区区间的所有数据，所以，每一层分区操作所遍
+历的数据的个数之和就是n。我们现在只要求出递归树的高度 h,这个快排过程遍历的数据个数
+就是 h * n，也就是说，时间复杂度就是 O(h * n)</p>
+<p>我们知道，快速排序结束的条件就是待排序的小区间，大小为1,也就是说叶子节点里的数据规模是 1。
+从根节点n到叶子节点 1，递归树中最短的一个路径每次都乘以1/10，最长的一个路径每次都乘以9/10.
+通过计算，我们可以得到，从根节点到叶子节点的最短路径是 log10n,最长的路径是 log10/9 n
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/zuiduianlujing.png"
+        data-srcset="/images/zuiduianlujing.png, /images/zuiduianlujing.png 1.5x, /images/zuiduianlujing.png 2x"
+        data-sizes="auto"
+        alt="/images/zuiduianlujing.png"
+        title="zuiduianlujing.png" /></p>
+<p>当分区比例是1 : 9时， 快速排序的时间复杂度仍然是 O(n log n)</p>
+<h3 id="实战二分析斐波那契的时间复杂度">实战二：分析斐波那契的时间复杂度</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/feibonaqi.png"
+        data-srcset="/images/feibonaqi.png, /images/feibonaqi.png 1.5x, /images/feibonaqi.png 2x"
+        data-sizes="auto"
+        alt="/images/feibonaqi.png"
+        title="feibonaqi.png" />
+f(n)分解为 f(n-1)和f(n-2)，每次数据规模都是 -1 或者-2.叶子节点的数据规模是 1 或者 2，
+所以，从跟节点到叶子节点，每条的路径都是长短不一的</p>
+<p>每次分解之后的合并操作只需要一次加法计算，我们把这次加法运算的时间消耗记作 1，从上往下，第一层的总时间消耗为 1，
+第二层的总时间消耗为 2，第三层的总时间消耗就是
+<data id="id-1" data-raw></data>
+依次类推，第 k层的时间消耗就是 2^k-1,那整个算法的总的时间就是每层时间消耗之和</p>
+<p>所以，该算法的时间复杂度就介于O(2^n)和O(2^(n/2))之间</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-02-11</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/binary_tree/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/binary_tree/" data-title="二叉树"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/binary_tree/" data-title="二叉树"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/data/">Data</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/complexity/" class="prev" rel="prev" title="复杂度"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>复杂度</a>
+            <a href="/dynamic_programming/" class="next" rel="next" title="动态规划">动态规划<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Stay Hungry,Stay Foolish</div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/ZUCCzwp/zucczwp.github.io" target="_blank">jimi</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"data":{"id-1":"\n\\[ 2^2 \\]\n"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"TYML0LBTDE","algoliaIndex":"jimi","algoliaSearchKey":"5a7eaaebcc023673ae0a33ef9d90c2b7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/custom.js"></script></body>
+</html>

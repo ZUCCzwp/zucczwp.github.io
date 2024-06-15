@@ -13,6 +13,14 @@
     <description><![CDATA[领域模型模式 目前企业级应用开发中，业务逻辑的组织方式主要是事务脚本模式。事务脚本按照业务处理 的过程组织业务逻辑，每个过程处理来自客户端的单个]]></description>
 </item>
 <item>
+    <title>设计模式</title>
+    <link>https://zucczwp.github.io/design_pattern/</link>
+    <pubDate>Tue, 14 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/design_pattern/</guid>
+    <description><![CDATA[这篇文章展示了设计模式基本知识.]]></description>
+</item>
+<item>
     <title>软件建模</title>
     <link>https://zucczwp.github.io/modeling/</link>
     <pubDate>Sun, 14 Jan 2024 00:00:00 &#43;0000</pubDate>

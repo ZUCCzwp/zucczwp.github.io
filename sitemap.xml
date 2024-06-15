@@ -2,16 +2,17 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://zucczwp.github.io/ddd/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/distributed/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/lb/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/high_availability/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/high_performance/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/cache/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/data_storage/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/search_engine/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/micro_service/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/async/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://zucczwp.github.io/ddd/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/design_pattern/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/distributed/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/lb/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/high_availability/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/high_performance/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/cache/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/data_storage/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/search_engine/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/micro_service/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/async/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>https://zucczwp.github.io/k3cloud_login/</loc><lastmod>2024-04-17T09:20:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/docker/</loc><lastmod>2024-04-09T22:04:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/authentik-use/</loc><lastmod>2024-04-08T21:55:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -35,12 +36,14 @@
             <loc>https://zucczwp.github.io/rand/</loc><lastmod>2024-02-12T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/mysql_log/</loc><lastmod>2024-02-11T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/mysql_lock/</loc><lastmod>2024-02-11T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://zucczwp.github.io/dynamic_programming/</loc><lastmod>2024-02-11T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://zucczwp.github.io/binary_tree/</loc><lastmod>2024-02-11T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/complexity/</loc><lastmod>2024-02-11T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://zucczwp.github.io/lianbiao_huanxing/</loc><lastmod>2024-02-11T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://zucczwp.github.io/lianbiao_zhongjian/</loc><lastmod>2024-02-11T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://zucczwp.github.io/lianbiao_fanzhuan/</loc><lastmod>2024-02-11T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/how_to_learn/</loc><lastmod>2024-02-11T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/struct/</loc><lastmod>2024-02-11T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://zucczwp.github.io/programma_status/</loc><lastmod>2024-02-10T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://zucczwp.github.io/security/</loc><lastmod>2024-02-10T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://zucczwp.github.io/programma/</loc><lastmod>2024-02-10T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/what_is_problem/</loc><lastmod>2024-02-09T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/how_to_change/</loc><lastmod>2024-02-09T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/how_to_solve_problem/</loc><lastmod>2024-02-09T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -64,14 +67,14 @@
             <loc>https://zucczwp.github.io/concurrency/</loc><lastmod>2024-01-10T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/work_tips/</loc><lastmod>2024-01-09T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/tips/</loc><lastmod>2024-01-02T10:12:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://zucczwp.github.io/categories/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/tags/design/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/categories/design/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/posts/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/tags/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/tags/architecture/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://zucczwp.github.io/categories/architecture/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://zucczwp.github.io/categories/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/tags/design/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/categories/design/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/posts/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/tags/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/tags/architecture/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://zucczwp.github.io/categories/architecture/</loc><lastmod>2024-05-13T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>https://zucczwp.github.io/tags/auth/</loc><lastmod>2024-04-17T09:20:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/categories/auth/</loc><lastmod>2024-04-17T09:20:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/tags/k3cloud/</loc><lastmod>2024-04-17T09:20:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -95,8 +98,8 @@
             <loc>https://zucczwp.github.io/categories/go/</loc><lastmod>2024-02-12T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/tags/data/</loc><lastmod>2024-02-11T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/categories/data/</loc><lastmod>2024-02-11T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://zucczwp.github.io/tags/network/</loc><lastmod>2024-02-10T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://zucczwp.github.io/categories/network/</loc><lastmod>2024-02-10T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://zucczwp.github.io/tags/linklist/</loc><lastmod>2024-02-11T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://zucczwp.github.io/categories/linklist/</loc><lastmod>2024-02-11T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/tags/file/</loc><lastmod>2024-02-09T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/categories/file/</loc><lastmod>2024-02-09T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/tags/manage/</loc><lastmod>2024-02-09T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

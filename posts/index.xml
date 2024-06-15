@@ -13,6 +13,14 @@
     <description><![CDATA[领域模型模式 目前企业级应用开发中，业务逻辑的组织方式主要是事务脚本模式。事务脚本按照业务处理 的过程组织业务逻辑，每个过程处理来自客户端的单个]]></description>
 </item>
 <item>
+    <title>设计模式</title>
+    <link>https://zucczwp.github.io/design_pattern/</link>
+    <pubDate>Tue, 14 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/design_pattern/</guid>
+    <description><![CDATA[这篇文章展示了设计模式基本知识.]]></description>
+</item>
+<item>
     <title>分布式架构</title>
     <link>https://zucczwp.github.io/distributed/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
@@ -75,14 +83,6 @@
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/micro_service/</guid>
     <description><![CDATA[单体架构的困难和挑战 编译、部署困难 代码分支管理困难 因为单体应用非常庞大，所以代码模块也是由多个团队共同维护的。但最后还是要编译成一 个单体应用]]></description>
-</item>
-<item>
-    <title>异步架构</title>
-    <link>https://zucczwp.github.io/async/</link>
-    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/async/</guid>
-    <description><![CDATA[使用消息队列实现异步架构 同步架构是说，当应用程序调用服务的时候，当前程序需要阻塞等待服务 完成，返回服务结果后才能继续向下执行。 消息队列异步架]]></description>
 </item>
 </channel>
 </rss>

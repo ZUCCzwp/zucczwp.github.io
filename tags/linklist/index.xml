@@ -28,5 +28,13 @@
     <guid>https://zucczwp.github.io/lianbiao_fanzhuan/</guid>
     <description><![CDATA[链表反转 链表反转 方法一：迭代 在遍历链表时，将当前节点的 next 指针改为指向前一个节点。由于节点没有引用其前一个节点，因此必须事先存储其前一个节点。]]></description>
 </item>
+<item>
+    <title>两两交换链表中的节点</title>
+    <link>https://zucczwp.github.io/lianbiao_liangliangfanzhuan/</link>
+    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/lianbiao_liangliangfanzhuan/</guid>
+    <description><![CDATA[两两交换链表中的节点 两两交换链表中的节点 方法一：迭代 创建哑结点 dummyHead，令 dummyHead.next = head。令 temp 表示当前到达的节点，初始时 temp = dumm]]></description>
+</item>
 </channel>
 </rss>

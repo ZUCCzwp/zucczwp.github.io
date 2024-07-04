@@ -21,6 +21,22 @@
     <description><![CDATA[二叉树的中序遍历 二叉树的中序遍历 方法一：递归 定义 inorder(root) 表示当前遍历到 root 节点的答案，那么按照定义，我们只要递归调用 inorder(root.left) 来遍历 root 节点的左子树，然后将 root]]></description>
 </item>
 <item>
+    <title>二叉树的最大深度</title>
+    <link>https://zucczwp.github.io/erchashu_zuidashendu/</link>
+    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/erchashu_zuidashendu/</guid>
+    <description><![CDATA[二叉树的最大深度 二叉树的最大深度 方法一：深度优先搜索 在计算当前二叉树的最大深度时，可以先递归计算出其左子树和右子树的最大深度，然后在 O(1) 时间内]]></description>
+</item>
+<item>
+    <title>翻转二叉树</title>
+    <link>https://zucczwp.github.io/erchashu_fanzhuan/</link>
+    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/erchashu_fanzhuan/</guid>
+    <description><![CDATA[翻转二叉树 翻转二叉树 方法一：递归 在计算当前二叉树的最大深度时，可以先递归计算出其左子树和右子树的最大深度，然后在 O(1) 时间内计算出当前二叉树的最]]></description>
+</item>
+<item>
     <title>复杂度</title>
     <link>https://zucczwp.github.io/complexity/</link>
     <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
@@ -67,14 +83,6 @@
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/how_to_learn/</guid>
     <description><![CDATA[什么是数据结构？什么是算法？ 从广义上讲，数据结构就是指一组数据的存储结构。算法就是操作数据的一组方法。 关系 数据结构和算法是相辅相成的。数据结]]></description>
-</item>
-<item>
-    <title>数据结构</title>
-    <link>https://zucczwp.github.io/struct/</link>
-    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/struct/</guid>
-    <description><![CDATA[数组 如何实现随机访问？ 数组是最常用的数据结构,创建数组必须要内存中一块连续的空间,并且数组中必须存放相同的数据类型 随机快速读写是数组的一个重]]></description>
 </item>
 </channel>
 </rss>

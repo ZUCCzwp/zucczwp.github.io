@@ -12,5 +12,13 @@
     <guid>https://zucczwp.github.io/vim/</guid>
     <description><![CDATA[存活 模式切换 i → Insert 模式，按 ESC 回到 Normal 模式. x → 删当前光标所在的一个字符。 :wq → 存盘 + 退出 (:w 存盘, :q 退出) 技巧 :w 后可以跟文件名 dd → 删除当前行，并把]]></description>
 </item>
+<item>
+    <title>分布式链路追踪</title>
+    <link>https://zucczwp.github.io/trace/</link>
+    <pubDate>Wed, 17 Jan 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/trace/</guid>
+    <description><![CDATA[分布式链路追踪 核心概念 Trace 是一个逻辑概念，表示一次（分布式）请求经过的所有局部操作（Span）构成的一条完整的有向无环图，其中所有的 Span 的 TraceId 相同]]></description>
+</item>
 </channel>
 </rss>

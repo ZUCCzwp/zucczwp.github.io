@@ -13,30 +13,6 @@
     <description><![CDATA[树 比如下面这幅图，A 节点就是 B 节点的父节点，B 节点是 A 节点的子节点。B、C、D 这三 个节点的父节点是同一个节点，所以它们之间互称为兄弟节点。我]]></description>
 </item>
 <item>
-    <title>二叉树的中序遍历</title>
-    <link>https://zucczwp.github.io/erchashu_zhongxu/</link>
-    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/erchashu_zhongxu/</guid>
-    <description><![CDATA[二叉树的中序遍历 二叉树的中序遍历 方法一：递归 定义 inorder(root) 表示当前遍历到 root 节点的答案，那么按照定义，我们只要递归调用 inorder(root.left) 来遍历 root 节点的左子树，然后将 root]]></description>
-</item>
-<item>
-    <title>二叉树的最大深度</title>
-    <link>https://zucczwp.github.io/erchashu_zuidashendu/</link>
-    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/erchashu_zuidashendu/</guid>
-    <description><![CDATA[二叉树的最大深度 二叉树的最大深度 方法一：深度优先搜索 在计算当前二叉树的最大深度时，可以先递归计算出其左子树和右子树的最大深度，然后在 O(1) 时间内]]></description>
-</item>
-<item>
-    <title>翻转二叉树</title>
-    <link>https://zucczwp.github.io/erchashu_fanzhuan/</link>
-    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/erchashu_fanzhuan/</guid>
-    <description><![CDATA[翻转二叉树 翻转二叉树 方法一：递归 在计算当前二叉树的最大深度时，可以先递归计算出其左子树和右子树的最大深度，然后在 O(1) 时间内计算出当前二叉树的最]]></description>
-</item>
-<item>
     <title>复杂度</title>
     <link>https://zucczwp.github.io/complexity/</link>
     <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
@@ -45,44 +21,20 @@
     <description><![CDATA[为什么需要复杂度分析？ 测试结果非常依赖测试环境 测试结果受数据规模的影响很大 所以，我们需要一个不用具体的测试数据来测试，就可以粗略地估计算法的]]></description>
 </item>
 <item>
-    <title>环形链表</title>
-    <link>https://zucczwp.github.io/lianbiao_huanxing/</link>
-    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/lianbiao_huanxing/</guid>
-    <description><![CDATA[环形链表 环形链表 方法一：哈希表 使用哈希表来存储所有已经访问过的节点。每次我们到达一个节点，如果该节点已经存在于哈希表中，则说明该链表是环形链]]></description>
-</item>
-<item>
-    <title>链表的中间结点</title>
-    <link>https://zucczwp.github.io/lianbiao_zhongjian/</link>
-    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/lianbiao_zhongjian/</guid>
-    <description><![CDATA[链表的中间结点 链表的中间结点 方法一：快慢指针 用两个指针 slow 与 fast 一起遍历链表。slow 一次走一步，fast 一次走两步。那么当 fast 到达链表的末尾时，]]></description>
-</item>
-<item>
-    <title>链表反转</title>
-    <link>https://zucczwp.github.io/lianbiao_fanzhuan/</link>
-    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/lianbiao_fanzhuan/</guid>
-    <description><![CDATA[链表反转 链表反转 方法一：迭代 在遍历链表时，将当前节点的 next 指针改为指向前一个节点。由于节点没有引用其前一个节点，因此必须事先存储其前一个节点。]]></description>
-</item>
-<item>
-    <title>两两交换链表中的节点</title>
-    <link>https://zucczwp.github.io/lianbiao_liangliangfanzhuan/</link>
-    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/lianbiao_liangliangfanzhuan/</guid>
-    <description><![CDATA[两两交换链表中的节点 两两交换链表中的节点 方法一：迭代 创建哑结点 dummyHead，令 dummyHead.next = head。令 temp 表示当前到达的节点，初始时 temp = dumm]]></description>
-</item>
-<item>
     <title>如何高效学习数据结构</title>
     <link>https://zucczwp.github.io/how_to_learn/</link>
     <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/how_to_learn/</guid>
     <description><![CDATA[什么是数据结构？什么是算法？ 从广义上讲，数据结构就是指一组数据的存储结构。算法就是操作数据的一组方法。 关系 数据结构和算法是相辅相成的。数据结]]></description>
+</item>
+<item>
+    <title>数据结构</title>
+    <link>https://zucczwp.github.io/struct/</link>
+    <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/struct/</guid>
+    <description><![CDATA[数组 如何实现随机访问？ 数组是最常用的数据结构,创建数组必须要内存中一块连续的空间,并且数组中必须存放相同的数据类型 随机快速读写是数组的一个重]]></description>
 </item>
 </channel>
 </rss>

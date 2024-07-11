@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>分布式链路追踪 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了分布式链路追踪."><meta property="og:title" content="分布式链路追踪" />
+<meta property="og:description" content="这篇文章展示了分布式链路追踪." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zucczwp.github.io/trace/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-07-11T09:20:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
+
+<meta name="twitter:title" content="分布式链路追踪"/>
+<meta name="twitter:description" content="这篇文章展示了分布式链路追踪."/>
+<meta name="application-name" content="Jimi&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zucczwp.github.io/trace/" /><link rel="prev" href="https://zucczwp.github.io/architecture/" /><link rel="next" href="https://zucczwp.github.io/vim/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "分布式链路追踪",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zucczwp.github.io\/trace\/"
+        },"image": ["https:\/\/zucczwp.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Tool","wordcount":  2310 ,
+        "url": "https:\/\/zucczwp.github.io\/trace\/","datePublished": "2024-01-17T00:00:00+00:00","dateModified": "2024-07-11T09:20:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/zucczwp.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Jimi"
+            },"description": "这篇文章展示了分布式链路追踪."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Jimi’s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Jimi</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/ZUCCzwp/zucczwp.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Jimi’s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Jimi</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/ZUCCzwp/zucczwp.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">分布式链路追踪</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/ZUCCzwp/zucczwp.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jimi</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/tool/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tool</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-01-17">2024-01-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2310 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/trace/" class="leancloud_visitors" data-flag-title="分布式链路追踪">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#核心概念">核心概念</a></li>
+    <li><a href="#一般架构">一般架构</a></li>
+    <li><a href="#开源实现">开源实现</a>
+      <ul>
+        <li><a href="#skywalking">SkyWalking</a>
+          <ul>
+            <li><a href="#前置条件">前置条件：</a></li>
+            <li><a href="#部署">部署</a>
+              <ul>
+                <li><a href="#备注">备注：</a></li>
+              </ul>
+            </li>
+            <li><a href="#手动添加span">手动添加span</a></li>
+          </ul>
+        </li>
+        <li><a href="#ref">Ref:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="分布式链路追踪">分布式链路追踪</h1>
+<h2 id="核心概念">核心概念</h2>
+<p>Trace 是一个逻辑概念，表示一次（分布式）请求经过的所有局部操作（Span）构成的一条完整的有向无环图，其中所有的 Span 的 TraceId 相同。</p>
+<p>Span 则是真实的数据实体模型，表示一次(分布式)请求过程的一个步骤或操作，代表系统中一个逻辑运行单元，Span 之间通过嵌套或者顺序排列建立因果关系。Span 数据在采集端生成，之后上报到服务端，做进一步的处理。其包含如下关键属性：</p>
+<ul>
+<li>Name：操作名称，如一个 RPC 方法的名称，一个函数名</li>
+<li>StartTime/EndTime：起始时间和结束时间，操作的生命周期</li>
+<li>ParentSpanId：父级 Span 的 ID</li>
+<li>Attributes：属性，一组 &lt;K,V&gt; 键值对构成的集合</li>
+<li>Event：操作期间发生的事件</li>
+<li>SpanContext：Span 上下文内容，通常用于在 Span 间传播，其核心字段包括 TraceId、SpanId</li>
+</ul>
+<h2 id="一般架构">一般架构</h2>
+<p>在应用端需要通过侵入或者非侵入的方式，注入 Tracing Sdk，以跟踪、生成、传播和上报请求调用链路数据；</p>
+<p>Collect agent 一般是在靠近应用侧的一个边缘计算层，主要用于提高 Tracing Sdk 的写性能，和减少 back-end 的计算压力；</p>
+<p>采集的链路跟踪数据上报到后端时，首先经过 Gateway 做一个鉴权，之后进入 kafka 这样的 MQ 进行消息的缓冲存储；</p>
+<p>在数据写入存储层之前，我们可能需要对消息队列中的数据做一些清洗和分析的操作，清洗是为了规范和适配不同的数据源上报的数据，分析通常是为了支持更高级的业务功能，比如流量统计、错误分析等，这部分通常采用flink这类的流处理框架来完成；</p>
+<p>存储层会是服务端设计选型的一个重点，要考虑数据量级和查询场景的特点来设计选型，通常的选择包括使用 Elasticsearch、Cassandra、或 Clickhouse 这类开源产品；</p>
+<p>流处理分析后的结果，一方面作为存储持久化下来，另一方面也会进入告警系统，以主动发现问题来通知用户，如错误率超过指定阈值发出告警通知这样的需求等。</p>
+<h2 id="开源实现">开源实现</h2>
+<h3 id="skywalking">SkyWalking</h3>
+<h4 id="前置条件">前置条件：</h4>
+<p>搭建skywalking需要三个镜像：</p>
+<p>1.es 存储数据</p>
+<p>2.oap 服务器</p>
+<p>3.ui 界面</p>
+<p>这里涉及到多个服务，采用docker-compose部署：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl">version: <span class="s1">&#39;3.8&#39;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>services:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>  elasticsearch:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    <span class="c1"># image: docker.elastic.co/elasticsearch/elasticsearch-oss:${ES_VERSION}</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    image: elasticsearch:7.9.0<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    container_name: elasticsearch<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    <span class="c1"># --restart=always ： 开机启动，失败也会一直重启；</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    <span class="c1"># --restart=on-failure:10 ： 表示最多重启10次</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    restart: always<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    ports:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;9200:9200&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;9300:9300&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    healthcheck:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      test: <span class="o">[</span> <span class="s2">&#34;CMD-SHELL&#34;</span>, <span class="s2">&#34;curl --silent --fail localhost:9200/_cluster/health || exit 1&#34;</span> <span class="o">]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      interval: 30s<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      timeout: 10s<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      retries: <span class="m">3</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      start_period: 10s<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    environment:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - discovery.type<span class="o">=</span>single-node<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      <span class="c1"># 锁定物理内存地址，防止elasticsearch内存被交换出去,也就是避免es使用swap交换分区，频繁的交换，会导致IOPS变高；</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - bootstrap.memory_lock<span class="o">=</span>true<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      <span class="c1"># 设置时区</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="nv">TZ</span><span class="o">=</span>Asia/Shanghai<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      <span class="c1"># - &#34;ES_JAVA_OPTS=-Xms512m -Xmx512m&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    ulimits:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      memlock:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>        soft: -1<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>        hard: -1<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>  oap:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    image: apache/skywalking-oap-server:8.9.1<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    container_name: oap<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    restart: always<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    <span class="c1"># 设置依赖的容器</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    depends_on:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      elasticsearch:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>        condition: service_healthy<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    <span class="c1"># 关联ES的容器，通过容器名字来找到相应容器，解决IP变动问题</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    links:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - elasticsearch<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    <span class="c1"># 端口映射</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    ports:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;11800:11800&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;12800:12800&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    <span class="c1"># 监控检查</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    healthcheck:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      test: <span class="o">[</span> <span class="s2">&#34;CMD-SHELL&#34;</span>, <span class="s2">&#34;/skywalking/bin/swctl ch&#34;</span> <span class="o">]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      <span class="c1"># 每间隔30秒执行一次</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      interval: 30s<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      <span class="c1"># 健康检查命令运行超时时间，如果超过这个时间，本次健康检查就被视为失败；</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      timeout: 10s<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      <span class="c1"># 当连续失败指定次数后，则将容器状态视为 unhealthy，默认 3 次。</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      retries: <span class="m">3</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      <span class="c1"># 应用的启动的初始化时间，在启动过程中的健康检查失效不会计入，默认 0 秒。</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      start_period: 10s<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    environment:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      <span class="c1"># 指定存储方式</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      SW_STORAGE: elasticsearch<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      <span class="c1"># 指定存储的地址</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      SW_STORAGE_ES_CLUSTER_NODES: elasticsearch:9200<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      SW_HEALTH_CHECKER: default<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      SW_TELEMETRY: prometheus<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      TZ: Asia/Shanghai<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      <span class="c1"># JAVA_OPTS: &#34;-Xms2048m -Xmx2048m&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>  ui:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    image: apache/skywalking-ui:8.9.1<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    container_name: skywalking-ui<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    restart: always<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    depends_on:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      oap:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>        condition: service_healthy<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    links:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - oap<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    ports:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;8088:8080&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    environment:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      SW_OAP_ADDRESS: http://oap:12800<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      TZ: Asia/Shanghai<span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>执行成功后，docker会启动对应的容器</p>
+<p>验证步骤：</p>
+<p>打开localhost:8088 看下ui界面是否能访问</p>
+<p>访问：<a href="https://link.juejin.cn/?target=http%3A%2F%2Flocalhost%3A9200%2F" target="_blank" rel="noopener noreffer ">http://localhost:9200/</a> 是否有数据返回，以验证es是否正常启动</p>
+<h4 id="部署">部署</h4>
+<p>1.下载对应系统的skywalking的<a href="https://github.com/apache/skywalking-go/releases/tag/v0.4.0" target="_blank" rel="noopener noreffer ">agent</a></p>
+<p>2.执行如下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> /path/to/skywalking <span class="o">&amp;&amp;</span> make build
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>3.执行成功会在bin文件夹下多出对应系统的可执行文件</p>
+<p>不同的操作系统对应的<strong>可执行文件</strong>不同。例如，mac系统需选择skywalking-go-agent&ndash;darwin-amd64</p>
+<p>4.打开Go项目，在main package中导入skywalking module</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">_</span> <span class="s">&#34;github.com/apache/skywalking-go&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>5.配置config.yaml文件</p>
+<p>配置文件示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">agent</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Service name is showed in UI.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">service_name</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_NAME:Your_ApplicationName}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># To obtain the environment variable key for the instance name, if it cannot be obtained, an instance name will be automatically generated.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">instance_env_name</span><span class="p">:</span><span class="w"> </span><span class="l">SW_AGENT_INSTANCE_NAME</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Sampling rate of tracing data, which is a floating-point value that must be between 0 and 1.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sampler</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_SAMPLE:1}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">meter</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The interval of collecting metrics, in seconds.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">collect_interval</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_METER_COLLECT_INTERVAL:20}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">sampling</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="m">100</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">reporter</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">grpc</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The gRPC server address of the backend service.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">backend_service</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_REPORTER_GRPC_BACKEND_SERVICE:127.0.0.1:11800}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The maximum count of segment for reporting tracing data.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">max_send_queue</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_REPORTER_GRPC_MAX_SEND_QUEUE:5000}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The interval(s) of checking service and backend service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">check_interval</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_REPORTER_GRPC_CHECK_INTERVAL:20}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The authentication string for communicate with backend.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">authentication</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_REPORTER_GRPC_AUTHENTICATION:}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The interval(s) of fetching dynamic configuration from backend.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cds_fetch_interval</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_REPORTER_GRPC_CDS_FETCH_INTERVAL:20}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tls</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Whether to enable TLS with backend.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">enable</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_REPORTER_GRPC_TLS_ENABLE:false}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># The file path of ca.crt. The config only works when opening the TLS switch.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">ca_path</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_REPORTER_GRPC_TLS_CA_PATH:}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># The file path of client.pem. The config only works when mTLS.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">client_key_path</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_REPORTER_GRPC_TLS_CLIENT_KEY_PATH:}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># The file path of client.crt. The config only works when mTLS.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">client_cert_chain_path</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_REPORTER_GRPC_TLS_CLIENT_CERT_CHAIN_PATH:}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Controls whether a client verifies the server&#39;s certificate chain and host name.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">insecure_skip_verify</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_REPORTER_GRPC_TLS_INSECURE_SKIP_VERIFY:false}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">log</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># The type determines which logging type is currently used by the system.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># The Go agent wourld use this log type to generate custom logs. It supports: &#34;auto&#34;, &#34;logrus&#34;, or &#34;zap&#34;.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># auto: Automatically identifies the source of the log.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">#       If logrus is present in the project, it wourld automatically use logrus.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">#       If zap has been initialized in the project, it would use the zap framework.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">#       By default, it would use std errors to output log content.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># logrus: Specifies that the Agent should use the logrus framework.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># zap: Specifies that the Agent should use the zap framework.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># The system must have already been initialized through methods such as &#34;zap.New&#34;, &#34;zap.NewProduction&#34;, etc.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_LOG_TYPE:auto}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tracing</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Whether to automatically integrate Tracing information into the logs.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enable</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_LOG_TRACING_ENABLE:true}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># If tracing information is enabled, the tracing information would be stored in the current Key in each log.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_LOG_TRACING_KEY:SW_CTX}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">reporter</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Whether to upload logs to the backend.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enable</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_LOG_REPORTER_ENABLE:true}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The fields name list that needs to added to the label of the log.(multiple split by &#34;,&#34;)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">label_keys</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_LOG_REPORTER_LABEL_KEYS:}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">plugin</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># List the names of excluded plugins, multiple plugin names should be splitted by &#34;,&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># NOTE: This parameter only takes effect during the compilation phase.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">excluded</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_PLUGIN_EXCLUDES:}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">http</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Collect the parameters of the HTTP request on the server side</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">server_collect_parameters</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_PLUGIN_CONFIG_HTTP_SERVER_COLLECT_PARAMETERS:true}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">mongo</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Collect the statement of the MongoDB request</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">collect_statement</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_PLUGIN_CONFIG_MONGO_COLLECT_STATEMENT:false}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Collect the parameter of the SQL request</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">collect_parameter</span><span class="p">:</span><span class="w"> </span><span class="l">${SW_AGENT_PLUGIN_CONFIG_SQL_COLLECT_PARAMETER:true}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>设置参数的方式：</p>
+<p>方式一：使用配置文件配置</p>
+<p>方式二：设置环境变量</p>
+<p>6.构建项目</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo go build -toolexec <span class="s2">&#34;path/to/skywalking-go-agent -config path/to/config.yaml&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>7.启动项目，观察控制台是否有对应设置的service</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/trace.png"
+        data-srcset="/images/trace.png, /images/trace.png 1.5x, /images/trace.png 2x"
+        data-sizes="auto"
+        alt="/images/trace.png"
+        title="trace" /></p>
+<h5 id="备注">备注：</h5>
+<p>配置文件中的plugin是用于配置链路追踪所需要用到的插件。插件支持则直接能扫描到对应的依赖。如果插件不支持则需要手动添加span进行分析</p>
+<h4 id="手动添加span">手动添加span</h4>
+<p>参考如下链接</p>
+<p><a href="https://skywalking.apache.org/zh/2023-10-18-skywalking-toolkit-trace/" target="_blank" rel="noopener noreffer ">https://skywalking.apache.org/zh/2023-10-18-skywalking-toolkit-trace/</a></p>
+<h3 id="ref">Ref:</h3>
+<p><a href="https://www.alibabacloud.com/help/zh/arms/tracing-analysis/untitled-document-1690516495864?spm=a2c63.p38356.0.0.59bc6bd1ao2W05#6f7d899246n3f" target="_blank" rel="noopener noreffer ">https://www.alibabacloud.com/help/zh/arms/tracing-analysis/untitled-document-1690516495864?spm=a2c63.p38356.0.0.59bc6bd1ao2W05#6f7d899246n3f</a></p>
+<p><a href="https://github.com/alibabacloud-observability/skywalking-demo/tree/master/skywalking-go-demo/skywalking-go-agent-demo" target="_blank" rel="noopener noreffer ">https://github.com/alibabacloud-observability/skywalking-demo/tree/master/skywalking-go-demo/skywalking-go-agent-demo</a></p>
+<p><a href="https://skywalking.apache.org/zh/2023-06-01-quick-start-with-skywalking-go-agent/" target="_blank" rel="noopener noreffer ">https://skywalking.apache.org/zh/2023-06-01-quick-start-with-skywalking-go-agent/</a></p>
+<p><a href="https://juejin.cn/post/7250317954993619000" target="_blank" rel="noopener noreffer ">https://juejin.cn/post/7250317954993619000</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-07-11</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/trace/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zucczwp.github.io/trace/" data-title="分布式链路追踪"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zucczwp.github.io/trace/" data-title="分布式链路追踪"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/baidu.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/tool/">Tool</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/architecture/" class="prev" rel="prev" title="Docker"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Docker</a>
+            <a href="/vim/" class="next" rel="next" title="vim">vim<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Stay Hungry,Stay Foolish</div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/ZUCCzwp/zucczwp.github.io" target="_blank">jimi</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"TYML0LBTDE","algoliaIndex":"jimi","algoliaSearchKey":"5a7eaaebcc023673ae0a33ef9d90c2b7","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/custom.js"></script></body>
+</html>

@@ -4,7 +4,23 @@
         <link>https://zucczwp.github.io/posts/</link>
         <description>所有文章 | Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 12 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>gitlab私有库</title>
+    <link>https://zucczwp.github.io/git_child/</link>
+    <pubDate>Fri, 12 Jul 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/git_child/</guid>
+    <description><![CDATA[一、设置go env 设置私有仓库的git地址 1 go env -w GOPRIVATE=&#34;git.example.com&#34; 二、配置git {username}： 替换成gitlab账号名称 {token}： 替换成自己的 Personal]]></description>
+</item>
+<item>
+    <title>分布式链路追踪</title>
+    <link>https://zucczwp.github.io/trace/</link>
+    <pubDate>Thu, 11 Jul 2024 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/trace/</guid>
+    <description><![CDATA[分布式链路追踪 核心概念 Trace 是一个逻辑概念，表示一次（分布式）请求经过的所有局部操作（Span）构成的一条完整的有向无环图，其中所有的 Span 的 TraceId 相同]]></description>
+</item>
+<item>
     <title>领域驱动设计</title>
     <link>https://zucczwp.github.io/ddd/</link>
     <pubDate>Tue, 14 May 2024 00:00:00 &#43;0000</pubDate>
@@ -67,22 +83,6 @@
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/data_storage/</guid>
     <description><![CDATA[数据库主从复制 将 MySQL 主数据库中的数据复制到从数据库中去 原理： 当应用程序客户端发送一条更新命令到主服务器数据库的时候，数据库会 把这条更新命令同步]]></description>
-</item>
-<item>
-    <title>搜索引擎架构</title>
-    <link>https://zucczwp.github.io/search_engine/</link>
-    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/search_engine/</guid>
-    <description><![CDATA[搜索引擎倒排索引 事实上，互联网一方面是将全世界的人和网络应用联系起来，另一方面，也将全世界的网页 通过超链接联系起来，几乎每个网页都包含了一些]]></description>
-</item>
-<item>
-    <title>微服务架构</title>
-    <link>https://zucczwp.github.io/micro_service/</link>
-    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/micro_service/</guid>
-    <description><![CDATA[单体架构的困难和挑战 编译、部署困难 代码分支管理困难 因为单体应用非常庞大，所以代码模块也是由多个团队共同维护的。但最后还是要编译成一 个单体应用]]></description>
 </item>
 </channel>
 </rss>

@@ -12,13 +12,5 @@
     <guid>https://zucczwp.github.io/work_tips/</guid>
     <description><![CDATA[保持交际和赞美 一方面，良好的交际关系可以营造一种更愉快的工作氛围，自己和其他同事可以保持更好的工作状态； 另一方面，处理某些问题的时候，比如，]]></description>
 </item>
-<item>
-    <title>有用的技巧</title>
-    <link>https://zucczwp.github.io/tips/</link>
-    <pubDate>Tue, 02 Jan 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/tips/</guid>
-    <description><![CDATA[为整型常量值增加一个 String () 方法 如果你使用 iota 的自定义整型用于枚举，请始终增加一个 String () 方法。假设你写了这样的代码 1 2 3 4 5 6 7 8 type State int const ( Running State = iota]]></description>
-</item>
 </channel>
 </rss>

@@ -4,17 +4,22 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Authentik安装 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了authentik安装说明."><meta property="og:title" content="Authentik安装" />
-<meta property="og:description" content="这篇文章展示了authentik安装说明." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/authentik-deploy/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-04-02T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-04-02T10:12:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
+        <title>Authentik安装 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了authentik安装说明."><meta property="og:url" content="https://zucczwp.github.io/authentik-deploy/">
+  <meta property="og:site_name" content="Jimi’s Blog">
+  <meta property="og:title" content="Authentik安装">
+  <meta property="og:description" content="这篇文章展示了authentik安装说明.">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-04-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-04-02T10:12:40+08:00">
+    <meta property="article:tag" content="Auth">
+    <meta property="og:image" content="https://zucczwp.github.io/logo.png">
 
-<meta name="twitter:title" content="Authentik安装"/>
-<meta name="twitter:description" content="这篇文章展示了authentik安装说明."/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://zucczwp.github.io/logo.png">
+  <meta name="twitter:title" content="Authentik安装">
+  <meta name="twitter:description" content="这篇文章展示了authentik安装说明.">
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -320,13 +325,13 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">wget https://golang.org/dl/go1.22.1.linux-amd64.tar.gz
-</span></span><span class="line"><span class="cl">sudo tar -C /usr/local -xzf go1.22.1.linux-amd64.tar.gz
-</span></span><span class="line"><span class="cl">rm -rf go1.22.1.linux-amd64.tar.gz
-</span></span><span class="line"><span class="cl">vim ~/.profile 
-</span></span><span class="line"><span class="cl">export GOROOT=/usr/local/go
-</span></span><span class="line"><span class="cl">export PATH=$PATH:$GOROOT/bin
-</span></span><span class="line"><span class="cl">source ~/.profile 
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">golang</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">dl</span><span class="o">/</span><span class="n">go1</span><span class="o">.</span><span class="mf">22.1</span><span class="o">.</span><span class="n">linux</span><span class="o">-</span><span class="n">amd64</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</span></span><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">tar</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span> <span class="o">-</span><span class="n">xzf</span> <span class="n">go1</span><span class="o">.</span><span class="mf">22.1</span><span class="o">.</span><span class="n">linux</span><span class="o">-</span><span class="n">amd64</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</span></span><span class="line"><span class="cl"><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">go1</span><span class="o">.</span><span class="mf">22.1</span><span class="o">.</span><span class="n">linux</span><span class="o">-</span><span class="n">amd64</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</span></span><span class="line"><span class="cl"><span class="n">vim</span> <span class="o">~/.</span><span class="n">profile</span> 
+</span></span><span class="line"><span class="cl"><span class="k">export</span> <span class="n">GOROOT</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">go</span>
+</span></span><span class="line"><span class="cl"><span class="k">export</span> <span class="n">PATH</span><span class="o">=$</span><span class="n">PATH</span><span class="p">:</span><span class="o">$</span><span class="n">GOROOT</span><span class="o">/</span><span class="n">bin</span>
+</span></span><span class="line"><span class="cl"><span class="n">source</span> <span class="o">~/.</span><span class="n">profile</span> 
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -421,21 +426,21 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">wget http://download.redis.io/releases/redis-4.0.8.tar.gz
-</span></span><span class="line"><span class="cl">tar xzvf redis-4.0.8.tar.gz
-</span></span><span class="line"><span class="cl">cd redis-4.0.8
-</span></span><span class="line"><span class="cl">make
-</span></span><span class="line"><span class="cl">cd src
-</span></span><span class="line"><span class="cl">make install PREFIX=/usr/local/redis
-</span></span><span class="line"><span class="cl">cd ../
-</span></span><span class="line"><span class="cl">mkdir /usr/local/redis/etc
-</span></span><span class="line"><span class="cl">mv redis.conf /usr/local/redis/etc
-</span></span><span class="line"><span class="cl">vi /usr/local/redis/etc/redis.conf //将daemonize no改成daemonize yes
-</span></span><span class="line"><span class="cl">vi /etc/rc.local 
-</span></span><span class="line"><span class="cl">//在里面添加内容：/usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf
-</span></span><span class="line"><span class="cl">/usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf
-</span></span><span class="line"><span class="cl">cp /usr/local/redis/bin/redis-server /usr/local/bin/
-</span></span><span class="line"><span class="cl">cp /usr/local/redis/bin/redis-cli /usr/local/bin/
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">redis</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mf">8.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</span></span><span class="line"><span class="cl"><span class="n">tar</span> <span class="n">xzvf</span> <span class="n">redis</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mf">8.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">redis</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">8</span>
+</span></span><span class="line"><span class="cl"><span class="n">make</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">src</span>
+</span></span><span class="line"><span class="cl"><span class="n">make</span> <span class="n">install</span> <span class="n">PREFIX</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">redis</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">../</span>
+</span></span><span class="line"><span class="cl"><span class="n">mkdir</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">redis</span><span class="o">/</span><span class="n">etc</span>
+</span></span><span class="line"><span class="cl"><span class="n">mv</span> <span class="n">redis</span><span class="o">.</span><span class="n">conf</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">redis</span><span class="o">/</span><span class="n">etc</span>
+</span></span><span class="line"><span class="cl"><span class="n">vi</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">redis</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">redis</span><span class="o">.</span><span class="n">conf</span> <span class="o">//</span><span class="err">将</span><span class="n">daemonize</span> <span class="n">no改成daemonize</span> <span class="n">yes</span>
+</span></span><span class="line"><span class="cl"><span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">rc</span><span class="o">.</span><span class="n">local</span> 
+</span></span><span class="line"><span class="cl"><span class="o">//</span><span class="err">在里面添加内容：</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">redis</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">redis</span><span class="o">-</span><span class="n">server</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">redis</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">redis</span><span class="o">.</span><span class="n">conf</span>
+</span></span><span class="line"><span class="cl"><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">redis</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">redis</span><span class="o">-</span><span class="n">server</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">redis</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">redis</span><span class="o">.</span><span class="n">conf</span>
+</span></span><span class="line"><span class="cl"><span class="n">cp</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">redis</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">redis</span><span class="o">-</span><span class="n">server</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"><span class="n">cp</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">redis</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">redis</span><span class="o">-</span><span class="n">cli</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -447,8 +452,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">export PATH=&#34;/home/admin/opt/authentik/.venv/bin&#34;:$PATH
-</span></span><span class="line"><span class="cl">export PATH=&#34;/home/admin/opt/authentik/lifecycle&#34;:$PATH
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">&#34;/home/admin/opt/authentik/.venv/bin&#34;</span><span class="p">:</span><span class="o">$</span><span class="n">PATH</span>
+</span></span><span class="line"><span class="cl"><span class="k">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">&#34;/home/admin/opt/authentik/lifecycle&#34;</span><span class="p">:</span><span class="o">$</span><span class="n">PATH</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>

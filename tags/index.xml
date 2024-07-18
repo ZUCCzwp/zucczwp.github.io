@@ -4,7 +4,47 @@
         <link>https://zucczwp.github.io/tags/</link>
         <description>Tags - 标签 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 17 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 18 Jul 2024 16:29:31 &#43;0800</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Mac</title>
+    <link>https://zucczwp.github.io/tags/mac/</link>
+    <pubDate>Thu, 18 Jul 2024 16:29:31 &#43;0800</pubDate>
+    <author>jimi</author>
+    <guid>https://zucczwp.github.io/tags/mac/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Git</title>
+    <link>https://zucczwp.github.io/tags/git/</link>
+    <pubDate>Fri, 12 Jul 2024 00:00:00 &#43;0000</pubDate>
+    <author>jimi</author>
+    <guid>https://zucczwp.github.io/tags/git/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Tool</title>
+    <link>https://zucczwp.github.io/tags/tool/</link>
+    <pubDate>Fri, 12 Jul 2024 00:00:00 &#43;0000</pubDate>
+    <author>jimi</author>
+    <guid>https://zucczwp.github.io/tags/tool/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Design</title>
+    <link>https://zucczwp.github.io/tags/design/</link>
+    <pubDate>Tue, 14 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>jimi</author>
+    <guid>https://zucczwp.github.io/tags/design/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Architecture</title>
+    <link>https://zucczwp.github.io/tags/architecture/</link>
+    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>jimi</author>
+    <guid>https://zucczwp.github.io/tags/architecture/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Auth</title>
     <link>https://zucczwp.github.io/tags/auth/</link>
     <pubDate>Wed, 17 Apr 2024 00:00:00 &#43;0000</pubDate>
@@ -42,46 +82,6 @@
     <pubDate>Sun, 07 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
     <guid>https://zucczwp.github.io/tags/db/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>K8s</title>
-    <link>https://zucczwp.github.io/tags/k8s/</link>
-    <pubDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</pubDate>
-    <author>jimi</author>
-    <guid>https://zucczwp.github.io/tags/k8s/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title> Seo</title>
-    <link>https://zucczwp.github.io/tags/seo/</link>
-    <pubDate>Mon, 18 Mar 2024 00:00:00 &#43;0000</pubDate>
-    <author>jimi</author>
-    <guid>https://zucczwp.github.io/tags/seo/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Redis</title>
-    <link>https://zucczwp.github.io/tags/redis/</link>
-    <pubDate>Sun, 17 Mar 2024 00:00:00 &#43;0000</pubDate>
-    <author>jimi</author>
-    <guid>https://zucczwp.github.io/tags/redis/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Nginx</title>
-    <link>https://zucczwp.github.io/tags/nginx/</link>
-    <pubDate>Sat, 02 Mar 2024 00:00:00 &#43;0000</pubDate>
-    <author>jimi</author>
-    <guid>https://zucczwp.github.io/tags/nginx/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Mysql</title>
-    <link>https://zucczwp.github.io/tags/mysql/</link>
-    <pubDate>Sat, 17 Feb 2024 00:00:00 &#43;0000</pubDate>
-    <author>jimi</author>
-    <guid>https://zucczwp.github.io/tags/mysql/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

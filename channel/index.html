@@ -4,17 +4,22 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>channel用法 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了channel用法"><meta property="og:title" content="channel用法" />
-<meta property="og:description" content="这篇文章展示了channel用法" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/channel/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-01-12T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-01-12T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
+        <title>channel用法 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了channel用法"><meta property="og:url" content="https://zucczwp.github.io/channel/">
+  <meta property="og:site_name" content="Jimi’s Blog">
+  <meta property="og:title" content="channel用法">
+  <meta property="og:description" content="这篇文章展示了channel用法">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-01-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-01-12T22:45:40+08:00">
+    <meta property="article:tag" content="Go">
+    <meta property="og:image" content="https://zucczwp.github.io/logo.png">
 
-<meta name="twitter:title" content="channel用法"/>
-<meta name="twitter:description" content="这篇文章展示了channel用法"/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://zucczwp.github.io/logo.png">
+  <meta name="twitter:title" content="channel用法">
+  <meta name="twitter:description" content="这篇文章展示了channel用法">
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -226,22 +231,22 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">func process(timeout time.Duration) bool {
-</span></span><span class="line"><span class="cl">    ch := make(chan bool)
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">func</span> <span class="n">process</span><span class="p">(</span><span class="n">timeout</span> <span class="n">time</span><span class="o">.</span><span class="n">Duration</span><span class="p">)</span> <span class="ne">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ch</span> <span class="p">:</span><span class="o">=</span> <span class="n">make</span><span class="p">(</span><span class="n">chan</span> <span class="ne">bool</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    go func() {
-</span></span><span class="line"><span class="cl">        // 模拟处理耗时的业务
-</span></span><span class="line"><span class="cl">        time.Sleep((timeout + time.Second))
-</span></span><span class="line"><span class="cl">        ch &lt;- true // block
-</span></span><span class="line"><span class="cl">        fmt.Println(&#34;exit goroutine&#34;)
-</span></span><span class="line"><span class="cl">    }()
-</span></span><span class="line"><span class="cl">    select {
-</span></span><span class="line"><span class="cl">    case result := &lt;-ch:
-</span></span><span class="line"><span class="cl">        return result
-</span></span><span class="line"><span class="cl">    case &lt;-time.After(timeout):
-</span></span><span class="line"><span class="cl">        return false
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">    <span class="n">go</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="o">//</span> <span class="err">模拟处理耗时的业务</span>
+</span></span><span class="line"><span class="cl">        <span class="n">time</span><span class="o">.</span><span class="n">Sleep</span><span class="p">((</span><span class="n">timeout</span> <span class="o">+</span> <span class="n">time</span><span class="o">.</span><span class="n">Second</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ch</span> <span class="o">&lt;-</span> <span class="bp">true</span> <span class="o">//</span> <span class="n">block</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s2">&#34;exit goroutine&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">select</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="n">result</span> <span class="p">:</span><span class="o">=</span> <span class="o">&lt;-</span><span class="n">ch</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="o">&lt;-</span><span class="n">time</span><span class="o">.</span><span class="n">After</span><span class="p">(</span><span class="n">timeout</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>在这个例子中，process 函数会启动一个 goroutine，去处理需要长时间处理的业务，处理完之后，会发送 true 到 chan 中，目的是通知其它等待的 goroutine，可以继续处理了。</p>

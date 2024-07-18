@@ -4,17 +4,22 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>mutex用法 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了mutex用法"><meta property="og:title" content="mutex用法" />
-<meta property="og:description" content="这篇文章展示了mutex用法" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/mutex/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-01-12T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-02-11T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
+        <title>mutex用法 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了mutex用法"><meta property="og:url" content="https://zucczwp.github.io/mutex/">
+  <meta property="og:site_name" content="Jimi’s Blog">
+  <meta property="og:title" content="mutex用法">
+  <meta property="og:description" content="这篇文章展示了mutex用法">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-01-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-02-11T22:45:40+08:00">
+    <meta property="article:tag" content="Go">
+    <meta property="og:image" content="https://zucczwp.github.io/logo.png">
 
-<meta name="twitter:title" content="mutex用法"/>
-<meta name="twitter:description" content="这篇文章展示了mutex用法"/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://zucczwp.github.io/logo.png">
+  <meta name="twitter:title" content="mutex用法">
+  <meta name="twitter:description" content="这篇文章展示了mutex用法">
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -190,26 +195,26 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">func main() {
-</span></span><span class="line"><span class="cl">	var mu sync.Mutex
-</span></span><span class="line"><span class="cl">	var count = 0
-</span></span><span class="line"><span class="cl">	var wg sync.WaitGroup
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">var</span> <span class="n">mu</span> <span class="n">sync</span><span class="o">.</span><span class="n">Mutex</span>
+</span></span><span class="line"><span class="cl">	<span class="k">var</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">	<span class="k">var</span> <span class="n">wg</span> <span class="n">sync</span><span class="o">.</span><span class="n">WaitGroup</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	wg.Add(10)
+</span></span><span class="line"><span class="cl">	<span class="n">wg</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	for i := 0; i &lt; 10; i++ {
-</span></span><span class="line"><span class="cl">		go func() {
-</span></span><span class="line"><span class="cl">			defer wg.Done()
-</span></span><span class="line"><span class="cl">			for j := 0; j &lt; 100000; j++ {
-</span></span><span class="line"><span class="cl">				mu.Lock()
-</span></span><span class="line"><span class="cl">				count++
-</span></span><span class="line"><span class="cl">				mu.Unlock()
-</span></span><span class="line"><span class="cl">			}
-</span></span><span class="line"><span class="cl">		}()
-</span></span><span class="line"><span class="cl">	}
-</span></span><span class="line"><span class="cl">	wg.Wait()
-</span></span><span class="line"><span class="cl">	fmt.Println(count)
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="n">i</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">go</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">defer</span> <span class="n">wg</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="n">j</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">100000</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">mu</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">				<span class="n">count</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">				<span class="n">mu</span><span class="o">.</span><span class="n">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">wg</span><span class="o">.</span><span class="n">Wait</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>很多情况下，Mutex 会嵌入到其它 struct 中使用</p>
@@ -260,48 +265,48 @@
 </span><span class="lnt">43
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">package</span> <span class="n">main</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;sync&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;sync&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Counter</span> <span class="kd">struct</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">CounterType</span> <span class="kt">int</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">Name</span>        <span class="kt">string</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">mu</span>          <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">count</span>       <span class="kt">uint64</span>
+</span></span><span class="line"><span class="cl"><span class="n">type</span> <span class="n">Counter</span> <span class="n">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">CounterType</span> <span class="ne">int</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Name</span>        <span class="n">string</span>
+</span></span><span class="line"><span class="cl">	<span class="n">mu</span>          <span class="n">sync</span><span class="o">.</span><span class="n">Mutex</span>
+</span></span><span class="line"><span class="cl">	<span class="n">count</span>       <span class="n">uint64</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Counter</span><span class="p">)</span> <span class="nf">Incr</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">c</span> <span class="o">*</span><span class="n">Counter</span><span class="p">)</span> <span class="n">Incr</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">c</span><span class="o">.</span><span class="n">mu</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="n">c</span><span class="o">.</span><span class="n">count</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">	<span class="n">c</span><span class="o">.</span><span class="n">mu</span><span class="o">.</span><span class="n">Unlock</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Counter</span><span class="p">)</span> <span class="nf">Count</span><span class="p">()</span> <span class="kt">uint64</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">count</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">c</span> <span class="o">*</span><span class="n">Counter</span><span class="p">)</span> <span class="n">Count</span><span class="p">()</span> <span class="n">uint64</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">c</span><span class="o">.</span><span class="n">mu</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="n">defer</span> <span class="n">c</span><span class="o">.</span><span class="n">mu</span><span class="o">.</span><span class="n">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">c</span><span class="o">.</span><span class="n">count</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">counter</span> <span class="nx">Counter</span>
-</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">wg</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">var</span> <span class="n">counter</span> <span class="n">Counter</span>
+</span></span><span class="line"><span class="cl">	<span class="k">var</span> <span class="n">wg</span> <span class="n">sync</span><span class="o">.</span><span class="n">WaitGroup</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">wg</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="k">defer</span> <span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="mi">100000</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">				<span class="nx">counter</span><span class="p">.</span><span class="nf">Incr</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="n">i</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">go</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">defer</span> <span class="n">wg</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="n">j</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">100000</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">counter</span><span class="o">.</span><span class="n">Incr</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">			<span class="p">}</span>
 </span></span><span class="line"><span class="cl">		<span class="p">}()</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">counter</span><span class="p">.</span><span class="nf">Count</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="n">wg</span><span class="o">.</span><span class="n">Wait</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">counter</span><span class="o">.</span><span class="n">Count</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -411,41 +416,41 @@
 </span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// RecursiveMutex 包装一个Mutex,实现可重入
-</span></span><span class="line"><span class="cl">type RecursiveMutex struct {
-</span></span><span class="line"><span class="cl">    sync.Mutex
-</span></span><span class="line"><span class="cl">    owner     int64 // 当前持有锁的goroutine id
-</span></span><span class="line"><span class="cl">    recursion int32 // 这个goroutine 重入的次数
-</span></span><span class="line"><span class="cl">}
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">//</span> <span class="n">RecursiveMutex</span> <span class="err">包装一个</span><span class="ne">Mutex</span><span class="p">,</span><span class="err">实现可重入</span>
+</span></span><span class="line"><span class="cl"><span class="n">type</span> <span class="n">RecursiveMutex</span> <span class="n">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sync</span><span class="o">.</span><span class="n">Mutex</span>
+</span></span><span class="line"><span class="cl">    <span class="n">owner</span>     <span class="n">int64</span> <span class="o">//</span> <span class="err">当前持有锁的</span><span class="n">goroutine</span> <span class="n">id</span>
+</span></span><span class="line"><span class="cl">    <span class="n">recursion</span> <span class="n">int32</span> <span class="o">//</span> <span class="err">这个</span><span class="n">goroutine</span> <span class="err">重入的次数</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">func (m *RecursiveMutex) Lock() {
-</span></span><span class="line"><span class="cl">    gid := goid.Get()
-</span></span><span class="line"><span class="cl">    // 如果当前持有锁的goroutine就是这次调用的goroutine,说明是重入
-</span></span><span class="line"><span class="cl">    if atomic.LoadInt64(&amp;m.owner) == gid {
-</span></span><span class="line"><span class="cl">        m.recursion++
-</span></span><span class="line"><span class="cl">        return
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">    m.Mutex.Lock()
-</span></span><span class="line"><span class="cl">    // 获得锁的goroutine第一次调用，记录下它的goroutine id,调用次数加1
-</span></span><span class="line"><span class="cl">    atomic.StoreInt64(&amp;m.owner, gid)
-</span></span><span class="line"><span class="cl">    m.recursion = 1
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">m</span> <span class="o">*</span><span class="n">RecursiveMutex</span><span class="p">)</span> <span class="n">Lock</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gid</span> <span class="p">:</span><span class="o">=</span> <span class="n">goid</span><span class="o">.</span><span class="n">Get</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="err">如果当前持有锁的</span><span class="n">goroutine就是这次调用的goroutine</span><span class="p">,</span><span class="err">说明是重入</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">atomic</span><span class="o">.</span><span class="n">LoadInt64</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="o">.</span><span class="n">owner</span><span class="p">)</span> <span class="o">==</span> <span class="n">gid</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">m</span><span class="o">.</span><span class="n">recursion</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m</span><span class="o">.</span><span class="n">Mutex</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="err">获得锁的</span><span class="n">goroutine第一次调用</span><span class="err">，记录下它的</span><span class="n">goroutine</span> <span class="n">id</span><span class="p">,</span><span class="err">调用次数加</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">atomic</span><span class="o">.</span><span class="n">StoreInt64</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">gid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m</span><span class="o">.</span><span class="n">recursion</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">func (m *RecursiveMutex) Unlock() {
-</span></span><span class="line"><span class="cl">    gid := goid.Get()
-</span></span><span class="line"><span class="cl">    // 非持有锁的goroutine尝试释放锁，错误的使用
-</span></span><span class="line"><span class="cl">    if atomic.LoadInt64(&amp;m.owner) != gid {
-</span></span><span class="line"><span class="cl">        panic(fmt.Sprintf(&#34;wrong the owner(%d): %d!&#34;, m.owner, gid))
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">    // 调用次数减1
-</span></span><span class="line"><span class="cl">    m.recursion--
-</span></span><span class="line"><span class="cl">    if m.recursion != 0 { // 如果这个goroutine还没有完全释放，则直接返回
-</span></span><span class="line"><span class="cl">        return
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">    // 此goroutine最后一次调用，需要释放锁
-</span></span><span class="line"><span class="cl">    atomic.StoreInt64(&amp;m.owner, -1)
-</span></span><span class="line"><span class="cl">    m.Mutex.Unlock()
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">m</span> <span class="o">*</span><span class="n">RecursiveMutex</span><span class="p">)</span> <span class="n">Unlock</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gid</span> <span class="p">:</span><span class="o">=</span> <span class="n">goid</span><span class="o">.</span><span class="n">Get</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="err">非持有锁的</span><span class="n">goroutine尝试释放锁</span><span class="err">，错误的使用</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">atomic</span><span class="o">.</span><span class="n">LoadInt64</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="o">.</span><span class="n">owner</span><span class="p">)</span> <span class="o">!=</span> <span class="n">gid</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">panic</span><span class="p">(</span><span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s2">&#34;wrong the owner(</span><span class="si">%d</span><span class="s2">): </span><span class="si">%d</span><span class="s2">!&#34;</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">gid</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="err">调用次数减</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m</span><span class="o">.</span><span class="n">recursion</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">recursion</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span> <span class="o">//</span> <span class="err">如果这个</span><span class="n">goroutine还没有完全释放</span><span class="err">，则直接返回</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="err">此</span><span class="n">goroutine最后一次调用</span><span class="err">，需要释放锁</span>
+</span></span><span class="line"><span class="cl">    <span class="n">atomic</span><span class="o">.</span><span class="n">StoreInt64</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m</span><span class="o">.</span><span class="n">Mutex</span><span class="o">.</span><span class="n">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="方案二token">方案二：token</h4>
@@ -484,37 +489,37 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// Token方式的递归锁
-</span></span><span class="line"><span class="cl">type TokenRecursiveMutex struct {
-</span></span><span class="line"><span class="cl">    sync.Mutex
-</span></span><span class="line"><span class="cl">    token     int64
-</span></span><span class="line"><span class="cl">    recursion int32
-</span></span><span class="line"><span class="cl">}
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">//</span> <span class="n">Token方式的递归锁</span>
+</span></span><span class="line"><span class="cl"><span class="n">type</span> <span class="n">TokenRecursiveMutex</span> <span class="n">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sync</span><span class="o">.</span><span class="n">Mutex</span>
+</span></span><span class="line"><span class="cl">    <span class="n">token</span>     <span class="n">int64</span>
+</span></span><span class="line"><span class="cl">    <span class="n">recursion</span> <span class="n">int32</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">// 请求锁，需要传入token
-</span></span><span class="line"><span class="cl">func (m *TokenRecursiveMutex) Lock(token int64) {
-</span></span><span class="line"><span class="cl">    if atomic.LoadInt64(&amp;m.token) == token { //如果传入的token和持有锁的token一致，说明是递归调用
-</span></span><span class="line"><span class="cl">        m.recursion++
-</span></span><span class="line"><span class="cl">        return
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">    m.Mutex.Lock() // 传入的token不一致，说明不是递归调用
-</span></span><span class="line"><span class="cl">    // 抢到锁之后记录这个token
-</span></span><span class="line"><span class="cl">    atomic.StoreInt64(&amp;m.token, token)
-</span></span><span class="line"><span class="cl">    m.recursion = 1
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="err">请求锁，需要传入</span><span class="n">token</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">m</span> <span class="o">*</span><span class="n">TokenRecursiveMutex</span><span class="p">)</span> <span class="n">Lock</span><span class="p">(</span><span class="n">token</span> <span class="n">int64</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">atomic</span><span class="o">.</span><span class="n">LoadInt64</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="o">.</span><span class="n">token</span><span class="p">)</span> <span class="o">==</span> <span class="n">token</span> <span class="p">{</span> <span class="o">//</span><span class="err">如果传入的</span><span class="n">token和持有锁的token一致</span><span class="err">，说明是递归调用</span>
+</span></span><span class="line"><span class="cl">        <span class="n">m</span><span class="o">.</span><span class="n">recursion</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m</span><span class="o">.</span><span class="n">Mutex</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span> <span class="o">//</span> <span class="err">传入的</span><span class="n">token不一致</span><span class="err">，说明不是递归调用</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="err">抢到锁之后记录这个</span><span class="n">token</span>
+</span></span><span class="line"><span class="cl">    <span class="n">atomic</span><span class="o">.</span><span class="n">StoreInt64</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m</span><span class="o">.</span><span class="n">recursion</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">// 释放锁
-</span></span><span class="line"><span class="cl">func (m *TokenRecursiveMutex) Unlock(token int64) {
-</span></span><span class="line"><span class="cl">    if atomic.LoadInt64(&amp;m.token) != token { // 释放其它token持有的锁
-</span></span><span class="line"><span class="cl">        panic(fmt.Sprintf(&#34;wrong the owner(%d): %d!&#34;, m.token, token))
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">    m.recursion-- // 当前持有这个锁的token释放锁
-</span></span><span class="line"><span class="cl">    if m.recursion != 0 { // 还没有回退到最初的递归调用
-</span></span><span class="line"><span class="cl">        return
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">    atomic.StoreInt64(&amp;m.token, 0) // 没有递归调用了，释放锁
-</span></span><span class="line"><span class="cl">    m.Mutex.Unlock()
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="err">释放锁</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">m</span> <span class="o">*</span><span class="n">TokenRecursiveMutex</span><span class="p">)</span> <span class="n">Unlock</span><span class="p">(</span><span class="n">token</span> <span class="n">int64</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">atomic</span><span class="o">.</span><span class="n">LoadInt64</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="o">.</span><span class="n">token</span><span class="p">)</span> <span class="o">!=</span> <span class="n">token</span> <span class="p">{</span> <span class="o">//</span> <span class="err">释放其它</span><span class="n">token持有的锁</span>
+</span></span><span class="line"><span class="cl">        <span class="n">panic</span><span class="p">(</span><span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s2">&#34;wrong the owner(</span><span class="si">%d</span><span class="s2">): </span><span class="si">%d</span><span class="s2">!&#34;</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="n">token</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m</span><span class="o">.</span><span class="n">recursion</span><span class="o">--</span> <span class="o">//</span> <span class="err">当前持有这个锁的</span><span class="n">token释放锁</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">recursion</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span> <span class="o">//</span> <span class="err">还没有回退到最初的递归调用</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">atomic</span><span class="o">.</span><span class="n">StoreInt64</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">//</span> <span class="err">没有递归调用了，释放锁</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m</span><span class="o">.</span><span class="n">Mutex</span><span class="o">.</span><span class="n">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -549,23 +554,23 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">func (m *Mutex) TryLock() bool {
-</span></span><span class="line"><span class="cl">    // 已加锁/饥饿状态返回false
-</span></span><span class="line"><span class="cl">    old := m.state
-</span></span><span class="line"><span class="cl">    if old&amp;(mutexLocked|mutexStarving) != 0 {
-</span></span><span class="line"><span class="cl">        return false
-</span></span><span class="line"><span class="cl">    }
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">m</span> <span class="o">*</span><span class="ne">Mutex</span><span class="p">)</span> <span class="n">TryLock</span><span class="p">()</span> <span class="ne">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="err">已加锁</span><span class="o">/</span><span class="err">饥饿状态返回</span><span class="bp">false</span>
+</span></span><span class="line"><span class="cl">    <span class="n">old</span> <span class="p">:</span><span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">state</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">old</span><span class="o">&amp;</span><span class="p">(</span><span class="n">mutexLocked</span><span class="o">|</span><span class="n">mutexStarving</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    // 竞争失败则返回false，否则标记锁状态
-</span></span><span class="line"><span class="cl">    if !atomic.CompareAndSwapInt32(&amp;m.state, old, old|mutexLocked) {
-</span></span><span class="line"><span class="cl">        return false
-</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="err">竞争失败则返回</span><span class="bp">false</span><span class="err">，否则标记锁状态</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">!</span><span class="n">atomic</span><span class="o">.</span><span class="n">CompareAndSwapInt32</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">old</span><span class="o">|</span><span class="n">mutexLocked</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    if race.Enabled {
-</span></span><span class="line"><span class="cl">        race.Acquire(unsafe.Pointer(m))
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">    return true
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">race</span><span class="o">.</span><span class="n">Enabled</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">race</span><span class="o">.</span><span class="n">Acquire</span><span class="p">(</span><span class="n">unsafe</span><span class="o">.</span><span class="n">Pointer</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="bp">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="获取等待者的数量等指标">获取等待者的数量等指标</h3>
@@ -589,22 +594,22 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">const (
-</span></span><span class="line"><span class="cl">	mutexLocked = 1 &lt;&lt; iota // mutex is locked
-</span></span><span class="line"><span class="cl">	mutexWoken
-</span></span><span class="line"><span class="cl">	mutexStarving
-</span></span><span class="line"><span class="cl">	mutexWaiterShift = iota
-</span></span><span class="line"><span class="cl">)
-</span></span><span class="line"><span class="cl">type Mutex struct {
-</span></span><span class="line"><span class="cl">	sync.Mutex
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">func (m *Mutex) Count() int {
-</span></span><span class="line"><span class="cl">	// 获取state字段的值
-</span></span><span class="line"><span class="cl">	v := atomic.LoadInt32((*int32)(unsafe.Pointer(&amp;m.Mutex)))
-</span></span><span class="line"><span class="cl">	v = v &gt;&gt; mutexWaiterShift //得到等待者的数值
-</span></span><span class="line"><span class="cl">	v = v + (v &amp; mutexLocked) //再加上锁持有者的数量，0或者1
-</span></span><span class="line"><span class="cl">	return int(v)
-</span></span><span class="line"><span class="cl">}
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="n">mutexLocked</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">iota</span> <span class="o">//</span> <span class="n">mutex</span> <span class="n">is</span> <span class="n">locked</span>
+</span></span><span class="line"><span class="cl">	<span class="n">mutexWoken</span>
+</span></span><span class="line"><span class="cl">	<span class="n">mutexStarving</span>
+</span></span><span class="line"><span class="cl">	<span class="n">mutexWaiterShift</span> <span class="o">=</span> <span class="n">iota</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">type</span> <span class="ne">Mutex</span> <span class="n">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sync</span><span class="o">.</span><span class="n">Mutex</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">m</span> <span class="o">*</span><span class="ne">Mutex</span><span class="p">)</span> <span class="n">Count</span><span class="p">()</span> <span class="ne">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="o">//</span> <span class="err">获取</span><span class="n">state字段的值</span>
+</span></span><span class="line"><span class="cl">	<span class="n">v</span> <span class="p">:</span><span class="o">=</span> <span class="n">atomic</span><span class="o">.</span><span class="n">LoadInt32</span><span class="p">((</span><span class="o">*</span><span class="n">int32</span><span class="p">)(</span><span class="n">unsafe</span><span class="o">.</span><span class="n">Pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="o">.</span><span class="n">Mutex</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">	<span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">&gt;&gt;</span> <span class="n">mutexWaiterShift</span> <span class="o">//</span><span class="err">得到等待者的数值</span>
+</span></span><span class="line"><span class="cl">	<span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span> <span class="o">&amp;</span> <span class="n">mutexLocked</span><span class="p">)</span> <span class="o">//</span><span class="err">再加上锁持有者的数量，</span><span class="mi">0</span><span class="err">或者</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="ne">int</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>state 这个字段的第一位是用来标记锁是否被持有，第二位用来标记是否已经唤醒了一个等待者，第三位标记锁是否处于饥饿状态，通过分析这个 state 字段我们就可以得到这些状态信息。我们可以为这些状态提供查询的方法，这样就可以实时地知道锁的状态了</p>
@@ -627,21 +632,21 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 锁是否被持有
-</span></span><span class="line"><span class="cl">func (m *Mutex) IsLocked() bool {
-</span></span><span class="line"><span class="cl">	state := atomic.LoadInt32((*int32)(unsafe.Pointer(&amp;m.Mutex)))
-</span></span><span class="line"><span class="cl">	return state&amp;mutexLocked == mutexLocked
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">// 是否有等待者被唤醒
-</span></span><span class="line"><span class="cl">func (m *Mutex) IsWoken() bool {
-</span></span><span class="line"><span class="cl">	state := atomic.LoadInt32((*int32)(unsafe.Pointer(&amp;m.Mutex)))
-</span></span><span class="line"><span class="cl">	return state&amp;mutexWoken == mutexWoken
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">// 锁是否处于饥饿状态
-</span></span><span class="line"><span class="cl">func (m *Mutex) IsStarving() bool {
-</span></span><span class="line"><span class="cl">	state := atomic.LoadInt32((*int32)(unsafe.Pointer(&amp;m.Mutex)))
-</span></span><span class="line"><span class="cl">	return state&amp;mutexStarving == mutexStarving
-</span></span><span class="line"><span class="cl">}
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">//</span> <span class="err">锁是否被持有</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">m</span> <span class="o">*</span><span class="ne">Mutex</span><span class="p">)</span> <span class="n">IsLocked</span><span class="p">()</span> <span class="ne">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">state</span> <span class="p">:</span><span class="o">=</span> <span class="n">atomic</span><span class="o">.</span><span class="n">LoadInt32</span><span class="p">((</span><span class="o">*</span><span class="n">int32</span><span class="p">)(</span><span class="n">unsafe</span><span class="o">.</span><span class="n">Pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="o">.</span><span class="n">Mutex</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">state</span><span class="o">&amp;</span><span class="n">mutexLocked</span> <span class="o">==</span> <span class="n">mutexLocked</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="err">是否有等待者被唤醒</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">m</span> <span class="o">*</span><span class="ne">Mutex</span><span class="p">)</span> <span class="n">IsWoken</span><span class="p">()</span> <span class="ne">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">state</span> <span class="p">:</span><span class="o">=</span> <span class="n">atomic</span><span class="o">.</span><span class="n">LoadInt32</span><span class="p">((</span><span class="o">*</span><span class="n">int32</span><span class="p">)(</span><span class="n">unsafe</span><span class="o">.</span><span class="n">Pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="o">.</span><span class="n">Mutex</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">state</span><span class="o">&amp;</span><span class="n">mutexWoken</span> <span class="o">==</span> <span class="n">mutexWoken</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="err">锁是否处于饥饿状态</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">m</span> <span class="o">*</span><span class="ne">Mutex</span><span class="p">)</span> <span class="n">IsStarving</span><span class="p">()</span> <span class="ne">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">state</span> <span class="p">:</span><span class="o">=</span> <span class="n">atomic</span><span class="o">.</span><span class="n">LoadInt32</span><span class="p">((</span><span class="o">*</span><span class="n">int32</span><span class="p">)(</span><span class="n">unsafe</span><span class="o">.</span><span class="n">Pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="o">.</span><span class="n">Mutex</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">state</span><span class="o">&amp;</span><span class="n">mutexStarving</span> <span class="o">==</span> <span class="n">mutexStarving</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="实现一个线程安全的队列">实现一个线程安全的队列</h2>
@@ -675,31 +680,31 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">type SliceQueue struct {
-</span></span><span class="line"><span class="cl">	data []interface{}
-</span></span><span class="line"><span class="cl">	mu sync.Mutex
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">func NewSliceQueue(n int) (q *SliceQueue) {
-</span></span><span class="line"><span class="cl">	return &amp;SliceQueue{data: make([]interface{}, 0, n)}
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">// Enqueue 把值放在队尾
-</span></span><span class="line"><span class="cl">func (q *SliceQueue) Enqueue(v interface{}) {
-</span></span><span class="line"><span class="cl">	q.mu.Lock()
-</span></span><span class="line"><span class="cl">	q.data = append(q.data, v)
-</span></span><span class="line"><span class="cl">	q.mu.Unlock()
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">// Dequeue 移去队头并返回
-</span></span><span class="line"><span class="cl">func (q *SliceQueue) Dequeue() interface{} {
-</span></span><span class="line"><span class="cl">	q.mu.Lock()
-</span></span><span class="line"><span class="cl">	if len(q.data) == 0 {
-</span></span><span class="line"><span class="cl">		q.mu.Unlock()
-</span></span><span class="line"><span class="cl">		return nil
-</span></span><span class="line"><span class="cl">	}
-</span></span><span class="line"><span class="cl">	v := q.data[0]
-</span></span><span class="line"><span class="cl">	q.data = q.data[1:]
-</span></span><span class="line"><span class="cl">	q.mu.Unlock()
-</span></span><span class="line"><span class="cl">	return v
-</span></span><span class="line"><span class="cl">}
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">type</span> <span class="n">SliceQueue</span> <span class="n">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">data</span> <span class="p">[]</span><span class="n">interface</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">mu</span> <span class="n">sync</span><span class="o">.</span><span class="n">Mutex</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="n">NewSliceQueue</span><span class="p">(</span><span class="n">n</span> <span class="ne">int</span><span class="p">)</span> <span class="p">(</span><span class="n">q</span> <span class="o">*</span><span class="n">SliceQueue</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="n">SliceQueue</span><span class="p">{</span><span class="n">data</span><span class="p">:</span> <span class="n">make</span><span class="p">([]</span><span class="n">interface</span><span class="p">{},</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">Enqueue</span> <span class="err">把值放在队尾</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">q</span> <span class="o">*</span><span class="n">SliceQueue</span><span class="p">)</span> <span class="n">Enqueue</span><span class="p">(</span><span class="n">v</span> <span class="n">interface</span><span class="p">{})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">q</span><span class="o">.</span><span class="n">mu</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="n">q</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">q</span><span class="o">.</span><span class="n">mu</span><span class="o">.</span><span class="n">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">Dequeue</span> <span class="err">移去队头并返回</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">q</span> <span class="o">*</span><span class="n">SliceQueue</span><span class="p">)</span> <span class="n">Dequeue</span><span class="p">()</span> <span class="n">interface</span><span class="p">{}</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">q</span><span class="o">.</span><span class="n">mu</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="n">len</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">q</span><span class="o">.</span><span class="n">mu</span><span class="o">.</span><span class="n">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">nil</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">v</span> <span class="p">:</span><span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">	<span class="n">q</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">	<span class="n">q</span><span class="o">.</span><span class="n">mu</span><span class="o">.</span><span class="n">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">v</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">

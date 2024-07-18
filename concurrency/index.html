@@ -4,17 +4,22 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>使用Goroutine如何控制HTTP请求的并发量 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了使用Goroutine如何控制HTTP请求的并发量"><meta property="og:title" content="使用Goroutine如何控制HTTP请求的并发量" />
-<meta property="og:description" content="这篇文章展示了使用Goroutine如何控制HTTP请求的并发量" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/concurrency/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-01-10T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-01-10T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
+        <title>使用Goroutine如何控制HTTP请求的并发量 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了使用Goroutine如何控制HTTP请求的并发量"><meta property="og:url" content="https://zucczwp.github.io/concurrency/">
+  <meta property="og:site_name" content="Jimi’s Blog">
+  <meta property="og:title" content="使用Goroutine如何控制HTTP请求的并发量">
+  <meta property="og:description" content="这篇文章展示了使用Goroutine如何控制HTTP请求的并发量">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-01-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-01-10T22:45:40+08:00">
+    <meta property="article:tag" content="Go">
+    <meta property="og:image" content="https://zucczwp.github.io/logo.png">
 
-<meta name="twitter:title" content="使用Goroutine如何控制HTTP请求的并发量"/>
-<meta name="twitter:description" content="这篇文章展示了使用Goroutine如何控制HTTP请求的并发量"/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://zucczwp.github.io/logo.png">
+  <meta name="twitter:title" content="使用Goroutine如何控制HTTP请求的并发量">
+  <meta name="twitter:description" content="这篇文章展示了使用Goroutine如何控制HTTP请求的并发量">
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -242,117 +247,117 @@
 </span><span class="lnt">112
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">package</span> <span class="n">main</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;io/ioutil&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;math/rand&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;net/http&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;net/url&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;sync&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">import</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;io/ioutil&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;math/rand&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;net/http&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;net/url&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;sync&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;time&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Limit</span> <span class="kd">struct</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">number</span>  <span class="kt">int</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">channel</span> <span class="kd">chan</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="n">type</span> <span class="n">Limit</span> <span class="n">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">number</span>  <span class="ne">int</span>
+</span></span><span class="line"><span class="cl">    <span class="n">channel</span> <span class="n">chan</span> <span class="n">struct</span><span class="p">{}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Limit struct 初始化
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">New</span><span class="p">(</span><span class="nx">number</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">Limit</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">&amp;</span><span class="nx">Limit</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">number</span><span class="p">:</span>  <span class="nx">number</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">channel</span><span class="p">:</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kd">struct</span><span class="p">{},</span> <span class="nx">number</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">Limit</span> <span class="n">struct</span> <span class="err">初始化</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="n">New</span><span class="p">(</span><span class="n">number</span> <span class="ne">int</span><span class="p">)</span> <span class="o">*</span><span class="n">Limit</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">&amp;</span><span class="n">Limit</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">number</span><span class="p">:</span>  <span class="n">number</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">channel</span><span class="p">:</span> <span class="n">make</span><span class="p">(</span><span class="n">chan</span> <span class="n">struct</span><span class="p">{},</span> <span class="n">number</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Run 方法：创建有限的 go f 函数的 goroutine
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">limit</span> <span class="o">*</span><span class="nx">Limit</span><span class="p">)</span> <span class="nf">Run</span><span class="p">(</span><span class="nx">f</span> <span class="kd">func</span><span class="p">())</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">limit</span><span class="p">.</span><span class="nx">channel</span> <span class="o">&lt;-</span> <span class="kd">struct</span><span class="p">{}{}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">f</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">        <span class="o">&lt;-</span><span class="nx">limit</span><span class="p">.</span><span class="nx">channel</span>
+</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">Run</span> <span class="err">方法：创建有限的</span> <span class="n">go</span> <span class="n">f</span> <span class="err">函数的</span> <span class="n">goroutine</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">limit</span> <span class="o">*</span><span class="n">Limit</span><span class="p">)</span> <span class="n">Run</span><span class="p">(</span><span class="n">f</span> <span class="k">func</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">limit</span><span class="o">.</span><span class="n">channel</span> <span class="o">&lt;-</span> <span class="n">struct</span><span class="p">{}{}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">go</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;-</span><span class="n">limit</span><span class="o">.</span><span class="n">channel</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}()</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// WaitGroup 对象内部有一个计数器，从0开始
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 有三个方法：Add(), Done(), Wait() 用来控制计数器的数量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">wg</span> <span class="p">=</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">WaitGroup</span> <span class="err">对象内部有一个计数器，从</span><span class="mi">0</span><span class="err">开始</span>
+</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="err">有三个方法：</span><span class="n">Add</span><span class="p">(),</span> <span class="n">Done</span><span class="p">(),</span> <span class="n">Wait</span><span class="p">()</span> <span class="err">用来控制计数器的数量</span>
+</span></span><span class="line"><span class="cl"><span class="k">var</span> <span class="n">wg</span> <span class="o">=</span> <span class="n">sync</span><span class="o">.</span><span class="n">WaitGroup</span><span class="p">{}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">concurrency</span> <span class="p">=</span> <span class="mi">5</span> <span class="c1">// 控制并发量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">concurrency</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">//</span> <span class="err">控制并发量</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">start</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">limit</span> <span class="o">:=</span> <span class="nf">New</span><span class="p">(</span><span class="nx">concurrency</span><span class="p">)</span> <span class="c1">// New Limit 控制并发量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 接口请求URL
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">apiUrl</span> <span class="o">:=</span> <span class="s">&#34;http://apis.juhe.cn/mobile/get&#34;</span> <span class="c1">// 不要使用接口地址测试
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//max := int(math.Pow10(8))                  // 模拟一千万数据
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">max</span> <span class="o">:=</span> <span class="mi">5</span>                                    <span class="c1">// 先测试5次吧
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 初始化参数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">param</span> <span class="o">:=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">Values</span><span class="p">{}</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">param</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">&#34;key&#34;</span><span class="p">,</span> <span class="s">&#34;您申请的KEY&#34;</span><span class="p">)</span> <span class="c1">// 接口请求Key
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">max</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">value</span> <span class="o">:=</span> <span class="nx">i</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">goFunc</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;start func: %dn&#34;</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// 配置请求参数,方法内部已处理urlencode问题,中文参数可以直接传参
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">phone</span> <span class="o">:=</span> <span class="nf">RandMobile</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">param</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">&#34;phone&#34;</span><span class="p">,</span> <span class="nx">phone</span><span class="p">)</span> <span class="c1">// 需要查询的手机号码或手机号码前7位
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 发送请求
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">Get</span><span class="p">(</span><span class="nx">apiUrl</span><span class="p">,</span> <span class="nx">param</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start</span> <span class="p">:</span><span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">limit</span> <span class="p">:</span><span class="o">=</span> <span class="n">New</span><span class="p">(</span><span class="n">concurrency</span><span class="p">)</span> <span class="o">//</span> <span class="n">New</span> <span class="n">Limit</span> <span class="err">控制并发量</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="err">接口请求</span><span class="n">URL</span>
+</span></span><span class="line"><span class="cl">    <span class="n">apiUrl</span> <span class="p">:</span><span class="o">=</span> <span class="s2">&#34;http://apis.juhe.cn/mobile/get&#34;</span> <span class="o">//</span> <span class="err">不要使用接口地址测试</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span><span class="nb">max</span> <span class="p">:</span><span class="o">=</span> <span class="ne">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">Pow10</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>                  <span class="o">//</span> <span class="err">模拟一千万数据</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">max</span> <span class="p">:</span><span class="o">=</span> <span class="mi">5</span>                                    <span class="o">//</span> <span class="err">先测试</span><span class="mi">5</span><span class="err">次吧</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="err">初始化参数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">param</span> <span class="p">:</span><span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">Values</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">param</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s2">&#34;key&#34;</span><span class="p">,</span> <span class="s2">&#34;您申请的KEY&#34;</span><span class="p">)</span> <span class="o">//</span> <span class="err">接口请求</span><span class="n">Key</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">max</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">wg</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">value</span> <span class="p">:</span><span class="o">=</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">        <span class="n">goFunc</span> <span class="p">:</span><span class="o">=</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s2">&#34;start func: </span><span class="si">%d</span><span class="s2">n&#34;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="o">//</span> <span class="err">配置请求参数</span><span class="p">,</span><span class="err">方法内部已处理</span><span class="n">urlencode问题</span><span class="p">,</span><span class="err">中文参数可以直接传参</span>
+</span></span><span class="line"><span class="cl">            <span class="n">phone</span> <span class="p">:</span><span class="o">=</span> <span class="n">RandMobile</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">param</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s2">&#34;phone&#34;</span><span class="p">,</span> <span class="n">phone</span><span class="p">)</span> <span class="o">//</span> <span class="err">需要查询的手机号码或手机号码前</span><span class="mi">7</span><span class="err">位</span>
+</span></span><span class="line"><span class="cl">            <span class="o">//</span> <span class="err">发送请求</span>
+</span></span><span class="line"><span class="cl">            <span class="n">data</span><span class="p">,</span> <span class="n">err</span> <span class="p">:</span><span class="o">=</span> <span class="n">Get</span><span class="p">(</span><span class="n">apiUrl</span><span class="p">,</span> <span class="n">param</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="n">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">                <span class="k">return</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// 其它逻辑代码...
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;phone: &#34;</span><span class="p">,</span> <span class="nx">phone</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="o">//</span> <span class="err">其它逻辑代码</span><span class="o">...</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s2">&#34;phone: &#34;</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="n">string</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="n">wg</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">limit</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="nx">goFunc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">limit</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">goFunc</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 阻塞代码防止退出
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="err">阻塞代码防止退出</span>
+</span></span><span class="line"><span class="cl">    <span class="n">wg</span><span class="o">.</span><span class="n">Wait</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;耗时: %fs&#34;</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Sub</span><span class="p">(</span><span class="nx">start</span><span class="p">).</span><span class="nf">Seconds</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s2">&#34;耗时: </span><span class="si">%f</span><span class="s2">s&#34;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">()</span><span class="o">.</span><span class="n">Sub</span><span class="p">(</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">Seconds</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Get 方式发起网络请求
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">Get</span><span class="p">(</span><span class="nx">apiURL</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">params</span> <span class="nx">url</span><span class="p">.</span><span class="nx">Values</span><span class="p">)</span> <span class="p">(</span><span class="nx">rs</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">Url</span> <span class="o">*</span><span class="nx">url</span><span class="p">.</span><span class="nx">URL</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">Url</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">url</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="nx">apiURL</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;解析url错误:rn%v&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">Get</span> <span class="err">方式发起网络请求</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="n">Get</span><span class="p">(</span><span class="n">apiURL</span> <span class="n">string</span><span class="p">,</span> <span class="n">params</span> <span class="n">url</span><span class="o">.</span><span class="n">Values</span><span class="p">)</span> <span class="p">(</span><span class="n">rs</span> <span class="p">[]</span><span class="n">byte</span><span class="p">,</span> <span class="n">err</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">Url</span> <span class="o">*</span><span class="n">url</span><span class="o">.</span><span class="n">URL</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Url</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">apiURL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="n">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s2">&#34;解析url错误:rn%v&#34;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">nil</span><span class="p">,</span> <span class="n">err</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">//如果参数中有中文参数,这个方法会进行URLEncode
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">Url</span><span class="p">.</span><span class="nx">RawQuery</span> <span class="p">=</span> <span class="nx">params</span><span class="p">.</span><span class="nf">Encode</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">Url</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;err:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span><span class="err">如果参数中有中文参数</span><span class="p">,</span><span class="err">这个方法会进行</span><span class="n">URLEncode</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Url</span><span class="o">.</span><span class="n">RawQuery</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">Encode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="p">:</span><span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="n">Url</span><span class="o">.</span><span class="n">String</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="n">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s2">&#34;err:&#34;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">nil</span><span class="p">,</span> <span class="n">err</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">defer</span> <span class="n">resp</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">MobilePrefix</span> <span class="p">=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;130&#34;</span><span class="p">,</span> <span class="s">&#34;131&#34;</span><span class="p">,</span> <span class="s">&#34;132&#34;</span><span class="p">,</span> <span class="s">&#34;133&#34;</span><span class="p">,</span> <span class="s">&#34;134&#34;</span><span class="p">,</span> <span class="s">&#34;135&#34;</span><span class="p">,</span> <span class="s">&#34;136&#34;</span><span class="p">,</span> <span class="s">&#34;137&#34;</span><span class="p">,</span> <span class="s">&#34;138&#34;</span><span class="p">,</span> <span class="s">&#34;139&#34;</span><span class="p">,</span> <span class="s">&#34;145&#34;</span><span class="p">,</span> <span class="s">&#34;147&#34;</span><span class="p">,</span> <span class="s">&#34;150&#34;</span><span class="p">,</span> <span class="s">&#34;151&#34;</span><span class="p">,</span> <span class="s">&#34;152&#34;</span><span class="p">,</span> <span class="s">&#34;153&#34;</span><span class="p">,</span> <span class="s">&#34;155&#34;</span><span class="p">,</span> <span class="s">&#34;156&#34;</span><span class="p">,</span> <span class="s">&#34;157&#34;</span><span class="p">,</span> <span class="s">&#34;158&#34;</span><span class="p">,</span> <span class="s">&#34;159&#34;</span><span class="p">,</span> <span class="s">&#34;170&#34;</span><span class="p">,</span> <span class="s">&#34;176&#34;</span><span class="p">,</span> <span class="s">&#34;177&#34;</span><span class="p">,</span> <span class="s">&#34;178&#34;</span><span class="p">,</span> <span class="s">&#34;180&#34;</span><span class="p">,</span> <span class="s">&#34;181&#34;</span><span class="p">,</span> <span class="s">&#34;182&#34;</span><span class="p">,</span> <span class="s">&#34;183&#34;</span><span class="p">,</span> <span class="s">&#34;184&#34;</span><span class="p">,</span> <span class="s">&#34;185&#34;</span><span class="p">,</span> <span class="s">&#34;186&#34;</span><span class="p">,</span> <span class="s">&#34;187&#34;</span><span class="p">,</span> <span class="s">&#34;188&#34;</span><span class="p">,</span> <span class="s">&#34;189&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">var</span> <span class="n">MobilePrefix</span> <span class="o">=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="n">string</span><span class="p">{</span><span class="s2">&#34;130&#34;</span><span class="p">,</span> <span class="s2">&#34;131&#34;</span><span class="p">,</span> <span class="s2">&#34;132&#34;</span><span class="p">,</span> <span class="s2">&#34;133&#34;</span><span class="p">,</span> <span class="s2">&#34;134&#34;</span><span class="p">,</span> <span class="s2">&#34;135&#34;</span><span class="p">,</span> <span class="s2">&#34;136&#34;</span><span class="p">,</span> <span class="s2">&#34;137&#34;</span><span class="p">,</span> <span class="s2">&#34;138&#34;</span><span class="p">,</span> <span class="s2">&#34;139&#34;</span><span class="p">,</span> <span class="s2">&#34;145&#34;</span><span class="p">,</span> <span class="s2">&#34;147&#34;</span><span class="p">,</span> <span class="s2">&#34;150&#34;</span><span class="p">,</span> <span class="s2">&#34;151&#34;</span><span class="p">,</span> <span class="s2">&#34;152&#34;</span><span class="p">,</span> <span class="s2">&#34;153&#34;</span><span class="p">,</span> <span class="s2">&#34;155&#34;</span><span class="p">,</span> <span class="s2">&#34;156&#34;</span><span class="p">,</span> <span class="s2">&#34;157&#34;</span><span class="p">,</span> <span class="s2">&#34;158&#34;</span><span class="p">,</span> <span class="s2">&#34;159&#34;</span><span class="p">,</span> <span class="s2">&#34;170&#34;</span><span class="p">,</span> <span class="s2">&#34;176&#34;</span><span class="p">,</span> <span class="s2">&#34;177&#34;</span><span class="p">,</span> <span class="s2">&#34;178&#34;</span><span class="p">,</span> <span class="s2">&#34;180&#34;</span><span class="p">,</span> <span class="s2">&#34;181&#34;</span><span class="p">,</span> <span class="s2">&#34;182&#34;</span><span class="p">,</span> <span class="s2">&#34;183&#34;</span><span class="p">,</span> <span class="s2">&#34;184&#34;</span><span class="p">,</span> <span class="s2">&#34;185&#34;</span><span class="p">,</span> <span class="s2">&#34;186&#34;</span><span class="p">,</span> <span class="s2">&#34;187&#34;</span><span class="p">,</span> <span class="s2">&#34;188&#34;</span><span class="p">,</span> <span class="s2">&#34;189&#34;</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// GeneratorPhone 生成手机号码
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">RandMobile</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">MobilePrefix</span><span class="p">[</span><span class="nf">RandInt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">MobilePrefix</span><span class="p">))]</span> <span class="o">+</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%0*d&#34;</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="nf">RandInt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100000000</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">GeneratorPhone</span> <span class="err">生成手机号码</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="n">RandMobile</span><span class="p">()</span> <span class="n">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">MobilePrefix</span><span class="p">[</span><span class="n">RandInt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">len</span><span class="p">(</span><span class="n">MobilePrefix</span><span class="p">))]</span> <span class="o">+</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">%0*d</span><span class="s2">&#34;</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">RandInt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100000000</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 指定范围随机 int
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">RandInt</span><span class="p">(</span><span class="nx">min</span><span class="p">,</span> <span class="nx">max</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">rand</span><span class="p">.</span><span class="nf">Seed</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">UnixNano</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">min</span> <span class="o">+</span> <span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">min</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="err">指定范围随机</span> <span class="ne">int</span>
+</span></span><span class="line"><span class="cl"><span class="k">func</span> <span class="n">RandInt</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span> <span class="ne">int</span><span class="p">)</span> <span class="ne">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rand</span><span class="o">.</span><span class="n">Seed</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">()</span><span class="o">.</span><span class="n">UnixNano</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">min</span> <span class="o">+</span> <span class="n">rand</span><span class="o">.</span><span class="n">Intn</span><span class="p">(</span><span class="nb">max</span><span class="o">-</span><span class="nb">min</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>

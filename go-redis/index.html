@@ -4,17 +4,22 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Go-redis高级用法 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了Go-redis高级用法."><meta property="og:title" content="Go-redis高级用法" />
-<meta property="og:description" content="这篇文章展示了Go-redis高级用法." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://zucczwp.github.io/go-redis/" /><meta property="og:image" content="https://zucczwp.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-03-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-17T22:45:40+08:00" /><meta property="og:site_name" content="Jimi’s Blog" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://zucczwp.github.io/logo.png"/>
+        <title>Go-redis高级用法 - Jimi’s Blog</title><meta name="Description" content="这篇文章展示了Go-redis高级用法."><meta property="og:url" content="https://zucczwp.github.io/go-redis/">
+  <meta property="og:site_name" content="Jimi’s Blog">
+  <meta property="og:title" content="Go-redis高级用法">
+  <meta property="og:description" content="这篇文章展示了Go-redis高级用法.">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-03-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-03-17T22:45:40+08:00">
+    <meta property="article:tag" content="Redis">
+    <meta property="og:image" content="https://zucczwp.github.io/logo.png">
 
-<meta name="twitter:title" content="Go-redis高级用法"/>
-<meta name="twitter:description" content="这篇文章展示了Go-redis高级用法."/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://zucczwp.github.io/logo.png">
+  <meta name="twitter:title" content="Go-redis高级用法">
+  <meta name="twitter:description" content="这篇文章展示了Go-redis高级用法.">
 <meta name="application-name" content="Jimi&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jimi&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -175,33 +180,33 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">func (c *ClusterClient) cmdSlotAndNode(cmd Cmder) (int, *clusterNode, error) {
-</span></span><span class="line"><span class="cl">    state, err := c.state.Get()
-</span></span><span class="line"><span class="cl">    if err != nil {
-</span></span><span class="line"><span class="cl">        return 0, nil, err
-</span></span><span class="line"><span class="cl">    }
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">func</span> <span class="p">(</span><span class="n">c</span> <span class="o">*</span><span class="n">ClusterClient</span><span class="p">)</span> <span class="n">cmdSlotAndNode</span><span class="p">(</span><span class="n">cmd</span> <span class="n">Cmder</span><span class="p">)</span> <span class="p">(</span><span class="ne">int</span><span class="p">,</span> <span class="o">*</span><span class="n">clusterNode</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">,</span> <span class="n">err</span> <span class="p">:</span><span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">Get</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="n">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nil</span><span class="p">,</span> <span class="n">err</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    cmdInfo := c.cmdInfo(cmd.Name())
-</span></span><span class="line"><span class="cl">    slot := cmdSlot(cmd, cmdFirstKeyPos(cmd, cmdInfo))
+</span></span><span class="line"><span class="cl">    <span class="n">cmdInfo</span> <span class="p">:</span><span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">cmdInfo</span><span class="p">(</span><span class="n">cmd</span><span class="o">.</span><span class="n">Name</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">slot</span> <span class="p">:</span><span class="o">=</span> <span class="n">cmdSlot</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">cmdFirstKeyPos</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">cmdInfo</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    if c.opt.ReadOnly &amp;&amp; cmdInfo != nil &amp;&amp; cmdInfo.ReadOnly {
-</span></span><span class="line"><span class="cl">        if c.opt.RouteByLatency {
-</span></span><span class="line"><span class="cl">            node, err := state.slotClosestNode(slot)
-</span></span><span class="line"><span class="cl">            return slot, node, err
-</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">opt</span><span class="o">.</span><span class="n">ReadOnly</span> <span class="o">&amp;&amp;</span> <span class="n">cmdInfo</span> <span class="o">!=</span> <span class="n">nil</span> <span class="o">&amp;&amp;</span> <span class="n">cmdInfo</span><span class="o">.</span><span class="n">ReadOnly</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">opt</span><span class="o">.</span><span class="n">RouteByLatency</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="p">,</span> <span class="n">err</span> <span class="p">:</span><span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">slotClosestNode</span><span class="p">(</span><span class="n">slot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">slot</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">err</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        if c.opt.RouteRandomly {
-</span></span><span class="line"><span class="cl">            node := state.slotRandomNode(slot)
-</span></span><span class="line"><span class="cl">            return slot, node, nil
-</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">opt</span><span class="o">.</span><span class="n">RouteRandomly</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="p">:</span><span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">slotRandomNode</span><span class="p">(</span><span class="n">slot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">slot</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">nil</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        node, err := state.slotSlaveNode(slot)
-</span></span><span class="line"><span class="cl">        return slot, node, err
-</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">        <span class="n">node</span><span class="p">,</span> <span class="n">err</span> <span class="p">:</span><span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">slotSlaveNode</span><span class="p">(</span><span class="n">slot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">slot</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">err</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    node, err := state.slotMasterNode(slot)
-</span></span><span class="line"><span class="cl">    return slot, node, err
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">    <span class="n">node</span><span class="p">,</span> <span class="n">err</span> <span class="p">:</span><span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">slotMasterNode</span><span class="p">(</span><span class="n">slot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">slot</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">err</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>

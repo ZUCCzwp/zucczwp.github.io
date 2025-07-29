@@ -5,6 +5,14 @@
         <description>所有文章 | Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
             <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 29 Jul 2025 11:55:30 &#43;0800</lastBuildDate><atom:link href="https://zucczwp.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>TikTok的基础知识与起号方法</title>
+    <link>https://zucczwp.github.io/base/</link>
+    <pubDate>Tue, 29 Jul 2025 11:55:30 &#43;0800</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/base/</guid>
+    <description><![CDATA[第一节 TikTok的账号基础知识 TikTok账号设置三件套 1 账号的名称和头像 设置账号名称最好的方式是品牌名+品类名。 头像的设置，是根据你的产]]></description>
+</item>
+<item>
     <title>gitlab私有库</title>
     <link>https://zucczwp.github.io/git_child/</link>
     <pubDate>Fri, 12 Jul 2024 00:00:00 &#43;0000</pubDate>
@@ -75,14 +83,6 @@
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/cache/</guid>
     <description><![CDATA[通读缓存 应用程序访问通读缓存获取数据的时候，如果通读缓存有应 用程序需要的数据，那么就返回这个数据；如果没有，那么通读缓存就自己负责访问数据 源]]></description>
-</item>
-<item>
-    <title>数据存储架构</title>
-    <link>https://zucczwp.github.io/data_storage/</link>
-    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/data_storage/</guid>
-    <description><![CDATA[数据库主从复制 将 MySQL 主数据库中的数据复制到从数据库中去 原理： 当应用程序客户端发送一条更新命令到主服务器数据库的时候，数据库会 把这条更新命令同步]]></description>
 </item>
 </channel>
 </rss>

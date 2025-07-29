@@ -2,6 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://zucczwp.github.io/base/</loc><lastmod>2025-07-29T11:55:30&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://zucczwp.github.io/git_child/</loc><lastmod>2024-07-12T09:20:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/trace/</loc><lastmod>2024-07-11T09:20:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/ddd/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -75,12 +76,14 @@
             <loc>https://zucczwp.github.io/concurrency/</loc><lastmod>2024-01-10T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/work_tips/</loc><lastmod>2024-01-09T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/tips/</loc><lastmod>2024-01-02T10:12:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://zucczwp.github.io/categories/</loc><lastmod>2025-07-29T11:55:30&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://zucczwp.github.io/tags/e-commerce/</loc><lastmod>2025-07-29T11:55:30&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://zucczwp.github.io/categories/e-commerce/</loc><lastmod>2025-07-29T11:55:30&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://zucczwp.github.io/</loc><lastmod>2025-07-29T11:55:30&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://zucczwp.github.io/posts/</loc><lastmod>2025-07-29T11:55:30&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://zucczwp.github.io/categories/</loc><lastmod>2024-07-12T09:20:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://zucczwp.github.io/tags/</loc><lastmod>2025-07-29T11:55:30&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://zucczwp.github.io/tags/git/</loc><lastmod>2024-07-12T09:20:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/categories/git/</loc><lastmod>2024-07-12T09:20:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://zucczwp.github.io/tags/</loc><lastmod>2024-07-12T09:20:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/tags/tool/</loc><lastmod>2024-07-12T09:20:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/categories/tool/</loc><lastmod>2024-07-12T09:20:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://zucczwp.github.io/tags/design/</loc><lastmod>2024-05-14T22:45:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

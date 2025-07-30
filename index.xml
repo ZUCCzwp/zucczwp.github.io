@@ -4,9 +4,17 @@
         <link>https://zucczwp.github.io/</link>
         <description>this is jimi blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 29 Jul 2025 11:55:30 &#43;0800</lastBuildDate>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 30 Jul 2025 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://zucczwp.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>深入解析Go设计模式：对象池模式实战</title>
+    <link>https://zucczwp.github.io/pool/</link>
+    <pubDate>Wed, 30 Jul 2025 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/pool/</guid>
+    <description><![CDATA[什么是对象池模式 对象池模式是一种创建型设计模式，通过复用预先创建的对象实例来提升性能。它特别适用于高并发场景或对象创建成本较高的应用，比如数]]></description>
+</item>
+<item>
     <title>TikTok的基础知识与起号方法</title>
     <link>https://zucczwp.github.io/base/</link>
     <pubDate>Tue, 29 Jul 2025 11:55:30 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/high_performance/</guid>
     <description><![CDATA[性能指标 响应时间 从发出请求开始到收到最后响应数据所需要的时间。响应时间是系统最 重要的性能指标，最直接地反映了系统的快慢。 并发数 系统同时处理的]]></description>
-</item>
-<item>
-    <title>缓存架构</title>
-    <link>https://zucczwp.github.io/cache/</link>
-    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/cache/</guid>
-    <description><![CDATA[通读缓存 应用程序访问通读缓存获取数据的时候，如果通读缓存有应 用程序需要的数据，那么就返回这个数据；如果没有，那么通读缓存就自己负责访问数据 源]]></description>
 </item>
 </channel>
 </rss>

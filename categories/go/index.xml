@@ -4,7 +4,15 @@
         <link>https://zucczwp.github.io/categories/go/</link>
         <description>Go - 分类 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 12 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/go/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 30 Jul 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/go/" rel="self" type="application/rss+xml" /><item>
+    <title>深入解析Go设计模式：对象池模式实战</title>
+    <link>https://zucczwp.github.io/pool/</link>
+    <pubDate>Wed, 30 Jul 2025 00:00:00 &#43;0000</pubDate>
+    <author>Jimi</author>
+    <guid>https://zucczwp.github.io/pool/</guid>
+    <description><![CDATA[什么是对象池模式 对象池模式是一种创建型设计模式，通过复用预先创建的对象实例来提升性能。它特别适用于高并发场景或对象创建成本较高的应用，比如数]]></description>
+</item>
+<item>
     <title>once用法</title>
     <link>https://zucczwp.github.io/once/</link>
     <pubDate>Mon, 12 Feb 2024 00:00:00 &#43;0000</pubDate>
@@ -75,14 +83,6 @@
     <author>Jimi</author>
     <guid>https://zucczwp.github.io/waitgroup/</guid>
     <description><![CDATA[基本用法 once常常用来初始化单例资源，或者并发访问只需初始化一次的共享资源，或者在测试的时候初始化一次测试资源 实现 Add方法逻辑： Add 方法主]]></description>
-</item>
-<item>
-    <title>使用Goroutine如何控制HTTP请求的并发量</title>
-    <link>https://zucczwp.github.io/concurrency/</link>
-    <pubDate>Wed, 10 Jan 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/concurrency/</guid>
-    <description><![CDATA[场景 我们使用 go 并发调用接口发起 HTTP 请求时，只需要在 func() 前面加上 go 关键字就很容易完成了，就是因为让并发变得如此简单，所以有的时候我们就需要控制一下]]></description>
 </item>
 </channel>
 </rss>

@@ -1,87 +1,87 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Go - 分类 - Jimi’s Blog</title>
-        <link>https://zucczwp.github.io/categories/go/</link>
+        <link>http://localhost:1313/categories/go/</link>
         <description>Go - 分类 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 30 Jul 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/go/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 30 Jul 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/go/" rel="self" type="application/rss+xml" /><item>
     <title>深入解析Go设计模式：对象池模式实战</title>
-    <link>https://zucczwp.github.io/pool/</link>
+    <link>http://localhost:1313/pool/</link>
     <pubDate>Wed, 30 Jul 2025 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/pool/</guid>
+    <guid>http://localhost:1313/pool/</guid>
     <description><![CDATA[什么是对象池模式 对象池模式是一种创建型设计模式，通过复用预先创建的对象实例来提升性能。它特别适用于高并发场景或对象创建成本较高的应用，比如数]]></description>
 </item>
 <item>
     <title>once用法</title>
-    <link>https://zucczwp.github.io/once/</link>
+    <link>http://localhost:1313/once/</link>
     <pubDate>Mon, 12 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/once/</guid>
+    <guid>http://localhost:1313/once/</guid>
     <description><![CDATA[使用场景 once常常用来初始化单例资源，或者并发访问只需初始化一次的共享资源，或者在测试的时候初始化一次测试资源 实现 一个正确的once实现要]]></description>
 </item>
 <item>
     <title>random用法</title>
-    <link>https://zucczwp.github.io/rand/</link>
+    <link>http://localhost:1313/rand/</link>
     <pubDate>Mon, 12 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/rand/</guid>
+    <guid>http://localhost:1313/rand/</guid>
     <description><![CDATA[golang生成随机数可以使用math/rand包 示例如下： 1 2 3 4 5 6 7 8 9 10 11 12 package main import ( &#34;fmt&#34; &#34;math/rand&#34; ) func main() { for i:=0; i&lt;10; i++ { fmt.Println(rand.Intn(100)) } } 而发现这种情况,每次]]></description>
 </item>
 <item>
     <title>channel用法</title>
-    <link>https://zucczwp.github.io/channel/</link>
+    <link>http://localhost:1313/channel/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/channel/</guid>
+    <guid>http://localhost:1313/channel/</guid>
     <description><![CDATA[CSP 允许使用进程组件来描述系统，它们独立运行，并且只通过消息传递的方式通信 channel的应用场景 执行业务处理的 goroutine 不要通过共享内存的方式通信，]]></description>
 </item>
 <item>
     <title>cond用法</title>
-    <link>https://zucczwp.github.io/cond/</link>
+    <link>http://localhost:1313/cond/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/cond/</guid>
+    <guid>http://localhost:1313/cond/</guid>
     <description><![CDATA[这篇文章展示了cond用法]]></description>
 </item>
 <item>
     <title>context用法</title>
-    <link>https://zucczwp.github.io/context/</link>
+    <link>http://localhost:1313/context/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/context/</guid>
+    <guid>http://localhost:1313/context/</guid>
     <description><![CDATA[来历 Go在1.7的版本中才正式把context加入到标准库中 适用场景 上下文信息传递 控制子goroutine的运行 超时控制 可以取消的方法调用 基]]></description>
 </item>
 <item>
     <title>map用法</title>
-    <link>https://zucczwp.github.io/map/</link>
+    <link>http://localhost:1313/map/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/map/</guid>
+    <guid>http://localhost:1313/map/</guid>
     <description><![CDATA[go内建的map类型 map的类型是map[key] key类型的k必须是可比较的 map[key]函数返回结果可以是一个值，也可以是两个值 map]]></description>
 </item>
 <item>
     <title>mutex用法</title>
-    <link>https://zucczwp.github.io/mutex/</link>
+    <link>http://localhost:1313/mutex/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/mutex/</guid>
+    <guid>http://localhost:1313/mutex/</guid>
     <description><![CDATA[互斥锁的实现机制 在并发编程中，如果程序中的一部分会被并发访问或修改，那么，为了避免并发访问导致的意想不到的结果，这部分程序需要被保护起来，这]]></description>
 </item>
 <item>
     <title>rwmutex用法</title>
-    <link>https://zucczwp.github.io/rwmutex/</link>
+    <link>http://localhost:1313/rwmutex/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/rwmutex/</guid>
+    <guid>http://localhost:1313/rwmutex/</guid>
     <description><![CDATA[什么是RWMutex？ 方法： Lock/Unlock：写操作时调用的方法 RLock/RUnlock：读操作时调用的方法 RLocker：为读操作]]></description>
 </item>
 <item>
     <title>waitgroup用法</title>
-    <link>https://zucczwp.github.io/waitgroup/</link>
+    <link>http://localhost:1313/waitgroup/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/waitgroup/</guid>
+    <guid>http://localhost:1313/waitgroup/</guid>
     <description><![CDATA[基本用法 once常常用来初始化单例资源，或者并发访问只需初始化一次的共享资源，或者在测试的时候初始化一次测试资源 实现 Add方法逻辑： Add 方法主]]></description>
 </item>
 </channel>

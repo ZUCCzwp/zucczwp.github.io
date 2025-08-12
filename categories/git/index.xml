@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Git - 分类 - Jimi’s Blog</title>
-        <link>https://zucczwp.github.io/categories/git/</link>
+        <link>http://localhost:1313/categories/git/</link>
         <description>Git - 分类 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 12 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/git/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 12 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/git/" rel="self" type="application/rss+xml" /><item>
     <title>gitlab私有库</title>
-    <link>https://zucczwp.github.io/git_child/</link>
+    <link>http://localhost:1313/git_child/</link>
     <pubDate>Fri, 12 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/git_child/</guid>
+    <guid>http://localhost:1313/git_child/</guid>
     <description><![CDATA[一、设置go env 设置私有仓库的git地址 1 go env -w GOPRIVATE=&#34;git.example.com&#34; 二、配置git {username}： 替换成gitlab账号名称 {token}： 替换成自己的 Personal]]></description>
 </item>
 </channel>

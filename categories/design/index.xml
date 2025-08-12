@@ -1,47 +1,47 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Design - 分类 - Jimi’s Blog</title>
-        <link>https://zucczwp.github.io/categories/design/</link>
+        <link>http://localhost:1313/categories/design/</link>
         <description>Design - 分类 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/design/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/design/" rel="self" type="application/rss+xml" /><item>
     <title>领域驱动设计</title>
-    <link>https://zucczwp.github.io/ddd/</link>
+    <link>http://localhost:1313/ddd/</link>
     <pubDate>Tue, 14 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/ddd/</guid>
+    <guid>http://localhost:1313/ddd/</guid>
     <description><![CDATA[领域模型模式 目前企业级应用开发中，业务逻辑的组织方式主要是事务脚本模式。事务脚本按照业务处理 的过程组织业务逻辑，每个过程处理来自客户端的单个]]></description>
 </item>
 <item>
     <title>设计模式</title>
-    <link>https://zucczwp.github.io/design_pattern/</link>
+    <link>http://localhost:1313/design_pattern/</link>
     <pubDate>Tue, 14 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/design_pattern/</guid>
+    <guid>http://localhost:1313/design_pattern/</guid>
     <description><![CDATA[这篇文章展示了设计模式基本知识.]]></description>
 </item>
 <item>
     <title>软件建模</title>
-    <link>https://zucczwp.github.io/modeling/</link>
+    <link>http://localhost:1313/modeling/</link>
     <pubDate>Sun, 14 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/modeling/</guid>
+    <guid>http://localhost:1313/modeling/</guid>
     <description><![CDATA[软件建模 模型是对客观存在的抽象 抽象表达事务的本质规律 把握事物的本质规律和主要特征,正确建造模型和使用模型,以防在各种细节中迷失方向。 一个是我]]></description>
 </item>
 <item>
     <title>软件设计文档</title>
-    <link>https://zucczwp.github.io/doc/</link>
+    <link>http://localhost:1313/doc/</link>
     <pubDate>Sat, 13 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/doc/</guid>
+    <guid>http://localhost:1313/doc/</guid>
     <description><![CDATA[类图 类之间有 6 种静态关系:关联、依赖、组合、聚合、继承、泛化。 序列图 序列图则用来描述参与者之间的动态调用关系。 组件图 一方面满足设计阶段和各个]]></description>
 </item>
 <item>
     <title>软件设计原则</title>
-    <link>https://zucczwp.github.io/mod/</link>
+    <link>http://localhost:1313/mod/</link>
     <pubDate>Fri, 12 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/mod/</guid>
+    <guid>http://localhost:1313/mod/</guid>
     <description><![CDATA[糟糕的设计 僵化性 软件代码之间耦合严重,难以改动,任何微小的改动都会引起更大范围的改动。 脆弱性 微小的改动容易引起莫名其妙的崩溃或者 bug,出现]]></description>
 </item>
 </channel>

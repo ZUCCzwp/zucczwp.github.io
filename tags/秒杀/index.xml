@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>秒杀 - 标签 - Jimi’s Blog</title>
-        <link>https://zucczwp.github.io/tags/%E7%A7%92%E6%9D%80/</link>
+        <link>http://localhost:1313/tags/%E7%A7%92%E6%9D%80/</link>
         <description>秒杀 - 标签 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 17 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/%E7%A7%92%E6%9D%80/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 17 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E7%A7%92%E6%9D%80/" rel="self" type="application/rss+xml" /><item>
     <title>秒杀</title>
-    <link>https://zucczwp.github.io/miaosha/</link>
+    <link>http://localhost:1313/miaosha/</link>
     <pubDate>Sat, 17 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/miaosha/</guid>
+    <guid>http://localhost:1313/miaosha/</guid>
     <description><![CDATA[主要挑战 瞬时高并发 高并发无法避开的热点数据问题 来自黑产的刷子流量 页面静态化 cdn加速 设计 秒杀按钮 js文件控制 定时器 读多写少 redis 缓存问题 缓存击穿]]></description>
 </item>
 </channel>

@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title> Seo - 标签 - Jimi’s Blog</title>
-        <link>https://zucczwp.github.io/tags/-seo/</link>
+        <link>http://localhost:1313/tags/-seo/</link>
         <description> Seo - 标签 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 18 Mar 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/-seo/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 18 Mar 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/-seo/" rel="self" type="application/rss+xml" /><item>
     <title>网站优化</title>
-    <link>https://zucczwp.github.io/optimize_web/</link>
+    <link>http://localhost:1313/optimize_web/</link>
     <pubDate>Mon, 18 Mar 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/optimize_web/</guid>
+    <guid>http://localhost:1313/optimize_web/</guid>
     <description><![CDATA[定义 网站地图（sitemap.xml）是一个网站的概览。搜索引擎在此文件中得到网站上存在的可抓取的网页，提交sitemap有利于搜索引擎的收]]></description>
 </item>
 </channel>

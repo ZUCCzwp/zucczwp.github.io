@@ -1,87 +1,87 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Tags - 标签 - Jimi’s Blog</title>
-        <link>https://zucczwp.github.io/tags/</link>
+        <link>http://localhost:1313/tags/</link>
         <description>Tags - 标签 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 30 Jul 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 30 Jul 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
     <title>Go</title>
-    <link>https://zucczwp.github.io/tags/go/</link>
+    <link>http://localhost:1313/tags/go/</link>
     <pubDate>Wed, 30 Jul 2025 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/tags/go/</guid>
+    <guid>http://localhost:1313/tags/go/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>E-Commerce</title>
-    <link>https://zucczwp.github.io/tags/e-commerce/</link>
+    <link>http://localhost:1313/tags/e-commerce/</link>
     <pubDate>Tue, 29 Jul 2025 11:55:30 &#43;0800</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/tags/e-commerce/</guid>
+    <guid>http://localhost:1313/tags/e-commerce/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Git</title>
-    <link>https://zucczwp.github.io/tags/git/</link>
+    <link>http://localhost:1313/tags/git/</link>
     <pubDate>Fri, 12 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/tags/git/</guid>
+    <guid>http://localhost:1313/tags/git/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Tool</title>
-    <link>https://zucczwp.github.io/tags/tool/</link>
+    <link>http://localhost:1313/tags/tool/</link>
     <pubDate>Fri, 12 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/tags/tool/</guid>
+    <guid>http://localhost:1313/tags/tool/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Design</title>
-    <link>https://zucczwp.github.io/tags/design/</link>
+    <link>http://localhost:1313/tags/design/</link>
     <pubDate>Tue, 14 May 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/tags/design/</guid>
+    <guid>http://localhost:1313/tags/design/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Architecture</title>
-    <link>https://zucczwp.github.io/tags/architecture/</link>
+    <link>http://localhost:1313/tags/architecture/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/tags/architecture/</guid>
+    <guid>http://localhost:1313/tags/architecture/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Auth</title>
-    <link>https://zucczwp.github.io/tags/auth/</link>
+    <link>http://localhost:1313/tags/auth/</link>
     <pubDate>Wed, 17 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/tags/auth/</guid>
+    <guid>http://localhost:1313/tags/auth/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>K3Cloud</title>
-    <link>https://zucczwp.github.io/tags/k3cloud/</link>
+    <link>http://localhost:1313/tags/k3cloud/</link>
     <pubDate>Wed, 17 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/tags/k3cloud/</guid>
+    <guid>http://localhost:1313/tags/k3cloud/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Docker</title>
-    <link>https://zucczwp.github.io/tags/docker/</link>
+    <link>http://localhost:1313/tags/docker/</link>
     <pubDate>Tue, 09 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/tags/docker/</guid>
+    <guid>http://localhost:1313/tags/docker/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Linux</title>
-    <link>https://zucczwp.github.io/tags/linux/</link>
+    <link>http://localhost:1313/tags/linux/</link>
     <pubDate>Tue, 09 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/tags/linux/</guid>
+    <guid>http://localhost:1313/tags/linux/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

@@ -1,87 +1,87 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Categories - 分类 - Jimi’s Blog</title>
-        <link>https://zucczwp.github.io/categories/</link>
+        <link>http://localhost:1313/categories/</link>
         <description>Categories - 分类 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 30 Jul 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 30 Jul 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/" rel="self" type="application/rss+xml" /><item>
     <title>Go</title>
-    <link>https://zucczwp.github.io/categories/go/</link>
+    <link>http://localhost:1313/categories/go/</link>
     <pubDate>Wed, 30 Jul 2025 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/categories/go/</guid>
+    <guid>http://localhost:1313/categories/go/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>E-Commerce</title>
-    <link>https://zucczwp.github.io/categories/e-commerce/</link>
+    <link>http://localhost:1313/categories/e-commerce/</link>
     <pubDate>Tue, 29 Jul 2025 11:55:30 &#43;0800</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/categories/e-commerce/</guid>
+    <guid>http://localhost:1313/categories/e-commerce/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Git</title>
-    <link>https://zucczwp.github.io/categories/git/</link>
+    <link>http://localhost:1313/categories/git/</link>
     <pubDate>Fri, 12 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/categories/git/</guid>
+    <guid>http://localhost:1313/categories/git/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Tool</title>
-    <link>https://zucczwp.github.io/categories/tool/</link>
+    <link>http://localhost:1313/categories/tool/</link>
     <pubDate>Fri, 12 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/categories/tool/</guid>
+    <guid>http://localhost:1313/categories/tool/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Design</title>
-    <link>https://zucczwp.github.io/categories/design/</link>
+    <link>http://localhost:1313/categories/design/</link>
     <pubDate>Tue, 14 May 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/categories/design/</guid>
+    <guid>http://localhost:1313/categories/design/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Architecture</title>
-    <link>https://zucczwp.github.io/categories/architecture/</link>
+    <link>http://localhost:1313/categories/architecture/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/categories/architecture/</guid>
+    <guid>http://localhost:1313/categories/architecture/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Auth</title>
-    <link>https://zucczwp.github.io/categories/auth/</link>
+    <link>http://localhost:1313/categories/auth/</link>
     <pubDate>Wed, 17 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/categories/auth/</guid>
+    <guid>http://localhost:1313/categories/auth/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Linux</title>
-    <link>https://zucczwp.github.io/categories/linux/</link>
+    <link>http://localhost:1313/categories/linux/</link>
     <pubDate>Tue, 09 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/categories/linux/</guid>
+    <guid>http://localhost:1313/categories/linux/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>DB</title>
-    <link>https://zucczwp.github.io/categories/db/</link>
+    <link>http://localhost:1313/categories/db/</link>
     <pubDate>Sun, 07 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/categories/db/</guid>
+    <guid>http://localhost:1313/categories/db/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Seo</title>
-    <link>https://zucczwp.github.io/categories/seo/</link>
+    <link>http://localhost:1313/categories/seo/</link>
     <pubDate>Mon, 18 Mar 2024 00:00:00 &#43;0000</pubDate>
     <author>jimi</author>
-    <guid>https://zucczwp.github.io/categories/seo/</guid>
+    <guid>http://localhost:1313/categories/seo/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

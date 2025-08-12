@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Redis - 分类 - Jimi’s Blog</title>
-        <link>https://zucczwp.github.io/categories/redis/</link>
+        <link>http://localhost:1313/categories/redis/</link>
         <description>Redis - 分类 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 Mar 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/redis/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 Mar 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/redis/" rel="self" type="application/rss+xml" /><item>
     <title>Go-redis高级用法</title>
-    <link>https://zucczwp.github.io/go-redis/</link>
+    <link>http://localhost:1313/go-redis/</link>
     <pubDate>Sun, 17 Mar 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/go-redis/</guid>
+    <guid>http://localhost:1313/go-redis/</guid>
     <description><![CDATA[开启对 Cluster中 Slave Node的访问 在一个负载比较高的Redis Cluster中，如果允许对slave节点进行读操作将极大的提高集群的吞吐]]></description>
 </item>
 </channel>

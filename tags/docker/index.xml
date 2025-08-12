@@ -1,31 +1,31 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Docker - 标签 - Jimi’s Blog</title>
-        <link>https://zucczwp.github.io/tags/docker/</link>
+        <link>http://localhost:1313/tags/docker/</link>
         <description>Docker - 标签 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 09 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/docker/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 09 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/docker/" rel="self" type="application/rss+xml" /><item>
     <title>Docker常用命令</title>
-    <link>https://zucczwp.github.io/docker/</link>
+    <link>http://localhost:1313/docker/</link>
     <pubDate>Tue, 09 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/docker/</guid>
+    <guid>http://localhost:1313/docker/</guid>
     <description><![CDATA[这篇文章展示了基本的Docker常用命令.]]></description>
 </item>
 <item>
     <title>Docker</title>
-    <link>https://zucczwp.github.io/architecture/</link>
+    <link>http://localhost:1313/architecture/</link>
     <pubDate>Sun, 14 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/architecture/</guid>
+    <guid>http://localhost:1313/architecture/</guid>
     <description><![CDATA[Docker架构及底层技术 Docker Engine 后台进程（dockerd） Rest Api Server CLI接口 架构 底层技术支持 Namespaces：做隔离pid,net,ipc,]]></description>
 </item>
 <item>
     <title>容器监控</title>
-    <link>https://zucczwp.github.io/monitor/</link>
+    <link>http://localhost:1313/monitor/</link>
     <pubDate>Sun, 14 Jan 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/monitor/</guid>
+    <guid>http://localhost:1313/monitor/</guid>
     <description><![CDATA[基本监控 单个容器 1 2 docker ps -a docker top container_name weavescope图形化界面 scope 集群 grafana 根据资源占用自动横向伸缩 1 2 3 kubectl run php-apache --image=us.gcr.io/k8s-artifacts-prod/hpa-example --requests=cpu=200m --expose --port=80 kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10 kubectl get horizontalpodautoscaler 日志 ELK]]></description>
 </item>
 </channel>

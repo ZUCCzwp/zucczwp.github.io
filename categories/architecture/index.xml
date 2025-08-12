@@ -1,79 +1,79 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Architecture - 分类 - Jimi’s Blog</title>
-        <link>https://zucczwp.github.io/categories/architecture/</link>
+        <link>http://localhost:1313/categories/architecture/</link>
         <description>Architecture - 分类 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 13 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/architecture/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 13 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/architecture/" rel="self" type="application/rss+xml" /><item>
     <title>分布式架构</title>
-    <link>https://zucczwp.github.io/distributed/</link>
+    <link>http://localhost:1313/distributed/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/distributed/</guid>
+    <guid>http://localhost:1313/distributed/</guid>
     <description><![CDATA[垂直伸缩与水平伸缩 为了应对高并发用户访问带来的系统资源消耗，一种解决办法是垂直伸缩。所谓的垂直伸缩 就是提升单台服务器的处理能力 垂直伸缩带来的]]></description>
 </item>
 <item>
     <title>负载均衡架构</title>
-    <link>https://zucczwp.github.io/lb/</link>
+    <link>http://localhost:1313/lb/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/lb/</guid>
+    <guid>http://localhost:1313/lb/</guid>
     <description><![CDATA[HTTP重定向负载均衡 HTTP 重定向负载均衡是一种比较简单的负载均衡技术实现。来自用户的 HTTP 请求到达负 载均衡服务器以后，负载均衡服务器根据某种负载均]]></description>
 </item>
 <item>
     <title>高可用架构</title>
-    <link>https://zucczwp.github.io/high_availability/</link>
+    <link>http://localhost:1313/high_availability/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/high_availability/</guid>
+    <guid>http://localhost:1313/high_availability/</guid>
     <description><![CDATA[高可用的度量 一般说来，两个 9 表示系统基本可用，年度不可用时间小于 88 小时；3 个 9 是较高可 用，年度不可用时间小于 9 个小时；4 个 9 是具有自动恢复能]]></description>
 </item>
 <item>
     <title>高性能</title>
-    <link>https://zucczwp.github.io/high_performance/</link>
+    <link>http://localhost:1313/high_performance/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/high_performance/</guid>
+    <guid>http://localhost:1313/high_performance/</guid>
     <description><![CDATA[性能指标 响应时间 从发出请求开始到收到最后响应数据所需要的时间。响应时间是系统最 重要的性能指标，最直接地反映了系统的快慢。 并发数 系统同时处理的]]></description>
 </item>
 <item>
     <title>缓存架构</title>
-    <link>https://zucczwp.github.io/cache/</link>
+    <link>http://localhost:1313/cache/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/cache/</guid>
+    <guid>http://localhost:1313/cache/</guid>
     <description><![CDATA[通读缓存 应用程序访问通读缓存获取数据的时候，如果通读缓存有应 用程序需要的数据，那么就返回这个数据；如果没有，那么通读缓存就自己负责访问数据 源]]></description>
 </item>
 <item>
     <title>数据存储架构</title>
-    <link>https://zucczwp.github.io/data_storage/</link>
+    <link>http://localhost:1313/data_storage/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/data_storage/</guid>
+    <guid>http://localhost:1313/data_storage/</guid>
     <description><![CDATA[数据库主从复制 将 MySQL 主数据库中的数据复制到从数据库中去 原理： 当应用程序客户端发送一条更新命令到主服务器数据库的时候，数据库会 把这条更新命令同步]]></description>
 </item>
 <item>
     <title>搜索引擎架构</title>
-    <link>https://zucczwp.github.io/search_engine/</link>
+    <link>http://localhost:1313/search_engine/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/search_engine/</guid>
+    <guid>http://localhost:1313/search_engine/</guid>
     <description><![CDATA[搜索引擎倒排索引 事实上，互联网一方面是将全世界的人和网络应用联系起来，另一方面，也将全世界的网页 通过超链接联系起来，几乎每个网页都包含了一些]]></description>
 </item>
 <item>
     <title>微服务架构</title>
-    <link>https://zucczwp.github.io/micro_service/</link>
+    <link>http://localhost:1313/micro_service/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/micro_service/</guid>
+    <guid>http://localhost:1313/micro_service/</guid>
     <description><![CDATA[单体架构的困难和挑战 编译、部署困难 代码分支管理困难 因为单体应用非常庞大，所以代码模块也是由多个团队共同维护的。但最后还是要编译成一 个单体应用]]></description>
 </item>
 <item>
     <title>异步架构</title>
-    <link>https://zucczwp.github.io/async/</link>
+    <link>http://localhost:1313/async/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/async/</guid>
+    <guid>http://localhost:1313/async/</guid>
     <description><![CDATA[使用消息队列实现异步架构 同步架构是说，当应用程序调用服务的时候，当前程序需要阻塞等待服务 完成，返回服务结果后才能继续向下执行。 消息队列异步架]]></description>
 </item>
 </channel>

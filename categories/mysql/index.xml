@@ -1,87 +1,87 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Mysql - 分类 - Jimi’s Blog</title>
-        <link>https://zucczwp.github.io/categories/mysql/</link>
+        <link>http://localhost:1313/categories/mysql/</link>
         <description>Mysql - 分类 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 17 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/mysql/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 17 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/mysql/" rel="self" type="application/rss+xml" /><item>
     <title>Mysql用法</title>
-    <link>https://zucczwp.github.io/mysql/</link>
+    <link>http://localhost:1313/mysql/</link>
     <pubDate>Sat, 17 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/mysql/</guid>
+    <guid>http://localhost:1313/mysql/</guid>
     <description><![CDATA[导出 1 mysqldump -uroot -pdbpasswd dbname test1 test2 test3&gt;db.sql 合并 表达式 COALESCE是一个函数， (expression_1, expression_2, &hellip;,expression_n)依次参考各参数表达式，遇到非nul]]></description>
 </item>
 <item>
     <title>Mysql查询优化</title>
-    <link>https://zucczwp.github.io/mysql_optimize/</link>
+    <link>http://localhost:1313/mysql_optimize/</link>
     <pubDate>Fri, 16 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/mysql_optimize/</guid>
+    <guid>http://localhost:1313/mysql_optimize/</guid>
     <description><![CDATA[查询分页数据方法 使用数据库提供 SQL语句 1 select * from table_name limit 0,5 语句样式： MySQL中,可用如下方法: SELECT * FROM 表名称 LIMIT M,N 适应场景： 适用于数据量较少的情况]]></description>
 </item>
 <item>
     <title>Mysql配置</title>
-    <link>https://zucczwp.github.io/mysql_config/</link>
+    <link>http://localhost:1313/mysql_config/</link>
     <pubDate>Thu, 15 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/mysql_config/</guid>
+    <guid>http://localhost:1313/mysql_config/</guid>
     <description><![CDATA[修改最大连接数 通过命令 使用数据库提供 SQL语句 1 2 set GLOBAL max_connections=100; show variables like &#34;max_connections&#34;; 及时生效，不需要重启服务，确保使用 root账号执行 修改 my.cnf 1 2 3 vim /etc/my.cnf max_connections=100 /etc/init.d/mysqld restart 需要]]></description>
 </item>
 <item>
     <title>Mysql DDL</title>
-    <link>https://zucczwp.github.io/mysql_ddl/</link>
+    <link>http://localhost:1313/mysql_ddl/</link>
     <pubDate>Wed, 14 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/mysql_ddl/</guid>
+    <guid>http://localhost:1313/mysql_ddl/</guid>
     <description><![CDATA[基本语法 对数据库进行定义 1 2 create Database nba; drop Database nba; 对数据表进行定义 1 create table table_name; 数据库约束 主键约束 作用： 唯一标识一条记录，不能重复，不能为空 一个数据表的主键]]></description>
 </item>
 <item>
     <title>Mysql查询</title>
-    <link>https://zucczwp.github.io/mysql_select/</link>
+    <link>http://localhost:1313/mysql_select/</link>
     <pubDate>Wed, 14 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/mysql_select/</guid>
+    <guid>http://localhost:1313/mysql_select/</guid>
     <description><![CDATA[查询顺序 关键字顺序不能颠倒 1 select ...from...where...group by...having select语句执行顺序 1 from &gt; where &gt; group by &gt; having &gt; select的字段 &gt; dist 数据过滤 比较运算符 =、&lt;&gt;、]]></description>
 </item>
 <item>
     <title>Mysql Procedure</title>
-    <link>https://zucczwp.github.io/mysql_procedure/</link>
+    <link>http://localhost:1313/mysql_procedure/</link>
     <pubDate>Tue, 13 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/mysql_procedure/</guid>
+    <guid>http://localhost:1313/mysql_procedure/</guid>
     <description><![CDATA[基本语法 创建存储过程 1 2 3 4 Create Procedure name BEGIN 执行语句 END 更新存储过程 1 2 3 4 Alter Procedure name BEGIN 执行语句 END 删除存储过程 1 Drop Procedure name 参数类型 参数类型 是否返回 In 否 Out 是 InOut 是]]></description>
 </item>
 <item>
     <title>Mysql事务</title>
-    <link>https://zucczwp.github.io/mysql_transaction/</link>
+    <link>http://localhost:1313/mysql_transaction/</link>
     <pubDate>Tue, 13 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/mysql_transaction/</guid>
+    <guid>http://localhost:1313/mysql_transaction/</guid>
     <description><![CDATA[ACID原则 A原子性 数据处理操作的基本单位 C一致性 当事务提交后，或者当事务发生回滚后，数据库的完整性约束不能被破坏 I隔离性 一个事务在提交之前]]></description>
 </item>
 <item>
     <title>Mysql日志</title>
-    <link>https://zucczwp.github.io/mysql_log/</link>
+    <link>http://localhost:1313/mysql_log/</link>
     <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/mysql_log/</guid>
+    <guid>http://localhost:1313/mysql_log/</guid>
     <description><![CDATA[binlog的写入机制 写入逻辑: 事务执行过程中，先把日志写到 binlog cache，事务提交的时候，再把 binlog cache 写到 binlog 文件中。 系统给 binlog cache 分配了一片内存，每]]></description>
 </item>
 <item>
     <title>Mysql锁</title>
-    <link>https://zucczwp.github.io/mysql_lock/</link>
+    <link>http://localhost:1313/mysql_lock/</link>
     <pubDate>Sun, 11 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/mysql_lock/</guid>
+    <guid>http://localhost:1313/mysql_lock/</guid>
     <description><![CDATA[行锁功过：怎么减少行锁对性能的影响？ 从两阶段锁说起 在 InnoDB 事务中，行锁是在需要的时候才加上的，但并不是不需要了就立刻释放，而是要等到事务结束时才]]></description>
 </item>
 <item>
     <title>Mysql Scheme</title>
-    <link>https://zucczwp.github.io/mysql_scheme/</link>
+    <link>http://localhost:1313/mysql_scheme/</link>
     <pubDate>Thu, 08 Feb 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/mysql_scheme/</guid>
+    <guid>http://localhost:1313/mysql_scheme/</guid>
     <description><![CDATA[选择优化的数据类型 字符串类型 VARCHAR类型用于存储可变长的字符串，所以它需要1或2个额外的字节记录字符串的长度：如果列的长度小于或等于2]]></description>
 </item>
 </channel>

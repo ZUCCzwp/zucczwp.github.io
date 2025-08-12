@@ -1,23 +1,23 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Nginx - 分类 - Jimi’s Blog</title>
-        <link>https://zucczwp.github.io/categories/nginx/</link>
+        <link>http://localhost:1313/categories/nginx/</link>
         <description>Nginx - 分类 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 02 Mar 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/categories/nginx/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 02 Mar 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/nginx/" rel="self" type="application/rss+xml" /><item>
     <title>Nginx Error Page配置</title>
-    <link>https://zucczwp.github.io/nginx_config/</link>
+    <link>http://localhost:1313/nginx_config/</link>
     <pubDate>Sat, 02 Mar 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/nginx_config/</guid>
+    <guid>http://localhost:1313/nginx_config/</guid>
     <description><![CDATA[语法 1 error_page code [ code... ] [ = | =answer-code ] uri |@named_location 示例 作用是当发生错误的时候能够显示一个预定义的uri 1 2 3 4 error_page 502 503 /50x.html; location = /50x.html { root /usr/share/nginx/html; } 这样实际上产生了一个内部跳转]]></description>
 </item>
 <item>
     <title>Nginx配置</title>
-    <link>https://zucczwp.github.io/nginx_error_page/</link>
+    <link>http://localhost:1313/nginx_error_page/</link>
     <pubDate>Sat, 02 Mar 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/nginx_error_page/</guid>
+    <guid>http://localhost:1313/nginx_error_page/</guid>
     <description><![CDATA[location 语法 规则 1 2 3 location [=|~|~*|^~] /uri/ { ····· } = 开头表示精确匹配 ^~ 开头表示uri以某个常规字符串开头，理解为匹配 url路径即可。nginx不对url做]]></description>
 </item>
 </channel>

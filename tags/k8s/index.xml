@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>K8s - 标签 - Jimi’s Blog</title>
-        <link>https://zucczwp.github.io/tags/k8s/</link>
+        <link>http://localhost:1313/tags/k8s/</link>
         <description>K8s - 标签 - Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/tags/k8s/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/k8s/" rel="self" type="application/rss+xml" /><item>
     <title>Kubectl常用命令</title>
-    <link>https://zucczwp.github.io/kubectl/</link>
+    <link>http://localhost:1313/kubectl/</link>
     <pubDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/kubectl/</guid>
+    <guid>http://localhost:1313/kubectl/</guid>
     <description><![CDATA[配置及上下文 view 1 kubectl config view # 显示合并后的 kubeconfig 配置 current-context 1 kubectl config current-context # 显示当前的上下文 创建对象 1 2 kubectl create -f ./my-manifest.yaml # 创建资源 kubectl create -f https://git.io/vPieo # 使用 url 来创建资源 显示和查找资源]]></description>
 </item>
 </channel>

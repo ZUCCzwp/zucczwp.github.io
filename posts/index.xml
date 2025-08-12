@@ -1,88 +1,88 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>所有文章 - Jimi’s Blog</title>
-        <link>https://zucczwp.github.io/posts/</link>
+        <link>http://localhost:1313/posts/</link>
         <description>所有文章 | Jimi’s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2114272829@qq.com (jimi)</managingEditor>
-            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 30 Jul 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zucczwp.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2114272829@qq.com (jimi)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 12 Aug 2025 08:55:30 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>分享一个很作弊的TikTok跨境电商选品法</title>
+    <link>http://localhost:1313/xuanpin_new/</link>
+    <pubDate>Tue, 12 Aug 2025 08:55:30 &#43;0800</pubDate>
+    <author>Jimi</author>
+    <guid>http://localhost:1313/xuanpin_new/</guid>
+    <description><![CDATA[官方已经漏题了，你还不会抄，就别怪出不了单啦！跟我5步走： 1 找到榜单 进入TikTok卖家中心的“关键词榜单” 具体路径：卖家中心 → 数据罗盘 → 商]]></description>
+</item>
+<item>
     <title>深入解析Go设计模式：对象池模式实战</title>
-    <link>https://zucczwp.github.io/pool/</link>
+    <link>http://localhost:1313/pool/</link>
     <pubDate>Wed, 30 Jul 2025 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/pool/</guid>
+    <guid>http://localhost:1313/pool/</guid>
     <description><![CDATA[什么是对象池模式 对象池模式是一种创建型设计模式，通过复用预先创建的对象实例来提升性能。它特别适用于高并发场景或对象创建成本较高的应用，比如数]]></description>
 </item>
 <item>
     <title>TikTok的基础知识与起号方法</title>
-    <link>https://zucczwp.github.io/base/</link>
+    <link>http://localhost:1313/base/</link>
     <pubDate>Tue, 29 Jul 2025 11:55:30 &#43;0800</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/base/</guid>
+    <guid>http://localhost:1313/base/</guid>
     <description><![CDATA[第一节 TikTok的账号基础知识 TikTok账号设置三件套 1 账号的名称和头像 设置账号名称最好的方式是品牌名+品类名。 头像的设置，是根据你的产]]></description>
 </item>
 <item>
     <title>gitlab私有库</title>
-    <link>https://zucczwp.github.io/git_child/</link>
+    <link>http://localhost:1313/git_child/</link>
     <pubDate>Fri, 12 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/git_child/</guid>
+    <guid>http://localhost:1313/git_child/</guid>
     <description><![CDATA[一、设置go env 设置私有仓库的git地址 1 go env -w GOPRIVATE=&#34;git.example.com&#34; 二、配置git {username}： 替换成gitlab账号名称 {token}： 替换成自己的 Personal]]></description>
 </item>
 <item>
     <title>分布式链路追踪</title>
-    <link>https://zucczwp.github.io/trace/</link>
+    <link>http://localhost:1313/trace/</link>
     <pubDate>Thu, 11 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/trace/</guid>
+    <guid>http://localhost:1313/trace/</guid>
     <description><![CDATA[分布式链路追踪 核心概念 Trace 是一个逻辑概念，表示一次（分布式）请求经过的所有局部操作（Span）构成的一条完整的有向无环图，其中所有的 Span 的 TraceId 相同]]></description>
 </item>
 <item>
     <title>领域驱动设计</title>
-    <link>https://zucczwp.github.io/ddd/</link>
+    <link>http://localhost:1313/ddd/</link>
     <pubDate>Tue, 14 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/ddd/</guid>
+    <guid>http://localhost:1313/ddd/</guid>
     <description><![CDATA[领域模型模式 目前企业级应用开发中，业务逻辑的组织方式主要是事务脚本模式。事务脚本按照业务处理 的过程组织业务逻辑，每个过程处理来自客户端的单个]]></description>
 </item>
 <item>
     <title>设计模式</title>
-    <link>https://zucczwp.github.io/design_pattern/</link>
+    <link>http://localhost:1313/design_pattern/</link>
     <pubDate>Tue, 14 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/design_pattern/</guid>
+    <guid>http://localhost:1313/design_pattern/</guid>
     <description><![CDATA[这篇文章展示了设计模式基本知识.]]></description>
 </item>
 <item>
     <title>分布式架构</title>
-    <link>https://zucczwp.github.io/distributed/</link>
+    <link>http://localhost:1313/distributed/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/distributed/</guid>
+    <guid>http://localhost:1313/distributed/</guid>
     <description><![CDATA[垂直伸缩与水平伸缩 为了应对高并发用户访问带来的系统资源消耗，一种解决办法是垂直伸缩。所谓的垂直伸缩 就是提升单台服务器的处理能力 垂直伸缩带来的]]></description>
 </item>
 <item>
     <title>负载均衡架构</title>
-    <link>https://zucczwp.github.io/lb/</link>
+    <link>http://localhost:1313/lb/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/lb/</guid>
+    <guid>http://localhost:1313/lb/</guid>
     <description><![CDATA[HTTP重定向负载均衡 HTTP 重定向负载均衡是一种比较简单的负载均衡技术实现。来自用户的 HTTP 请求到达负 载均衡服务器以后，负载均衡服务器根据某种负载均]]></description>
 </item>
 <item>
     <title>高可用架构</title>
-    <link>https://zucczwp.github.io/high_availability/</link>
+    <link>http://localhost:1313/high_availability/</link>
     <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Jimi</author>
-    <guid>https://zucczwp.github.io/high_availability/</guid>
+    <guid>http://localhost:1313/high_availability/</guid>
     <description><![CDATA[高可用的度量 一般说来，两个 9 表示系统基本可用，年度不可用时间小于 88 小时；3 个 9 是较高可 用，年度不可用时间小于 9 个小时；4 个 9 是具有自动恢复能]]></description>
-</item>
-<item>
-    <title>高性能</title>
-    <link>https://zucczwp.github.io/high_performance/</link>
-    <pubDate>Mon, 13 May 2024 00:00:00 &#43;0000</pubDate>
-    <author>Jimi</author>
-    <guid>https://zucczwp.github.io/high_performance/</guid>
-    <description><![CDATA[性能指标 响应时间 从发出请求开始到收到最后响应数据所需要的时间。响应时间是系统最 重要的性能指标，最直接地反映了系统的快慢。 并发数 系统同时处理的]]></description>
 </item>
 </channel>
 </rss>
